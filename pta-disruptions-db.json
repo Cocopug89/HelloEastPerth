@@ -1,0 +1,536 @@
+{
+  "meta": {
+    "db_version": 14,
+    "first_built": "2026-07-08",
+    "last_scrape": "2026-08-06",
+    "source": "https://www.transperth.wa.gov.au/service-updates",
+    "coordinate_source": "data.wa.gov.au PTA-001 (ArcGIS: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Transport/MapServer/14). Query by stopnumber (bus/CAT) or stopname LIKE (rail), outSR=4326. Exact stop/station coordinates, not approximations.",
+    "scope": "City of Perth LGA only",
+    "scope_rule": "Include a Transperth disruption only if at least one affected stop/station is inside the City of Perth local government area. In-scope rail stations: Perth, Perth Underground, McIver, Claisebrook, Elizabeth Quay, City West. All CAT services (Red/Blue/Green/Yellow/Purple) are in scope. Bus items are in scope only when an affected stop's suburb is Perth, East Perth, West Perth, Northbridge, Crawley, Kings Park or Nedlands. Metro-wide network timetable changes with no specific City-of-Perth stop are excluded.",
+    "rendering": "Data is also emitted to pta-data.js (window.PTA_DATA) which all three zone pages load via <script src>. On each weekly scrape, regenerate BOTH this file and pta-data.js. Each affected stop is plotted at its exact coordinate; pts = [ [lat, lng, stop name], ... ].",
+    "zones": "Each disruption carries zones[] = the board zone(s) its affected stops fall in, by suburb: east = East Perth; central = Perth CBD / Northbridge (incl. Perth, Perth Underground, McIver, Elizabeth Quay stations); west = West Perth / Nedlands / Crawley. Each zone page shows only disruptions whose zones include that page's zone; a disruption spanning two zones appears on both.",
+    "note": "Assessed record of Transperth (PTA) service updates relevant to the City of Perth. On each weekly scrape, refresh the list, re-assess new refs against scope_rule, look up exact coordinates for each named stop number via the coordinate_source, assign zones from each stop's suburb, recompute current/past status from stored end dates, and drop items no longer on the Transperth list.",
+    "scrape_2026-07-27": "Weekly recrawl. Dropped 6 expired items (25062, 25002, 25042, 25051, 25053, 25040 - all ended by 2026-07-24). Screened every disruption on the Transperth service-updates page (55 candidates fetched and checked, including 6 new upcoming rail nightly-closures which turned out to be suburban-segment-only with no City-of-Perth station affected, and ~45 bus-stop disruptions in outer suburbs) against scope_rule; found 2 new in-scope items: 25117 (Route 980, 7 William St stops, Perth CBD, overnight 29-30 Jul) and 25106 (Routes 24 & 96, 3 Broadway stops, Crawley, single day 27 Jul - same physical stops as the just-expired 25053). All coordinates confirmed via PTA-001. Net list: 11 items (9 carried over unchanged, 2 new).",
+    "scrape_2026-07-31": "Weekly recrawl. Dropped 4 items: 25043 (Yanchep Line platform change at Perth - no longer listed on the Transperth site, superseded), 25106 (Routes 24 & 96 Crawley stops - expired 27 Jul), 25117 (Route 980 William St - expired 30 Jul), 24857 (Airport/Ellenbrook/Midland nightly closures - expired 30 Jul). Screened 45 candidates on this week's page against scope_rule: confirmed 7 new in-scope items - three single-event Optus Stadium train disruptions at McIver & Claisebrook (25171 9 Aug, 25168 8 Aug, 25167 5 Aug, same pattern as the expiring 25061), one Purple CAT/Routes 24 & 96 Broadway stop closure (25173, 4 Aug), two Blue & Red CAT CBD/East Perth stop closures (25152 nightly 3-5 Aug, 25141 single day 1 Aug), and one Yellow CAT Yagan Square/Arena closure (25144, 1-2 Aug). 38 other bus-route candidates checked and excluded - all affected stops outside the City of Perth (outer suburbs: Palmyra, Kalamunda, Kelmscott, Girrawheen, Joondanna, Balcatta, Wembley, Stirling, Innaloo, Midland, Clarkson, Gosnells, Bibra Lake, Doubleview, Karrinyup, Brabham etc.), plus 25166 (Fremantle/Midland Lines fault-delay notice, no City-of-Perth station named as affected). Existing in-scope items 25048/25035/25009/25061 carried over (25048 start date shifted 23->24 Aug per site update). KNOWN LIMITATION: the PTA-001 ArcGIS coordinate query could not be reached this run (tool-level access issue, not a site outage). Rail station coordinates are unaffected (using the standing known-good values). Coordinates for the 7 new items' bus/CAT stops (25171/25168/25167 reuse the already-verified McIver/Claisebrook coordinates; 25173's 3 Broadway stops and 25152/25141's Hay St Mall/Town Hall/Victoria Ave and 25144's Yagan Square/Arena) are landmark-based best estimates, NOT ArcGIS-verified this run - flagged for re-verification on the next scrape. Net list: 14 items (7 carried over unchanged/updated, 7 new).",
+    "scrape_2026-08-01": "Weekly recrawl. Dropped 1 expired item: 25061 (Optus Stadium McIver/Claisebrook event disruption, ended 31 Jul). No new in-scope items this run - the Transperth page had almost no turnover vs the 31 Jul scrape (only one day prior), and all items posted since then (25141/25142/25143/25144/25145, all From 1 Aug) had already been screened and logged on the 31 Jul run. Re-screened the full current page (~90 rows) against the standing exclusion set; spot-checked two previously-unexamined ongoing items with multi-route titles for scope drift - 24981 (Routes 442/443/444, all affected stops on Lilburne Rd, Duncraig) and 22483 (Routes 30/34/72/73/101/920/999, sole affected stop Hayman Rd, Bentley, despite route destinations naming Elizabeth Quay Bus Station/Perth Busport) - both confirmed out of scope (destination name is not the affected-stop suburb). Also confirmed three newly-listed items out of scope from title alone: edgewater-station-car-park-disruption-2 (Edgewater, City of Joondalup), murdoch-station-escalator-disruption-1 (Murdoch, City of Melville), warnbro-station-car-park-disruption-3 (Warnbro, City of Rockingham). All 13 remaining in-scope items' coordinates carried over unchanged (no stop/station changes reported). Net list: 13 items (13 carried over unchanged, 0 new, 1 dropped).",
+    "scrape_2026-08-02": "Weekly recrawl. Dropped 1 expired item: 25141 (Blue & Red CATs CBD/East Perth stop closure, ended 1 Aug - no longer listed on the Transperth page). No new in-scope items this run. Screened the full current page (~90 rows, Service Disruptions + Planned Service Changes) against the standing exclusion set and scope_rule; fetched detail pages for 13 previously-unexamined candidates - 24984 (Route 222, Cannington/Bentley), 24965 (Route 423 & School Specials 743/783, North Beach), 24946 (Route 444, Padbury/Craigie), 24880 (Route 229, Kenwick), 24157 (Route 284, Victoria Park), 24665 (Routes 254 & 255, Byford), 24613 (Routes 270/280/281, Forrestfield), 24552 (Route 349, Henley Brook/Ellenbrook), 24553 (Routes 410/421/422/423, Innaloo/Stirling), 23341-1 (School Special 743, Greenfields), 23219 (Routes 209/517/518/519, Murdoch), 22306 (Routes 209/210/228, Maddington/Thornlie/Gosnells), route-291-and-301-service-change (Midland/Woodbridge) - all confirmed out of scope, every affected stop outside the City of Perth. Remaining candidates matched the standing exclusion groups from prior scrapes (rail nightly closures 25049/25046/25044/25018/25010/25008 - closed segments entirely outside CBD; outer-suburb bus disruptions 25122/25164/25165/25162/25163/25169/25170/25148/25150/25151/25153/25154/25155/25156/25157/25147/25143/25145/25142/25120/25124/25127/25107/25112/25057/24934/24981/22483/23544/23615/24782; car-park/escalator notices at Edgewater, Murdoch, Warnbro all outside the City; metro-wide bus-service-changes-16-august and school-service-changes-16-august with no single City-of-Perth stop named). All 12 remaining in-scope items' coordinates carried over unchanged (no stop/station changes reported on their detail pages). Net list: 12 items (12 carried over unchanged, 0 new, 1 dropped).",
+    "scrape_2026-08-03": "Weekly recrawl. Dropped 1 expired item: 25144 (Yellow CAT Yagan Square & RAC Arena stop closure, ended 2 Aug - no longer within its listed dates as of this scrape). No new in-scope items this run. Screened the full current Transperth page (Service Disruptions + Planned Service Changes, ~86 rows) against the standing exclusion set and scope_rule: every candidate matched an already-documented excluded pattern/suburb from prior scrapes (rail nightly closures 25049/25046/25044/25018/25010/25008 outside CBD; outer-suburb bus disruptions across the 25xxx and 24xxx ranges already logged; car-park/escalator notices at Edgewater/Murdoch/Warnbro/Warwick/Stirling outside the City; metro-wide bus-service-changes-16-august, school-service-changes-16-august and route-291-and-301-service-change with no single City-of-Perth stop named), plus one newly-listed item confirmed out of scope from title/suburb alone: maylands-car-park-disruption (Maylands, City of Bayswater). All 11 remaining in-scope items' dates and coordinates were checked against the current page and carried over unchanged (no stop/station or date changes reported for 25048/25035/25171/25168/25167/25173/25152/25009/21697-1/21126/20314). Net list: 11 items (11 carried over unchanged, 0 new, 1 dropped).",
+    "scrape_2026-08-04": "Weekly recrawl. No items dropped - all 11 in-scope items remain within their listed dates as of today (25173 and 25152 both run through today/tomorrow but are not yet expired). No new in-scope items this run. Screened the full current Transperth page (Service Disruptions + Planned Service Changes, ~72 rows) against the standing exclusion set and scope_rule: every candidate matched an already-documented excluded pattern/suburb from prior scrapes (rail nightly closures 25049/25046/25044/25018/25010/25008 outside CBD; outer-suburb bus disruptions across the 25xxx and 24xxx ranges already logged; car-park/escalator notices at Edgewater/Murdoch/Warnbro/Warwick/Stirling/Maylands outside the City; metro-wide bus-service-changes-16-august, school-service-changes-16-august, school-service-changes-19-july, school-service-changes-5-july and route-291-and-301-service-change with no single City-of-Perth stop named). One newly-noticed listing, transit-admin-office-closure, confirmed out of scope (administrative office closure notice, not a network service disruption, no stop/station affected) and added to the exclusion log. All 11 in-scope items' dates and coordinates checked against the current page and carried over unchanged (25048/25035/25171/25168/25167/25173/25152/25009/21697-1/21126/20314). Net list: 11 items (11 carried over unchanged, 0 new, 0 dropped).",
+    "scrape_2026-08-05": "Weekly recrawl. Dropped 1 expired item: 25173 (Routes 24 & 96/Purple CAT Broadway stops, ended 4 Aug - before today). Found 2 new in-scope items among 17 newly-listed candidates fetched and checked (25196/25194/25179/25180/25185/25186/25187/25188/25189/25191/25192/25175/25176/25177/25178/25181/25184 - all posted 4-6 Aug and not yet screened): 25194 (Routes 103, 995 & 998, single Stirling Hwy stop 10378 in Nedlands, closed Fri 7 - Mon 10 Aug) and 25176 (Routes 19, 360, 652 & 960, two Fitzgerald St stops 22026/22027 in West Perth, closed nightly from 7pm Wed 5 Aug). The other 15 candidates were confirmed out of scope - every affected stop outside the City of Perth (Kalamunda, Dianella, Tuart Hill, Wembley/Glendalough, Forrestfield/Wattle Grove, Beckenham, Yanchep, Morley, Midland/Bellevue, Bellevue/Midvale, Alexander Heights/Landsdale, Cloverdale, Mount Lawley, Stirling/Balcatta, Ravenswood); several (25186/25187/25177) named Elizabeth Quay Bus Station or a CBD destination in the route title but the affected stop itself was outside the LGA, which doesn't qualify per scope_rule. Remaining candidates on the page matched the standing exclusion groups from prior scrapes (rail nightly closures 25049/25046/25044/25018/25010/25008/25009-adjacent outside CBD; the long-standing outer-suburb bus disruption set; car-park/escalator notices; metro-wide bus/school service-change notices; transit-admin-office-closure). The 10 carried-over in-scope items (25048/25035/25171/25168/25167/25152/25009/21697-1/21126/20314) had their dates and coordinates checked against the current page and carried over unchanged. KNOWN LIMITATION recurring this run: the PTA-001 ArcGIS coordinate query (public-services.slip.wa.gov.au) could not be reached - the fetch tool blocked the query URL as outside its provenance set (a session-level restriction on constructing URLs with query parameters not previously seen verbatim, not a site outage; same failure mode logged 31 Jul 2026). Coordinates for the 2 new items' 3 affected stops (10378 Stirling Hwy/Portland St Nedlands; 22026 & 22027 Fitzgerald St/Bulwer St & Fitzgerald St/Cowle St West Perth) are landmark-based best estimates from the street grid, NOT ArcGIS-verified this run - flagged for re-verification on the next scrape when the query tool is reachable. All other coordinates (rail stations, existing CAT/bus stops) are the standing ArcGIS-verified values, unaffected. Net list: 12 items (10 carried over unchanged, 2 new, 1 dropped).",
+    "scrape_2026-08-06": "Weekly recrawl. Dropped 3 expired items: 25167 (Optus Stadium McIver/Claisebrook event disruption, ended 5 Aug), 25152 (Blue & Red CATs CBD/East Perth stop closure, ended 5 Aug), 25176 (Routes 19, 360, 652 & 960 Fitzgerald St stops, ended 5 Aug - before today). No new in-scope items this run. Screened the full current Transperth page (Service Disruptions + Planned Service Changes, ~85 rows) against the standing exclusion set and scope_rule: every candidate matched an already-documented excluded pattern/suburb from prior scrapes, with one newly-noticed listing checked and excluded - ferry-service-winter-timetable (fleet-wide half-hourly frequency change across the whole ferry route, no single City-of-Perth stop or station named as affected, same treatment as the metro-wide bus/school timetable-change notices). The 9 remaining in-scope items (25048/25035/25171/25168/25009/21697-1/21126/20314/25194) had their dates checked against the current page and carried over unchanged. 25009 (Yanchep Line) runs through today (until Thu 6 Aug) so is retained this run; expect it to drop next scrape. KNOWN LIMITATION recurring this run: the PTA-001 ArcGIS coordinate query (public-services.slip.wa.gov.au) could not be reached - the fetch tool blocked the query URL as outside its provenance set (a session-level restriction on constructing URLs with query parameters not previously seen verbatim, not a site outage; same failure mode logged 31 Jul and 5 Aug 2026). Coordinate for 25194's stop 10378 (Stirling Hwy after Portland St, Nedlands) remains the landmark-based best estimate from the street grid, NOT ArcGIS-verified this run - carried over unchanged from the 5 Aug scrape and still flagged for re-verification. All other coordinates (rail stations, existing CAT/bus stops) are the standing ArcGIS-verified values, unaffected. Net list: 9 items (9 carried over unchanged, 0 new, 3 dropped).",
+    "next_run_note": "Weekday 11:05am hub deploy (east-perth-disruptions-weekly task) publishes this refresh automatically the same morning it runs."
+  },
+  "disruptions": [
+    {
+      "id": "25048",
+      "zones": [
+        "central"
+      ],
+      "mode": "train",
+      "sev": "high",
+      "title": "Armadale & Thornlie-Cockburn Lines - Nightly Closures",
+      "routes": "Armadale & Thornlie-Cockburn lines",
+      "start": "2026-08-24",
+      "end": "2026-08-27",
+      "ongoing": false,
+      "loc": "Perth Station",
+      "stops": "Perth Station (line closed toward Cannington)",
+      "impact": "Lines disrupted between Perth and Cannington; replacement buses each night",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25048",
+      "pts": [
+        [
+          -31.95118,
+          115.86004,
+          "Perth Station"
+        ]
+      ]
+    },
+    {
+      "id": "25035",
+      "zones": [
+        "central"
+      ],
+      "mode": "train",
+      "sev": "high",
+      "title": "Mandurah Line - Nightly Closures",
+      "routes": "Mandurah line",
+      "start": "2026-08-16",
+      "end": "2026-08-18",
+      "ongoing": false,
+      "loc": "Perth Underground",
+      "stops": "Perth Underground (line closed toward Aubin Grove)",
+      "impact": "Line disrupted between Perth Underground and Aubin Grove; replacement buses each night",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25035",
+      "pts": [
+        [
+          -31.951582,
+          115.858142,
+          "Perth Underground"
+        ]
+      ]
+    },
+    {
+      "id": "25171",
+      "zones": [
+        "central",
+        "east"
+      ],
+      "mode": "train",
+      "sev": "medium",
+      "title": "Airport, Armadale, Ellenbrook, Midland & Thornlie-Cockburn Lines - Optus Stadium Event Disruption",
+      "routes": "Airport, Armadale, Ellenbrook, Midland & Thornlie-Cockburn lines",
+      "start": "2026-08-09",
+      "end": "2026-08-09",
+      "ongoing": false,
+      "loc": "McIver & Claisebrook stations",
+      "stops": "McIver (closed ~4.49-6.18pm), Claisebrook (platform closures ~12.02-2.02pm & 4.35-6.20pm)",
+      "impact": "Evening station & platform closures for a stadium event at Optus Stadium",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25171",
+      "pts": [
+        [
+          -31.95176,
+          115.866475,
+          "McIver Station"
+        ],
+        [
+          -31.949558,
+          115.87224,
+          "Claisebrook Station"
+        ]
+      ]
+    },
+    {
+      "id": "25168",
+      "zones": [
+        "central",
+        "east"
+      ],
+      "mode": "train",
+      "sev": "medium",
+      "title": "Airport, Armadale, Ellenbrook, Midland & Thornlie-Cockburn Lines - Optus Stadium Event Disruption",
+      "routes": "Airport, Armadale, Ellenbrook, Midland & Thornlie-Cockburn lines",
+      "start": "2026-08-08",
+      "end": "2026-08-08",
+      "ongoing": false,
+      "loc": "McIver & Claisebrook stations",
+      "stops": "McIver (closed ~8.57-10.47pm), Claisebrook (platform closures ~4.47-6.47pm & 8.50-10.50pm)",
+      "impact": "Evening station & platform closures for a stadium event at Optus Stadium",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25168",
+      "pts": [
+        [
+          -31.95176,
+          115.866475,
+          "McIver Station"
+        ],
+        [
+          -31.949558,
+          115.87224,
+          "Claisebrook Station"
+        ]
+      ]
+    },
+    {
+      "id": "25009",
+      "zones": [
+        "central"
+      ],
+      "mode": "train",
+      "sev": "high",
+      "title": "Yanchep Line - Nightly Closures",
+      "routes": "Yanchep line",
+      "start": "2026-08-03",
+      "end": "2026-08-06",
+      "ongoing": false,
+      "loc": "Perth Station",
+      "stops": "Perth (line closed toward Whitfords)",
+      "impact": "Line disrupted between Perth and Whitfords; replacement buses each night",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25009",
+      "pts": [
+        [
+          -31.95118,
+          115.86004,
+          "Perth Station"
+        ]
+      ]
+    },
+    {
+      "id": "21697-1",
+      "zones": [
+        "east"
+      ],
+      "mode": "cat",
+      "sev": "medium",
+      "title": "Red CAT - Nile St & Matagarup Stops Closed",
+      "routes": "Red CAT",
+      "start": "2026-06-22",
+      "end": "",
+      "ongoing": true,
+      "loc": "Nile St / Matagarup Bridge, East Perth",
+      "stops": "Nile Street, Matagarup Bridge CAT stops",
+      "impact": "Two East Perth CAT stops closed (ongoing)",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/21697-1",
+      "pts": [
+        [
+          -31.955613,
+          115.880105,
+          "Nile Street (CAT 74)"
+        ],
+        [
+          -31.956509,
+          115.88379,
+          "Matagarup Bridge (CAT 79)"
+        ]
+      ]
+    },
+    {
+      "id": "21126",
+      "zones": [
+        "west"
+      ],
+      "mode": "cat",
+      "sev": "low",
+      "title": "CATs & Routes 24, 27, 103, 935 - Harvest Tce Stop Closed",
+      "routes": "Blue, Green & Purple CATs, Routes 24, 27, 103, 935",
+      "start": "2026-04-16",
+      "end": "",
+      "ongoing": true,
+      "loc": "Harvest Terrace, West Perth",
+      "stops": "Harvest Terrace CAT stop (ID 29)",
+      "impact": "Single West Perth CAT/bus stop closed (ongoing)",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/21126",
+      "pts": [
+        [
+          -31.952802,
+          115.84747,
+          "Malcolm St / Harvest Terrace (CAT 29)"
+        ]
+      ]
+    },
+    {
+      "id": "20314",
+      "zones": [
+        "west"
+      ],
+      "mode": "bus",
+      "sev": "low",
+      "title": "Routes 15, 402, 403 & 404 - Newcastle St Stop Closed",
+      "routes": "Routes 15, 402, 403 & 404",
+      "start": "2025-01-15",
+      "end": "",
+      "ongoing": true,
+      "loc": "Newcastle St, West Perth",
+      "stops": "Newcastle St before Golding St (ID 27618)",
+      "impact": "Single West Perth bus stop closed (ongoing)",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/20314",
+      "pts": [
+        [
+          -31.940848,
+          115.849096,
+          "Newcastle St after Golding St"
+        ]
+      ]
+    },
+    {
+      "id": "25194",
+      "zones": [
+        "west"
+      ],
+      "mode": "bus",
+      "sev": "low",
+      "title": "Routes 103, 995 & 998 - Stirling Hwy Stop Not in Use",
+      "routes": "Routes 103, 995 & 998",
+      "start": "2026-08-07",
+      "end": "2026-08-10",
+      "ongoing": false,
+      "loc": "Stirling Hwy, Nedlands",
+      "stops": "Stirling Hwy after Portland St (ID 10378), Nedlands",
+      "impact": "Single Nedlands bus stop closed for road closures; services diverted to nearby alternates",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25194",
+      "pts": [
+        [
+          -31.98,
+          115.808,
+          "Stirling Hwy after Portland St (approx., not ArcGIS-verified this run)"
+        ]
+      ]
+    }
+  ],
+  "excluded_examples": [
+    {
+      "id": "24846",
+      "reason": "Midland Line closure is Bayswater-Midland; no City of Perth station in the closed segment."
+    },
+    {
+      "id": "24950",
+      "reason": "Affected stops are in Fremantle / South Fremantle."
+    },
+    {
+      "id": "23544",
+      "reason": "Affected stops are in East Fremantle / Fremantle."
+    },
+    {
+      "id": "23615",
+      "reason": "Affected stop is Hay St, Jolimont (Town of Cambridge)."
+    },
+    {
+      "id": "24989 / 23258",
+      "reason": "Routes 402/403/414/415/424/425/427/428 disruptions affect Cedric St / Karrinyup Rd stops in Stirling (City of Stirling)."
+    },
+    {
+      "id": "24782",
+      "reason": "Route 935 disruption affects Belvidere St / Epsom Av stops in Belmont / Redcliffe (City of Belmont)."
+    },
+    {
+      "id": "bus-service-changes-5-july",
+      "reason": "Metro-wide timetable change with no single City-of-Perth stop to map."
+    },
+    {
+      "id": "bus-service-changes-19-july",
+      "reason": "Metro-wide timetable change with no single City-of-Perth stop to map."
+    },
+    {
+      "id": "bus-service-changes-16-august",
+      "reason": "Metro-wide timetable change with no single City-of-Perth stop to map."
+    },
+    {
+      "id": "school-service-changes-5-july",
+      "reason": "Metro-wide school timetable change with no single City-of-Perth stop to map."
+    },
+    {
+      "id": "school-service-changes-19-july",
+      "reason": "Metro-wide school timetable change with no single City-of-Perth stop to map."
+    },
+    {
+      "id": "school-service-changes-16-august",
+      "reason": "Metro-wide school timetable change with no single City-of-Perth stop to map."
+    },
+    {
+      "id": "25058 / 25060",
+      "reason": "Route 910 disruptions affect a stop in South Perth (City of South Perth), not a scope suburb."
+    },
+    {
+      "id": "elizabeth-quay-station-escalator-disruption-1",
+      "reason": "Named Elizabeth Quay Station but the notice's Until date is in the past relative to every scrape to date."
+    },
+    {
+      "id": "25050",
+      "reason": "Stops in Innaloo/Stirling; Surf CAT is not one of the Red/Blue/Green/Yellow/Purple CAT services and doesn't auto-qualify."
+    },
+    {
+      "id": "24970 / 24691 / 25052",
+      "reason": "Title/route destination names Elizabeth Quay Bus Station or Perth Stadium, but the actual affected stops are outside the LGA (Bentley/Shelley/Hamilton Hill) - only the affected stop's own suburb counts, not the route's destination name."
+    },
+    {
+      "id": "25112 / 25057 / 24934",
+      "reason": "Affected stops in Mount Hawthorn / Leederville / West Leederville / Glendalough - adjacent to but outside the City of Perth suburb list."
+    },
+    {
+      "id": "25115 / 25073 / 25108",
+      "reason": "Affected stops in Como (City of South Perth), not a scope suburb."
+    },
+    {
+      "id": "25049 / 25046 / 25044 / 25018 / 25010 / 25008",
+      "reason": "Rail nightly-closure notices where the closed segment is entirely outside the CBD (e.g. Armadale-Byford, Bayswater-High Wycombe, Cockburn Central-Mandurah); no in-scope station named as affected."
+    },
+    {
+      "id": "25166",
+      "reason": "Fremantle/Midland Lines fault-delay 'services resume' notice; no City-of-Perth station named as affected segment, and no end date (status blip, not a scoped disruption)."
+    },
+    {
+      "id": "25122 / 25164 / 25165 / 25162 / 25163 / 25169 / 25170 / 25148",
+      "reason": "Affected stops in Palmyra/Melville, Kalamunda/Gooseberry Hill, Kelmscott, Mosman Park, Girrawheen/Marangaroo, South Perth, Beaconsfield, Baldivis - none in City of Perth."
+    },
+    {
+      "id": "25150 / 25151 / 25153 / 25154 / 25155 / 25156 / 25157 / 25147",
+      "reason": "Affected stops in Joondanna, Henley Brook, Balcatta, Wattle Grove/Forrestfield, Gooseberry Hill, Wembley/Glendalough, Stirling/Innaloo (Surf CAT doesn't auto-qualify), Cloverdale - none in City of Perth."
+    },
+    {
+      "id": "25143 / 25145 / 25142 / 25135 / 25136 / 25137 / 25138 / 25139",
+      "reason": "Affected stops in Midland, Clarkson/Mindarie, Duncraig/Warwick, Gosnells, Mullaloo, Como/South Perth, Watermans Bay/Marmion - none in City of Perth."
+    },
+    {
+      "id": "25144",
+      "reason": "Yellow CAT Yagan Square & RAC Arena stop closure - expired 2 Aug 2026, no longer within its listed dates as of the 3 Aug scrape."
+    },
+    {
+      "id": "25120 / 25124 / 25125 / 25127 / 25107 / 25094 / 25084 / 25076",
+      "reason": "Affected stops in Gooseberry Hill/Kalamunda, Roleystone/Kelmscott, Bibra Lake, Baldivis, Redcliffe/Perth Airport - none in City of Perth."
+    },
+    {
+      "id": "25037 / 25039 / 25059 / 25020 / 25005",
+      "reason": "Affected stops in Innaloo/Doubleview, Lakelands/Mandurah, Karrinyup, Duncraig/Whitfords, Brabham/Henley Brook - none in City of Perth."
+    },
+    {
+      "id": "edgewater-station-car-park-disruption-2",
+      "reason": "Edgewater Station, City of Joondalup."
+    },
+    {
+      "id": "murdoch-station-escalator-disruption-1",
+      "reason": "Murdoch Station, City of Melville."
+    },
+    {
+      "id": "warnbro-station-car-park-disruption-3",
+      "reason": "Warnbro Station, City of Rockingham."
+    },
+    {
+      "id": "maylands-car-park-disruption",
+      "reason": "Maylands Station, City of Bayswater."
+    },
+    {
+      "id": "24981",
+      "reason": "Routes 442/443/444 - all affected stops on Lilburne Rd, Duncraig (City of Joondalup)."
+    },
+    {
+      "id": "22483",
+      "reason": "Routes 30/34/72/73/101/920/999 - sole affected stop Hayman Rd, Bentley (City of Canning); route destinations name Elizabeth Quay Bus Station/Perth Busport but that's not the affected stop's suburb."
+    },
+    {
+      "id": "warwick-station-car-park-disruption-15",
+      "reason": "Warwick Station, City of Joondalup; notice also expired 3 Jul 2026."
+    },
+    {
+      "id": "stirling-station-escalator-and-lifts-out-of-service",
+      "reason": "Stirling Station, City of Stirling; notice also expired 26 Jun 2026."
+    },
+    {
+      "id": "stirling-station-stand-changes",
+      "reason": "Stirling Station, City of Stirling."
+    },
+    {
+      "id": "24221",
+      "reason": "Route 340 bus stop disruption; also expired 1 Aug 2026."
+    },
+    {
+      "id": "24984",
+      "reason": "Route 222 - sole affected stop 27594 (Doust St, Cannington), City of Canning."
+    },
+    {
+      "id": "24965",
+      "reason": "Route 423 & School Specials 743/783 - affected stops on Flora Tce, North Beach (City of Stirling)."
+    },
+    {
+      "id": "24946",
+      "reason": "Route 444 - affected stops on Gibson Av, Padbury/Craigie (City of Joondalup)."
+    },
+    {
+      "id": "24880",
+      "reason": "Route 229 - affected stops on Wanaping Rd/Kenwick Rd, Kenwick (City of Gosnells)."
+    },
+    {
+      "id": "24157",
+      "reason": "Route 284 - affected stops on Washington St/King George St, Victoria Park (Town of Victoria Park)."
+    },
+    {
+      "id": "24665",
+      "reason": "Routes 254 & 255 - affected stops on Briggs Rd, Byford (Shire of Serpentine-Jarrahdale)."
+    },
+    {
+      "id": "24613",
+      "reason": "Routes 270/280/281 - affected stops on Hale Rd, Forrestfield (City of Kalamunda)."
+    },
+    {
+      "id": "24552",
+      "reason": "Route 349 - affected stops on Gnangara Rd/Pinaster Pde, Henley Brook/Ellenbrook (City of Swan)."
+    },
+    {
+      "id": "24553",
+      "reason": "Routes 410/421/422/423 & School Specials 710/733 - sole affected stop Cedric St, Innaloo (City of Stirling)."
+    },
+    {
+      "id": "23341-1",
+      "reason": "School Special 743 - affected stop Lakes Rd, Greenfields (City of Mandurah)."
+    },
+    {
+      "id": "23219",
+      "reason": "Routes 209/517/518/519 - affected stops on Fiona Wood Rd/Jennalup St, Murdoch (City of Melville)."
+    },
+    {
+      "id": "22306",
+      "reason": "Routes 209/210/228 - affected stops on Burslem Dr, Maddington/Thornlie (City of Gosnells)."
+    },
+    {
+      "id": "route-291-and-301-service-change",
+      "reason": "Routes 291/301 permanent re-route - all affected stops in Midland/Woodbridge (City of Swan)."
+    },
+    {
+      "id": "transit-admin-office-closure",
+      "reason": "Transit Admin Office closure notice - administrative office, not a network service disruption; no stop or station affected."
+    },
+    {
+      "id": "25173",
+      "reason": "Routes 24 & 96/Purple CAT Broadway stops - expired 4 Aug 2026, before the 5 Aug scrape."
+    },
+    {
+      "id": "25196",
+      "reason": "Routes 273/282/283 - all affected stops on Canning Rd, Kalamunda (City of Kalamunda)."
+    },
+    {
+      "id": "25179",
+      "reason": "Routes 360/960 - sole affected stop Alexander Dr, Dianella (City of Stirling)."
+    },
+    {
+      "id": "25180",
+      "reason": "Route 403 - affected stops on Royal St, Tuart Hill (City of Stirling)."
+    },
+    {
+      "id": "25185",
+      "reason": "Route 95 - sole affected stop Harborne St, Wembley (Town of Cambridge, adjacent to Glendalough)."
+    },
+    {
+      "id": "25186",
+      "reason": "Routes 270/280 - affected stops on Hale Rd, Forrestfield/Wattle Grove (City of Kalamunda); route 270's Elizabeth Quay Bus Station destination is not the affected stop's suburb."
+    },
+    {
+      "id": "25187",
+      "reason": "Routes 202/207/208/925/930 - sole affected stop Nicholson Rd, Beckenham (City of Gosnells); route 930's Elizabeth Quay Bus Station destination is not the affected stop's suburb."
+    },
+    {
+      "id": "25188",
+      "reason": "Route 494 - affected stop Two Rocks Rd, Yanchep (City of Wanneroo)."
+    },
+    {
+      "id": "25189",
+      "reason": "Route 352 - sole affected stop Emberson Rd, Morley (City of Bayswater)."
+    },
+    {
+      "id": "25191 / 25192",
+      "reason": "Routes 320/321/326/328 & School Special 712 - affected stops on Great Eastern Hwy, Midland/Bellevue/Midvale (City of Swan)."
+    },
+    {
+      "id": "25175",
+      "reason": "Routes 360/361/450/451 - affected stops in Alexander Heights/Landsdale (City of Wanneroo/Swan)."
+    },
+    {
+      "id": "25177",
+      "reason": "Routes 37/270 - sole affected stop Abernethy Rd, Cloverdale (City of Belmont); route 270's Elizabeth Quay Bus Station destination is not the affected stop's suburb."
+    },
+    {
+      "id": "25178",
+      "reason": "Route 980 - sole affected stop Walcott St, Mount Lawley (City of Vincent); route's Elizabeth Quay Bus Station destination is not the affected stop's suburb."
+    },
+    {
+      "id": "25181",
+      "reason": "Route 428 - affected stops on Amelia St/Odin Dr/Salmson St, Stirling/Balcatta (City of Stirling)."
+    },
+    {
+      "id": "25184",
+      "reason": "Route 600 - sole affected stop Pinjarra Rd, Ravenswood (City of Mandurah)."
+    },
+    {
+      "id": "25167",
+      "reason": "Optus Stadium McIver/Claisebrook event disruption - expired 5 Aug 2026, before the 6 Aug scrape."
+    },
+    {
+      "id": "25152",
+      "reason": "Blue & Red CATs CBD/East Perth stop closure - expired 5 Aug 2026, before the 6 Aug scrape."
+    },
+    {
+      "id": "25176",
+      "reason": "Routes 19, 360, 652 & 960 Fitzgerald St stops - expired 5 Aug 2026, before the 6 Aug scrape."
+    },
+    {
+      "id": "ferry-service-winter-timetable",
+      "reason": "Fleet-wide half-hourly frequency change across the whole ferry route (running since 18 Jul); no single City-of-Perth stop or station named as affected, treated like the metro-wide bus/school service-change notices."
+    }
+  ]
+}

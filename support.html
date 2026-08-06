@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Support the East Perth Community Group - membership, volunteering and donations.">
+<link rel="canonical" href="https://www.eastperthcommunity.org.au/epcg-hub">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#004F71">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
+
+<title>Support the East Perth Community</title>
+<style>
+html{-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:100%}
+  :root{
+    --navy:#004F71;--blue:#00A3E0;--sky:#5BC2E7;--tealg:#49C5B1;--lime:#CEDC00;--amber:#F2C75C;--pink:#E782A9;--lav:#CAA2DD;
+    --card:#ffffff;--ink:#12212e;--muted:#5a6b7a;
+    --sans:'Montserrat',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    --brush:'Montserrat',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:var(--sans);color:#eaf7fd;
+    background:radial-gradient(125% 120% at 50% -12%,#1b7aa6 0%,var(--navy) 52%,#00374f 90%);
+    min-height:100vh;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:20px 18px 48px}
+  .homebtn{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.15);color:#fff;text-decoration:none;font-weight:600;font-size:14px;padding:8px 15px;border-radius:24px}
+  .homebtn:hover{background:rgba(255,255,255,.28)}
+  .logo{width:210px;max-width:58vw;height:auto;display:block;margin:16px 0 4px}
+  h1{font-family:var(--brush);font-weight:800;font-size:40px;letter-spacing:1px;text-transform:uppercase;margin:10px 0 2px;color:#fff}
+  .sub{color:var(--sky);font-weight:600;font-size:14px;margin-bottom:18px}
+  .about{color:#dcecf6;font-size:15px;line-height:1.65;margin-bottom:24px}
+
+  .card{background:linear-gradient(135deg,#ffffff,#f3f8fd);color:var(--ink);border-radius:20px;padding:22px;box-shadow:0 12px 30px rgba(0,20,35,.28);margin-bottom:18px}
+  .card h2{font-size:20px;margin:0 0 6px;color:var(--navy);text-transform:uppercase;letter-spacing:.5px}
+  .card p{font-size:14.5px;color:#3a4652;line-height:1.6;margin:0 0 14px}
+  
+/* ---- Tell us about your event: resident-submitted community content ---- */
+.card .fld{display:block;margin-bottom:12px}
+.card .fld label{display:block;font-size:12.5px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;color:#2a6f8f;margin-bottom:5px}
+.card .fld input,.card .fld textarea{width:100%;box-sizing:border-box;font-family:var(--sans);font-size:15px;color:var(--ink);background:#fff;border:1px solid #cfe0ea;border-radius:12px;padding:11px 13px}
+.card .fld input:focus,.card .fld textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,163,224,.18)}
+.card .fld textarea{min-height:92px;resize:vertical}
+.card .frow{display:flex;gap:12px;flex-wrap:wrap}
+.card .frow .fld{flex:1;min-width:180px}
+.card .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.card button.cta{border:none;cursor:pointer;font-family:var(--sans)}
+.card button.cta[disabled]{opacity:.6;cursor:default}
+.card .fmsg{margin-top:12px;font-size:14px;font-weight:700;border-radius:12px;padding:11px 13px;display:none}
+.card .fmsg.ok{display:block;background:#e6f6ee;color:#1c6b46;border:1px solid #a9dcc3}
+.card .fmsg.err{display:block;background:#fdecea;color:#8c2f28;border:1px solid #f0b4ae}
+.card .fnote{font-size:12.5px;color:var(--muted);margin-top:10px}
+.card .fnote a{color:var(--blue);font-weight:700}
+.cta{display:inline-block;background:var(--blue);color:#fff;font-weight:800;font-size:15px;padding:12px 22px;border-radius:26px;text-decoration:none}
+  .cta:hover{filter:brightness(1.05)}
+  .cta.pink{background:var(--pink);color:#4b1528}
+
+  .code{margin:6px 0 14px;text-align:center}
+  .code .lbl{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
+  .code .id{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:34px;font-weight:800;color:var(--navy);letter-spacing:2px;margin:2px 0}
+  .code svg{max-width:100%;height:auto;margin-top:6px}
+  .steps{font-size:14px;color:#3a4652;line-height:1.6;margin:0 0 14px;padding-left:20px}
+  .steps li{margin-bottom:4px}
+  footer{margin-top:24px;text-align:center;font-size:12px;color:#9fcfe4;line-height:1.8}
+  @media(max-width:520px){ h1{font-size:32px} .code .id{font-size:26px} }
+.backtop{display:none;position:fixed;left:12px;top:10px;z-index:1900;background:var(--navy);color:#fff;border:1px solid rgba(255,255,255,.28);border-radius:22px;padding:9px 15px;font-size:13px;font-weight:700;font-family:var(--sans);box-shadow:0 6px 16px rgba(0,0,0,.34);cursor:pointer;align-items:center;gap:7px}
+@media(max-width:600px){.backtop.show{display:inline-flex}}
+.mburger{display:none}
+.mnav{display:none}
+.mscrim{display:none}
+@media(max-width:600px){
+  .logo{display:none}
+  .mburger{display:flex;align-items:center;justify-content:center;position:fixed;top:10px;right:12px;z-index:2002;background:var(--blue);color:#fff;border:none;border-radius:12px;width:46px;height:40px;font-size:21px;cursor:pointer;box-shadow:0 6px 16px rgba(0,0,0,.32)}
+  .mscrim{position:fixed;inset:0;background:rgba(0,10,20,.45);z-index:2000}
+  .mscrim.open{display:block}
+  .mnav{display:block;position:fixed;top:0;right:0;bottom:0;width:76vw;max-width:300px;background:#013247;z-index:2001;transform:translateX(100%);transition:transform .22s ease;box-shadow:-8px 0 26px rgba(0,0,0,.45);padding:56px 0 24px;overflow-y:auto}
+  .mnav.open{transform:translateX(0)}
+  .mnav a{display:flex;align-items:center;gap:13px;padding:13px 22px;color:#eaf7fd;text-decoration:none;font-family:var(--sans);font-weight:600;font-size:15px;border-bottom:1px solid rgba(255,255,255,.08)}
+  .mnav a:active{background:rgba(255,255,255,.10)}
+  .mnav a .mi{font-size:18px;width:22px;text-align:center}
+}
+
+#deskhead{display:none}
+.dmenu{display:none;position:absolute;right:0;top:calc(100% + 8px);z-index:100;background:#013247;border:1px solid rgba(255,255,255,.22);border-radius:14px;box-shadow:0 14px 34px rgba(0,0,0,.5);min-width:230px;padding:6px}
+.dmenu a{display:flex;align-items:center;gap:11px;padding:11px 14px;color:#eaf7fd;text-decoration:none;font-weight:600;font-size:14px;border-radius:10px}
+.dmenu a:hover{background:rgba(255,255,255,.12)}
+.dmenu a .mi{font-size:17px;width:22px;text-align:center}
+@media(min-width:768px){
+html,body{height:100%}
+body{margin:0;display:flex;flex-direction:column;height:100vh;overflow:hidden;padding:18px 7% 20px;gap:16px}
+.mburger,.backtop{display:none!important}
+.wrap .logo{display:none}
+#deskhead{display:block;flex:none;position:relative;max-width:none}
+.brandlink{display:flex;align-items:center;gap:14px;text-decoration:none}
+#deskhead .hhead{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 0 10px}
+#deskhead .hbrand h1{font-size:34px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#fff;line-height:1;margin:0}
+.hlogo{height:60px;width:auto;display:block}
+.hglance{display:flex;align-items:stretch;gap:12px;height:60px;position:relative}
+.wxc{display:flex;align-items:center;gap:11px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:0 18px}
+.wxc .ico{font-size:30px}
+.wxc .temp{font-size:27px;font-weight:800;color:#fff;line-height:1}
+.wxc .cond{font-size:11.5px;color:#bfe0f0;font-weight:600}
+.hglance .clock{display:flex;flex-direction:column;justify-content:center;align-items:flex-end;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:0 18px}
+.hglance .clock .t{font-size:36px;font-weight:800;line-height:.9;color:#fff;font-variant-numeric:tabular-nums}
+.hglance .clock .d{font-size:11.5px;color:#bfe0f0;font-weight:600}
+.dburger{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);border-radius:16px;color:#fff;font-size:24px;width:58px;height:60px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.dburger:hover{background:rgba(255,255,255,.18)}
+.dmenu.open{display:block}
+.ticker{display:flex;align-items:stretch;background:linear-gradient(90deg,#013247,#014b63);border:1px solid rgba(255,255,255,.14);border-radius:16px;overflow:hidden;box-shadow:0 10px 26px rgba(0,20,35,.34)}
+.ticker .label{flex:none;display:flex;align-items:center;gap:8px;background:var(--amber);color:#3a2a06;font-weight:800;font-size:14px;letter-spacing:1.2px;padding:0 18px;text-transform:uppercase}
+.ticker .label .dot{width:9px;height:9px;border-radius:50%;background:#c0392b;animation:hpulse 1.6s infinite}
+@keyframes hpulse{0%{box-shadow:0 0 0 0 rgba(192,57,43,.6)}70%{box-shadow:0 0 0 9px rgba(192,57,43,0)}100%{box-shadow:0 0 0 0 rgba(192,57,43,0)}}
+.ticker .viewport{overflow:hidden;flex:1;position:relative}
+.ticker .track{display:inline-flex;white-space:nowrap;padding:14px 0;animation:hscroll 92s linear infinite}
+.ticker .item{font-size:15.5px;font-weight:600;color:#eaf7fd;padding:0 26px;display:inline-flex;align-items:center;gap:8px}
+.ticker .item b{color:var(--amber)}
+.ticker .sep{color:rgba(255,255,255,.28)}
+@keyframes hscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.tzone{flex:none;display:flex;align-items:center;padding:0 12px;border-left:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.14)}
+.seg{display:inline-flex;border:1px solid rgba(255,255,255,.28);border-radius:20px;overflow:hidden;background:rgba(255,255,255,.08)}
+.seg>*{padding:7px 14px;font-size:13px;font-weight:700;color:#bfe0f0;background:none;border:none;text-decoration:none;white-space:nowrap;cursor:pointer}
+.seg>*+*{border-left:1px solid rgba(255,255,255,.18)}
+.seg>a:hover{color:#fff;background:rgba(255,255,255,.12)}
+.wrap{flex:1!important;min-height:0;overflow-y:auto;max-width:1180px!important;width:100%;margin:0 auto!important;padding:4px 3% 26px!important}
+.wrap{display:grid!important;grid-template-columns:1fr 1fr;gap:16px 24px;align-content:start}
+.wrap>*{grid-column:1/-1}
+.wrap>.card{grid-column:auto;align-self:start}
+}
+
+/* ---- Support Us: match the header's margins, and fit all three modules across ----
+   The wrap was capped at max-width:1180px with its own 3% padding, while the header
+   (#deskhead) spans the full body width inside body's 18px 7% padding. That mismatch is
+   why the page looked inset and the third card was stranded in a 2-column grid. Drop the
+   cap and the extra padding so the wrap aligns exactly with the header, and go to three
+   columns once there is room. */
+@media(min-width:768px){
+  .wrap{max-width:none!important;padding:4px 0 26px!important}
+}
+@media(min-width:1180px){
+  .wrap{grid-template-columns:repeat(3,1fr)!important}
+}
+</style>
+</head>
+<body>
+<div id="deskhead">
+  <div class="hhead">
+    <div class="hbrand" style="display:flex;align-items:center;gap:14px"><a href="https://www.eastperthcommunity.org.au/" target="_top" style="display:inline-flex;line-height:0;text-decoration:none" aria-label="Go to the East Perth Community home site"><img class="hlogo" src="epcg-logo-rev.png" alt="East Perth Community"></a><a href="east-perth-public-notices.html" class="brandlink"><h1>East Perth</h1></a></div>
+    <div class="hglance">
+      <div class="wxc"><span class="ico" id="hwxIco">&#127777;</span><div><div class="temp" id="hwxTemp">&mdash;</div><div class="cond" id="hwxCond">Loading&hellip;</div></div></div>
+      <div class="clock"><div class="t" id="hclock">--:--</div><div class="d" id="hdate"></div></div>
+      <button class="dburger" aria-label="Open menu" onclick="document.getElementById('dmenu').classList.toggle('open');event.stopPropagation();">&#9776;</button>
+      <div id="dmenu" class="dmenu">
+        <a href="east-perth-public-notices.html"><span class="mi">&#8962;</span>Home</a>
+        <a href="east-perth-public-notices.html#disruptions"><span class="mi">&#128679;</span>Disruptions</a>
+        <a href="east-perth-public-notices.html#transport"><span class="mi">&#128650;</span>Transport</a>
+        <a href="east-perth-public-notices.html#events"><span class="mi">&#127881;</span>What's On</a>
+        <a href="east-perth-public-notices.html#bins"><span class="mi">&#128465;</span>Bins</a>
+        <a href="east-perth-public-notices.html#notices"><span class="mi">&#128196;</span>Notices</a>
+        <a href="east-perth-public-notices.html#tenders"><span class="mi">&#128188;</span>Tenders</a>
+        <a href="newsletters.html"><span class="mi">&#128240;</span>Newsletter</a>
+        <a href="events.html"><span class="mi">&#128197;</span>EPCG Events</a>
+        <a href="support.html"><span class="mi">&#10084;&#65039;</span>Support Us</a>
+      </div>
+    </div>
+  </div>
+  <div class="ticker">
+    <div class="label"><span class="dot"></span>Today</div>
+    <div class="viewport"><div class="track" id="htrack"><span class="item">Loading updates&hellip;</span></div></div>
+    <div class="tzone"><span class="seg zones"><a href="west-zone-public-notices.html">West</a><a href="central-zone-public-notices.html">Central</a><a href="east-perth-public-notices.html">East</a></span></div>
+  </div>
+</div>
+
+<button class="mburger" aria-label="Open menu" onclick="var m=document.querySelector('.mnav'),s=document.querySelector('.mscrim');m.classList.toggle('open');s.classList.toggle('open');">&#9776;</button>
+<div class="mscrim" onclick="document.querySelector('.mnav').classList.remove('open');this.classList.remove('open');"></div>
+<button class="backtop" aria-label="Back to top" onclick="var e=document.scrollingElement||document.documentElement;try{e.scrollTo({top:0,behavior:'smooth'});}catch(x){e.scrollTop=0;}try{window.scrollTo({top:0,behavior:'smooth'});}catch(x){}">&#8593; Back to top</button>
+<nav class="mnav">
+  <a href="index.html"><span class="mi">&#127968;</span>Home</a>
+  <a href="east-perth-public-notices.html#disruptions"><span class="mi">&#128679;</span>Disruptions</a>
+  <a href="east-perth-public-notices.html#transport"><span class="mi">&#128650;</span>Transport</a>
+  <a href="east-perth-public-notices.html#tenders"><span class="mi">&#128188;</span>Tenders</a>
+  <a href="east-perth-public-notices.html#notices"><span class="mi">&#128196;</span>Notices</a>
+  <a href="east-perth-public-notices.html#bins"><span class="mi">&#128465;</span>Bins</a>
+  <a href="east-perth-public-notices.html#events"><span class="mi">&#127881;</span>What's On</a>
+  <a href="newsletters.html"><span class="mi">&#128240;</span>Newsletter</a>
+  <a href="events.html"><span class="mi">&#128197;</span>EPCG Events</a>
+  <a href="support.html"><span class="mi">&#10084;&#65039;</span>Support</a>
+</nav>
+
+<div class="wrap">
+  <a href="https://www.eastperthcommunity.org.au/" target="_top" style="display:block;line-height:0;text-decoration:none" aria-label="Go to the East Perth Community home site"><img class="logo" src="epcg-logo-rev.png" alt="East Perth Community"></a>
+  <h1>Support Us</h1>
+  <div class="sub">Help keep East Perth vibrant, connected and well cared for</div>
+
+  <div class="about">
+    The East Perth Community Group (EPCG) is committed to the growth and development of the East Perth
+    area. We support, manage and instigate projects for a community where residents live rich, connected
+    lives, local businesses are well patronised, and visitors find a warm welcome in our vibrant riverside
+    village. Everything we do is run by local volunteers - here are two easy ways you can back it.
+  </div>
+
+  <div class="card">
+    <h2>Become a member</h2>
+    <p>Membership is the best way to support the EPCG and have your say. Financial members also go into
+       our members-only draws and get the inside word on everything happening in East Perth.</p>
+    <a class="cta" href="https://www.eastperthcommunity.org.au/new-membership-form" target="_blank" rel="noopener">Become a member &#8599;</a>
+  </div>
+
+  <div class="card">
+    <h2>Donate with Containers for Change</h2>
+    <p>Recycling your eligible drink containers? Please donate the 10c refund to the EPCG - it turns your
+       empties into real community support, at no cost to you.</p>
+    <div class="code">
+      <div class="lbl">Our scheme ID</div>
+      <div class="id">C10403959</div>
+      <svg id="barcode" aria-label="Containers for Change scheme ID C10403959"></svg>
+    </div>
+    <ol class="steps">
+      <li>At any Containers for Change refund point, choose to donate.</li>
+      <li>Scan the barcode above, or enter our scheme ID <b>C10403959</b>.</li>
+      <li>Drop off your containers - the refund comes straight to us. Thank you!</li>
+    </ol>
+    <a class="cta pink" href="https://www.containersforchange.com.au/wa/scheme-expansion" target="_blank" rel="noopener">About Containers for Change &#8599;</a>
+  </div>
+
+  <div class="card">
+    <h2>Tell us about your event</h2>
+    <p>Running something in East Perth - a market stall, a working bee, a club night, a fundraiser?
+       Send it to us and we'll consider it for the Hub and the newsletter. Community events are the
+       point of all this, so please don't be shy.</p>
+
+    <!-- Netlify Forms: the form is detected from this static HTML at deploy time.
+         Submitted via fetch() so the page stays put inside the Wix iframe embed. -->
+    <form name="event-submission" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="evForm">
+      <input type="hidden" name="form-name" value="event-submission">
+      <p class="hp"><label>Leave this empty: <input name="bot-field"></label></p>
+
+      <div class="frow">
+        <span class="fld"><label for="ev-name">Your name</label><input id="ev-name" name="name" required></span>
+        <span class="fld"><label for="ev-email">Your email</label><input id="ev-email" type="email" name="email" required></span>
+      </div>
+      <div class="fld"><label for="ev-title">Event name</label><input id="ev-title" name="event" required></div>
+      <div class="frow">
+        <span class="fld"><label for="ev-date">Date</label><input id="ev-date" type="date" name="date" required></span>
+        <span class="fld"><label for="ev-where">Where</label><input id="ev-where" name="venue" placeholder="Venue or address"></span>
+      </div>
+      <div class="fld"><label for="ev-detail">Tell us about it</label><textarea id="ev-detail" name="details" placeholder="What is it, who is it for, is it free, is there a booking link?"></textarea></div>
+
+      <button class="cta" type="submit" id="evSend">Send it to us &#8599;</button>
+      <div class="fmsg" id="evMsg" role="status"></div>
+      <div class="fnote">Prefer email? Write to
+        <a href="mailto:secretary.eastperthcommunity@gmail.com?subject=Event%20for%20the%20East%20Perth%20Hub">secretary.eastperthcommunity@gmail.com</a>.
+        We're all volunteers, so give us a few days.</div>
+    </form>
+  </div>
+
+  <footer>
+    East Perth Community Group Inc. &middot; ABN 55 213 353 802 &middot; PO Box 6112, East Perth WA 6892<br>
+    More about us at <a href="https://www.eastperthcommunity.org.au/about" target="_blank" rel="noopener" style="color:#d6eefa">eastperthcommunity.org.au</a>
+  </footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.6/JsBarcode.all.min.js"></script>
+<script>
+  try{
+    JsBarcode("#barcode","C10403959",{format:"CODE128",displayValue:false,height:64,margin:10,background:"transparent",lineColor:"#004F71"});
+  }catch(e){ var b=document.getElementById("barcode"); if(b) b.style.display="none"; }
+</script>
+<script>
+(function(){var x0=null,y0=null,t0=0;
+addEventListener("touchstart",function(e){if(e.touches.length!==1){x0=null;return;}var t=e.touches[0];x0=t.clientX;y0=t.clientY;t0=Date.now();},{passive:true});
+addEventListener("touchend",function(e){if(x0==null)return;var t=e.changedTouches[0];var dx=t.clientX-x0,dy=t.clientY-y0;var onMap=e.target&&e.target.closest&&e.target.closest("#map");var mn=document.querySelector(".mnav");var navOpen=mn&&mn.classList.contains("open");if(!onMap&&!navOpen&&dx>90&&Math.abs(dx)>Math.abs(dy)*2&&(Date.now()-t0)<700){location.href="index.html";}x0=null;},{passive:true});
+})();
+</script>
+<script>(function(){var bt=document.querySelector(".backtop");if(!bt)return;var a=document.getElementById("bar")||document.querySelector(".homebtn")||document.querySelector("h1");function upd(){var show;var r=a?a.getBoundingClientRect():null;if(r&&(r.width||r.height)){show=r.bottom<=6;}else{var y=(document.scrollingElement||document.documentElement||{}).scrollTop||window.pageYOffset||0;show=y>80;}bt.classList.toggle("show",!!show);}addEventListener("scroll",upd,{passive:true});addEventListener("resize",upd);setTimeout(upd,300);upd();})();</script>
+<script src="hub-data.js"></script>
+<script src="epcg-manual.js"></script>
+<script src="epcg-events.js"></script>
+<script src="pta-data.js"></script>
+<script>
+(function(){
+  var HUB=window.HUB||{disruptions:[],events:[],notices:[],tenders:[]},PTA=window.PTA_DATA||[],ZONE="east";
+  function midnight(){var t=new Date();t.setHours(0,0,0,0);return t;}
+  function parseDMY(s){var p=(s||"").split("/");return new Date(+p[2],(+p[1])-1,+p[0]);}
+  function disPast(d){return d.end?parseDMY(d.end)<midnight():false;}
+  function statusOf(o){if(o.close)return (new Date(o.close+"T23:59:59")>=midnight())?"open":"closed";return (o.kind==="ongoing")?"ongoing":"closed";}
+  function esc(x){return (x||"").replace(/[&<>]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c];});}
+  var MON={jan:0,feb:1,mar:2,apr:3,may:4,jun:5,jul:6,aug:7,sep:8,oct:9,nov:10,dec:11};
+  function evEnd(e){var g=(e.date||"").match(/([0-9]{1,2}) +([A-Za-z]{3})/g);if(!g)return Infinity;var m=g[g.length-1].match(/([0-9]{1,2}) +([A-Za-z]{3})/);var mo=MON[m[2].toLowerCase()];if(mo===undefined)return Infinity;var tt=midnight();var dt=new Date(tt.getFullYear(),mo,+m[1]);var fl=new Date(tt.getFullYear(),tt.getMonth()-5,1);if(dt<fl)dt=new Date(tt.getFullYear()+1,mo,+m[1]);return dt.getTime();}
+  var GEN=new Date(2026,3,20);function monday(d){var x=new Date(d);x.setDate(d.getDate()-((d.getDay()+6)%7));x.setHours(0,0,0,0);return x;}
+  function altOf(d){var wk=Math.round((monday(d)-GEN)/6048e5);return (((wk%2)+2)%2===0)?"gen":"recy";}
+  var t0=midnight(),bd=new Date(t0);while(bd.getDay()!==3)bd.setDate(bd.getDate()+1);
+  var alt=altOf(bd),altName={recy:"Recycling",gen:"General waste"}[alt],tonight=bd.getTime()===t0.getTime();
+  var dis=HUB.disruptions.filter(function(d){return d.zone===ZONE&&!disPast(d);});
+  var sevRank={high:0,major:0,medium:1,event:2,low:2,infra:3};
+  dis.sort(function(a,b){return (sevRank[a.sev]||2)-(sevRank[b.sev]||2);});
+  var ptaCur=PTA.filter(function(d){return (!d.zones||d.zones.indexOf(ZONE)>=0)&&!(d.end&&parseDMY(d.end)<midnight());});
+  var ev=HUB.events.filter(function(e){return (e.zone===ZONE||e.zone==="central")&&evEnd(e)>=midnight().getTime();}).sort(function(a,b){return evEnd(a)-evEnd(b);});
+  var notOpen=HUB.notices.filter(function(o){var st=statusOf(o);return st==="open"||st==="ongoing";});
+  var items=[];
+  items.push('&#128465; <b>Bins '+(tonight?"tonight":bd.toLocaleDateString("en-AU",{weekday:"short",day:"numeric",month:"short"}))+':</b> FOGO + '+altName+' &mdash; out by 6am');
+  var _t0=new Date();_t0.setHours(0,0,0,0);
+  (window.EPCG_EVENTS||[]).filter(function(e){return new Date(e.d+"T00:00:00")>=_t0;}).sort(function(a,b){return new Date(a.d+"T00:00:00")-new Date(b.d+"T00:00:00");}).slice(0,3).forEach(function(e){var dd=new Date(e.d+"T00:00:00").toLocaleDateString("en-AU",{weekday:"short",day:"numeric",month:"short"});items.push('&#127881; <b>'+esc(e.t)+'</b> &middot; '+dd+(e.type==="epcg"?' &middot; EPCG':' &middot; Community'));});
+  ev.slice(0,3).forEach(function(e){items.push('&#127881; <b>'+esc(e.title)+'</b> &middot; '+esc(e.date)+(e.cat?' ('+esc(e.cat)+')':''));});
+  dis.filter(function(d){return d.sev!=="infra"&&!/ongoing|recurring/i.test(String(d.impact||"")+" "+String(d.title||""));}).slice(0,3).forEach(function(d){var ic=d.cat==="event"?"&#127881;":(d.cat==="infrastructure"?"&#128736;":"&#128679;");items.push(ic+' <b>'+esc(d.title)+'</b> &mdash; '+esc(d.impact||d.loc));});
+  ptaCur.slice(0,2).forEach(function(d){items.push('&#128650; <b>'+esc(d.title)+'</b>');});
+  notOpen.slice(0,2).forEach(function(o){items.push('&#128221; <b>Have your say:</b> '+esc(o.title));});
+  var el=document.getElementById("htrack");if(el){var html=items.map(function(x){return '<span class="item">'+x+'</span><span class="sep">&bull;</span>';}).join("");el.innerHTML=html+html;}
+  function htick(){var d=new Date(),h=d.getHours(),m=d.getMinutes();var c=document.getElementById("hclock");if(c)c.textContent=h+":"+(m<10?"0":"")+m;var dd=document.getElementById("hdate");if(dd)dd.textContent=d.toLocaleDateString("en-AU",{weekday:"long",day:"numeric",month:"long"});}
+  htick();setInterval(htick,10000);
+  var codes={0:["Clear","☀️"],1:["Mainly clear","🌤️"],2:["Partly cloudy","⛅"],3:["Overcast","☁️"],45:["Fog","🌫️"],48:["Fog","🌫️"],51:["Drizzle","🌦️"],61:["Rain","🌧️"],63:["Rain","🌧️"],65:["Heavy rain","🌧️"],80:["Showers","🌦️"],95:["Storm","⛈️"]};
+  function __loadWx(){fetch("https://api.open-meteo.com/v1/forecast?latitude=-31.955&longitude=115.875&current=temperature_2m,apparent_temperature,weather_code&timezone=Australia%2FPerth").then(function(r){return r.json();}).then(function(j){var c=j.current,info=codes[c.weather_code]||["",""];var te=document.getElementById("hwxTemp");if(te)te.innerHTML=Math.round(c.temperature_2m)+"&deg;";var co=document.getElementById("hwxCond");if(co)co.textContent=info[0]+" · feels "+Math.round(c.apparent_temperature)+"°";var ic=document.getElementById("hwxIco");if(ic&&info[1])ic.textContent=info[1];}).catch(function(){});}__loadWx();(function(){var n=new Date();var ms=(3600-(n.getMinutes()*60+n.getSeconds()))*1000-n.getMilliseconds();if(ms<1000)ms+=3600000;setTimeout(function tk(){__loadWx();setTimeout(tk,3600000);},ms);})();(function(){function armMid(){var n=new Date();var mid=new Date(n.getFullYear(),n.getMonth(),n.getDate()+1,0,0,15,0);setTimeout(function(){location.reload();},mid.getTime()-n.getTime());}armMid();})();
+  document.addEventListener("click",function(e){if(e.target.closest&&(e.target.closest("#dmenu")||e.target.closest(".dburger")))return;var m=document.getElementById("dmenu");if(m)m.classList.remove("open");});
+})();
+</script>
+<script>
+/* ---- Ticker pace: constant speed, not constant duration ----
+   The track animates translateX(0 -> -50%), so it always travels HALF its own width.
+   With a fixed CSS duration the speed depended on how much news there was: measured
+   13 items = 81px/s, but 26 items = 161px/s (twice as fast) and 10 items = 62px/s -
+   it sped up on busy days, exactly when it is hardest to read. Derive the duration
+   from the measured width so px/sec, and the gap between items passing a point, is
+   identical every day. CSS keeps `hscroll 92s` as a fallback if this never runs. */
+var TICKER_PX_PER_SEC = 80;                      /* today's approved pace */
+function sizeTicker(){
+  var t = document.getElementById("htrack");
+  if(!t) return;
+  var half = t.scrollWidth / 2;                  /* the track is the content, doubled */
+  if(!half) return;                              /* not laid out yet */
+  var d = half / TICKER_PX_PER_SEC;
+  d = Math.max(20, Math.min(240, d));            /* sanity clamp */
+  t.style.animationDuration = d.toFixed(1) + "s";
+}
+requestAnimationFrame(sizeTicker);
+addEventListener("load", sizeTicker);
+addEventListener("resize", sizeTicker);
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(sizeTicker);  /* webfont swap changes width */
+</script>
+<script>
+(function(){
+  var f=document.getElementById("evForm"); if(!f) return;
+  var btn=document.getElementById("evSend"), msg=document.getElementById("evMsg");
+  f.addEventListener("submit", function(e){
+    e.preventDefault();                                  /* keep the user inside the Wix iframe */
+    msg.className="fmsg"; msg.textContent="";
+    btn.disabled=true; btn.textContent="Sending...";
+    fetch("/", {                                         /* Netlify accepts the POST at the site root */
+      method:"POST",
+      headers:{"Content-Type":"application/x-www-form-urlencoded"},
+      body:new URLSearchParams(new FormData(f)).toString()
+    }).then(function(r){
+      if(!r.ok) throw new Error(r.status);
+      f.reset();
+      msg.className="fmsg ok";
+      msg.textContent="Thanks! We've got it and someone will be in touch.";
+    }).catch(function(){
+      msg.className="fmsg err";
+      msg.innerHTML="Sorry - that didn't send. Please email <a href='mailto:secretary.eastperthcommunity@gmail.com'>secretary.eastperthcommunity@gmail.com</a> instead.";
+    }).then(function(){
+      btn.disabled=false; btn.textContent="Send it to us \u2197";
+    });
+  });
+})();
+</script>
+<script data-goatcounter="https://epcgsec.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

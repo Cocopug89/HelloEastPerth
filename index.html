@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>
+/* Routing. Two things this must survive:
+   1) The Wix embed inserts this iframe hidden/0-width, so innerWidth is 0 while the <head>
+      runs - the old one-shot ">=768" check therefore never fired and desktop users were
+      stranded on this fridge page. So: re-evaluate on load and on resize, not just at parse.
+   2) Inside the iframe, innerWidth is the FRAME's width (~965px on the Wix mobile layout),
+      not the phone's - so width alone cannot tell us we're on a phone. Use the real device
+      (pointer:coarse + hover:none + screen short side), and if a handheld is stuck in a
+      wide fixed-width frame, lay out at device width and zoom back up to fill it. */
+(function(){
+  var mq=function(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches);}catch(e){return false;}};
+  var s=window.screen||{}, shortSide=Math.min(s.width||9999,s.height||9999);
+  var handheld=(mq('(pointer:coarse)')||(navigator.maxTouchPoints||0)>1) && !mq('(hover:hover)') && shortSide<768;
+  var done=false;
+  function route(){
+    if(done) return;
+    var vw=window.innerWidth||document.documentElement.clientWidth||0;
+    if(!handheld){
+      if(vw>=768){ done=true; location.replace("east-perth-public-notices.html"); }
+      return;
+    }
+    if(vw>=768){
+      var target=Math.min(Math.max(shortSide||360,320),480);
+      document.documentElement.style.zoom=(vw/target);
+    } else {
+      document.documentElement.style.zoom="";
+    }
+  }
+  route();
+  document.addEventListener('DOMContentLoaded',route);
+  window.addEventListener('load',route);
+  window.addEventListener('resize',route);
+  window.addEventListener('orientationchange',function(){setTimeout(route,150);});
+  var n=0,iv=setInterval(function(){route(); if(done||++n>20) clearInterval(iv);},250);
+})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="East Perth community hub - live local disruptions, roadworks, Transperth updates, bin days, public notices and what's on. An East Perth Community Group service, refreshed weekly.">
+<link rel="canonical" href="https://www.eastperthcommunity.org.au/epcg-hub">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#004F71">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
+
+<title>East Perth Community Hub</title>
+<style>
+html{-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:100%}
+  :root{
+    /* EPCG brand palette (2020 style guide) */
+    --navy:#004F71;   /* PMS 3025 */
+    --blue:#00A3E0;   /* PMS 299  */
+    --sky:#5BC2E7;    /* PMS 2985 */
+    --tealg:#49C5B1;  /* PMS 3258 */
+    --lime:#CEDC00;   /* PMS 381  */
+    --amber:#F2C75C;  /* PMS 141  */
+    --pink:#E782A9;   /* PMS 204  */
+    --lav:#CAA2DD;    /* PMS 529  */
+    --card:#ffffff; --ink:#004F71; --muted:#5a7284; --accent:#00A3E0;
+    --brush:'Montserrat',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    --sans:'Montserrat',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:var(--sans);
+    color:#eaf7fd;
+    background:radial-gradient(125% 120% at 50% -12%,#1b7aa6 0%,var(--navy) 52%,#00374f 90%);
+    min-height:100vh;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:20px 18px 40px}
+
+  /* top bar: brand + clock */
+  .topbar{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+  .brand{display:flex;align-items:center}
+  .brand .logo{width:220px;max-width:58vw;height:auto;display:block}
+  .clock{text-align:right;min-width:132px}
+  .clock .time{font-size:40px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-1px;color:#fff}
+  .clock .ampm{font-size:17px;font-weight:700;color:var(--sky);margin-left:4px}
+
+  /* greeting */
+  .hello{margin-top:16px}
+  .hello h1{margin:0;font-family:var(--brush);font-weight:800;font-size:52px;line-height:1;color:#fff;letter-spacing:1px;text-transform:uppercase}
+  .hello .date{margin-top:10px;font-size:16px;color:var(--sky);font-weight:600;text-transform:uppercase;letter-spacing:1px}
+
+  /* weather */
+  .weather{
+    margin-top:20px;background:#ffffff;color:var(--ink);border-radius:20px;padding:18px 22px;
+    display:flex;align-items:center;gap:18px;box-shadow:0 12px 30px rgba(0,20,35,.30);
+  }
+  .weather .icon{font-size:54px;line-height:1}
+  .weather .temp{font-size:46px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+  .weather .deg{font-size:24px;vertical-align:top;font-weight:700}
+  .weather .mid{flex:1}
+  .weather .cond{font-size:19px;font-weight:700;margin-top:2px}
+  .weather .sub{font-size:13px;color:var(--muted);margin-top:4px;font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+  .weather .hl{text-align:right;font-size:15px;font-weight:700;color:var(--navy);line-height:1.5;min-width:92px}
+  .weather .hl .lo{color:var(--muted)}
+
+  /* ticker */
+  .ticker{
+    margin-top:18px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);
+    border-radius:16px;overflow:hidden;position:relative;height:56px;display:flex;align-items:center;
+  }
+  .ticker .tlabel{
+    flex:none;height:100%;display:flex;align-items:center;gap:7px;padding:0 18px;
+    background:var(--blue);color:#fff;font-family:var(--brush);font-weight:700;font-size:19px;letter-spacing:1px;z-index:2;
+    box-shadow:6px 0 14px rgba(0,0,0,.25);
+  }
+  .ticker .track{overflow:hidden;flex:1;height:100%;position:relative}
+  .ticker .move{
+    position:absolute;top:0;left:0;height:100%;display:flex;align-items:center;
+    white-space:nowrap;will-change:transform;animation:scroll 42s linear infinite;
+  }
+  .ticker:hover .move{animation-play-state:paused}
+  .ticker .item{display:inline-flex;align-items:center;font-size:17px;font-weight:600;padding:0 30px;color:#eaf7fd}
+  .ticker .item .em{font-size:19px;margin-right:9px}
+  .ticker .item.hot{color:var(--amber)}
+  .ticker .item.soon{color:var(--pink)}
+  .ticker .item.bin{color:var(--lime)}
+  .ticker .dot{opacity:.4;padding:0 2px;color:var(--sky)}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* buttons */
+  .grid{margin-top:22px;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  a.btn{
+    display:flex;flex-direction:column;justify-content:space-between;gap:16px;
+    background:var(--card);color:var(--ink);text-decoration:none;border-radius:20px;
+    padding:18px 18px 16px;min-height:120px;box-shadow:0 10px 24px rgba(0,20,35,.22);
+    transition:transform .12s ease,box-shadow .12s ease;position:relative;overflow:hidden;
+  }
+  a.btn:active{transform:scale(.98)}
+  a.btn:hover{transform:translateY(-3px);box-shadow:0 16px 32px rgba(0,20,35,.3)}
+  a.btn .ic{width:54px;height:54px;border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:30px;line-height:1}
+  a.btn .bt{font-size:20px;font-weight:800;line-height:1.15;text-transform:uppercase;letter-spacing:.3px}
+  a.btn .bs{font-size:13px;color:var(--muted);font-weight:500;margin-top:3px}
+  a.btn .cnt{
+    position:absolute;top:16px;right:18px;font-size:14px;font-weight:800;border-radius:20px;
+    padding:3px 12px;min-width:30px;text-align:center;
+  }
+  a.btn.wide{grid-column:1 / -1;flex-direction:row;align-items:center;min-height:auto;padding:16px 18px}
+  a.btn.wide .txt{flex:1}
+  a.btn.wide .go{font-size:26px;color:var(--blue);font-weight:800}
+
+  .spotlight{margin-top:24px}
+  .sphead{font-family:var(--brush);font-weight:700;font-size:24px;letter-spacing:1px;text-transform:uppercase;color:var(--amber);margin-bottom:10px}
+  .spcard{display:flex;gap:18px;align-items:flex-start;background:linear-gradient(135deg,#ffffff,#f3f8fd);color:var(--ink);border-radius:20px;padding:20px 22px;text-decoration:none;box-shadow:0 12px 30px rgba(0,20,35,.28);border-left:6px solid var(--pink)}
+  .spcard:hover{transform:translateY(-2px)}
+  .spthumb{width:120px;height:120px;flex:none;border-radius:14px;object-fit:cover;background:#e3eef5;box-shadow:0 4px 12px rgba(0,20,35,.2)}
+  .spbody{flex:1;min-width:0}
+  .spname{font-size:24px;font-weight:800;line-height:1.1}
+  .spdesc{font-size:14.5px;color:#3a4652;font-weight:500;line-height:1.55;margin:8px 0 10px}
+  .spmeta{font-size:13px;color:var(--muted);font-weight:600}
+  .splink{display:inline-block;margin-top:12px;background:var(--pink);color:#4b1528;font-weight:800;font-size:13.5px;padding:8px 16px;border-radius:22px}
+  .connect{margin-top:26px;text-align:center}
+  .cxhead{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--sky);margin-bottom:12px}
+  .cxrow{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+  .social{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);color:#eaf7fd;text-decoration:none;font-weight:600;font-size:14px;padding:10px 18px;border-radius:24px}
+  .social:hover{background:rgba(255,255,255,.2)}
+  .forum{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--blue);color:#fff;text-decoration:none;font-weight:800;font-size:15px;padding:14px 20px;border-radius:16px;box-shadow:0 8px 22px rgba(0,20,35,.22)}
+  .forum:hover{transform:translateY(-2px)}
+  .forum .fgo{font-size:20px}
+  footer{margin-top:26px;text-align:center;font-size:12.5px;color:#9fcfe4;line-height:1.7}
+  footer a{color:#d6eefa}
+  .hubcredit{margin-top:14px;text-align:center;font-size:11px;line-height:1.5;color:#7fa6bd}
+  .hubcredit .hc-by{font-weight:700;color:#9fc7db;display:block;margin-bottom:3px}
+  .hubcredit .hc-dis{display:block;max-width:560px;margin:0 auto}
+  .hubcredit a.hc-bug{color:#9fc7db;font-weight:700;text-decoration:none;border-bottom:1px dotted rgba(159,199,219,.6)}
+  .hubcredit a.hc-bug:hover{color:#d6eefa}
+
+  @media(max-width:520px){
+    .wrap{padding:58px 12px 20px}
+    /* 1. logo + clock inline, logo small */
+    .topbar{flex-wrap:nowrap;gap:8px}
+    .brand .logo{width:118px;max-width:42vw}
+    .clock{min-width:auto}
+    .clock .time{font-size:25px}
+    .clock .ampm{font-size:12px}
+    /* 2. greeting on one line */
+    .hello{margin-top:9px}
+    .hello h1{font-size:22px;letter-spacing:0;white-space:normal;line-height:1.05}
+    .hello .date{margin-top:3px;font-size:11.5px}
+    /* 3. compact weather widget */
+    .weather{margin-top:11px;padding:10px 14px;gap:12px;border-radius:14px}
+    .weather .icon{font-size:32px}
+    .weather .temp{font-size:30px}
+    .weather .deg{font-size:16px}
+    .weather .cond{font-size:14px}
+    .weather .sub{font-size:11px;margin-top:2px}
+    .weather .hl{font-size:12px;min-width:auto;line-height:1.35}
+    /* 5. buttons fit above the fold */
+    .grid{margin-top:12px;grid-template-columns:repeat(2,1fr);gap:10px}
+    a.btn{min-height:70px;padding:10px 12px;gap:6px;border-radius:14px}
+    a.btn .ic{width:32px;height:32px;font-size:19px;border-radius:10px}
+    a.btn .bt{font-size:13px;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    a.btn .bs{display:none}
+    a.btn .cnt{top:7px;right:9px;font-size:11px;padding:2px 7px}
+    a.btn.wide{min-height:54px}
+    a.btn.wide .go{font-size:22px}
+    /* 4. ticker frozen to the bottom of the screen */
+    .ticker{position:fixed;left:0;right:0;top:0;margin:0;height:46px;border-radius:0;border:0;background:#013247;box-shadow:0 3px 12px rgba(0,0,0,.4);z-index:60}
+    .ticker .tlabel{font-size:15px;padding:0 12px}
+    .ticker .item{font-size:13.5px;padding:0 22px}
+    .cxrow{flex-wrap:nowrap;gap:6px}
+    .social{padding:8px 10px;font-size:11.5px;gap:5px}
+    .spotlight{margin-top:20px}
+    .spcard{flex-direction:column}
+    .spthumb{width:100%;height:150px}
+  }
+  .stalewarn{display:none;margin:10px auto 0;max-width:560px;background:rgba(242,199,92,.14);border:1px solid rgba(242,199,92,.55);color:#F2C75C;font-weight:700;font-size:12px;border-radius:10px;padding:8px 12px;text-align:center;line-height:1.4}
+  .stalewarn.show{display:block}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="brand">
+      <a href="https://www.eastperthcommunity.org.au/" target="_top" style="display:inline-flex;line-height:0;text-decoration:none" aria-label="Go to the East Perth Community home site"><img class="logo" src="epcg-logo-rev.png" alt="East Perth Community"></a>
+    </div>
+    <div class="clock">
+      <div><span class="time" id="time">--:--</span><span class="ampm" id="ampm"></span></div>
+    </div>
+  </div>
+
+  <div class="hello">
+    <h1>East Perth Community Hub</h1>
+    <div class="date" id="date">&mdash;</div>
+  </div>
+
+  <div class="weather" id="weather">
+    <div class="icon" id="wIcon">&#9925;</div>
+    <div class="mid">
+      <div><span class="temp" id="wTemp">--</span><span class="deg">&deg;C</span></div>
+      <div class="cond" id="wCond">Loading weather&hellip;</div>
+      <div class="sub" id="wSub">East Perth WA</div>
+    </div>
+    <div class="hl" id="wHL"></div>
+  </div>
+
+  <div class="ticker">
+    <div class="tlabel">Today</div>
+    <div class="track"><div class="move" id="ticker"></div></div>
+  </div>
+
+  <div class="stalewarn" id="staleWarn"></div>
+
+  <div class="grid">
+    <a class="btn" href="newsletters.html">
+      <span class="ic" style="background:rgba(231,130,169,.20)">&#128240;</span>
+      <span class="txt"><div class="bt">Newsletter</div><div class="bs">Read the latest &amp; browse the archive</div></span>
+    </a>
+    <a class="btn" href="east-perth-public-notices.html#notices">
+      <span class="cnt" id="cNot" style="background:var(--lav);color:var(--navy)"></span>
+      <span class="ic" style="background:rgba(202,162,221,.24)">&#128196;</span>
+      <span class="txt"><div class="bt">Public Notices</div><div class="bs">Planning, rates, consultations</div></span>
+    </a>
+    <a class="btn" href="east-perth-public-notices.html#disruptions">
+      <span class="cnt" id="cDis" style="background:var(--blue);color:#fff"></span>
+      <span class="ic" style="background:rgba(0,163,224,.16)">&#128506;</span>
+      <span class="txt"><div class="bt">Disruptions</div><div class="bs">Roadworks, closures &amp; events, pinned</div></span>
+    </a>
+    <a class="btn" href="east-perth-public-notices.html#transport">
+      <span class="cnt" id="cTra" style="background:var(--sky);color:var(--navy)"></span>
+      <span class="ic" style="background:rgba(91,194,231,.24)">&#128642;</span>
+      <span class="txt"><div class="bt">Transport</div><div class="bs">Transperth train, bus &amp; CAT disruptions</div></span>
+    </a>
+    <a class="btn" href="events.html">
+      <span class="ic" style="background:rgba(242,199,92,.22)">&#128197;</span>
+      <span class="txt"><div class="bt">EPCG Events</div><div class="bs" id="evSub">EPCG &amp; partner community events</div></span>
+    </a>
+    <a class="btn" href="east-perth-public-notices.html#events">
+      <span class="cnt" id="cEvt" style="background:var(--tealg);color:#06342c"></span>
+      <span class="ic" style="background:rgba(73,197,177,.22)">&#127881;</span>
+      <span class="txt"><div class="bt">What's On</div><div class="bs">Festivals, markets, arts &amp; events across Perth</div></span>
+    </a>
+    <a class="btn" href="east-perth-public-notices.html#bins">
+      <span class="ic" style="background:rgba(206,220,0,.20)">&#128465;</span>
+      <span class="txt"><div class="bt">Bin Collection</div><div class="bs" id="binSub">Check your next collection day</div></span>
+    </a>
+    <a class="btn" href="support.html">
+      <span class="ic" style="background:rgba(231,130,169,.20)">&#10084;&#65039;</span>
+      <span class="txt"><div class="bt">Support Us</div><div class="bs">Become a member or donate</div></span>
+    </a>
+  </div>
+
+  <!-- Spotlight host. Was HARDCODED to Hanoi Soulmates here, with its own remote thumbnail, while
+       the three board pages read spotlight.js - so changing the advertiser updated desktop and
+       silently left the phone view showing the previous one. Now data-driven from the same file. -->
+  <div class="spotlight" id="spotHost"></div>
+
+  <div class="connect">
+    <div class="cxhead">Follow East Perth Community</div>
+    <div class="cxrow">
+      <a class="social" href="https://www.instagram.com/eastperthcommunity/" target="_blank" rel="noopener">&#128247; Instagram</a>
+      <a class="social" href="https://www.facebook.com/EastPerthCommunityGroup" target="_blank" rel="noopener">&#128077; Facebook</a>
+      <a class="social" href="https://www.eastperthcommunity.org.au/" target="_blank" rel="noopener">&#127760; Website</a>
+    </div>
+    <a class="forum" href="https://www.facebook.com/groups/506581086581037" target="_blank" rel="noopener">
+      <span>&#128172; Join the community discussion group</span><span class="fgo">&rarr;</span>
+    </a>
+  </div>
+
+  <footer>
+    An East Perth Community landing page &middot; data from
+    <a href="https://perth.wa.gov.au/public-notices/all-public-notices" target="_blank" rel="noopener">City of Perth</a>
+    &amp; <a href="https://open-meteo.com" target="_blank" rel="noopener">Open-Meteo</a><br>
+    Tap any card for the full board.
+  </footer>
+  <div class="hubcredit">
+    <span class="hc-dis">An EPCG community service · independent of the City of Perth · aggregated from public sources and refreshed weekly. Always confirm critical details with the official source.</span>
+    <a class="hc-bug" href="mailto:secretary.eastperthcommunity@gmail.com?subject=East%20Perth%20Hub%20-%20bug%20report">Report a bug</a>
+  </div>
+
+</div>
+
+<script src="hub-data.js"></script>
+<script src="epcg-manual.js"></script>
+<script src="spotlight.js"></script>
+<script src="pta-data.js"></script>
+<script src="epcg-events.js"></script>
+<script>
+const HUB=window.HUB||{disruptions:[],tenders:[],notices:[],events:[]};
+const DATA=HUB.disruptions.filter(function(d){return d.zone==="east";});
+
+const TENDERS_CLOSE=HUB.tenders.map(function(t){return t.close;});
+const NOTICES_LIST=HUB.notices.map(function(o){return {close:o.close,kind:o.kind};});
+
+function midnight(){ const t=new Date(); t.setHours(0,0,0,0); return t; }
+function statusOf(o){ if(o.close) return (new Date(o.close+"T23:59:59")>=midnight())?"open":"closed"; return (o.kind==="ongoing")?"ongoing":"closed"; }
+function parseDMY(s){ const p=s.split("/"); return new Date(+p[2],(+p[1])-1,+p[0]); }
+function activeToday(d){
+const t=midnight();
+if(!(parseDMY(d.start)<=t && t<=parseDMY(d.end))) return false;
+if(d.days && d.days.indexOf(t.getDay())===-1) return false;
+return true;
+}
+function isPast(d){ return parseDMY(d.end) < midnight(); }
+
+function tickClock(){
+const now=new Date();
+let h=now.getHours(); const m=now.getMinutes();
+const ampm = h>=12 ? "PM":"AM";
+h = h%12; if(h===0) h=12;
+document.getElementById("time").textContent = h+":"+String(m).padStart(2,"0");
+document.getElementById("ampm").textContent = ampm;
+document.getElementById("date").textContent =
+now.toLocaleDateString("en-AU",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
+}
+tickClock(); setInterval(tickClock, 15000);
+
+const WMO = {
+0:["Clear sky","☀️"],1:["Mainly clear","🌤️"],2:["Partly cloudy","⛅"],
+3:["Overcast","☁️"],45:["Fog","🌫️"],48:["Rime fog","🌫️"],
+51:["Light drizzle","🌦️"],53:["Drizzle","🌦️"],55:["Heavy drizzle","🌦️"],
+61:["Light rain","🌧️"],63:["Rain","🌧️"],65:["Heavy rain","🌧️"],
+66:["Freezing rain","🌧️"],67:["Freezing rain","🌧️"],
+71:["Light snow","🌨️"],73:["Snow","🌨️"],75:["Heavy snow","🌨️"],
+77:["Snow grains","🌨️"],80:["Showers","🌦️"],81:["Showers","🌧️"],
+82:["Heavy showers","⛈️"],85:["Snow showers","🌨️"],86:["Snow showers","🌨️"],
+95:["Thunderstorm","⛈️"],96:["Storm w/ hail","⛈️"],99:["Storm w/ hail","⛈️"]
+};
+let WEATHER_TODAY = null;
+
+function loadWeather(){
+const url="https://api.open-meteo.com/v1/forecast?latitude=-31.956&longitude=115.874"
++"&current=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min,weather_code,precipitation_probability_max"
++"&timezone=Australia/Perth&forecast_days=1";
+fetch(url).then(r=>r.json()).then(function(j){
+const cur=j.current, day=j.daily;
+const info=WMO[cur.weather_code]||["","⛅"];
+document.getElementById("wTemp").textContent=Math.round(cur.temperature_2m);
+document.getElementById("wCond").textContent=info[0];
+document.getElementById("wIcon").innerHTML=info[1];
+const hi=Math.round(day.temperature_2m_max[0]), lo=Math.round(day.temperature_2m_min[0]);
+const pop=day.precipitation_probability_max ? day.precipitation_probability_max[0] : null;
+document.getElementById("wHL").innerHTML="H "+hi+"&deg;<br><span class='lo'>L "+lo+"&deg;</span>";
+document.getElementById("wSub").textContent="East Perth WA"+(pop!=null?" · "+pop+"% rain":"");
+WEATHER_TODAY={icon:info[1], cond:info[0], hi:hi, lo:lo, now:Math.round(cur.temperature_2m), pop:pop};
+buildTicker();
+}).catch(function(){
+document.getElementById("wCond").textContent="Weather unavailable (offline)";
+document.getElementById("wIcon").innerHTML="📶";
+});
+}
+loadWeather();
+setInterval(loadWeather, 30*60*1000);/* auto-refresh */
+
+function binInfo(){
+const GEN_ANCHOR=new Date(2026,3,20), START=new Date(2026,3,22), END=new Date(2026,11,31);
+const NAME={recy:"Recycling",gen:"General waste"};
+function monday(d){var x=new Date(d);x.setDate(d.getDate()-((d.getDay()+6)%7));x.setHours(0,0,0,0);return x;}
+function altOf(d){var wk=Math.round((monday(d)-GEN_ANCHOR)/6048e5);return (((wk%2)+2)%2===0)?"gen":"recy";}
+const now=new Date(), today=midnight();
+if(today>END || today<START) return null;
+// next collection = the Wednesday whose 6am pickup is still ahead of now
+let next=new Date(today);
+for(let i=0;i<21;i++){
+if(next.getDay()===3 && next>=START){
+const coll=new Date(next); coll.setHours(6,0,0,0);
+if(coll>now) break;
+}
+next.setDate(next.getDate()+1);
+}
+const diff=Math.round((next-today)/864e5);
+return {diff:diff, streams:"FOGO + "+NAME[altOf(next)], date:next};
+}
+
+function buildTicker(){
+const items=[];
+
+/* PRIORITY 1: one-off disruptions active today (same-day items) */
+const t0=midnight(), FRESH=14*864e5;
+const act=DATA.filter(d=>(d.cat==="roadclosure"||d.cat==="obstruction"||d.cat==="event") && activeToday(d));
+act.filter(d=>!(parseDMY(d.end)>parseDMY(d.start))).forEach(function(c){
+items.push({cls:"hot",em:c.cat==="event"?"📍":"🚧",txt:(c.cat==="roadclosure"?"Today - road closure: ":c.cat==="event"?"Today: ":"Today - works: ")+c.title});
+});
+/* PRIORITY 2: Transperth disruptions touching East Perth, active today (stale after 2 weeks if open-ended) */
+((window.PTA_DATA)||[]).filter(function(p){
+if(!p.zones||p.zones.indexOf("east")<0) return false;
+var st=parseDMY(p.start); if(st>t0) return false;
+if(p.ongoing) return (t0-st)<=FRESH;
+return parseDMY(p.end)>=t0;
+}).forEach(function(p){
+items.push({cls:"hot",em:p.mode==="train"?"🚆":"🚌",txt:"Transperth: "+p.title});
+});
+/* Ongoing works only while fresh - anything running >2 weeks is stale news and stays off the scroll */
+act.filter(d=>parseDMY(d.end)>parseDMY(d.start) && (t0-parseDMY(d.start))<=FRESH).forEach(function(c){
+items.push({cls:"",em:"🚧",txt:(c.cat==="roadclosure"?"Road closure: ":"Works: ")+c.title});
+});
+if(!items.length){ items.push({cls:"",em:"✅",txt:"No new disruptions today"}); }
+
+const b=binInfo();
+if(b){
+let em, cls, msg, sub, col="";
+if(b.diff===0){ // Wednesday, before the 6am pickup
+em="🌅"; cls="soon";
+msg="Last call - bins out, collected by 6am this morning ("+b.streams+")";
+sub="Collected by 6am today - "+b.streams; col="#c94f74";
+} else if(b.diff===1){ // the evening before collection
+em="🌙"; cls="hot";
+msg="Put your bins out TONIGHT - "+b.streams+" collected tomorrow morning";
+sub="Out tonight! "+b.streams+" collected tomorrow"; col="#b57d10";
+} else { // 2+ days away
+em="🗑️"; cls="bin";
+msg="Next bin day in "+b.diff+" days ("+b.date.toLocaleDateString("en-AU",{weekday:"long"})+") - "+b.streams;
+sub="In "+b.diff+" days ("+b.date.toLocaleDateString("en-AU",{weekday:"short",day:"numeric",month:"short"})+") - "+b.streams;
+}
+items.push({cls:cls, em:em, txt:msg});
+var bs=document.getElementById("binSub"); bs.textContent=sub; bs.style.color=col;
+}
+
+/* next EPCG event - always on the scroll */
+if(typeof EVENTS!=="undefined" && EVENTS.length){
+var up2=EVENTS.filter(function(e){return new Date(e.d+"T00:00:00")>=t0;}).sort(function(a,b){return new Date(a.d+"T00:00:00")-new Date(b.d+"T00:00:00");});
+var pk=up2.filter(function(e){return e.type==="epcg";})[0], lbl="Next EPCG event: ";
+if(!pk && up2.length){ pk=up2[0]; lbl="Next community event: "; }
+if(pk){
+var pd=new Date(pk.d+"T00:00:00");
+items.push({cls:"soon",em:"🎉",txt:lbl+pk.t+" · "+pd.toLocaleDateString("en-AU",{weekday:"short",day:"numeric",month:"short"})});
+}
+}
+
+/* fresh newsletter (published within the last 7 days) */
+if(NEWSLETTER_LATEST && (t0-new Date(NEWSLETTER_LATEST.d+"T00:00:00"))<=7*864e5){
+items.push({cls:"soon",em:"📰",txt:"New newsletter out - "+NEWSLETTER_LATEST.t+" edition · tap Newsletter to read"});
+}
+
+if(WEATHER_TODAY){
+items.push({cls:"",em:WEATHER_TODAY.icon,
+txt:WEATHER_TODAY.cond+" - "+WEATHER_TODAY.now+"° now, high "+WEATHER_TODAY.hi+"°"
++(WEATHER_TODAY.pop!=null?", "+WEATHER_TODAY.pop+"% rain":"")});
+}
+
+/* BP East Perth fuel price - to be added later */
+
+const track=document.getElementById("ticker");
+const one = items.map(it=>
+"<span class='item "+it.cls+"'><span class='em'>"+it.em+"</span>"+it.txt+"</span><span class='dot'>&bull;</span>"
+).join("");
+track.innerHTML = one + one;
+}
+var EVENTS=(window.EPCG_EVENTS||[]).map(function(e){return {d:e.d, t:e.t, type:e.type};});
+
+/* latest newsletter (parsed from newsletters.html; shown on the scroll for 7 days) */
+var NEWSLETTER_LATEST=null;
+fetch("newsletters.html").then(function(r){return r.text();}).then(function(html){
+var m=html.match(/\{d:"(\d{4}-\d{2}-\d{2})",\s*t:"([^"]+)"/);
+if(m){ NEWSLETTER_LATEST={d:m[1],t:m[2]}; buildTicker(); }
+}).catch(function(){});
+
+buildTicker();
+
+var curNot = NOTICES_LIST.filter(o=>{var s=statusOf(o);return s==="open"||s==="ongoing";}).length;
+var cNotEl=document.getElementById("cNot");
+if(curNot>0){ cNotEl.textContent=curNot; } else { cNotEl.style.display="none"; }
+function setCnt(id,v){var el=document.getElementById(id);if(!el)return;if(v>0){el.textContent=v;}else{el.style.display="none";}}
+setCnt("cDis", DATA.filter(function(d){return !isPast(d);}).length);
+setCnt("cTra", ((window.PTA_DATA)||[]).filter(function(d){return (!d.zones||d.zones.indexOf("east")>=0) && !(d.end && parseDMY(d.end)<midnight());}).length);
+setCnt("cEvt", (HUB.events||[]).length);
+
+/* ---- Business / Neighbourhood Spotlight (phone view) ----
+   Reads the SAME spotlight.js the boards use. HZ does not exist on this page, so it takes the east
+   entry and falls back exactly as the boards do. Card markup is the phone layout (thumb + body),
+   not the boards' media panel, so this renders the same data into different chrome. */
+(function(){
+  var host=document.getElementById("spotHost"); if(!host) return;
+  var S=window.SPOTLIGHT||{}, b=S.east||S.FALLBACK;
+  if(!b){ host.style.display="none"; return; }
+  var cta=(b.ctas&&b.ctas[0])||null;
+  var head=b.ribbon || "\u2605 Monthly Business Spotlight";
+  var open=cta?("<a class='spcard' href='"+cta.href+"' target='_blank' rel='noopener'>"):"<div class='spcard'>";
+  var close=cta?"</a>":"</div>";
+  host.innerHTML=
+    "<div class='sphead'>"+head+"</div>"+
+    open+
+      "<img class='spthumb' src='"+b.img+"' alt='"+(b.alt||b.name)+"' loading='lazy' onerror=\"this.style.display='none'\">"+
+      "<div class='spbody'>"+
+        "<div class='spname'>"+b.name+"</div>"+
+        (b.blurb?"<div class='spdesc'>"+b.blurb+"</div>":"")+
+        (b.meta?"<div class='spmeta'>"+b.meta+"</div>":"")+
+        (cta?"<span class='splink'>"+cta.label+" \u2197</span>":"")+
+      "</div>"+
+    close;
+})();
+
+/* ===== next-event teaser (mirror events.html) ===== */
+(function(){
+var t0=midnight();
+var up=EVENTS.filter(function(e){return new Date(e.d+"T00:00:00")>=t0;}).sort(function(a,b){return new Date(a.d+"T00:00:00")-new Date(b.d+"T00:00:00");});
+var pick=up.filter(function(e){return e.type==="epcg";})[0] || up[0];
+if(pick){
+var D=new Date(pick.d+"T00:00:00");
+var ds=D.toLocaleDateString("en-AU",{weekday:"short",day:"numeric",month:"short"});
+document.getElementById("evSub").textContent="Next: "+pick.t+" · "+ds;
+}
+})();
+
+/* Freshness guard (fridge view) - mirrors the boards' 8-day threshold. hub-data.js refreshes every
+   weekday; if it is >8 days old (or missing) at least a week of runs failed and the cards below are
+   showing stale civic data as if it were current. */
+(function staleGuard(){
+  var el=document.getElementById("staleWarn"); if(!el) return;
+  var g=window.HUB&&window.HUB.generated, d=g?new Date(g+"T00:00:00"):null;
+  if(d&&isNaN(d)) d=null;
+  var now=new Date(), today=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+  var age=d?Math.round((today-d)/86400000):null;
+  if(age===null||age>8){
+    el.textContent="\u26A0\uFE0F Updates may be out of date"+(age!==null?" - last refreshed "+age+" days ago":"")+". Check official sources before relying on anything here.";
+    el.className="stalewarn show";
+  }
+})();
+</script>
+<script data-goatcounter="https://epcgsec.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

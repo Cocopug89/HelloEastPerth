@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Central Perth zone board - City of Perth disruptions, Transperth updates, tenders, public notices, bin collection and what's on. An EPCG community service.">
+<link rel="canonical" href="https://www.eastperthcommunity.org.au/epcg-hub">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#004F71">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
+<title>Central Zone (CBD & Northbridge) - City of Perth Public Notices</title>
+<style>
+html{-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:100%}
+:root{--navy:#004F71;--blue:#00A3E0;--sky:#5BC2E7;--tealg:#49C5B1;--lime:#CEDC00;--amber:#F2C75C;--pink:#E782A9;--lav:#CAA2DD;--ink:#12212e;--muted:#5a6b7a;--sans:'Montserrat',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;--brush:'Montserrat',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:var(--sans);color:#eaf7fd;background:radial-gradient(125% 120% at 50% -12%,#1b7aa6 0%,var(--navy) 52%,#00374f 90%);background-attachment:fixed;min-height:100vh;-webkit-font-smoothing:antialiased;font-size:14px}
+#bar{max-width:980px;margin:0 auto;padding:16px 18px 6px}
+#bar .home{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);color:#fff;text-decoration:none;font-weight:600;font-size:13px;padding:7px 14px;border-radius:22px}
+#bar .home:hover{background:rgba(255,255,255,.24)}
+#bar .brandrow{display:flex;align-items:center;gap:16px;margin-top:12px;flex-wrap:wrap}
+#bar .logo{width:170px;max-width:50vw;height:auto;display:block}
+#bar .btitle h1{margin:0;font-family:var(--brush);font-weight:800;font-size:38px;line-height:1;letter-spacing:1px;text-transform:uppercase;color:#fff}
+#bar .btitle .sub{color:var(--sky);font-weight:600;font-size:13px;margin-top:6px;text-transform:uppercase;letter-spacing:.5px}
+#bar .s{font-size:12px;color:#bfe0f0;margin-top:10px}
+#bar .s a{color:#eaf7fd;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35)}
+#bar .zones b{color:#fff}
+#tabs{max-width:980px;margin:10px auto 0;padding:0 12px;display:flex;gap:2px;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,.18)}
+#tabs button{border:none;background:none;padding:11px 14px;font-size:13.5px;color:#bfe0f0;cursor:pointer;border-bottom:3px solid transparent;font-family:var(--sans);font-weight:600}
+#tabs button:hover{color:#fff}
+#tabs button.active{color:#fff;border-bottom-color:var(--sky)}
+#tabs .badge{background:rgba(255,255,255,.16);color:#fff;border-radius:10px;padding:1px 7px;font-size:11px;margin-left:6px}
+section.tab{display:none;max-width:980px;margin:0 auto;padding:16px 18px 48px}
+section.tab.active{display:block}
+#map,#ptaMap{height:30vh;min-height:220px;width:100%;background:#dfeaf1;border-radius:18px;box-shadow:0 12px 30px rgba(0,20,35,.30)}
+@media (min-width:768px){#map,#ptaMap{height:68vh;min-height:600px}}
+.mapwrap{position:relative}
+.maphelp{position:absolute;top:10px;right:10px;z-index:1200;width:30px;height:30px;border-radius:50%;border:none;background:var(--navy);color:#fff;font-size:16px;font-weight:800;line-height:1;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;font-family:var(--sans)}
+.maphelp:hover{background:var(--blue)}
+.maphelptip{position:absolute;top:46px;right:10px;z-index:1200;max-width:min(280px,78vw);background:#fff;color:#12212e;border-radius:12px;padding:11px 13px;font-size:12px;line-height:1.45;box-shadow:0 10px 26px rgba(0,20,35,.4);display:none}
+.maphelptip.open{display:block}
+.maphelptip b{color:var(--navy)}
+#ptamapctl{margin-top:10px;display:flex;flex-direction:column;gap:9px}
+#status{padding:10px 2px;font-size:13px;color:#cfe8f5}
+#status b{color:var(--amber)}
+#mapctl{margin-top:10px;display:flex;flex-direction:column;gap:9px}
+.mcrow{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.mclabel{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--sky);margin-right:2px}
+.tchip,.lchip{border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.10);border-radius:22px;padding:5px 13px;font-size:12.5px;color:#eaf7fd;cursor:pointer;font-family:var(--sans);font-weight:600;display:inline-flex;align-items:center}
+.seg{display:inline-flex;border:1px solid rgba(255,255,255,.25);border-radius:22px;overflow:hidden;background:rgba(255,255,255,.08);vertical-align:middle}
+.seg>*{padding:6px 13px;font-size:12.5px;font-weight:600;color:#bfe0f0;background:none;border:none;cursor:pointer;font-family:var(--sans);text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;line-height:1.4}
+.seg>*+*{border-left:1px solid rgba(255,255,255,.18)}
+.seg>.on,.seg>[aria-current="true"]{background:var(--blue);color:#fff}
+.seg>a:hover,.seg>button:hover{color:#fff;background:rgba(255,255,255,.12)}
+.seg>.on:hover,.seg>[aria-current="true"]:hover{background:var(--blue)}
+.tchip:hover,.lchip:hover{background:rgba(255,255,255,.18)}
+.tchip.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.lchip b{width:11px;height:11px;border-radius:50%;margin-right:6px;border:1px solid rgba(255,255,255,.35);display:inline-block}
+.lchip.off{opacity:.42;text-decoration:line-through}
+.mccount{font-size:12px;color:#cfe8f5;font-weight:600}
+.mckey{display:flex;gap:13px;flex-wrap:wrap;color:#9fc0d3;align-items:center;font-size:11.5px;margin-top:2px}
+.mckey b{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:-1px;border:1px solid rgba(255,255,255,.35)}
+.mckey .ring{display:inline-block;width:12px;height:12px;border-radius:50%;border:1.6px dashed var(--sky);margin-right:5px;vertical-align:-2px}
+.mckey .sep{width:1px;height:14px;background:rgba(255,255,255,.25);display:inline-block}
+.pgfoot{margin-top:30px;padding-top:16px;border-top:1px solid rgba(255,255,255,.14);color:#9fc0d3;font-size:12px;line-height:1.6}
+.pgfoot .ftitle{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--sky);margin-bottom:8px}
+.pgfoot .frow{display:flex;flex-direction:column;gap:5px}
+.pgfoot a{color:#d6eefa}
+.pgfoot .fnote{margin-top:10px;color:#7fa6bd;font-size:11.5px}
+.pgfoot .fdet summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--sky)}
+.pgfoot .fdet summary::-webkit-details-marker{display:none}
+.pgfoot .fdet[open] summary{margin-bottom:2px}
+.pgfoot .qmark{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;border:1.5px solid var(--sky);color:var(--sky);font-size:11px;font-weight:800;line-height:1}
+.todayctl{background:#fff;padding:7px 10px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,.25);font-size:12.5px;color:#12212e}
+.todayctl label{display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none}
+.todayctl input{accent-color:var(--blue);width:15px;height:15px}
+.todayctl .cnt{color:#5a6b7a;font-size:11px;margin-top:4px}
+.leaflet-popup-content{font-size:13px;line-height:1.4;color:#12212e}
+.leaflet-popup-content h3{margin:0 0 4px;font-size:14px;color:var(--navy)}
+.leaflet-popup-content .badge{display:inline-block;font-size:10px;font-weight:700;color:#fff;padding:1px 8px;border-radius:20px;margin-bottom:4px}
+.leaflet-popup-content .m{color:#5a6b7a;font-size:11.5px;margin-bottom:4px}
+.leaflet-popup-content .im{color:#7a5230;font-size:11.5px;margin-top:4px}
+.controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+.evtype{border:1px solid rgba(255,255,255,.25);border-radius:22px;padding:6px 12px;font-size:12.5px;background:rgba(255,255,255,.95);color:#12212e;font-family:var(--sans);font-weight:600;cursor:pointer;max-width:170px}
+.ecat{display:inline-block;font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;color:#0b3a4a;background:var(--sky);border-radius:20px;padding:1px 7px;margin-right:6px;vertical-align:1px}
+@media(max-width:600px){.row.evrow{display:grid;grid-template-columns:1fr auto;grid-template-areas:'date cat' 'title title' 'venue venue';gap:3px 8px;align-items:center}.row.evrow .dates{grid-area:date;min-width:0!important}.row.evrow .ecat{grid-area:cat;justify-self:end;margin-right:0}.row.evrow .ttl{grid-area:title;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:13.5px}.row.evrow .evvenue{grid-area:venue}}
+.chipbtn{border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.10);border-radius:22px;padding:6px 13px;font-size:12.5px;color:#eaf7fd;cursor:pointer;font-family:var(--sans);font-weight:600}
+.chipbtn:hover{background:rgba(255,255,255,.18)}
+.chipbtn.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.search{flex:1;min-width:160px;padding:9px 13px;border:1px solid rgba(255,255,255,.25);border-radius:22px;font-size:13px;background:rgba(255,255,255,.95);color:#12212e;font-family:var(--sans)}
+.search::placeholder{color:#7a8b98}
+.todaylbl{cursor:pointer;user-select:none;display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22);border-radius:22px;padding:6px 13px;font-size:12.5px;color:#eaf7fd;font-weight:600}
+.todaylbl input{accent-color:var(--sky);width:15px;height:15px}
+.t{font-weight:700;font-size:15px;color:#fff}
+.card{background:#fff;border:1px solid #e4edf3;border-left-width:5px;border-radius:14px;padding:12px 14px;margin-bottom:9px;box-shadow:0 6px 18px rgba(0,20,35,.16);color:#12212e}
+.card .t{font-weight:800;font-size:14px;margin-bottom:3px;color:var(--navy)}
+.card .m{font-size:11.5px;color:#5a6b7a}
+.card .b{display:inline-block;font-size:10px;font-weight:700;color:#fff;padding:1px 8px;border-radius:20px;margin-right:6px}
+.card .d{font-size:12.5px;color:#33424f;margin:3px 0}
+.card .im{font-size:11.5px;color:#7a5230}
+.card a{font-size:11.5px;color:var(--blue);text-decoration:none;font-weight:600}
+.card.flash{animation:flash 1.6s ease-out}
+@keyframes flash{0%{box-shadow:0 0 0 3px var(--sky)}100%{box-shadow:0 6px 18px rgba(0,20,35,.16)}}
+.row{display:flex;gap:10px;align-items:center;background:#fff;border:1px solid #e4edf3;border-radius:12px;padding:10px 13px;margin-bottom:7px;text-decoration:none;color:#12212e;flex-wrap:wrap;box-shadow:0 5px 14px rgba(0,20,35,.14)}
+.row:hover{box-shadow:0 10px 22px rgba(0,20,35,.2);transform:translateY(-1px)}
+.row .ref{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11.5px;color:var(--blue);min-width:84px}
+.row .ttl{flex:1;min-width:180px;font-size:13px;font-weight:600}
+.row .dates{font-size:11px;color:#5a6b7a;min-width:150px}
+.row .m{color:#5a6b7a;font-size:11.5px}
+.row .stat{font-size:10px;font-weight:800;color:#fff;border-radius:20px;padding:2px 8px}
+.row .go{color:#9aa4ad}
+.chip{display:inline-block;font-size:10px;font-weight:700;border-radius:20px;padding:1px 7px;margin-left:6px}
+.chip.ep{background:#e6f7f1;color:#127a5c}
+.note{font-size:12.5px;color:#a9cfe2;margin:2px 0 14px}
+.banner{background:#fff6e6;border:1px solid #e6c07a;border-radius:12px;padding:11px 14px;font-size:12.5px;color:#7a5230;margin-bottom:14px}
+@media(max-width:520px){ #bar .btitle h1{font-size:30px} #bar .logo{width:150px} }
+.backtop{display:none;position:fixed;left:12px;top:10px;z-index:1900;background:var(--navy);color:#fff;border:1px solid rgba(255,255,255,.28);border-radius:22px;padding:9px 15px;font-size:13px;font-weight:700;font-family:var(--sans);box-shadow:0 6px 16px rgba(0,0,0,.34);cursor:pointer;align-items:center;gap:7px}
+@media(max-width:600px){.backtop.show{display:inline-flex}}
+.mburger{display:none}
+.mnav{display:none}
+.mscrim{display:none}
+@media(max-width:600px){
+  #bar .logo{display:none}
+  #bar .brandrow{margin-top:4px}
+  #tabs{display:none}
+  .mburger{display:flex;align-items:center;justify-content:center;position:fixed;top:10px;right:12px;z-index:2002;background:var(--blue);color:#fff;border:none;border-radius:12px;width:46px;height:40px;font-size:21px;cursor:pointer;box-shadow:0 6px 16px rgba(0,0,0,.32)}
+  .mscrim{position:fixed;inset:0;background:rgba(0,10,20,.45);z-index:2000}
+  .mscrim.open{display:block}
+  .mnav{display:block;position:fixed;top:0;right:0;bottom:0;width:76vw;max-width:300px;background:#013247;z-index:2001;transform:translateX(100%);transition:transform .22s ease;box-shadow:-8px 0 26px rgba(0,0,0,.45);padding:56px 0 24px;overflow-y:auto}
+  .mnav.open{transform:translateX(0)}
+  .mnav a{display:flex;align-items:center;gap:13px;padding:13px 22px;color:#eaf7fd;text-decoration:none;font-family:var(--sans);font-weight:600;font-size:15px;border-bottom:1px solid rgba(255,255,255,.08)}
+  .mnav a:active{background:rgba(255,255,255,.10)}
+  .mnav a .mi{font-size:18px;width:22px;text-align:center}
+}
+
+body.on-home #tabs{display:none}
+body.on-home #bar{display:none}
+#tab-home{max-width:1400px}
+.hhead{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:12px;flex-wrap:wrap}
+.hbrand{display:flex;align-items:center;gap:14px}
+.hlogo{height:60px;width:auto;display:block}
+.hbrand h1{font-size:34px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#fff;line-height:1;margin:0}
+.hglance{display:flex;align-items:stretch;gap:12px;height:60px}
+.hglance .wxc{display:flex;align-items:center;gap:11px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:0 18px}
+.hglance .wxc .ico{font-size:30px}
+.hglance .wxc .temp{font-size:27px;font-weight:800;color:#fff;line-height:1}
+.hglance .wxc .cond{font-size:11.5px;color:#bfe0f0;font-weight:600}
+.hglance .clock{display:flex;flex-direction:column;justify-content:center;align-items:flex-end;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:0 18px}
+.hglance .clock .t{font-size:36px;font-weight:800;line-height:.9;color:#fff;font-variant-numeric:tabular-nums}
+.hglance .clock .d{font-size:11.5px;color:#bfe0f0;font-weight:600}
+.tzone{flex:none;display:flex;align-items:center;padding:0 12px;border-left:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.14)}
+.ticker{display:flex;align-items:stretch;background:linear-gradient(90deg,#013247,#014b63);border:1px solid rgba(255,255,255,.14);border-radius:16px;overflow:hidden;box-shadow:0 10px 26px rgba(0,20,35,.34);margin-bottom:14px}
+.ticker .label{flex:none;display:flex;align-items:center;gap:8px;background:var(--amber);color:#3a2a06;font-weight:800;font-size:14px;letter-spacing:1.2px;padding:0 18px;text-transform:uppercase}
+.ticker .label .dot{width:9px;height:9px;border-radius:50%;background:#c0392b;animation:hpulse 1.6s infinite}
+@keyframes hpulse{0%{box-shadow:0 0 0 0 rgba(192,57,43,.6)}70%{box-shadow:0 0 0 9px rgba(192,57,43,0)}100%{box-shadow:0 0 0 0 rgba(192,57,43,0)}}
+.ticker .viewport{overflow:hidden;flex:1;position:relative}
+.ticker .track{display:inline-flex;white-space:nowrap;padding:14px 0;animation:hscroll 92s linear infinite}
+.ticker .item{font-size:15.5px;font-weight:600;color:#eaf7fd;padding:0 26px;display:inline-flex;align-items:center;gap:8px}
+.ticker .item b{color:var(--amber)}
+.ticker .sep{color:rgba(255,255,255,.28)}
+@keyframes hscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.stage{display:flex;flex-direction:column;gap:12px}
+.spotlight{display:flex;background:#0a2b3b;border:1px solid rgba(255,255,255,.14);border-radius:20px;overflow:hidden;box-shadow:0 16px 38px rgba(0,20,35,.42);min-height:230px}
+.spot-media{flex:0 0 42%;position:relative;overflow:hidden;background:#7a1f16}
+.spot-media .photo{width:100%;height:100%;object-fit:cover;display:block}
+.spot-media .ribbon{position:absolute;top:0;left:0;right:0;background:linear-gradient(90deg,var(--pink),var(--amber));color:#3a1526;font-weight:800;text-transform:uppercase;letter-spacing:2px;font-size:12px;padding:9px 16px;display:flex;align-items:center;justify-content:space-between}
+.spot-media .badge{width:130px;height:130px;border-radius:24px;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-weight:800;color:#7a1f16;font-size:14px;text-align:center;line-height:1.1;box-shadow:0 12px 28px rgba(0,0,0,.34)}
+.spot-media .badge .ph{font-size:36px}
+.spot-media .cam{position:absolute;bottom:10px;right:14px;font-size:11px;color:rgba(255,255,255,.8);font-weight:600}
+.spot-info{flex:1;padding:20px 26px;display:flex;flex-direction:column;gap:11px;color:#eaf7fd}
+.spot-info .nm{font-size:30px;font-weight:800;color:#fff;line-height:1.02}
+.spot-info .tl{font-size:15px;color:#bfe0f0;font-weight:600;line-height:1.4}
+.spot-hi{background:rgba(206,220,0,.16);border:1px dashed var(--lime);border-radius:12px;padding:11px 14px;color:#eaffd0;font-size:14.5px;font-weight:700}
+.spot-hi b{color:var(--lime)}
+.spot-meta{font-size:13px;color:#9fc0d3;font-weight:600}
+.spot-cta{margin-top:auto;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.spot-cta .b1{background:var(--blue);color:#fff;font-weight:800;padding:11px 22px;border-radius:12px;font-size:15px;text-decoration:none}
+.spot-cta .b2{background:rgba(255,255,255,.12);color:#fff;font-weight:700;padding:11px 18px;border-radius:12px;font-size:15px;text-decoration:none}
+.spot-cta .sell{margin-left:auto;font-size:11.5px;color:#9fc0d3;font-weight:600;text-align:right;max-width:220px}
+.spot-cta .sell b{color:var(--sky)}
+.hometop{display:flex;gap:12px;align-items:stretch;min-height:0}
+.hometop>.spotlight{flex:1.7 1 0;min-width:0}
+.whatson{flex:1 1 0;min-width:0;display:flex;flex-direction:column;background:#0a2b3b;border:1px solid rgba(255,255,255,.14);border-radius:20px;overflow:hidden;box-shadow:0 16px 38px rgba(0,20,35,.42);min-height:230px}
+.whatson .wohead{background:linear-gradient(90deg,var(--tealg),var(--sky));color:#08322b;padding:11px 18px;display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex:none}
+.whatson .wohead .wt{font-weight:800;text-transform:uppercase;letter-spacing:1.5px;font-size:13px;display:flex;align-items:center;gap:8px}
+.whatson .wohead .wrange{font-size:11.5px;font-weight:700;color:#0a3a32;white-space:nowrap;opacity:.9}
+.whatson .wolist{flex:1;min-height:0;overflow-y:auto;padding:4px 8px 6px}
+.wo-item{display:block;text-decoration:none;color:#eaf7fd;padding:9px 11px;border-radius:12px;border-bottom:1px solid rgba(255,255,255,.06)}
+.wo-item:last-child{border-bottom:0}
+.wo-item:hover{background:rgba(255,255,255,.07)}
+.wo-item .wo-top{display:flex;align-items:center;gap:8px;margin-bottom:2px}
+.wo-item .wo-day{font-size:11px;font-weight:800;letter-spacing:.4px;color:#08322b;background:var(--tealg);border-radius:20px;padding:1px 9px;white-space:nowrap;flex:none}
+.wo-item .wo-day.soon{background:var(--amber);color:#4a3600}
+.wo-item .wo-cat{font-size:10.5px;font-weight:700;color:#9fc0d3;margin-left:auto;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:42%}
+.wo-item .wo-ttl{font-size:14px;font-weight:700;color:#fff;line-height:1.25}
+.wo-item .wo-venue{font-size:11.5px;color:#9fc0d3;font-weight:600;margin-top:1px}
+.whatson .wofoot{flex:none;padding:8px 14px;border-top:1px solid rgba(255,255,255,.1);font-size:11.5px;color:#9fc0d3}
+.whatson .wofoot a{color:var(--sky);font-weight:800;text-decoration:none}
+.whatson .woempty{padding:22px 16px;color:#9fc0d3;font-size:13.5px;text-align:center;line-height:1.5}
+.homeright{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:12px}
+.hys{flex:none;display:flex;flex-direction:column;background:#0a2b3b;border:1px solid rgba(255,255,255,.14);border-radius:20px;overflow:hidden;box-shadow:0 16px 38px rgba(0,20,35,.42)}
+.hys .hyshead{background:linear-gradient(90deg,var(--amber),var(--lime));color:#3a2a06;padding:11px 18px;display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex:none}
+.hys .hyshead .ht{font-weight:800;text-transform:uppercase;letter-spacing:1.5px;font-size:13px;display:flex;align-items:center;gap:8px}
+.hys .hyshead .hsub{font-size:11.5px;font-weight:700;color:#4a3600;white-space:nowrap;opacity:.9}
+.hys .hyslist{padding:4px 8px 6px}
+.hys-item{display:block;text-decoration:none;color:#eaf7fd;padding:9px 11px;border-radius:12px;border-bottom:1px solid rgba(255,255,255,.06)}
+.hys-item:last-child{border-bottom:0}
+.hys-item:hover{background:rgba(255,255,255,.07)}
+.hys-item .hys-top{display:flex;align-items:center;gap:8px;margin-bottom:2px}
+.hys-item .hys-days{font-size:11px;font-weight:800;letter-spacing:.4px;border-radius:20px;padding:1px 9px;white-space:nowrap;flex:none;background:var(--sky);color:#08322b}
+.hys-item .hys-days.soon{background:#E0645E;color:#fff}
+.hys-item .hys-typ{font-size:10.5px;font-weight:700;color:#9fc0d3;margin-left:auto;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:42%}
+.hys-item .hys-ttl{font-size:14px;font-weight:700;color:#fff;line-height:1.25}
+.hys .hysempty{padding:16px;color:#9fc0d3;font-size:13px;text-align:center;line-height:1.5}
+.wo-item.wo-pin{background:rgba(242,199,92,.10);border-bottom:1px solid rgba(242,199,92,.30)}
+.wo-item.wo-pin:hover{background:rgba(242,199,92,.17)}
+.wo-item .wo-day.epcg{background:var(--amber);color:#4a3600}
+.srcchip{display:inline-block;margin-left:8px;padding:1px 8px;border-radius:20px;background:rgba(91,194,231,.18);border:1px solid rgba(91,194,231,.45);color:var(--sky);font-size:10.5px;font-weight:800;letter-spacing:.4px;vertical-align:middle}
+.hbrand{display:flex;align-items:center;gap:14px}
+.hbrand .btext{display:flex;flex-direction:column;justify-content:center}
+.dstamp{font-size:11.5px;font-weight:600;color:#8fb8cc;letter-spacing:.2px;margin-top:3px;line-height:1.2}
+.dstamp.stale{color:var(--amber);font-weight:800}
+.dstamp.stale::before{content:"\26A0\FE0F  "}
+/* ---- Home bottom row: bins (left) + social links (right), locked in line ---- */
+.homebot{display:flex;gap:12px;align-items:stretch}
+.homebot>.spot-offer{margin-top:12px;border:2px dashed rgba(242,199,92,.75);background:rgba(242,199,92,.10);border-radius:14px;padding:12px 14px}
+.spot-offer .oh{font-weight:800;font-size:15.5px;color:var(--amber);line-height:1.25}
+.spot-offer .ohow{font-size:13px;color:#eaf7fd;font-weight:700;margin-top:4px}
+.spot-offer .ocode{display:inline-block;margin-top:7px;padding:3px 12px;border-radius:8px;background:var(--amber);color:#3a2a06;font-weight:800;font-size:13.5px;letter-spacing:1.2px;font-variant-numeric:tabular-nums}
+.spot-offer .oterms{font-size:11px;color:#9fc0d3;margin-top:7px;line-height:1.45}
+.bins{flex:1;margin:0}
+.homesocial{flex:none;display:flex;align-items:center;gap:14px;background:linear-gradient(120deg,#ffffff,#eef8f1);border-radius:16px;padding:13px 22px;box-shadow:0 12px 30px rgba(0,20,35,.22)}
+.homesocial .lbl{font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--muted);line-height:1.2;max-width:78px}
+.homesocial .sirow{display:flex;gap:10px}
+.homesocial a.si{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 5px 14px rgba(0,20,35,.20);transition:transform .12s ease}
+.homesocial a.si:hover{transform:translateY(-2px)}
+.homesocial a.si svg{width:24px;height:24px;fill:#fff;display:block}
+.homesocial a.ig{background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285AEB 90%)}
+.homesocial a.fb{background:#1877F2}
+.homesocial a.web{background:var(--blue)}
+.homesocial a.fo{background:var(--pink)}
+.bins{background:linear-gradient(120deg,#ffffff,#eef8f1);color:var(--ink);border-radius:16px;padding:13px 20px;display:flex;align-items:center;gap:22px;box-shadow:0 12px 30px rgba(0,20,35,.22)}
+.bins .hd .lab{font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#2a9d5a}
+.bins .hd .day{font-size:24px;font-weight:800;color:var(--navy);line-height:1.02}
+.bins .hd .sub{font-size:11.5px;color:var(--muted);font-weight:600}
+.binpills{display:flex;gap:12px;flex:1;flex-wrap:wrap}
+.binpill{flex:1;min-width:150px;border-radius:14px;padding:11px 15px;display:flex;align-items:center;gap:11px}
+.binpill .ic{font-size:26px}
+.binpill .nm{font-weight:800;font-size:17px;line-height:1;color:inherit}
+.binpill .fq{font-size:11px;font-weight:700;opacity:.85;margin-top:3px}
+.b-fogo{background:#6FA83A;color:#fff}.b-recy{background:#EDB400;color:#3a2f00}.b-gen{background:#E0645E;color:#fff}
+.navbar{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.navbar a{flex:1;min-width:120px;display:flex;align-items:center;justify-content:center;gap:9px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:13px 10px;color:#eaf7fd;text-decoration:none;font-weight:700;font-size:14px;cursor:pointer}
+.navbar a .i{font-size:19px}
+.navbar a .n{background:rgba(255,255,255,.22);border-radius:10px;font-size:11px;font-weight:800;padding:1px 7px}
+@media(max-width:820px){.spotlight{flex-direction:column}.spot-media{flex:0 0 130px}.hwx{justify-content:space-between}}
+
+@media(max-width:767px){#deskhead{display:none}}
+@media(max-width:767px){.hometop{flex-direction:column}.whatson{min-height:0}.whatson .wolist{max-height:320px}}
+@media(min-width:768px){
+html,body{height:100%}
+body{display:flex;flex-direction:column;height:100vh;min-height:820px;overflow-y:auto;overflow-x:hidden;padding:18px 7% 24px;gap:18px}
+#bar,#tabs,.pgfoot,.mburger{display:none!important}
+#deskhead{flex:none;max-width:none;padding:0;position:relative}
+#topsentinel{display:none}
+.hglance{position:relative}
+.dburger{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);border-radius:16px;color:#fff;font-size:24px;width:58px;height:60px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.dburger:hover{background:rgba(255,255,255,.18)}
+.dmenu{display:none;position:absolute;right:0;top:calc(100% + 8px);z-index:100;background:#013247;border:1px solid rgba(255,255,255,.2);border-radius:14px;box-shadow:0 14px 34px rgba(0,0,0,.5);min-width:230px;padding:6px}
+.dmenu.open{display:block}
+.dmenu a{display:flex;align-items:center;gap:11px;padding:11px 14px;color:#eaf7fd;text-decoration:none;font-weight:600;font-size:14px;border-radius:10px}
+.dmenu a:hover{background:rgba(255,255,255,.12)}
+.dmenu a .mi{font-size:17px;width:22px;text-align:center}
+#deskhead .hhead{margin-bottom:10px}
+#deskhead .ticker{margin-bottom:0}
+#deskhead .navbar{margin-top:10px;margin-bottom:0;flex-wrap:nowrap}
+#deskhead .navbar a{flex:1;min-width:0;font-size:13px;padding:11px 8px}
+#deskhead .navbar a .i{font-size:17px}
+section.tab{max-width:none!important;margin:0!important;padding:0!important}
+section.tab.active{display:flex;flex-direction:column;flex:1;min-height:0;overflow:hidden;padding:0}
+#tab-home.active{overflow:hidden}
+#tab-home.active .stage{flex:1;min-height:0}
+#tab-home.active .hometop{flex:1;min-height:460px}
+#tab-home.active .spotlight,#tab-home.active .whatson{min-height:0}
+.note,.banner{flex:none}
+#tab-tenders.active #tenList,#tab-notices.active #notList,#tab-events.active #evList{flex:1;overflow-y:auto;min-height:0}
+#tab-bins.active{display:grid;grid-template-columns:minmax(300px,0.9fr) 1.1fr;grid-template-rows:auto auto auto auto;grid-template-areas:"note note" "ctrl ctrl" "next cal" "info info";gap:14px 26px;align-content:start;overflow-y:auto}
+#tab-bins.active > .note{grid-area:note;margin:0}
+#tab-bins.active > .controls{grid-area:ctrl;margin:0}
+#tab-bins.active #binNext{grid-area:next}
+#tab-bins.active #binCal{grid-area:cal}
+#tab-bins.active > .card{grid-area:info;margin-top:6px!important}
+#tab-disruptions.active,#tab-transport.active{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(340px,1fr);grid-template-rows:auto auto 1fr;grid-template-areas:"map show" "map ctrl" "map list";gap:10px 16px}
+#tab-disruptions.active .mapwrap,#tab-transport.active .mapwrap{grid-area:map;height:100%;margin:0}
+#tab-disruptions.active #map,#tab-transport.active #ptaMap{height:100%!important;min-height:0!important}
+#tab-disruptions.active #mapctl,#tab-transport.active #ptamapctl{grid-area:show;margin:0}
+#tab-disruptions.active .controls,#tab-transport.active .controls{grid-area:ctrl;margin:0}
+#tab-disruptions.active #disList,#tab-transport.active #ptaList{grid-area:list;overflow-y:auto;min-height:0}
+}
+
+/* Release credit line: byline · disclaimer · report a bug (desktop view) */
+.hubcredit{display:none}
+@media(min-width:768px){.hubcredit{display:flex;flex:none;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:5px 9px;margin-top:-8px;padding:0 2px 1px;font-size:10.5px;line-height:1.35;color:#6f92a8;text-align:center}.hubcredit .hc-by{font-weight:700;color:#8fb4c8}.hubcredit .hc-dis{max-width:none}.hubcredit .hc-sep{opacity:.5}.hubcredit a.hc-bug{color:#8fb4c8;font-weight:700;text-decoration:none;border-bottom:1px dotted rgba(143,180,200,.6)}.hubcredit a.hc-bug:hover{color:#cfe6f2}}
+</style>
+</head>
+<body>
+<button class="mburger" aria-label="Open menu" onclick="var m=document.querySelector('.mnav'),s=document.querySelector('.mscrim');m.classList.toggle('open');s.classList.toggle('open');">&#9776;</button>
+<div class="mscrim" onclick="document.querySelector('.mnav').classList.remove('open');this.classList.remove('open');"></div>
+<button class="backtop" aria-label="Back to top" onclick="var e=document.scrollingElement||document.documentElement;try{e.scrollTo({top:0,behavior:'smooth'});}catch(x){e.scrollTop=0;}try{window.scrollTo({top:0,behavior:'smooth'});}catch(x){}">&#8593; Back to top</button>
+<nav class="mnav">
+  <a href="index.html"><span class="mi">&#127968;</span>Home</a>
+  <a href="#disruptions"><span class="mi">&#128679;</span>Disruptions</a>
+  <a href="#transport"><span class="mi">&#128650;</span>Transport</a>
+  <a href="#tenders"><span class="mi">&#128188;</span>Tenders</a>
+  <a href="#notices"><span class="mi">&#128196;</span>Notices</a>
+  <a href="#bins"><span class="mi">&#128465;</span>Bins</a>
+  <a href="#events"><span class="mi">&#127881;</span>What's On</a>
+  <a href="newsletters.html"><span class="mi">&#128240;</span>Newsletter</a>
+  <a href="events.html"><span class="mi">&#128197;</span>EPCG Events</a>
+  <a href="support.html"><span class="mi">&#10084;&#65039;</span>Support</a>
+</nav>
+
+<div id="deskhead">
+  <div class="hhead">
+    <div class="hbrand" onclick="activateTab('home');return false;" style="cursor:pointer"><a href="https://www.eastperthcommunity.org.au/" target="_top" onclick="event.stopPropagation()" style="display:inline-flex;line-height:0;text-decoration:none" aria-label="Go to the East Perth Community home site"><img class="hlogo" src="epcg-logo-rev.png" alt="East Perth Community"></a><div class="btext"><h1>Central Perth Community Hub</h1><div class="dstamp" id="dstamp"></div></div></div>
+    <div class="hglance">
+      <div class="wxc"><span class="ico" id="hwxIco">&#127777;</span><div><div class="temp" id="hwxTemp">&mdash;</div><div class="cond" id="hwxCond">Loading&hellip;</div></div></div>
+      <div class="clock"><div class="t" id="hclock">--:--</div><div class="d" id="hdate"></div></div>
+      <button class="dburger" aria-label="Open menu" onclick="document.getElementById('dmenu').classList.toggle('open');event.stopPropagation();">&#9776;</button>
+      <div id="dmenu" class="dmenu">
+        <a href="#" onclick="activateTab('home');document.getElementById('dmenu').classList.remove('open');return false;"><span class="mi">&#8962;</span>Home</a>
+        <a href="#" onclick="activateTab('disruptions');document.getElementById('dmenu').classList.remove('open');return false;"><span class="mi">&#128679;</span>Disruptions</a>
+        <a href="#" onclick="activateTab('transport');document.getElementById('dmenu').classList.remove('open');return false;"><span class="mi">&#128650;</span>Transport</a>
+        <a href="#" onclick="activateTab('events');document.getElementById('dmenu').classList.remove('open');return false;"><span class="mi">&#127881;</span>What's On</a>
+        <a href="#" onclick="activateTab('bins');document.getElementById('dmenu').classList.remove('open');return false;"><span class="mi">&#128465;</span>Bins</a>
+        <a href="#" onclick="activateTab('notices');document.getElementById('dmenu').classList.remove('open');return false;"><span class="mi">&#128196;</span>Notices</a>
+        <a href="#" onclick="activateTab('tenders');document.getElementById('dmenu').classList.remove('open');return false;"><span class="mi">&#128188;</span>Tenders</a>
+        <a href="newsletters.html"><span class="mi">&#128240;</span>Newsletter</a>
+        <a href="events.html"><span class="mi">&#128197;</span>EPCG Events</a>
+        <a href="support.html"><span class="mi">&#10084;&#65039;</span>Support Us</a>
+      </div>
+    </div>
+  </div>
+  <div class="ticker">
+    <div class="label"><span class="dot"></span>Today</div>
+    <div class="viewport"><div class="track" id="htrack"><span class="item">Loading live updates&hellip;</span></div></div>
+    <div class="tzone"><span class="seg zones"><a href="west-zone-public-notices.html">West</a><span class="on" aria-current="true">Central</span><a href="east-perth-public-notices.html">East</a></span></div>
+  </div>
+
+</div>
+<div id="bar">
+  <div class="brandrow">
+    <img class="logo" src="epcg-logo-rev.png" alt="East Perth Community">
+    <div class="btitle"><h1>Central · CBD & Northbridge</h1></div>
+  </div>
+  <div style="margin-top:12px"><span class="seg zones"><a href="west-zone-public-notices.html">West</a><span class="on" aria-current="true">Central</span><a href="east-perth-public-notices.html">East</a></span></div>
+</div>
+<div id="tabs">
+  <button data-tab="home">&#8962; Home</button>
+  <button data-tab="disruptions">Disruptions <span class="badge" id="bDis"></span></button>
+  <button data-tab="transport">Transport <span class="badge" id="bPta"></span></button>
+  <button data-tab="tenders">Open Tenders <span class="badge" id="bTen"></span></button>
+  <button data-tab="notices">Public Notices <span class="badge" id="bNot"></span></button>
+  <button data-tab="bins">Bin Collection</button>
+  <button data-tab="events">What's On</button>
+</div>
+
+<section class="tab active" id="tab-home">
+  <main class="stage">
+        <div class="hometop">
+<section class="spotlight"></section>
+    <aside class="homeright">
+      <section class="hys">
+        <div class="hyshead">
+          <span class="ht">&#128499; Have Your Say</span>
+          <span class="hsub">City consultations</span>
+        </div>
+        <div class="hyslist" id="hysList"></div>
+      </section>
+      <section class="whatson">
+      <div class="wohead">
+        <span class="wt">&#127881; Free Events Around Perth</span>
+        <span class="wrange" id="woRange">This week</span>
+      </div>
+      <div class="wolist" id="woList"></div>
+      <div class="wofoot"><a onclick="activateTab('events');return false;" href="#">See all What's On &rarr;</a></div>
+    </section>
+    </aside>
+    </div>
+        <div class="homebot">
+<section class="bins">
+      <div class="hd"><div class="lab" id="hbinLab">Bins</div><div class="day" id="hbinDay">&mdash;</div><div class="sub">Out by 6am</div></div>
+      <div class="binpills" id="hbinPills"></div>
+    </section>
+    <aside class="homesocial">
+      <div class="lbl">Follow EPCG</div>
+      <div class="sirow">
+        <a class="si ig" href="https://www.instagram.com/eastperthcommunity/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.17.42.37 1.06.42 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.42 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.17-1.06.37-2.23.42-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.42-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.17-.42-.37-1.06-.42-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.17 1.06-.37 2.23-.42 1.27-.06 1.65-.07 4.85-.07Zm0 5.68a4.16 4.16 0 1 0 0 8.32 4.16 4.16 0 0 0 0-8.32Zm0 6.86a2.7 2.7 0 1 1 0-5.4 2.7 2.7 0 0 1 0 5.4Zm5.3-7.02a.97.97 0 1 1-1.94 0 .97.97 0 0 1 1.94 0Z"/></svg></a>
+        <a class="si fb" href="https://www.facebook.com/EastPerthCommunityGroup" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/></svg></a>
+        <a class="si web" href="https://www.eastperthcommunity.org.au/" target="_blank" rel="noopener" aria-label="Website" title="Website"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm6.93 6h-2.95a15.6 15.6 0 0 0-1.38-3.56A8.03 8.03 0 0 1 18.93 8ZM12 4.04c.83 1.2 1.48 2.53 1.9 3.96h-3.8c.42-1.43 1.07-2.76 1.9-3.96ZM4.26 14a7.9 7.9 0 0 1 0-4h3.38a16.5 16.5 0 0 0 0 4H4.26Zm.81 2h2.95c.34 1.27.81 2.47 1.38 3.56A8.03 8.03 0 0 1 5.07 16Zm2.95-8H5.07a8.03 8.03 0 0 1 4.33-3.56A15.6 15.6 0 0 0 8.02 8ZM12 19.96c-.83-1.2-1.48-2.53-1.9-3.96h3.8c-.42 1.43-1.07 2.76-1.9 3.96ZM14.34 14H9.66a14.7 14.7 0 0 1 0-4h4.68a14.7 14.7 0 0 1 0 4Zm.28 5.56c.57-1.09 1.04-2.29 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56ZM16.36 14a16.5 16.5 0 0 0 0-4h3.38a7.9 7.9 0 0 1 0 4h-3.38Z"/></svg></a>
+        <a class="si fo" href="https://www.facebook.com/groups/506581086581037" target="_blank" rel="noopener" aria-label="East Perth Local discussion group" title="East Perth Local - Facebook discussion group"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4V5a2 2 0 0 1 2-2Zm3 6.75A1.25 1.25 0 1 0 7 12.25 1.25 1.25 0 0 0 7 9.75Zm5 0a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5Zm5 0a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5Z"/></svg></a>
+      </div>
+    </aside>
+    </div>
+  </main>
+  <nav class="navbar">
+    <a onclick="activateTab('disruptions');return false;" href="#"><span class="i">&#128679;</span>Disruptions<span class="n" id="nDis">&middot;</span></a>
+    <a onclick="activateTab('transport');return false;" href="#"><span class="i">&#128650;</span>Transport<span class="n" id="nPta">&middot;</span></a>
+    <a onclick="activateTab('events');return false;" href="#"><span class="i">&#127881;</span>What's On<span class="n" id="nEv">&middot;</span></a>
+    <a onclick="activateTab('notices');return false;" href="#"><span class="i">&#128196;</span>Notices<span class="n" id="nNot">&middot;</span></a>
+    <a onclick="activateTab('tenders');return false;" href="#"><span class="i">&#128188;</span>Tenders<span class="n" id="nTen">&middot;</span></a>
+    <a href="events.html"><span class="i">&#128197;</span>EPCG Events</a>
+    <a href="support.html"><span class="i">&#10084;&#65039;</span>Support Us</a>
+  </nav>
+</section>
+<section class="tab" id="tab-disruptions">
+  <div class="mapwrap"><div id="status">Loading map library...</div><div id="map" style="display:none"></div><button type="button" class="maphelp" aria-label="About this data" onclick="this.parentNode.querySelector('.maphelptip').classList.toggle('open')">?</button><div class="maphelptip">Roadworks, closures, events and construction affecting the <b>Central</b> zone (Perth CBD &amp; Northbridge, City of Perth). Tap a pin or a card for detail; use the layers and filters to narrow it down.</div></div>
+  <div id="mapctl">
+    <div class="mcrow">
+      <span class="mclabel">Show</span>
+      <span class="seg"><button class="on" data-time="today">Today</button><button data-time="all">All current</button></span>
+      <span class="mccount" id="cnt"></span>
+    </div>
+    <div class="mcrow" id="legend">
+      <span class="mclabel">Layers</span>
+      <button class="lchip on" data-cat="roadclosure"><b style="background:#d63333"></b>Road closures</button>
+      <button class="lchip on" data-cat="obstruction"><b style="background:#e8873a"></b>Obstructions</button>
+      <button class="lchip on" data-cat="event"><b style="background:#5b8def"></b>Events</button>
+      <button class="lchip on" data-cat="infrastructure"><b style="background:#8d6e63"></b>Construction</button>
+    </div>
+    <div class="mckey">
+      <span><b style="background:#d63333"></b>Full closure</span>
+      <span><b style="background:#e8873a"></b>Lane / footpath</span>
+      <span><b style="background:#e8c53a"></b>Partial footpath</span>
+      <span class="sep"></span>
+      <span><b style="background:#8a5cf0"></b>Major event</span>
+      <span class="sep"></span>
+      <span><b style="background:#9aa4ad;border-style:solid"></b>One-off</span>
+      <span><span class="ring"></span>Ongoing / recurring</span>
+    </div>
+  </div>
+  <div class="controls" style="margin-top:12px">
+    <span class="mclabel" style="align-self:center">The <b>Show</b> and <b>Layers</b> filters above apply to both the map and this list.</span>
+    <input class="search" id="disSearch" aria-label="Search disruptions" placeholder="Search disruptions...">
+  </div>
+  <div id="disList"></div>
+</section>
+
+<section class="tab" id="tab-transport">
+  <div class="mapwrap"><div id="ptaStatus">Loading map library...</div><div id="ptaMap" style="display:none"></div><button type="button" class="maphelp" aria-label="About this data" onclick="this.parentNode.querySelector('.maphelptip').classList.toggle('open')">?</button><div class="maphelptip">Transperth (PTA) disruptions with at least one affected stop in the <b>Central</b> zone (Perth CBD &amp; Northbridge - Perth, Perth Underground, McIver &amp; Elizabeth Quay stations, CBD CAT &amp; bus stops). Stops outside this zone and metro-wide items aren't shown - see the East and West pages. Refreshed weekly from transperth.wa.gov.au.</div></div>
+  <div id="ptamapctl">
+    <div class="mcrow">
+      <span class="mclabel">Show</span>
+      <span class="seg"><button class="on" data-ptime="today">Active today</button><button data-ptime="all">All current / upcoming</button></span>
+      <span class="mccount" id="ptaCnt"></span>
+    </div>
+    <div class="mcrow" id="ptalegend">
+      <span class="mclabel">Modes</span>
+      <button class="lchip on" data-mode="train"><b style="background:#7A4E2E"></b>Train</button>
+      <button class="lchip on" data-mode="bus"><b style="background:#1E7D34"></b>Bus</button>
+      <button class="lchip on" data-mode="cat"><b style="background:#D63333"></b>CAT</button>
+    </div>
+    <div class="mckey">
+      <span>Each dot = an affected stop &middot; colour = mode</span>
+      <span class="sep"></span>
+      <span><span class="ring"></span>Ongoing / until further notice</span>
+    </div>
+  </div>
+  <div class="controls" style="margin-top:12px">
+    <span class="mclabel" style="align-self:center">The <b>Show</b> and <b>Modes</b> filters above apply to both the map and this list.</span>
+    <input class="search" id="ptaSearch" aria-label="Search routes, lines or stops" placeholder="Search routes, lines or stops...">
+  </div>
+  <div id="ptaList"></div>
+</section>
+
+<section class="tab" id="tab-tenders">
+  <div id="tenBanner"></div>
+  <div class="controls">
+    <button class="chipbtn on" data-ts="open">Open</button>
+    <button class="chipbtn" data-ts="closed">Closed</button>
+    <button class="chipbtn" data-ts="all">All</button>
+    <button class="chipbtn" id="tenEP">CBD/Northbridge</button>
+    <input class="search" id="tenSearch" aria-label="Search tenders" placeholder="Search tenders...">
+  </div>
+  <div id="tenList"></div>
+</section>
+
+<section class="tab" id="tab-notices">
+  <div class="note">Statutory and governance notices. "Current" shows items open for submissions plus standing information notices; closed consultations are hidden until you switch filter.</div>
+  <div class="controls">
+    <button class="chipbtn on" data-ns="current">Current</button>
+    <button class="chipbtn" data-ns="closed">Closed</button>
+    <button class="chipbtn" data-ns="all">All</button>
+    <input class="search" id="notSearch" aria-label="Search notices" placeholder="Search notices...">
+  </div>
+  <div id="notList"></div>
+</section>
+
+<section class="tab" id="tab-bins">
+  <div class="note">City of Perth 3-bin kerbside collection, April to December 2026. FOGO goes out every week; recycling and general waste alternate on fortnightly weeks. Dates are computed from the standard fortnightly cycle - check the City's official calendar for public-holiday changes (especially late December).</div>
+  <div class="controls">
+    <button class="chipbtn on" data-day="3">Wed - East Perth, Northbridge, West Perth</button>
+    <button class="chipbtn" data-day="5">Fri - Nedlands, Crawley</button>
+  </div>
+  <div id="binNext"></div>
+  <div id="binCal"></div>
+  <div class="card" style="margin-top:14px">
+    <div class="t">Getting your bins out</div>
+    <div class="d">Day collection: your bin must be at its service location by <b>6am</b>. Night collection: by <b>8pm</b>. Exception - some West Perth night services: by <b>4pm</b>. Put bins out no later than the time above.</div>
+    <div class="m" style="margin-top:6px">Faded sticker? Contact the City on <a href="tel:0894613333">(08) 9461 3333</a>.</div>
+    <div class="m" style="margin-top:6px">Full details &amp; official calendar: <a href="https://perth.wa.gov.au/residents/rubbish-waste-and-recycling" target="_blank">https://perth.wa.gov.au/residents/rubbish-waste-and-recycling</a></div>
+  </div>
+</section>
+<section class="tab" id="tab-events">
+  <div class="note">What's on across the City of Perth - sourced from visitperth.com, refreshed automatically each weekday. Sorted by ending soonest; recurring &amp; ongoing events are grouped at the bottom and labelled. Tap an event for full details.</div>
+  <div class="controls">
+    <span class="seg"><button class="on" data-scope="zone">Local</button><button data-scope="all">Across Perth</button></span>
+    <button class="chipbtn" id="evRecur">Recurring only</button>
+    <select class="evtype" id="evType" aria-label="Filter by type"><option value="all">All types</option></select>
+    <input class="search" id="evSearch" aria-label="Search events or venues" placeholder="Search events or venues...">
+  </div>
+  <div id="evStatus" class="m" style="margin-bottom:8px"></div>
+  <div id="evList"></div>
+</section>
+<footer class="pgfoot">
+  <details class="fdet">
+    <summary><span class="qmark">?</span> Data sources &amp; about</summary>
+    <div class="frow" style="margin-top:12px">
+      <span><b>City of Perth</b> &middot; <a href="https://perth.wa.gov.au/public-notices/all-public-notices" target="_blank" rel="noopener">public notices, works, tenders &amp; bin collection</a></span>
+      <span><b>Transperth (PTA)</b> &middot; <a href="https://www.transperth.wa.gov.au/service-updates" target="_blank" rel="noopener">public transport service updates</a> (City of Perth stops only)</span>
+      <span><b>Map</b> &middot; &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> &amp; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>, via <a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a></span>
+      <div class="fnote">An East Perth Community Group service &middot; refreshed weekly &middot; independent of the City of Perth. Always confirm critical details with the official source.</div>
+    </div>
+  </details>
+</footer>
+<footer class="hubcredit"><span class="hc-dis">An EPCG community service · independent of the City of Perth · aggregated from public sources and refreshed weekly. Always confirm critical details with the official source.</span><span class="hc-sep">·</span><a class="hc-bug" href="mailto:secretary.eastperthcommunity@gmail.com?subject=East%20Perth%20Hub%20-%20bug%20report">Report a bug</a></footer>
+<script src="pta-data.js"></script>
+<script src="hub-data.js"></script>
+<script src="epcg-manual.js"></script>
+<script src="epcg-events.js"></script>
+<script src="consultations.js"></script>
+<script src="spotlight.js"></script>
+<script>
+const HUB=window.HUB||{disruptions:[],tenders:[],notices:[],events:[]};
+const HZ="central";
+const DATA=HUB.disruptions.filter(function(d){return d.zone===HZ;});
+const TENDERS=HUB.tenders.map(function(t){return {ref:t.ref,title:t.title,ep:t.zone===HZ,slug:t.slug,pub:t.pub,close:t.close};});
+/* City statutory notices + consultations from other agencies (consultations.js).
+   The weekly hub-data.js rebuild only carries City notices, so the outside ones are
+   merged in here - this single line feeds the Notices tab, its count badge, and the
+   ticker's "Have your say" items, since all three derive from NOTICES. */
+const NOTICES=HUB.notices.concat(window.CONSULTATIONS||[]).sort(function(a,b){
+  if(!a.close) return 1; if(!b.close) return -1;      /* undated standing notices last */
+  return a.close.localeCompare(b.close);              /* soonest deadline first */
+});
+const P="https://perth.wa.gov.au/public-notices/";
+const COL={high:"#d63333",medium:"#e8873a",low:"#e8c53a",event:"#5b8def",major:"#8a5cf0",roadclosure:"#d63333",infra:"#8d6e63"};
+const catLabel={obstruction:"Obstruction",event:"Event",roadclosure:"Road closure",infrastructure:"Construction"};
+const catColor={obstruction:"#e8873a",event:"#5b8def",roadclosure:"#d63333",infrastructure:"#8d6e63"};
+function midnight(){ const t=new Date(); t.setHours(0,0,0,0); return t; }
+function statusOf(o){ if(o.close) return (new Date(o.close+"T23:59:59")>=midnight())?"open":"closed"; return (o.kind==="ongoing")?"ongoing":"closed"; }
+function fmt(iso){ if(!iso) return ""; const d=new Date(iso+"T00:00:00"); return d.toLocaleDateString("en-AU",{day:"numeric",month:"short",year:"numeric"}); }
+const stB={open:["OPEN","#2a9d5a"],closed:["CLOSED","#9aa4ad"],ongoing:["ONGOING","#5b8def"]};
+
+/* ---- tabs ---- */
+let mapLoaded=false, invalidate=null;
+function activateTab(name){
+  if(name==="home" && (window.innerWidth||document.documentElement.clientWidth||0)<768){ name="disruptions"; }
+  document.body.classList.toggle("on-home", name==="home");
+  document.querySelectorAll("#tabs button").forEach(x=>x.classList.toggle("active",x.dataset.tab===name));
+  document.querySelectorAll(".navbar a[data-tab]").forEach(function(x){x.classList.toggle("on",x.dataset.tab===name);});
+  document.querySelectorAll("section.tab").forEach(x=>x.classList.remove("active"));
+  document.getElementById("tab-"+name).classList.add("active");
+  if(name==="disruptions"){ if(!mapLoaded){ startMap(); } else if(invalidate){ setTimeout(invalidate,50); } }
+  if(name==="transport"){ ensurePtaMap(); }
+  if(name==="events" && window.__ensureEvents){ window.__ensureEvents(); }
+  try{document.querySelectorAll(".zones a").forEach(function(a){a.setAttribute("href",a.getAttribute("href").split("#")[0]+"#"+name);});}catch(e){}
+  try{window.scrollTo(0,0);}catch(e){}
+}
+document.querySelectorAll("#tabs button").forEach(b=>b.addEventListener("click",()=>activateTab(b.dataset.tab)));
+function goToDetails(id){
+  document.getElementById("disSearch").value="";
+  document.querySelectorAll("#legend .lchip").forEach(function(x){ x.classList.remove("off"); });
+  mapTimeMode="today"; document.querySelectorAll("#mapctl [data-time]").forEach(function(x){ x.classList.toggle("on", x.dataset.time==="today"); });
+  applyDisFilters(); activateTab("disruptions");
+  const card=document.querySelector('#disList .card[data-id="'+id+'"]');
+  if(card){ card.scrollIntoView({behavior:"smooth",block:"center"}); card.classList.remove("flash"); void card.offsetWidth; card.classList.add("flash"); }
+}
+
+function goToPta(id){
+  document.getElementById("ptaSearch").value="";
+  document.querySelectorAll("#ptalegend .lchip").forEach(function(x){ x.classList.remove("off"); });
+  ptaTimeMode="today"; document.querySelectorAll("#ptamapctl [data-ptime]").forEach(function(x){ x.classList.toggle("on", x.dataset.ptime==="today"); });
+  applyPtaFilters();
+  var card=document.querySelector('#ptaList .card[data-id="'+id+'"]');
+  if(card){ card.scrollIntoView({behavior:"smooth",block:"center"}); card.classList.remove("flash"); void card.offsetWidth; card.classList.add("flash"); }
+}
+
+/* ---- disruptions ---- */
+function parseDMY(s){ const p=s.split("/"); return new Date(+p[2], (+p[1])-1, +p[0]); }
+function ext(d){ return parseDMY(d.end) > parseDMY(d.start); }
+function activeToday(d){ const t=midnight(); if(!(parseDMY(d.start)<=t && t<=parseDMY(d.end))) return false; if(d.days && d.days.indexOf(t.getDay())===-1) return false; return true; }
+function isPast(d){ return parseDMY(d.end) < midnight(); }
+var mapTimeMode="today";
+function disCatState(){ var s={}; document.querySelectorAll("#legend .lchip").forEach(function(c){ s[c.dataset.cat]=!c.classList.contains("off"); }); return s; }
+function applyDisFilters(){ renderDis(); if(window.disMapRender) window.disMapRender(); }
+function renderDis(){
+  const q=(document.getElementById("disSearch").value||"").toLowerCase();
+  const cats=disCatState();
+  const box=document.getElementById("disList"); box.innerHTML="";
+  DATA.forEach(function(d){
+    if(isPast(d)) return;
+    if(!cats[d.cat]) return;
+    if(mapTimeMode==="today" && !activeToday(d)) return;
+    if(q && (d.title+" "+d.loc+" "+d.desc+" "+d.id).toLowerCase().indexOf(q)===-1) return;
+    const kind = d.cat==="event" ? (d.recurring?" &middot; Recurring":" &middot; One-off") : (((d.cat==="roadclosure"||d.cat==="obstruction"||d.cat==="infrastructure")&&ext(d))?" &middot; Ongoing":"");
+    const card=document.createElement("div");
+    card.className="card"; card.dataset.id=d.id; card.style.borderLeftColor=COL[d.sev];
+    card.innerHTML="<div class='t'>"+d.title+"</div>"+
+      "<div class='m'><span class='b' style='background:"+catColor[d.cat]+"'>"+catLabel[d.cat]+"</span>"+d.id+" &middot; "+d.start+" - "+d.end+(d.sched?(" &middot; "+d.sched):"")+kind+"</div>"+
+      "<div class='d'>"+d.desc+"</div><div class='im'>&#9650; "+d.impact+"</div>"+
+      "<div class='m' style='margin-top:4px'>"+d.loc+"</div>"+
+      "<div style='margin-top:5px'><a href='"+(d.url||"https://perth.wa.gov.au/public-notices/road-closures")+"' target='_blank'>Official report &#8599;</a></div>";
+    box.appendChild(card);
+  });
+  if(!box.children.length) box.innerHTML="<div class='note'>No disruptions match.</div>";
+}
+document.querySelectorAll("#mapctl [data-time]").forEach(function(b){ b.addEventListener("click",function(){ mapTimeMode=b.dataset.time; document.querySelectorAll("#mapctl [data-time]").forEach(function(x){ x.classList.toggle("on",x===b); }); applyDisFilters(); }); });
+document.querySelectorAll("#legend .lchip").forEach(function(b){ b.addEventListener("click",function(){ b.classList.toggle("off"); applyDisFilters(); }); });
+document.getElementById("disSearch").addEventListener("input",applyDisFilters);
+
+/* ---- tenders ---- */
+let tenFilter="open", tenEPon=false;
+function rowHtml(ref,title,url,pub,close,st,extra){
+  const b=stB[st];
+  const dates=(pub?("pub "+fmt(pub)):"")+(close?("  &middot;  closes "+fmt(close)):"");
+  return "<a class='row' href='"+url+"' target='_blank' rel='noopener'><span class='ref'>"+ref+"</span>"+
+    "<span class='ttl'>"+title+(extra||"")+"</span>"+
+    "<span class='dates'>"+dates+"</span>"+
+    "<span class='stat' style='background:"+b[1]+"'>"+b[0]+"</span><span class='go'>&#8599;</span></a>";
+}
+function renderTenders(){
+  const q=(document.getElementById("tenSearch").value||"").toLowerCase();
+  const box=document.getElementById("tenList"); box.innerHTML="";
+  let shown=0;
+  TENDERS.forEach(function(o){
+    const st=statusOf(o);
+    if(tenFilter!=="all" && st!==tenFilter) return;
+    if(tenEPon && !o.ep) return;
+    if(q && (o.ref+" "+o.title).toLowerCase().indexOf(q)===-1) return;
+    box.insertAdjacentHTML("beforeend", rowHtml(o.ref,o.title,P+o.slug,o.pub,o.close,st, o.ep?" <span class='chip ep'>CBD/Northbridge</span>":""));
+    shown++;
+  });
+  if(!shown){
+    const msg = tenFilter==="open" ? "No tenders are currently open. All "+TENDERS.length+" listed on the City's page have already closed - switch to <b>Closed</b> or <b>All</b> to review them." : "No tenders match.";
+    box.innerHTML="<div class='note'>"+msg+"</div>";
+  }
+}
+document.querySelectorAll("#tab-tenders .chipbtn[data-ts]").forEach(b=>b.addEventListener("click",function(){
+  document.querySelectorAll("#tab-tenders .chipbtn[data-ts]").forEach(x=>x.classList.remove("on"));
+  b.classList.add("on"); tenFilter=b.dataset.ts; renderTenders();
+}));
+document.getElementById("tenEP").addEventListener("click",function(){ tenEPon=!tenEPon; this.classList.toggle("on",tenEPon); renderTenders(); });
+document.getElementById("tenSearch").addEventListener("input",renderTenders);
+
+/* ---- notices ---- */
+let notFilter="current";
+/* One consultation is often published as many documents. The LPS3 package is 2 City notices plus
+   5 Your Say Perth tiles - SEVEN near-identical rows, all closing the same day, which drowns the
+   things that actually close soon. Collapse anything sharing a "grp" into a single row, exactly as
+   the Have Your Say box does. The row still links to the package's main document, the count tells
+   the reader there is more inside, and searching a sub-document's title still finds the group. */
+function foldedNotices(){
+  const GRP=window.CONSULT_GROUPS||{};
+  const out=[], byG={};
+  NOTICES.forEach(function(o){
+    const g=o.grp||GRP[o.title];
+    if(!g){ out.push({o:o, grp:null, members:[o]}); return; }
+    if(!byG[g]){ byG[g]={o:o, grp:g, members:[o]}; out.push(byG[g]); return; }
+    const e=byG[g];
+    e.members.push(o);
+    /* the row should carry the SOONEST deadline in the package, and link to the document whose
+       title IS the package name (the main scheme doc) rather than an arbitrary sub-policy */
+    if(o.close && (!e.o.close || o.close < e.o.close)) e.o=Object.assign({},e.o,{close:o.close});
+    if((o.title||"").toLowerCase().indexOf(g.toLowerCase())===0 && !e.primary) e.primary=o;
+  });
+  return out;
+}
+function renderNotices(){
+  const q=(document.getElementById("notSearch").value||"").toLowerCase();
+  const box=document.getElementById("notList"); box.innerHTML="";
+  let shown=0;
+  foldedNotices().forEach(function(g){
+    const o=g.o, st=statusOf(o);
+    const inCurrent = (st==="open"||st==="ongoing");
+    if(notFilter==="current" && !inCurrent) return;
+    if(notFilter==="closed" && st!=="closed") return;
+    /* search across every document in the package, so "heritage areas" still finds the LPS3 row */
+    const hay=(o.typ+" "+g.members.map(function(m){return m.title+" "+(m.src||"");}).join(" ")+" "+(g.grp||"")).toLowerCase();
+    if(q && hay.indexOf(q)===-1) return;
+    const link=g.primary||g.members[0];
+    const href=link.url ? link.url : (P+link.slug);
+    const title=g.grp ? g.grp : o.title;
+    const n=g.members.length;
+    const chip=(o.src && o.src!=="City of Perth") ? "<span class='srcchip'>"+o.src+"</span>" : "";
+    const count=(g.grp && n>1) ? "<span class='srcchip'>"+n+" documents</span>" : "";
+    box.insertAdjacentHTML("beforeend", rowHtml(o.typ,title,href,o.pub,o.close,st,chip+count));
+    shown++;
+  });
+  if(!shown) box.innerHTML="<div class='note'>No notices match.</div>";
+}
+document.querySelectorAll("#tab-notices .chipbtn[data-ns]").forEach(b=>b.addEventListener("click",function(){
+  document.querySelectorAll("#tab-notices .chipbtn[data-ns]").forEach(x=>x.classList.remove("on"));
+  b.classList.add("on"); notFilter=b.dataset.ns; renderNotices();
+}));
+document.getElementById("notSearch").addEventListener("input",renderNotices);
+
+/* ---- badges + banner ---- */
+const openTenders=TENDERS.filter(o=>statusOf(o)==="open").length;
+/* count the folded groups, not the raw documents - otherwise the badge says 11 while the
+   tab shows 5 rows, which just makes the reader distrust both numbers */
+const currentNotices=foldedNotices().filter(g=>{const s=statusOf(g.o);return s==="open"||s==="ongoing";}).length;
+document.getElementById("bDis").textContent=DATA.filter(function(d){return !isPast(d);}).length;
+document.getElementById("bTen").textContent=openTenders;
+document.getElementById("bNot").textContent=currentNotices;
+document.getElementById("tenBanner").innerHTML = openTenders? ("<div class='note'>"+openTenders+" open of "+TENDERS.length+" listed. Status is computed live from each tender's published and closing dates.</div>")
+  : ("<div class='banner'>&#9888; <b>0 of "+TENDERS.length+" tenders are currently open</b> - every tender on the City of Perth page has already passed its closing date. They remain listed on the City site but are no longer accepting submissions. Use the <b>Closed</b> / <b>All</b> filters to review them.</div>");
+
+/* ---- map (lazy) ---- */
+const providers=[
+  {name:"Cloudflare", js:"https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js", css:"https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"},
+  {name:"jsDelivr", js:"https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js", css:"https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css"},
+  {name:"unpkg", js:"https://unpkg.com/leaflet@1.9.4/dist/leaflet.js", css:"https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"}
+];
+const statusEl=document.getElementById("status");
+function startMap(){ mapLoaded=true; tryProvider(0); }
+function tryProvider(i){
+  if(i>=providers.length){ statusEl.innerHTML="<b>Could not load the map from any CDN.</b> If you use an ad/privacy blocker, allow cdnjs.cloudflare.com. The other tabs work without it."; return; }
+  const p=providers[i]; statusEl.innerHTML="Loading map library from "+p.name+"...";
+  const link=document.createElement("link"); link.rel="stylesheet"; link.href=p.css; document.head.appendChild(link);
+  const s=document.createElement("script"); s.src=p.js; let done=false;
+  const to=setTimeout(function(){ if(!done){done=true;s.remove();tryProvider(i+1);} },6000);
+  s.onload=function(){ if(done)return; done=true; clearTimeout(to); if(typeof L!=="undefined"){ initMap(); } else { tryProvider(i+1); } };
+  s.onerror=function(){ if(done)return; done=true; clearTimeout(to); s.remove(); tryProvider(i+1); };
+  document.body.appendChild(s);
+}
+function initMap(){
+  statusEl.style.display="none";
+  document.getElementById("map").style.display="block";
+  const map=L.map("map").setView([-31.9500,115.8585],14);
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",{subdomains:"abcd",maxZoom:20,attribution:"&copy; OpenStreetMap &copy; CARTO"}).addTo(map);
+  const obstruction=L.layerGroup().addTo(map), event=L.layerGroup().addTo(map), roadclosure=L.layerGroup().addTo(map), infrastructure=L.layerGroup().addTo(map);
+  const seen={};
+  const HOVER = !(window.matchMedia && (window.matchMedia("(hover: none)").matches || window.matchMedia("(max-width: 600px)").matches));
+  const items=DATA.map(function(d){
+    var la=d.lat, ln=d.lng, _k=la.toFixed(5)+","+ln.toFixed(5);
+    if(seen[_k]!==undefined){ var _n=++seen[_k], _a=_n*2.399; la+=Math.cos(_a)*0.00035; ln+=Math.sin(_a)*0.00035; } else { seen[_k]=0; }
+    const r=(d.sev==="high"||d.sev==="major")?11:8;
+    const opts={radius:r,color:"#fff",weight:2,fillColor:COL[d.sev],fillOpacity:.9};
+    const m=L.circleMarker([la,ln],opts);
+    let kind="";
+    if(d.cat==="event"){ kind = d.recurring ? "<span class='badge' style='background:#5b8def'>&#8635; Recurring event</span>" : "<span class='badge' style='background:#2a9d5a'>&#9679; One-off event</span>"; }
+    else if((d.cat==="roadclosure"||d.cat==="obstruction") && ext(d)){ kind="<span class='badge' style='background:"+COL[d.sev]+"'>&#9650; Ongoing closure</span>"; }
+    else if(d.cat==="infrastructure"){ kind="<span class='badge' style='background:"+COL.infra+"'>&#9650; Construction works (ongoing)</span>"; }
+    const schedLine = d.sched ? "<div class='m'>"+d.sched+"</div>" : "";
+    m.bindPopup(kind+"<h3>"+d.title+"</h3><div class='m'>"+d.id+" · "+d.start+" - "+d.end+"</div>"+schedLine+"<div>"+d.desc+"</div><div class='im'>▲ "+d.impact+"</div><div class='m' style='margin-top:4px'>"+d.loc+"</div>"+(HOVER?"":"<a href='#' onclick='goToDetails(&quot;"+d.id+"&quot;);return false;' style='display:inline-block;margin-top:9px;color:var(--blue);font-weight:800;text-decoration:none'>View full details &#9656;</a>"));
+    if(HOVER){ m.on("mouseover",function(){ m.openPopup(); }); m.on("mouseout",function(){ m.closePopup(); }); m.on("click",function(){ goToDetails(d.id); }); }
+    else { m.unbindPopup(); m.on("click",function(){ goToDetails(d.id); }); }
+    let ring=null;
+    if((d.cat==="event"&&d.recurring)||((d.cat==="roadclosure"||d.cat==="obstruction"||d.cat==="infrastructure")&&ext(d))){ ring=L.circleMarker([la,ln],{radius:r+5,fill:false,color:COL[d.sev],weight:1.6,opacity:.9,dashArray:"3 4"});
+      if(HOVER){ ring.on("mouseover",function(){ m.openPopup(); }); ring.on("click",function(){ goToDetails(d.id); }); } else { ring.on("click",function(){ goToDetails(d.id); }); } }
+    return {d:d,m:m,ring:ring};
+  });
+  const todayStr=new Date().toLocaleDateString("en-AU",{weekday:"short",day:"numeric",month:"short",year:"numeric"});
+  function catState(){ var s={}; document.querySelectorAll("#legend .lchip").forEach(function(c){ s[c.dataset.cat]=!c.classList.contains("off"); }); return s; }
+  function render(){
+    var cats=catState();
+    var q=(document.getElementById("disSearch").value||"").toLowerCase();
+    obstruction.clearLayers(); event.clearLayers(); roadclosure.clearLayers(); infrastructure.clearLayers();
+    var shown=0;
+    items.forEach(function(x){
+      if(isPast(x.d)) return;
+      if(mapTimeMode==="today" && !activeToday(x.d)) return;
+      if(!cats[x.d.cat]) return;
+      if(q && (x.d.title+" "+x.d.loc+" "+x.d.desc+" "+x.d.id).toLowerCase().indexOf(q)===-1) return;
+      var layer=(x.d.cat==="event"?event:(x.d.cat==="roadclosure"?roadclosure:(x.d.cat==="infrastructure"?infrastructure:obstruction)));
+      if(x.ring) layer.addLayer(x.ring);
+      layer.addLayer(x.m); shown++;
+    });
+    document.getElementById("cnt").textContent = mapTimeMode==="today" ? shown+" active today ("+todayStr+")" : shown+" current/upcoming";
+  }
+  window.disMapRender=render;
+  render();
+  const visD=DATA.filter(function(d){return !isPast(d);}); const bounds=L.latLngBounds((visD.length?visD:DATA).map(function(d){return [d.lat,d.lng];})).pad(0.15);
+  map.fitBounds(bounds);
+  invalidate=function(){ map.invalidateSize(); map.fitBounds(bounds); };
+  setTimeout(invalidate,300); setTimeout(invalidate,1200);
+}
+
+function renderBins(){
+  var GEN_ANCHOR=new Date(2026,3,20), START=new Date(2026,3,22), END=new Date(2026,11,31);
+  var C={fogo:"#6FA83A",recy:"#EDB400",gen:"#E0645E"}, NAME={fogo:"FOGO",recy:"Recycling",gen:"General waste"};
+  var day=3, host=document.getElementById("tab-bins");
+  function monday(d){var x=new Date(d);x.setDate(d.getDate()-((d.getDay()+6)%7));x.setHours(0,0,0,0);return x;}
+  function altOf(d){var wk=Math.round((monday(d)-GEN_ANCHOR)/6048e5);return (((wk%2)+2)%2===0)?"gen":"recy";}
+  function pill(k){return '<span style="display:inline-block;font-size:11px;font-weight:600;color:#1f2933;padding:2px 9px;border-radius:20px;margin-right:6px;background:'+C[k]+'">'+NAME[k]+'</span>';}
+  function draw(){
+    var today=new Date();today.setHours(0,0,0,0);
+    var up=[];for(var d=new Date(START);d<=END;d.setDate(d.getDate()+1)){if(d.getDay()===day&&d>=today)up.push(new Date(d));}
+    up=up.slice(0,6);
+    var nx='<div class="t" style="margin:6px 0 8px">Your next collections</div>';
+    if(!up.length){nx+='<div class="m">No more scheduled collections in this period.</div>';}
+    up.forEach(function(d){var a=altOf(d);
+      nx+='<div class="row" style="cursor:default"><span class="dates" style="min-width:150px">'+d.toLocaleDateString("en-AU",{weekday:"short",day:"numeric",month:"short"})+'</span>'+pill("fogo")+pill(a)+'</div>';});
+    document.getElementById("binNext").innerHTML=nx;
+    var leg='<div style="display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:#cfe8f5;margin:16px 0 8px">';
+    ["fogo","recy","gen"].forEach(function(k){leg+='<span><i style="display:inline-block;width:12px;height:12px;border-radius:3px;background:'+C[k]+';margin-right:5px;vertical-align:-2px"></i>'+(k==="fogo"?"FOGO (every week)":NAME[k]+" week")+'</span>';});
+    leg+='</div>';
+    var cal='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:14px">';
+    for(var m=3;m<=11;m++){
+      var _t=new Date();_t.setHours(0,0,0,0);var _nx=new Date(_t);for(var _i=0;_i<400;_i++){if(_nx.getDay()===day&&_nx>=START&&_nx<=END)break;_nx.setDate(_nx.getDate()+1);}var _cm=(_nx>=START&&_nx<=END)?_nx.getMonth():-99;if(m!==_cm)continue;
+      var first=new Date(2026,m,1), dim=new Date(2026,m+1,0).getDate();
+      cal+='<div style="background:#e3d6f2;border:1px solid #c9b3e4;border-radius:8px;padding:10px 12px;color:#2a2140;color-scheme:light">'+
+        '<div style="font-weight:600;font-size:13px;margin-bottom:6px">'+first.toLocaleDateString("en-AU",{month:"long"})+' 2026</div>'+
+        '<div style="display:grid;grid-template-columns:repeat(7,1fr);gap:3px;font-size:11px;text-align:center">';
+      ["M","T","W","T","F","S","S"].forEach(function(w){cal+='<div style="color:#9aa4ad;font-weight:600">'+w+'</div>';});
+      var lead=(first.getDay()+6)%7;
+      for(var i=0;i<lead;i++){cal+='<div></div>';}
+      for(var dd=1;dd<=dim;dd++){
+        var dt=new Date(2026,m,dd);
+        if(dt.getDay()===day){var a=altOf(dt);
+          cal+='<div title="FOGO + '+NAME[a]+'" style="border-radius:5px;overflow:hidden;line-height:1.1;background:'+C[a]+';color:#12212e;font-weight:800"><div style="padding:4px 0 3px">'+dd+'</div><div style="height:6px;background:'+C.fogo+'"></div></div>';
+        }else{cal+='<div style="padding:3px 0;color:#4a3f63">'+dd+'</div>';}
+      }
+      cal+='</div></div>';
+    }
+    cal+='</div>';
+    document.getElementById("binCal").innerHTML=leg+cal;
+  }
+  host.querySelectorAll("[data-day]").forEach(function(b){b.addEventListener("click",function(){day=+b.dataset.day;host.querySelectorAll("[data-day]").forEach(function(x){x.classList.toggle("on",x===b);});draw();});});
+  draw();
+}
+
+var EVENTS=HUB.events.slice();
+function initEvents(){
+  var BZ=/central/i.test(document.title)?"central":(/west/i.test(document.title)?"west":"east");
+  var host=document.getElementById("tab-events"), listEl=document.getElementById("evList"), statusEl=document.getElementById("evStatus");
+  var loaded=false, all=[], scope="zone", recurOnly=false, typeFilter="all";
+  var EAST=["east perth","claisebrook","optus","matagarup","waca","gloucester park","queens gardens","wellington square","moort-ak","mardalup","victoria gardens","nib stadium","perth mint","perth city farm","heirisson"];
+  var WEST=["west perth","kings park","nedlands","crawley","uwa","university of western australia","subiaco","harold boas","scitech","city west"];
+  var CENTRAL=["perth town hall","art gallery","wa museum","boola bardip","northbridge","yagan square","elizabeth quay","forrest place","murray st","hay st","his majesty","state theatre","pica","rac arena","perth concert hall","supreme court","stirling gardens","cathedral","government house","rechabite","fringe","cultural centre","city of perth","perth cultural","st georges","barrack","william st","king st","russell square","citiplace","blue room","pcec","convention","wintergarden","raine square","brookfield","trinity","st mary","bobeche","escape this","gallery central","hearth","holy grounds","joey zaza","mas vino","miss mi","parmelia","perth library","state library","nostalgia box","westin","alba","riverside dr"];
+  function Z(v){v=(v||"").toLowerCase();if(!v)return "unknown";var i;for(i=0;i<EAST.length;i++)if(v.indexOf(EAST[i])>=0)return "east";for(i=0;i<WEST.length;i++)if(v.indexOf(WEST[i])>=0)return "west";for(i=0;i<CENTRAL.length;i++)if(v.indexOf(CENTRAL[i])>=0)return "central";return "other";}
+  function esc(s){return (s||"").replace(/[&<>\"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];});}
+  var MON={jan:0,feb:1,mar:2,apr:3,may:4,jun:5,jul:6,aug:7,sep:8,oct:9,nov:10,dec:11};
+  function evStart(e){
+    var m=(e.date||"").match(/([0-9]{1,2}) +([A-Za-z]{3})/);
+    if(!m) return Infinity;
+    var dd=+m[1], mo=MON[m[2].toLowerCase()];
+    if(mo===undefined) return Infinity;
+    var t=new Date(); t.setHours(0,0,0,0);
+    var dt=new Date(t.getFullYear(),mo,dd);
+    var floor=new Date(t.getFullYear(),t.getMonth()-5,1);
+    if(dt<floor) dt=new Date(t.getFullYear()+1,mo,dd);
+    return dt.getTime();
+  }
+  function evEnd(e){ var g=(e.date||"").match(/([0-9]{1,2}) +([A-Za-z]{3})/g); if(!g) return Infinity; var m=g[g.length-1].match(/([0-9]{1,2}) +([A-Za-z]{3})/); var dd=+m[1], mo=MON[m[2].toLowerCase()]; if(mo===undefined) return Infinity; var t=new Date(); t.setHours(0,0,0,0); var dt=new Date(t.getFullYear(),mo,dd); var floor=new Date(t.getFullYear(),t.getMonth()-5,1); if(dt<floor) dt=new Date(t.getFullYear()+1,mo,dd); return dt.getTime(); }
+  var WD=[["sunday","Sun"],["monday","Mon"],["tuesday","Tue"],["wednesday","Wed"],["thursday","Thu"],["friday","Fri"],["saturday","Sat"]];
+  function recurInfo(e){ var t=(e.title||"").toLowerCase(); var days=[]; WD.forEach(function(p){ if(new RegExp("\\b"+p[0]+"s?\\b").test(t)) days.push(p[1]); }); var w=/\b(daily|weekly|nightly|every|weekends?)\b/.test(t)||days.length>0; return {recur:w,days:days}; }
+  function isOngoing(e){ var s=evStart(e),en=evEnd(e); if(!isFinite(s)||!isFinite(en)) return false; if(en<s) en+=365*86400000; return (en-s)>30*86400000; }
+  function isRecur(e){ return recurInfo(e).recur||isOngoing(e); }
+  function fmtDate(e){ var p=(e.date||"").match(/([0-9]{1,2}) +([A-Za-z]{3})/g)||[]; if(p.length>=2){ if(p[0]===p[p.length-1]) return p[0]; var a=p[0].split(" "),b=p[p.length-1].split(" "); return (a[1]===b[1])?(a[0]+" - "+b[0]+" "+b[1]):(p[0]+" - "+p[p.length-1]); } return e.date||""; }
+  function endLabel(e){ var g=(e.date||"").match(/([0-9]{1,2}) +([A-Za-z]{3})/g)||[]; return g.length?g[g.length-1]:""; }
+  function render(){
+    var q=((document.getElementById("evSearch")||{}).value||"").toLowerCase().replace(/^ +| +$/g,"");
+    var items = scope==="all" ? all.slice() : all.filter(function(e){return e.zone===BZ;});
+    var TODAY=(function(){var t=new Date();t.setHours(0,0,0,0);return t.getTime();})();
+    items=items.filter(function(e){ return isRecur(e) || evEnd(e)>=TODAY; });
+    if(recurOnly) items=items.filter(isRecur);
+    if(typeFilter!=="all") items=items.filter(function(e){return (e.cat||"Other")===typeFilter;});
+    if(q) items=items.filter(function(e){return (e.title+" "+e.venue+" "+(e.cat||"")).toLowerCase().indexOf(q)>=0;});
+    function key(e){ return isRecur(e)?Infinity:evEnd(e); }
+    items.sort(function(a,b){ var ka=key(a),kb=key(b); if(ka!==kb) return ka-kb; if(ka===Infinity) return (a.title||"").localeCompare(b.title||""); var sa=evStart(a),sb=evStart(b); return (sa-sb)||(a.title||"").localeCompare(b.title||""); });
+    var head=(recurOnly?"Recurring & ongoing":(scope==="all"?"Across Perth":"Local"))+" &middot; "+items.length+" event"+(items.length===1?"":"s");
+    if(q) head+=" matching '"+esc(q)+"'";
+    var TAG="display:inline-block;font-size:10px;font-weight:800;border-radius:20px;padding:1px 8px;margin-right:5px;vertical-align:1px;";
+    listEl.innerHTML = "<div class='t' style='margin:2px 0 8px'>"+head+"</div>" + (items.map(function(e){
+      var zt=(scope==="all"&&e.zone!=="unknown"&&e.zone!=="other")?(" &middot; "+e.zone):"";
+      var info=recurInfo(e), dh;
+      if(info.recur){ dh="<span style='"+TAG+"background:#5b8def;color:#fff'>Recurring</span>"+(info.days.length?"<span class='m'>"+info.days.join("/")+"</span>":""); }
+      else if(isOngoing(e)){ dh="<span style='"+TAG+"background:#49C5B1;color:#08322b'>Ongoing</span><span class='m'>to "+esc(endLabel(e))+"</span>"; }
+      else { dh="<span>"+esc(fmtDate(e))+"</span>"; }
+      return "<a class='row evrow' href='"+esc(e.href)+"' target='_blank' rel='noopener'><span class='dates' style='min-width:120px'>"+dh+"</span>"+(e.cat?"<span class='ecat'>"+esc(e.cat)+"</span>":"")+"<span class='ttl'>"+esc(e.title)+"</span><span class='m evvenue'>"+esc(e.venue)+zt+"</span></a>";
+    }).join("") || "<div class='m'>No events found for this view.</div>");
+  }
+  function load(){ if(loaded) return; loaded=true; all=EVENTS; statusEl.textContent=""; var sel=document.getElementById("evType"); if(sel){ var seen={},cats=[]; all.forEach(function(e){var c=e.cat; if(c&&!seen[c]){seen[c]=1;cats.push(c);}}); cats.sort(); cats.forEach(function(c){var o=document.createElement("option"); o.value=c; o.textContent=c; sel.appendChild(o);}); } render(); }
+  Array.prototype.forEach.call(host.querySelectorAll("[data-scope]"),function(b){b.addEventListener("click",function(){scope=b.dataset.scope;Array.prototype.forEach.call(host.querySelectorAll("[data-scope]"),function(x){x.classList.toggle("on",x===b);});render();});});
+  var rb=document.getElementById("evRecur"); if(rb) rb.addEventListener("click",function(){ recurOnly=!recurOnly; rb.classList.toggle("on",recurOnly); render(); });
+  var ty=document.getElementById("evType"); if(ty) ty.addEventListener("change",function(){ typeFilter=ty.value; render(); });
+  var evs=document.getElementById("evSearch"); if(evs) evs.addEventListener("input",render);
+  window.__ensureEvents=load;
+  var btn=document.querySelector('#tabs button[data-tab="events"]');
+  if(btn) btn.addEventListener("click",load);
+}
+
+/* ================= TRANSPORT (PTA / Transperth) ================= */
+/* City of Perth LGA disruptions only. Snapshot 2026-07-08, refreshed weekly. */
+const PTA_ALL = (window.PTA_DATA)||([
+  { id:"24857", mode:"train", sev:"high", title:"Airport, Ellenbrook & Midland Lines - Nightly Closures",
+    routes:"Airport, Ellenbrook & Midland lines", start:"26/07/2026", end:"30/07/2026", ongoing:false,
+    lat:-31.9505, lng:115.8605, loc:"Perth, McIver & Claisebrook stations",
+    stops:"Perth Station, McIver, Claisebrook",
+    desc:"Nightly maintenance closures Sun 26 - Thu 30 Jul. Ellenbrook (Perth-Ellenbrook) and Midland (Perth-Midland) lines closed each night. Replacement buses 901/902/903 depart Perth Busport Zone B.",
+    impact:"Trains replaced by buses each night",
+    url:"https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/24857" },
+  { id:"24849", mode:"train", sev:"high", title:"Mandurah Line - Nightly Closures",
+    routes:"Mandurah line", start:"13/07/2026", end:"16/07/2026", ongoing:false,
+    lat:-31.9508, lng:115.8600, loc:"Perth Underground & Elizabeth Quay stations",
+    stops:"Perth Underground, Elizabeth Quay",
+    desc:"Mandurah Line disrupted nightly between Perth Underground and Aubin Grove, Mon 13 - Thu 16 Jul. Replacement buses 909 & 949 run Perth to Aubin Grove; trains continue Aubin Grove to Mandurah.",
+    impact:"Nightly replacement buses from Perth Underground",
+    url:"https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/24849" },
+  { id:"24856", mode:"train", sev:"low", title:"Yanchep Line - Platform Change at Perth",
+    routes:"Yanchep line", start:"13/07/2026", end:"16/07/2026", ongoing:false,
+    lat:-31.9503, lng:115.8608, loc:"Perth Station / Perth Underground",
+    stops:"Perth Station (Platform 9), Perth Underground (Platform 1)",
+    desc:"Nightly Mon 13 - Thu 16 Jul the Yanchep Line runs from Perth Station Platform 9 (last from Perth Underground Platform 1 at 10.17pm) while Mandurah Line works occur.",
+    impact:"Temporary platform change at Perth",
+    url:"https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/24856" },
+  { id:"24831", mode:"train", sev:"high", title:"Airport, Ellenbrook & Midland Lines - Day Closure",
+    routes:"Airport, Ellenbrook & Midland lines", start:"12/07/2026", end:"12/07/2026", ongoing:false,
+    lat:-31.9506, lng:115.8612, loc:"Perth, McIver & Claisebrook stations",
+    stops:"Perth Station, McIver, Claisebrook",
+    desc:"All-day closure Sun 12 Jul for maintenance. Ellenbrook (Perth-Ellenbrook) and Midland (Perth-Midland) closed. Replacement buses 901/902/903 from Perth Busport Zone B.",
+    impact:"Full-day line closures, buses replace trains",
+    url:"https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/24831" },
+  { id:"24832", mode:"train", sev:"high", title:"Armadale & Thornlie-Cockburn Lines - Day Closure",
+    routes:"Armadale & Thornlie-Cockburn lines", start:"12/07/2026", end:"12/07/2026", ongoing:false,
+    lat:-31.9516, lng:115.8688, loc:"McIver & Claisebrook stations",
+    stops:"Perth, McIver, Claisebrook (Armadale line)",
+    desc:"Sun 12 Jul: Armadale Line closed Perth-Perth Stadium; Thornlie-Cockburn closed Perth-Beckenham. Replacement bus 907 runs Perth-Burswood from Perth Busport Zone A.",
+    impact:"Full-day closure, replacement buses",
+    url:"https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/24832" },
+  { id:"24833", mode:"train", sev:"low", title:"Airport & Fremantle Lines - Platform Change at Perth",
+    routes:"Airport & Fremantle lines", start:"12/07/2026", end:"12/07/2026", ongoing:false,
+    lat:-31.9504, lng:115.8598, loc:"Perth Underground",
+    stops:"Perth Underground (in place of Perth Station)",
+    desc:"Sun 12 Jul the Airport and Fremantle lines run from Perth Underground (not Perth Station) while Airport/Ellenbrook/Midland works occur.",
+    impact:"Trains run from Perth Underground",
+    url:"https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/24833" },
+  { id:"24903", mode:"train", sev:"medium", title:"Optus Stadium Event - McIver Closure & Line Disruptions",
+    routes:"Airport, Armadale, Ellenbrook, Midland & Thornlie-Cockburn lines", start:"09/07/2026", end:"09/07/2026", ongoing:false,
+    lat:-31.9513, lng:115.8695, loc:"McIver & Claisebrook stations",
+    stops:"McIver (closed 8.48-10.12pm), Claisebrook (platform closures)",
+    desc:"Thu 9 Jul: AFL Fremantle v Sydney at Optus Stadium. McIver Station closed ~8.48-10.12pm; platform closures at Claisebrook & McIver; Thornlie-Cockburn trains skip Claisebrook & McIver at times.",
+    impact:"Evening station & platform closures",
+    url:"https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/24903" },
+  { id:"24963", mode:"cat", sev:"medium", title:"Red CAT & Route 160 - Stop Closures (East Perth)",
+    routes:"Red CAT & Route 160", start:"11/07/2026", end:"12/07/2026", ongoing:false,
+    lat:-31.9578, lng:115.8722, loc:"Hay St / Plain St, East Perth",
+    stops:"Plain St, Carlton, Hay St (Hill St / Bennett St), Trinity College, Queens Gardens CAT stops",
+    desc:"Sat 11 - Sun 12 Jul, 8am-4pm: road closures in East Perth. Red CAT stops (Plain St, Trinity College, Queens Gardens) and Route 160 stops on Hay St out of use; use Adelaide Tce / Bennett St / WACA alternatives.",
+    impact:"Several East Perth CAT & bus stops closed",
+    url:"https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/24963" },
+  { id:"24962", mode:"bus", sev:"medium", title:"Routes 28, 30, 31, 81-85 & 910 - City Stop Closures",
+    routes:"Routes 28, 30, 31, 81, 82, 83, 84, 85 & 910", start:"11/07/2026", end:"11/07/2026", ongoing:false,
+    lat:-31.9500, lng:115.8515, loc:"Wellington St, St Georges Tce & City West",
+    stops:"Wellington St (George St), Milligan St, St Georges Tce, Watertown & City West CAT stops",
+    desc:"Sat 11 Jul until 2pm: road closures. City stops on Wellington St, Milligan St and St Georges Tce out of use; use Perth Busport, Elizabeth Quay Bus Station and City West Station alternatives.",
+    impact:"CBD & West Perth bus stops closed (morning)",
+    url:"https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/24962" },
+  { id:"21697-1", mode:"cat", sev:"medium", title:"Red CAT - Nile St & Matagarup Stops Closed",
+    routes:"Red CAT", start:"22/06/2026", end:"", ongoing:true,
+    lat:-31.9562, lng:115.8758, loc:"Nile St / Matagarup Bridge, East Perth",
+    stops:"Nile Street, Matagarup Bridge CAT stops",
+    desc:"From Sun 22 Jun until further notice: road closures mean Red CAT stops at Nile Street and Matagarup Bridge are out of use; use WACA and Trinity College stops. Services extend to Matagarup Bridge around Optus Stadium events.",
+    impact:"Two East Perth CAT stops closed (ongoing)",
+    url:"https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/21697-1" },
+  { id:"21126", mode:"cat", sev:"low", title:"CATs & Routes 24, 27, 103, 935 - Harvest Tce Stop Closed",
+    routes:"Blue, Green & Purple CATs, Routes 24, 27, 103, 935", start:"16/04/2026", end:"", ongoing:true,
+    lat:-31.9525, lng:115.8455, loc:"Harvest Terrace, West Perth",
+    stops:"Harvest Terrace CAT stop (ID 29)",
+    desc:"From Wed 16 Apr until further notice: Harvest Terrace stop (near Parliament) closed due to works. Blue/Green/Purple CATs and Routes 24, 27, 103 & 935 use a temporary stop ~60m towards Harvest Tce.",
+    impact:"Single West Perth CAT/bus stop closed (ongoing)",
+    url:"https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/21126" },
+  { id:"20314", mode:"bus", sev:"low", title:"Routes 15, 402, 403 & 404 - Newcastle St Stop Closed",
+    routes:"Routes 15, 402, 403 & 404", start:"15/01/2025", end:"", ongoing:true,
+    lat:-31.9442, lng:115.8420, loc:"Newcastle St, West Perth",
+    stops:"Newcastle St before Golding St (ID 27618)",
+    desc:"Ongoing since 15 Jan 2025: Newcastle St stop (before Golding St, West Perth) closed. Routes 15, 402, 403 & 404 use a temporary stop ~65m west towards Golding St.",
+    impact:"Single West Perth bus stop closed (ongoing)",
+    url:"https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/20314" }
+]);
+const PTA_ZONE = "central";
+const PTA = PTA_ALL.filter(function(d){ return !d.zones || d.zones.indexOf(PTA_ZONE)>=0; });
+const PTA_MODE = {train:"Train", bus:"Bus", cat:"CAT"};
+const PTA_COL  = {train:"#7A4E2E", bus:"#1E7D34", cat:"#D63333"};
+function ptaEnd(d){ return d.end ? parseDMY(d.end) : new Date(2999,0,1); }
+function ptaIsPast(d){ return d.end ? (parseDMY(d.end) < midnight()) : false; }
+function ptaActiveToday(d){ var t=midnight(); return parseDMY(d.start)<=t && t<=ptaEnd(d); }
+let ptaTimeMode="today";
+function ptaModeState(){ var s={}; document.querySelectorAll("#ptalegend .lchip").forEach(function(c){ s[c.dataset.mode]=!c.classList.contains("off"); }); return s; }
+function applyPtaFilters(){ renderPtaList(); if(window.ptaMapRender) window.ptaMapRender(); }
+function renderPtaList(){
+  var q=(document.getElementById("ptaSearch").value||"").toLowerCase();
+  var modes=ptaModeState();
+  var box=document.getElementById("ptaList"); box.innerHTML="";
+  var n=0;
+  PTA.forEach(function(d){
+    if(ptaIsPast(d)) return;
+    if(!modes[d.mode]) return;
+    if(ptaTimeMode==="today" && !ptaActiveToday(d)) return;
+    if(q && (d.title+" "+d.routes+" "+d.stops+" "+d.loc+" "+d.desc).toLowerCase().indexOf(q)===-1) return;
+    var when = d.ongoing ? (d.start+" - until further notice") : (d.start + (d.end&&d.end!==d.start ? " - "+d.end : ""));
+    var tag = d.ongoing ? " &middot; Ongoing" : "";
+    var card=document.createElement("div");
+    card.className="card"; card.dataset.id=d.id; card.style.borderLeftColor=PTA_COL[d.mode];
+    card.innerHTML="<div class='t'>"+d.title+"</div>"+
+      "<div class='m'><span class='b' style='background:"+PTA_COL[d.mode]+";color:"+"#fff"+"'>"+PTA_MODE[d.mode]+"</span>"+when+tag+"</div>"+
+      "<div class='d'>"+d.desc+"</div>"+
+      "<div class='im'>&#9650; "+d.impact+"</div>"+
+      "<div class='m' style='margin-top:4px'><b>Affected:</b> "+d.stops+"</div>"+
+      "<div class='m'>"+d.loc+"</div>"+
+      "<div style='margin-top:5px'><a href='"+d.url+"' target='_blank' rel='noopener'>Transperth details &#8599;</a></div>";
+    box.appendChild(card); n++;
+  });
+  if(!n) box.innerHTML="<div class='note'>No transport disruptions match.</div>";
+}
+document.getElementById("ptaSearch").addEventListener("input",applyPtaFilters);
+document.querySelectorAll("#ptamapctl [data-ptime]").forEach(function(b){ b.addEventListener("click",function(){
+  ptaTimeMode=b.dataset.ptime; document.querySelectorAll("#ptamapctl [data-ptime]").forEach(function(x){x.classList.toggle("on",x===b);});
+  applyPtaFilters();
+}); });
+document.querySelectorAll("#ptalegend .lchip").forEach(function(b){ b.addEventListener("click",function(){ b.classList.toggle("off"); applyPtaFilters(); }); });
+(function(){ var cur=PTA.filter(function(d){return !ptaIsPast(d);}).length; var el=document.getElementById("bPta"); if(el) el.textContent=cur; })();
+
+let ptaMapLoaded=false, ptaInvalidate=null;
+function ensurePtaMap(){
+  if(ptaMapLoaded){ if(ptaInvalidate) setTimeout(ptaInvalidate,50); return; }
+  ptaMapLoaded=true;
+  if(typeof L!=="undefined"){ initPtaMap(); return; }
+  (function tryP(i){
+    if(i>=providers.length){ document.getElementById("ptaStatus").innerHTML="<b>Could not load the map.</b> The list below still works."; return; }
+    var p=providers[i]; document.getElementById("ptaStatus").innerHTML="Loading map library from "+p.name+"...";
+    var link=document.createElement("link"); link.rel="stylesheet"; link.href=p.css; document.head.appendChild(link);
+    var s=document.createElement("script"); s.src=p.js; var done=false;
+    var to=setTimeout(function(){ if(!done){done=true;s.remove();tryP(i+1);} },6000);
+    s.onload=function(){ if(done)return; done=true; clearTimeout(to); if(typeof L!=="undefined"){ initPtaMap(); } else { tryP(i+1); } };
+    s.onerror=function(){ if(done)return; done=true; clearTimeout(to); s.remove(); tryP(i+1); };
+    document.body.appendChild(s);
+  })(0);
+}
+function initPtaMap(){
+  document.getElementById("ptaStatus").style.display="none";
+  document.getElementById("ptaMap").style.display="block";
+  var map=L.map("ptaMap").setView([-31.9530,115.8600],14);
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",{subdomains:"abcd",maxZoom:20,attribution:"&copy; OpenStreetMap &copy; CARTO"}).addTo(map);
+  var group=L.layerGroup().addTo(map);
+  var HOVER = !(window.matchMedia && (window.matchMedia("(hover: none)").matches || window.matchMedia("(max-width: 600px)").matches));
+  var seen={};
+  var items=[];
+  PTA.forEach(function(d){
+    (d.pts||(typeof d.lat==="number"?[[d.lat,d.lng,d.loc]]:[])).forEach(function(p,idx){
+      var la=p[0], ln=p[1], _k=la.toFixed(5)+","+ln.toFixed(5);
+      if(seen[_k]!==undefined){ var _n=++seen[_k], _a=_n*2.399; la+=Math.cos(_a)*0.00012; ln+=Math.sin(_a)*0.00012; } else { seen[_k]=0; }
+      var base=(d.sev==="high")?9:(d.sev==="medium")?7:6;
+      var r=(idx===0)?base:Math.max(5,base-2);
+      var m=L.circleMarker([la,ln],{radius:r,color:"#fff",weight:2,fillColor:PTA_COL[d.mode],fillOpacity:.92});
+      var when = d.ongoing ? (d.start+" - until further notice") : (d.start + (d.end&&d.end!==d.start ? " - "+d.end : ""));
+      var badge="<span class='badge' style='background:"+PTA_COL[d.mode]+";color:"+"#fff"+"'>"+PTA_MODE[d.mode]+(d.ongoing?" &middot; ongoing":"")+"</span>";
+      m.bindPopup(badge+"<h3>"+d.title+"</h3><div class='m'>"+when+"</div><div class='m' style='margin-top:2px'><b>Stop:</b> "+(p[2]||d.loc)+"</div><div>"+d.desc+"</div><div class='im'>&#9650; "+d.impact+"</div><div class='m' style='margin-top:4px'><b>All affected:</b> "+d.stops+"</div><a href='"+d.url+"' target='_blank' rel='noopener' style='display:inline-block;margin-top:9px;color:var(--blue);font-weight:800;text-decoration:none'>Transperth details &#8599;</a>");
+      if(HOVER){ m.on("mouseover",function(){m.openPopup();}); } else { m.unbindPopup(); m.on("click",function(){ goToPta(d.id); }); }
+      var ring=null;
+      if(d.ongoing){ ring=L.circleMarker([la,ln],{radius:r+5,fill:false,color:PTA_COL[d.mode],weight:1.4,opacity:.85,dashArray:"3 4"}); }
+      items.push({d:d,m:m,ring:ring,la:la,ln:ln});
+    });
+  });
+  function modeState(){ var s={}; document.querySelectorAll("#ptalegend .lchip").forEach(function(c){ s[c.dataset.mode]=!c.classList.contains("off"); }); return s; }
+  function render(){
+    var modes=modeState(); var q=(document.getElementById("ptaSearch").value||"").toLowerCase(); group.clearLayers(); var ids={};
+    items.forEach(function(x){
+      if(ptaIsPast(x.d)) return;
+      if(ptaTimeMode==="today" && !ptaActiveToday(x.d)) return;
+      if(!modes[x.d.mode]) return;
+      if(q && (x.d.title+" "+x.d.routes+" "+x.d.stops+" "+x.d.loc+" "+x.d.desc).toLowerCase().indexOf(q)===-1) return;
+      if(x.ring) group.addLayer(x.ring);
+      group.addLayer(x.m); ids[x.d.id]=1;
+    });
+    var el=document.getElementById("ptaCnt"); if(el){ var c=Object.keys(ids).length; el.textContent = ptaTimeMode==="today" ? c+" active today" : c+" current / upcoming"; }
+  }
+  window.ptaMapRender=render;
+  render();
+  var vis=items.filter(function(x){return !ptaIsPast(x.d);});
+  var bounds=L.latLngBounds((vis.length?vis:items).map(function(x){return [x.la,x.ln];})).pad(0.2);
+  map.fitBounds(bounds);
+  ptaInvalidate=function(){ map.invalidateSize(); map.fitBounds(bounds); };
+  setTimeout(ptaInvalidate,300); setTimeout(ptaInvalidate,1200);
+}
+renderPtaList();
+
+function homeBuild(){
+  var GEN=new Date(2026,3,20);
+  function monday(d){var x=new Date(d);x.setDate(d.getDate()-((d.getDay()+6)%7));x.setHours(0,0,0,0);return x;}
+  function altOf(d){var wk=Math.round((monday(d)-GEN)/6048e5);return (((wk%2)+2)%2===0)?"gen":"recy";}
+  var t0=midnight(),bd=new Date(t0);while(bd.getDay()!==3)bd.setDate(bd.getDate()+1);
+  var alt=altOf(bd),altName={recy:"Recycling",gen:"General waste"}[alt],tonight=bd.getTime()===t0.getTime();
+  document.getElementById("hbinLab").textContent=tonight?"Bins tonight":"Next bins";
+  document.getElementById("hbinDay").textContent=bd.toLocaleDateString("en-AU",{weekday:"long",day:"numeric",month:"short"});
+  document.getElementById("hbinPills").innerHTML='<div class="binpill b-fogo"><span class="ic">&#127823;</span><div><div class="nm">FOGO</div><div class="fq">every week</div></div></div><div class="binpill b-'+alt+'"><span class="ic">'+(alt==="recy"?"&#9851;":"&#128465;")+'</span><div><div class="nm">'+altName+'</div><div class="fq">this week</div></div></div>';
+  var dis=DATA.filter(function(d){return !isPast(d);});
+  var notOpen=foldedNotices().filter(function(g){var st=statusOf(g.o);return st==="open"||st==="ongoing";})
+                .map(function(g){ return g.grp ? Object.assign({},g.o,{title:g.grp}) : g.o; });
+  var tenOpen=TENDERS.filter(function(o){return statusOf(o)==="open";});
+  var ptaCur=(window.PTA_DATA||[]).filter(function(d){return (!d.zones||d.zones.indexOf(HZ)>=0)&&!(d.end&&parseDMY(d.end)<midnight());});
+  var MON={jan:0,feb:1,mar:2,apr:3,may:4,jun:5,jul:6,aug:7,sep:8,oct:9,nov:10,dec:11};
+  function evEnd(e){var g=(e.date||"").match(/([0-9]{1,2}) +([A-Za-z]{3})/g);if(!g)return Infinity;var m=g[g.length-1].match(/([0-9]{1,2}) +([A-Za-z]{3})/);var mo=MON[m[2].toLowerCase()];if(mo===undefined)return Infinity;var tt=midnight();var dt=new Date(tt.getFullYear(),mo,+m[1]);var fl=new Date(tt.getFullYear(),tt.getMonth()-5,1);if(dt<fl)dt=new Date(tt.getFullYear()+1,mo,+m[1]);return dt.getTime();}
+  var ev=HUB.events.filter(function(e){return (e.zone===HZ||e.zone==="central")&&evEnd(e)>=midnight().getTime();}).sort(function(a,b){return evEnd(a)-evEnd(b);});
+  function setn(id,v){var el=document.getElementById(id);if(el)el.textContent=v;}
+  setn("nDis",dis.length);setn("nPta",ptaCur.length);setn("nEv",HUB.events.length);setn("nNot",notOpen.length);setn("nTen",tenOpen.length);
+  function esc(x){return (x||"").replace(/[&<>]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c];});}
+  var sevRank={high:0,major:0,medium:1,event:2,low:2,infra:3};
+  var disS=dis.slice().sort(function(a,b){return (sevRank[a.sev]||2)-(sevRank[b.sev]||2);});
+  var items=[];
+  items.push('&#128465; <b>Bins '+(tonight?"tonight":bd.toLocaleDateString("en-AU",{weekday:"short",day:"numeric",month:"short"}))+':</b> FOGO + '+altName+' &middot; out by 6am');
+  var _t0=new Date();_t0.setHours(0,0,0,0);
+  (window.EPCG_EVENTS||[]).filter(function(e){return new Date(e.d+"T00:00:00")>=_t0;}).sort(function(a,b){return new Date(a.d+"T00:00:00")-new Date(b.d+"T00:00:00");}).slice(0,3).forEach(function(e){var dd=new Date(e.d+"T00:00:00").toLocaleDateString("en-AU",{weekday:"short",day:"numeric",month:"short"});items.push('&#127881; <b>'+esc(e.t)+'</b> &middot; '+dd+(e.type==="epcg"?' &middot; EPCG':' &middot; Community'));});
+  ev.slice(0,3).forEach(function(e){items.push('&#127881; <b>'+esc(e.title)+'</b> &middot; '+esc(e.date)+(e.cat?' ('+esc(e.cat)+')':''));});
+  disS.filter(function(d){return d.sev!=="infra"&&!/ongoing|recurring/i.test(String(d.impact||"")+" "+String(d.title||""));}).slice(0,3).forEach(function(d){var ic=d.cat==="event"?"&#127881;":(d.cat==="infrastructure"?"&#128736;":"&#128679;");items.push(ic+' <b>'+esc(d.title)+'</b> &middot; '+esc(d.impact||d.loc));});
+  ptaCur.slice(0,2).forEach(function(d){items.push('&#128650; <b>'+esc(d.title)+'</b>');});
+  notOpen.slice(0,2).forEach(function(o){items.push('&#128221; <b>Have your say:</b> '+esc(o.title));});
+  var html=items.map(function(x){return '<span class="item">'+x+'</span><span class="sep">&bull;</span>';}).join("");
+  document.getElementById("htrack").innerHTML=html+html;
+  requestAnimationFrame(sizeTicker);
+}
+renderDis(); renderTenders(); renderNotices(); renderBins(); initEvents();
+homeBuild();
+/* ===== What's On Around Perth - this week (ends Sunday night, rolls over each Monday) ===== */
+(function whatsOnWeek(){
+  var listEl=document.getElementById("woList"), rangeEl=document.getElementById("woRange");
+  if(!listEl) return;
+  var MONW={jan:0,feb:1,mar:2,apr:3,may:4,jun:5,jul:6,aug:7,sep:8,oct:9,nov:10,dec:11};
+  var DSHORT=["SUN","MON","TUE","WED","THU","FRI","SAT"];
+  var MSHORT=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  function esc(s){return (s||"").replace(/[&<>\"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];});}
+  var now=new Date();
+  var today=new Date(now.getFullYear(),now.getMonth(),now.getDate());        // this-week window starts today...
+  var daysToSun=(7-today.getDay())%7;                                        // ...and ends this Sunday night
+  var sunEnd=new Date(today.getFullYear(),today.getMonth(),today.getDate()+daysToSun,23,59,59,999);
+  // parse "07 Jul - 18 Jul" / "15 Jul" into [startDate,endDate] with year inferred near today
+  function ymd(dd,mo){ var d=new Date(today.getFullYear(),mo,dd); var floor=new Date(today.getFullYear(),today.getMonth()-5,1); if(d<floor) d=new Date(today.getFullYear()+1,mo,dd); return d; }
+  function parseRange(str){
+    var g=(str||"").match(/([0-9]{1,2}) +([A-Za-z]{3})/g); if(!g) return null;
+    function one(x){ var m=x.match(/([0-9]{1,2}) +([A-Za-z]{3})/); var mo=MONW[m[2].toLowerCase()]; if(mo===undefined) return null; return ymd(+m[1],mo); }
+    var s=one(g[0]), e=one(g[g.length-1]); if(!s||!e) return null; if(e<s) e=new Date(e.getFullYear()+1,e.getMonth(),e.getDate()); return [s,e];
+  }
+  var evs=(window.HUB&&HUB.events)||[];
+  var hits=[], seen={};
+  evs.forEach(function(e){
+    var r=parseRange(e.date); if(!r) return;
+    var s=r[0], en=r[1];
+    var spanDays=Math.round((en-s)/86400000);
+    if(spanDays>30) return;                       // skip long-running "always on" items - not a this-week highlight
+    if(s>sunEnd || en<today) return;              // must overlap [today .. Sunday night]
+    if(e.free!==true) return;
+    // collapse near-duplicate listings (e.g. the same competition split by age group)
+    var key=((e.title||"").toLowerCase().replace(/\b(19|20)\d{2}\b/g,"").replace(/[^a-z]+/g," ").trim())+"|"+(e.venue||"").toLowerCase()+"|"+(e.date||"");
+    if(seen[key]) return; seen[key]=1;
+    hits.push({e:e,s:s,en:en,single:spanDays===0});
+  });
+  hits.sort(function(a,b){ return (a.en-b.en) || (a.s-b.s) || (a.e.title||"").localeCompare(b.e.title||""); });
+
+  rangeEl.textContent = "On now";
+
+  /* PINNED: the next EPCG / community event always sits first - it is the whole point of the
+     board (our own events), and it would otherwise be buried under ~130 scraped VisitPerth
+     listings. Comes from epcg-events.js (window.EPCG_EVENTS), NOT from HUB.events. */
+  function pinnedHtml(){
+    var evs=(window.EPCG_EVENTS||[]).filter(function(e){
+      return new Date(e.d+"T00:00:00")>=today;
+    }).sort(function(a,b){ return new Date(a.d+"T00:00:00")-new Date(b.d+"T00:00:00"); });
+    if(!evs.length) return "";
+    var e=evs.find(function(x){return x.type==="epcg";}) || evs[0];   /* prefer an EPCG event */
+    var d=new Date(e.d+"T00:00:00");
+    var n=Math.round((d-today)/86400000);
+    var badge = n===0 ? "TODAY" : (n===1 ? "TOMORROW" :
+                (n<=6 ? DSHORT[d.getDay()] : d.getDate()+" "+MSHORT[d.getMonth()].toUpperCase()));
+    var tag = e.type==="epcg" ? "EPCG" : "Community";
+    var meta = [e.venue, e.time].filter(Boolean).join(" \u00b7 ");
+    return "<a class='wo-item wo-pin' href='"+esc(e.url||"events.html")+"'"+(e.url?" target='_blank' rel='noopener'":"")+">"+
+      "<div class='wo-top'><span class='wo-day epcg'>"+esc(badge)+"</span>"+
+      "<span class='wo-cat'>"+tag+"</span></div>"+
+      "<div class='wo-ttl'>"+esc(e.t)+"</div>"+
+      (meta?"<div class='wo-venue'>"+esc(meta)+"</div>":"")+
+      "</a>";
+  }
+  var pinned=pinnedHtml();
+
+  if(!hits.length){
+    listEl.innerHTML=pinned+"<div class='woempty'>No free events listed for the rest of this week.<br>Check back Monday for the new week.</div>";
+    return;
+  }
+  // Badge syntax: relative-first. Day names inside the next 7 days, an explicit
+  // day+month beyond that. A bare day number is never shown on its own - "SAT 1"
+  // for 1 Aug reads as a date that has already passed.
+  var DAY_MS=86400000;
+  function daysOut(d){ return Math.round((d-today)/DAY_MS); }
+  function onDate(d){ return d.getDate()+" "+MSHORT[d.getMonth()].toUpperCase(); }   // "1 AUG"
+  function nearOrDate(d,prefix){                                                     // prefix: "ENDS"/"FROM"/""
+    var n=daysOut(d), lead=prefix?prefix+" ":"";
+    if(n>=1 && n<=6) return lead+DSHORT[d.getDay()];                                 // "ENDS FRI"
+    return lead+onDate(d);                                                           // "ENDS 1 AUG"
+  }
+  listEl.innerHTML=pinned+hits.map(function(h){
+    var e=h.e, activeToday=(h.s<=today && h.en>=today);
+    var badge;
+    if(h.single){
+      var n=daysOut(h.s);
+      badge = n===0 ? "TODAY" : n===1 ? "TOMORROW" : nearOrDate(h.s,"");             // TODAY / TOMORROW / FRI / 18 JUL
+    } else if(h.s<=today){
+      badge = daysOut(h.en)===0 ? "LAST DAY" : nearOrDate(h.en,"ENDS");              // LAST DAY / ENDS FRI / ENDS 1 AUG
+    } else {
+      badge = nearOrDate(h.s,"FROM");                                                // FROM SAT / FROM 18 JUL
+    }
+    var zt=(e.zone && e.zone!=="unknown" && e.zone!=="other") ? (" &middot; "+e.zone.charAt(0).toUpperCase()+e.zone.slice(1)) : "";
+    var venue=esc(e.venue||"")+zt;
+    return "<a class='wo-item' href='"+esc(e.href)+"' target='_blank' rel='noopener'>"+
+      "<div class='wo-top'><span class='wo-day"+(activeToday?" soon":"")+"'>"+esc(badge)+"</span>"+
+      (e.cat?"<span class='wo-cat'>"+esc(e.cat)+"</span>":"")+"</div>"+
+      "<div class='wo-ttl'>"+esc(e.title)+"</div>"+
+      (venue.replace(/&middot;.*/,"").trim()||zt?"<div class='wo-venue'>"+venue+"</div>":"")+
+      "</a>";
+  }).join("");
+})();
+
+
+/* ---- Ticker pace: constant speed, not constant duration ----
+   The track animates translateX(0 -> -50%), i.e. it always travels HALF its own width.
+   With a fixed CSS duration the speed therefore depended on how much news there was:
+   measured 13 items = 81px/s, but 26 items = 161px/s (twice as fast) and 10 items = 62px/s.
+   So the ticker sped up on busy days - which is exactly when it is hardest to read.
+   Derive the duration from the measured width instead, so px/sec - and the gap between
+   items passing a point - is identical every day. The CSS keeps `hscroll 92s` as a
+   fallback if this never runs. */
+var TICKER_PX_PER_SEC = 80;                      /* today's approved pace */
+function sizeTicker(){
+  var t = document.getElementById("htrack");
+  if(!t) return;
+  var half = t.scrollWidth / 2;                  /* the track is the content, doubled */
+  if(!half) return;                              /* not laid out yet */
+  var d = half / TICKER_PX_PER_SEC;
+  d = Math.max(20, Math.min(240, d));            /* sanity clamp */
+  t.style.animationDuration = d.toFixed(1) + "s";
+}
+addEventListener("resize", sizeTicker);
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(sizeTicker);  /* webfont swap changes width */
+
+
+/* ===== Have Your Say - City consultations closing within 30 days ===== */
+(function haveYourSay(){
+  var listEl=document.getElementById("hysList");
+  if(!listEl) return;
+  function esc(s){return (s||"").replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];});}
+  var now=new Date(), today=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+  var WINDOW_DAYS=30;                                  /* only what a resident can still act on */
+  /* City statutory notices + outside-source consultations (consultations.js), which the
+     weekly hub-data.js rebuild does not carry. */
+  var pool=((window.HUB&&HUB.notices)||[]).concat(window.CONSULTATIONS||[]);
+  var GRP=window.CONSULT_GROUPS||{};
+  var raw=pool.filter(function(n){
+    return n.kind==="consultation" && n.close;         /* have-your-say items only, not FYI notices */
+  }).map(function(n){
+    var c=new Date(n.close+"T00:00:00");
+    return {n:n, close:c, days:Math.round((c-today)/86400000)};
+  }).filter(function(o){
+    return o.days>=0 && o.days<=WINDOW_DAYS;           /* not closed, and closing soon enough to matter */
+  });
+
+  /* COLLAPSE grouped documents. One consultation can be published as several documents -
+     the LPS3 package is 5 tiles on Your Say Perth plus 2 City notices, all closing the same
+     day. Listing each would bury the genuinely urgent items. Items sharing a "grp" collapse
+     into a single row showing the document count. */
+  var byGrp={}, items=[];
+  raw.forEach(function(o){
+    var g=o.n.grp||GRP[o.n.title];
+    if(!g){ items.push(o); return; }
+    if(!byGrp[g]){ byGrp[g]={n:o.n, close:o.close, days:o.days, grp:g, count:1}; items.push(byGrp[g]); }
+    else { byGrp[g].count++; if(o.days<byGrp[g].days){ byGrp[g].days=o.days; byGrp[g].close=o.close; byGrp[g].n=o.n; } }
+  });
+  items.sort(function(a,b){ return a.days-b.days; });
+
+  if(!items.length){
+    listEl.innerHTML="<div class='hysempty'>Nothing closing in the next 30 days.<br>Check the Notices tab for what's coming.</div>";
+    return;
+  }
+  listEl.innerHTML=items.map(function(o){
+    var soon=o.days<=7;                                /* closing THIS WEEK - shaded differently */
+    var lbl=o.days===0?"CLOSES TODAY":(o.days===1?"1 DAY LEFT":(o.days+" DAYS LEFT"));
+    /* State/other-agency consultations (DPLH etc) carry an absolute url; City statutory
+       notices carry a slug under perth.wa.gov.au/public-notices/. Support both. */
+    var href=o.n.url ? o.n.url : (P+esc(o.n.slug));
+    var title=o.grp ? (o.grp + (o.count>1 ? " (" + o.count + " documents)" : "")) : o.n.title;
+    return "<a class='hys-item' href='"+esc(href)+"' target='_blank' rel='noopener'>"+
+      "<div class='hys-top'><span class='hys-days"+(soon?" soon":"")+"'>"+lbl+"</span>"+
+      (o.n.typ?"<span class='hys-typ'>"+esc(o.n.typ)+"</span>":"")+"</div>"+
+      "<div class='hys-ttl'>"+esc(title)+"</div>"+
+      "</a>";
+  }).join("");
+})();
+
+
+/* ===== Freshness stamp - the board must never rot silently =====
+   hub-data.js is rebuilt weekdays by east-perth-disruptions-weekly; consultations.js weekly by
+   epcg-consultations-weekly. Both run as scheduled agents on one machine, so a quiet failure is a
+   real possibility. If either feed goes stale the reader is told, in the header, rather than being
+   served old roadworks and expired deadlines that look current. */
+(function freshness(){
+  var el=document.getElementById("dstamp"); if(!el) return;
+  var MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  function parse(s){ if(!s) return null; var d=new Date(s+"T00:00:00"); return isNaN(d)?null:d; }
+  function fmt(d){ return d.getDate()+" "+MON[d.getMonth()]; }
+  var now=new Date(), today=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+  function ageOf(d){ return d?Math.round((today-d)/86400000):null; }
+
+  var hub=parse(window.HUB&&HUB.generated);
+  var cons=parse(window.CONSULTATIONS_GENERATED);
+  var hubAge=ageOf(hub), consAge=ageOf(cons);
+
+  /* hub-data refreshes every weekday, so >8 days means at least a week of missed runs.
+     consultations refresh weekly, so allow 16 days before shouting. */
+  var stale=[];
+  if(hubAge===null || hubAge>8) stale.push("disruptions & notices");
+  if(consAge===null || consAge>16) stale.push("consultations");
+
+  if(stale.length){
+    el.className="dstamp stale";
+    el.textContent="Data may be out of date ("+stale.join(" + ")+
+      (hubAge!==null?", last refreshed "+hubAge+" days ago":", refresh date unknown")+") - check the source links";
+  } else {
+    el.className="dstamp";
+    el.textContent="Data as at "+fmt(hub)+" - refreshed automatically each weekday";
+  }
+})();
+
+
+/* ===== Business Spotlight - per zone (spotlight.js) =====
+   Was hardcoded in every board, so West Perth residents were shown an East Perth cafe and every
+   new advertiser meant editing three HTML files. Now the board renders whichever business is set
+   for ITS zone, falling back to the EPCG default when a zone has no advertiser yet. */
+(function spotlight(){
+  var host=document.querySelector("section.spotlight"); if(!host) return;
+  var S=window.SPOTLIGHT||{};
+  var b=S[HZ] || S.FALLBACK; if(!b) return;
+  var ribbon=b.ribbon || "&#11088; Business Spotlight";
+  var ctas=(b.ctas||[]).map(function(c){
+    return "<a class='"+(c.style||"b1")+"' href='"+c.href+"'"+
+           (/^https?:/.test(c.href)?" target='_blank' rel='noopener'":"")+">"+c.label+"</a>";
+  }).join("");
+  host.innerHTML=
+    "<div class='spot-media'>"+
+      "<img class='photo' src='"+b.img+"' alt='"+(b.alt||b.name)+"'>"+
+      "<div class='ribbon'><span>"+ribbon+"</span></div>"+
+    "</div>"+
+    "<div class='spot-info'>"+
+      "<div class='nm'>"+b.name+"</div>"+
+      "<div class='tl'>"+(b.blurb||"")+"</div>"+
+      (b.highlight?"<div class='spot-hi'>"+b.highlight+"</div>":"")+
+      (b.meta?"<div class='spot-meta'>"+b.meta+"</div>":"")+
+      (function(){
+        var o=b.offer; if(!o) return "";
+        /* Expired coupons must never linger - a dead offer on the board is worse than none. */
+        if(!o.expires) return "";
+        var end=new Date(o.expires+"T23:59:59");
+        if(isNaN(end) || end < new Date()) return "";
+        var exp=end.toLocaleDateString("en-AU",{day:"numeric",month:"short"});
+        return "<div class='spot-offer'>"+
+          "<div class='oh'>"+o.headline+"</div>"+
+          (o.how?"<div class='ohow'>"+o.how+"</div>":"")+
+          (o.code?"<div class='ocode'>"+o.code+"</div>":"")+
+          "<div class='oterms'>"+(o.terms?o.terms+" &middot; ":"")+"Offer ends "+exp+"</div>"+
+          "</div>";
+      })()+
+      (ctas?"<div class='spot-cta'>"+ctas+"</div>":"")+
+    "</div>";
+})();
+
+activateTab("home");
+(function(){var h=(location.hash||"").replace(/^#/,"");var b=h&&document.querySelector('#tabs button[data-tab="'+h+'"]');if(b)b.click();try{window.scrollTo(0,0);}catch(e){}setTimeout(function(){try{window.scrollTo(0,0);}catch(e){}},80);})();
+window.addEventListener("hashchange",function(){var h=(location.hash||"").replace(/^#/,"");var b=h&&document.querySelector('#tabs button[data-tab="'+h+'"]');if(b){b.click();}var m=document.querySelector('.mnav');if(m)m.classList.remove('open');var s=document.querySelector('.mscrim');if(s)s.classList.remove('open');try{window.scrollTo(0,0);}catch(e){}});
+</script>
+<script>
+(function(){var x0=null,y0=null,t0=0;
+addEventListener("touchstart",function(e){if(e.touches.length!==1){x0=null;return;}var t=e.touches[0];x0=t.clientX;y0=t.clientY;t0=Date.now();},{passive:true});
+addEventListener("touchend",function(e){if(x0==null)return;var t=e.changedTouches[0];var dx=t.clientX-x0,dy=t.clientY-y0;var onMap=e.target&&e.target.closest&&(e.target.closest("#map")||e.target.closest("#ptaMap"));var mn=document.querySelector(".mnav");var navOpen=mn&&mn.classList.contains("open");if(!onMap&&!navOpen&&dx>90&&Math.abs(dx)>Math.abs(dy)*2&&(Date.now()-t0)<700){location.href="index.html";}x0=null;},{passive:true});
+})();
+</script>
+<script>(function(){var bt=document.querySelector(".backtop");if(!bt)return;var a=document.getElementById("bar")||document.querySelector(".homebtn")||document.querySelector("h1");function upd(){var show;if(a){show=a.getBoundingClientRect().bottom<=6;}else{var y=(document.scrollingElement||document.documentElement||{}).scrollTop||window.pageYOffset||0;show=y>80;}bt.classList.toggle("show",!!show);}addEventListener("scroll",upd,{passive:true});addEventListener("resize",upd);setTimeout(upd,300);upd();})();</script>
+<script>document.addEventListener("click",function(e){var inHelp=e.target.closest&&(e.target.closest(".maphelp")||e.target.closest(".maphelptip"));if(!inHelp){var o=document.querySelectorAll(".maphelptip.open");for(var i=0;i<o.length;i++)o[i].classList.remove("open");}var inMenu=e.target.closest&&(e.target.closest("#dmenu")||e.target.closest(".dburger"));if(!inMenu){var m=document.getElementById("dmenu");if(m)m.classList.remove("open");}});</script>
+<script>
+function htick(){var d=new Date();var h=d.getHours(),m=d.getMinutes();var c=document.getElementById("hclock");if(c)c.textContent=h+":"+(m<10?"0":"")+m;var dd=document.getElementById("hdate");if(dd)dd.textContent=d.toLocaleDateString("en-AU",{weekday:"long",day:"numeric",month:"long"});}
+htick();setInterval(htick,10000);
+(function(){var codes={0:["Clear","☀️"],1:["Mainly clear","🌤️"],2:["Partly cloudy","⛅"],3:["Overcast","☁️"],45:["Fog","🌫️"],48:["Fog","🌫️"],51:["Drizzle","🌦️"],61:["Rain","🌧️"],63:["Rain","🌧️"],65:["Heavy rain","🌧️"],80:["Showers","🌦️"],95:["Storm","⛈️"]};
+function __loadWx(){fetch("https://api.open-meteo.com/v1/forecast?latitude=-31.955&longitude=115.875&current=temperature_2m,apparent_temperature,weather_code&timezone=Australia%2FPerth").then(function(r){return r.json();}).then(function(j){var c=j.current,info=codes[c.weather_code]||["",""];var te=document.getElementById("hwxTemp");if(te)te.innerHTML=Math.round(c.temperature_2m)+"&deg;";var co=document.getElementById("hwxCond");if(co)co.textContent=info[0]+" · feels "+Math.round(c.apparent_temperature)+"°";var ic=document.getElementById("hwxIco");if(ic&&info[1])ic.textContent=info[1];}).catch(function(){});}__loadWx();(function(){var n=new Date();var ms=(3600-(n.getMinutes()*60+n.getSeconds()))*1000-n.getMilliseconds();if(ms<1000)ms+=3600000;setTimeout(function tk(){__loadWx();setTimeout(tk,3600000);},ms);})();(function(){function armMid(){var n=new Date();var mid=new Date(n.getFullYear(),n.getMonth(),n.getDate()+1,0,0,15,0);setTimeout(function(){location.reload();},mid.getTime()-n.getTime());}armMid();})();})();
+/* Fit guard (19 Jul 2026): at narrow desktop widths (e.g. a ~1024px non-maximised
+   window) the home dashboard needs more height than the locked 100vh/min-height:820px
+   layout gives it, and the hero cards painted over the navbar/footer. Measure the
+   actual shortfall and grow body min-height so the page scrolls instead of overlapping.
+   Re-runs on resize, font load, tab switch (body class) and data render (stage subtree). */
+(function(){
+var raf=null;
+function fit(){
+  raf=null;
+  var b=document.body;
+  if((window.innerWidth||0)<768||!b.classList.contains("on-home")){b.style.minHeight="";return;}
+  var stage=document.querySelector("#tab-home .stage");
+  if(!stage){b.style.minHeight="";return;}
+  b.style.minHeight="";
+  var deficit=stage.scrollHeight-stage.clientHeight;
+  if(deficit>1)b.style.minHeight=(b.scrollHeight+deficit)+"px";
+}
+function queue(){if(raf!=null)return;raf=setTimeout(fit,40);}
+addEventListener("resize",queue);
+addEventListener("load",queue);
+if(document.fonts&&document.fonts.ready&&document.fonts.ready.then)document.fonts.ready.then(queue);
+if(window.MutationObserver){
+  new MutationObserver(queue).observe(document.body,{attributes:true,attributeFilter:["class"]});
+  var st=document.querySelector("#tab-home .stage");
+  if(st)new MutationObserver(queue).observe(st,{childList:true,subtree:true});
+}
+setTimeout(queue,400);setTimeout(queue,1500);
+queue();
+})();
+
+</script>
+<script data-goatcounter="https://epcgsec.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>diag</title></head>
+<body style="font:13px monospace;background:#012;color:#cef">
+<pre id=o></pre>
+<script>
+var mq=function(q){try{return matchMedia(q).matches}catch(e){return 'ERR'}};
+var d={iw:innerWidth, ow:outerWidth, docW:document.documentElement.clientWidth,
+ screenW:screen.width, screenH:screen.height, availW:screen.availWidth,
+ dpr:devicePixelRatio, mtp:navigator.maxTouchPoints,
+ coarse:mq('(pointer:coarse)'), fine:mq('(pointer:fine)'), hoverHover:mq('(hover:hover)'), hoverNone:mq('(hover:none)'),
+ framed:(window.top!==window.self), ua:navigator.userAgent.slice(0,80)};
+document.getElementById('o').textContent=JSON.stringify(d,null,1);
+try{ parent.postMessage({__hubdiag:d},'*'); }catch(e){}
+</script></body></html>
