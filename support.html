@@ -233,12 +233,9 @@ body{margin:0;display:flex;flex-direction:column;height:100vh;overflow:hidden;pa
        Send it to us and we'll consider it for the Hub and the newsletter. Community events are the
        point of all this, so please don't be shy.</p>
 
-    <!-- Netlify Forms: the form is detected from this static HTML at deploy time.
-         Submitted via fetch() so the page stays put inside the Wix iframe embed. -->
-    <form name="event-submission" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="evForm">
-      <input type="hidden" name="form-name" value="event-submission">
-      <p class="hp"><label>Leave this empty: <input name="bot-field"></label></p>
-
+    <!-- No backend (GitHub Pages, not Netlify): submit composes a mailto: to the
+         secretary inbox instead of posting anywhere. See the submit handler below. -->
+    <form name="event-submission" id="evForm">
       <div class="frow">
         <span class="fld"><label for="ev-name">Your name</label><input id="ev-name" name="name" required></span>
         <span class="fld"><label for="ev-email">Your email</label><input id="ev-email" type="email" name="email" required></span>
@@ -343,26 +340,16 @@ if (document.fonts && document.fonts.ready) document.fonts.ready.then(sizeTicker
 <script>
 (function(){
   var f=document.getElementById("evForm"); if(!f) return;
-  var btn=document.getElementById("evSend"), msg=document.getElementById("evMsg");
+  var msg=document.getElementById("evMsg");
   f.addEventListener("submit", function(e){
-    e.preventDefault();                                  /* keep the user inside the Wix iframe */
-    msg.className="fmsg"; msg.textContent="";
-    btn.disabled=true; btn.textContent="Sending...";
-    fetch("/", {                                         /* Netlify accepts the POST at the site root */
-      method:"POST",
-      headers:{"Content-Type":"application/x-www-form-urlencoded"},
-      body:new URLSearchParams(new FormData(f)).toString()
-    }).then(function(r){
-      if(!r.ok) throw new Error(r.status);
-      f.reset();
-      msg.className="fmsg ok";
-      msg.textContent="Thanks! We've got it and someone will be in touch.";
-    }).catch(function(){
-      msg.className="fmsg err";
-      msg.innerHTML="Sorry - that didn't send. Please email <a href='mailto:secretary.eastperthcommunity@gmail.com'>secretary.eastperthcommunity@gmail.com</a> instead.";
-    }).then(function(){
-      btn.disabled=false; btn.textContent="Send it to us \u2197";
-    });
+    e.preventDefault();
+    var name=f.name.value, email=f.email.value, ev=f.event.value, date=f.date.value, venue=f.venue.value, details=f.details.value;
+    var subject="Event for the East Perth Hub: "+ev;
+    var body="From: "+name+" ("+email+")\nEvent: "+ev+"\nDate: "+date+"\nWhere: "+(venue||"-")+"\n\n"+details;
+    var mailto="mailto:secretary.eastperthcommunity@gmail.com?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
+    msg.className="fmsg ok";
+    msg.innerHTML="Opening your email app to send this to us - if nothing happens, email <a href='mailto:secretary.eastperthcommunity@gmail.com'>secretary.eastperthcommunity@gmail.com</a> directly.";
+    window.location.href=mailto;
   });
 })();
 </script>
