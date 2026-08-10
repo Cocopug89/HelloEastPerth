@@ -2,7 +2,7 @@
   "meta": {
     "db_version": 17,
     "first_built": "2026-07-08",
-    "last_scrape": "2026-08-09",
+    "last_scrape": "2026-08-10",
     "source": "https://www.transperth.wa.gov.au/service-updates",
     "coordinate_source": "data.wa.gov.au PTA-001 (ArcGIS: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Transport/MapServer/14). Query by stopnumber (bus/CAT) or stopname LIKE (rail), outSR=4326. Exact stop/station coordinates, not approximations.",
     "scope": "City of Perth LGA only",
@@ -21,7 +21,8 @@
     "scrape_2026-08-05": "Weekly recrawl. Dropped 1 expired item: 25173. Found 2 new in-scope items: 25194 and 25176. Net list: 12 items (10 carried over unchanged, 2 new, 1 dropped).",
     "scrape_2026-08-06": "Weekly recrawl. Dropped 3 expired items: 25167, 25152, 25176. No new in-scope items this run. Net list: 9 items (9 carried over unchanged, 0 new, 3 dropped).",
     "next_run_note": "Weekday 11:05am hub deploy (east-perth-disruptions-weekly task) publishes this refresh automatically the same morning it runs. This run landed on a Sunday; the next weekday deploy (Mon 10 Aug) will pick it up. By then 25171 (single-day, ran only 9 Aug) and 25200 (weekend-only, ended 9 Aug) will need to be re-assessed as expired on the next recrawl before that Monday deploy, since both end on the weekend before the Monday publish.",
-    "scrape_2026-08-09": "Weekly recrawl. Dropped 2 expired items: 25168, 25207 (both ended 8 Aug, before today 9 Aug). Screened the full current Transperth service-updates page against scope_rule; found 5 new in-scope items: 25238 (Airport & Fremantle Lines nightly closures, Perth Station, 6-10 Sep - closure explicitly runs from Perth, unlike the excluded 25236 Claremont-Fremantle-only closure), 25234 (Yanchep Line night closure, Perth Station, 1 Sep), 25228 (15-route East Perth bus stop closure at Adelaide Tce before Plain St, nightly 9pm-5am 12-14 Aug), 25233 (Routes 40/41/42/43, four Lord St Perth/Northbridge stops, evening 11 Aug), 25200 (Routes 995 & 999, two Stirling Hwy Nedlands stops, weekend 8-9 Aug - NOTE: Until date is today's scrape date; flagged to be re-assessed as expired on the next recrawl before it goes stale on the Monday deploy). All coordinates for the 5 new items' 7 affected stops (10137, 11316, 11317, 11656, 11657, 10391, 10392) confirmed via PTA-001 ArcGIS, reached via the Claude-in-Chrome browser tool after web_fetch again blocked the query URL under its provenance restriction (same workaround as the 8 Aug scrape). Screened and excluded as out of scope: 25236 (Fremantle Line, Claremont-Fremantle segment only), 25224/25226/25223/25227/25229/25230/25231/25232/25235/25225/25239/25147 (affected stops in Warnbro, Hamersley, Quinns Rocks, St James/Bentley, Wattle Grove/Forrestfield, Scarborough x2, East Victoria Park, South Guildford, Sorrento, Mount Hawthorn/Leederville, Cloverdale - none in City of Perth). 9 other carried-over in-scope items (25048, 25035, 25171, 25213, 25217, 21697-1, 21126, 20314, 25194) had dates checked against the current page and carried over unchanged. Net list: 14 items (9 carried over unchanged, 5 new, 2 dropped)."
+    "scrape_2026-08-09": "Weekly recrawl. Dropped 2 expired items: 25168, 25207 (both ended 8 Aug, before today 9 Aug). Screened the full current Transperth service-updates page against scope_rule; found 5 new in-scope items: 25238 (Airport & Fremantle Lines nightly closures, Perth Station, 6-10 Sep - closure explicitly runs from Perth, unlike the excluded 25236 Claremont-Fremantle-only closure), 25234 (Yanchep Line night closure, Perth Station, 1 Sep), 25228 (15-route East Perth bus stop closure at Adelaide Tce before Plain St, nightly 9pm-5am 12-14 Aug), 25233 (Routes 40/41/42/43, four Lord St Perth/Northbridge stops, evening 11 Aug), 25200 (Routes 995 & 999, two Stirling Hwy Nedlands stops, weekend 8-9 Aug - NOTE: Until date is today's scrape date; flagged to be re-assessed as expired on the next recrawl before it goes stale on the Monday deploy). All coordinates for the 5 new items' 7 affected stops (10137, 11316, 11317, 11656, 11657, 10391, 10392) confirmed via PTA-001 ArcGIS, reached via the Claude-in-Chrome browser tool after web_fetch again blocked the query URL under its provenance restriction (same workaround as the 8 Aug scrape). Screened and excluded as out of scope: 25236 (Fremantle Line, Claremont-Fremantle segment only), 25224/25226/25223/25227/25229/25230/25231/25232/25235/25225/25239/25147 (affected stops in Warnbro, Hamersley, Quinns Rocks, St James/Bentley, Wattle Grove/Forrestfield, Scarborough x2, East Victoria Park, South Guildford, Sorrento, Mount Hawthorn/Leederville, Cloverdale - none in City of Perth). 9 other carried-over in-scope items (25048, 25035, 25171, 25213, 25217, 21697-1, 21126, 20314, 25194) had dates checked against the current page and carried over unchanged. Net list: 14 items (9 carried over unchanged, 5 new, 2 dropped).",
+    "scrape_2026-08-10": "Weekly recrawl. Dropped 2 expired items: 25171 (Optus Stadium McIver/Claisebrook event disruption, ran only 9 Aug, before today 10 Aug), 25200 (Routes 995 & 999 Stirling Hwy Nedlands stops, weekend closure ended 9 Aug, before today 10 Aug - flagged for this exact outcome in the 9 Aug scrape note). Screened the full current Transperth service-updates page (both Service Disruptions and Planned Service Changes tables, ~90 rows) against scope_rule: every ID on the page today is already accounted for, either in the carried-over in-scope list or in excluded_examples from a prior week's screening (same article ID, same physical stop/segment, so a prior exclusion reason still holds even where the From/Until dates on the listing have shifted). No new candidate IDs appeared this run. 25194 (Routes 103, 995 & 998, Stirling Hwy Nedlands) ends today (10 Aug) - not before today, so kept for this run; flagged to be dropped as expired on the next recrawl. All other carried-over items' dates checked against the current page and matched the stored values exactly (25048, 25035, 25213, 25217, 25228, 25233, 25238, 25234, plus the ongoing items 21697-1, 21126, 20314 which carry no Until date). No PTA-001 coordinate lookups were needed this run since no new items entered scope. Net list: 12 items (12 carried over unchanged, 0 new, 2 dropped)."
   },
   "disruptions": [
     {
@@ -69,36 +70,6 @@
           -31.951582,
           115.858142,
           "Perth Underground"
-        ]
-      ]
-    },
-    {
-      "id": "25171",
-      "zones": [
-        "central",
-        "east"
-      ],
-      "mode": "train",
-      "sev": "medium",
-      "title": "Airport, Armadale, Ellenbrook, Midland & Thornlie-Cockburn Lines - Optus Stadium Event Disruption",
-      "routes": "Airport, Armadale, Ellenbrook, Midland & Thornlie-Cockburn lines",
-      "start": "2026-08-09",
-      "end": "2026-08-09",
-      "ongoing": false,
-      "loc": "McIver & Claisebrook stations",
-      "stops": "McIver (closed ~4.49-6.18pm), Claisebrook (platform closures ~12.02-2.02pm & 4.35-6.20pm)",
-      "impact": "Evening station & platform closures for a stadium event at Optus Stadium (AFL Rd 22, West Coast v Collingwood)",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25171",
-      "pts": [
-        [
-          -31.951701,
-          115.866457,
-          "McIver Station"
-        ],
-        [
-          -31.949638,
-          115.872308,
-          "Claisebrook Station"
         ]
       ]
     },
@@ -336,35 +307,6 @@
           -31.947734,
           115.870584,
           "Lord St after Brewer St"
-        ]
-      ]
-    },
-    {
-      "id": "25200",
-      "zones": [
-        "west"
-      ],
-      "mode": "bus",
-      "sev": "low",
-      "title": "Routes 995 & 999 - Stirling Hwy Stop Closures",
-      "routes": "Routes 995 & 999",
-      "start": "2026-08-08",
-      "end": "2026-08-09",
-      "ongoing": false,
-      "loc": "Stirling Hwy, Nedlands",
-      "stops": "Stirling Hwy after Broadway (10391), Stirling Hwy before Tyrell St (10392), Nedlands",
-      "impact": "Weekend road closures shut two Nedlands Stirling Hwy stops; services diverted to nearby alternates",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25200",
-      "pts": [
-        [
-          -31.977727,
-          115.812086,
-          "Stirling Hwy after Broadway"
-        ],
-        [
-          -31.978212,
-          115.809261,
-          "Stirling Hwy before Tyrell St"
         ]
       ]
     },
@@ -793,6 +735,14 @@
     {
       "id": "25207",
       "reason": "Red CAT Raine Square & King Street stop closure - expired 8 Aug 2026, before the 9 Aug scrape."
+    },
+    {
+      "id": "25171",
+      "reason": "Airport/Armadale/Ellenbrook/Midland/Thornlie-Cockburn Lines Optus Stadium event disruption at McIver/Claisebrook - expired 9 Aug 2026, before the 10 Aug scrape."
+    },
+    {
+      "id": "25200",
+      "reason": "Routes 995 & 999 Stirling Hwy Nedlands stop closures - expired 9 Aug 2026, before the 10 Aug scrape."
     }
   ]
 }
