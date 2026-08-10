@@ -13,10 +13,9 @@
 /* The board reads this to show a freshness stamp in the header and to WARN when this
    feed has gone stale. A hand-typed date drifted before (the page claimed "8 Jul" while
    the data was from the 12th), so it is generated, never written by hand. */
-window.CONSULTATIONS_GENERATED = "2026-08-03";
+window.CONSULTATIONS_GENERATED = "2026-08-10";
 
 window.CONSULTATIONS = [
-{"typ": "Planning (DPLH)", "title": "Parliament House Precinct - Draft Metropolitan Region Scheme Policy", "url": "https://haveyoursay.dplh.wa.gov.au/parliament-house-precinct", "pub": "", "close": "2026-08-03", "kind": "consultation", "src": "DPLH"},
 {"typ": "Parks (BGPA)", "title": "Kings Park and Bold Park Master Plan - community vision to 2050", "url": "https://www.bgpa.wa.gov.au/future", "pub": "", "close": "2026-08-13", "kind": "consultation", "src": "BGPA"},
 {"typ": "Infrastructure (City of Perth)", "title": "Perth Town Hall Undercroft Redevelopment", "url": "https://yoursay.perth.wa.gov.au/perth-town-hall-undercroft-redevelopment", "pub": "", "close": "2026-08-14", "kind": "consultation", "src": "Your Say Perth"},
 {"typ": "Transport (City of Perth)", "title": "Connecting the City: Draft Transport Strategy", "url": "https://yoursay.perth.wa.gov.au/connecting-city-draft-transport-strategy", "pub": "", "close": "2026-08-21", "kind": "consultation", "src": "Your Say Perth"},
