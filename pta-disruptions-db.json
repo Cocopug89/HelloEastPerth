@@ -1,8 +1,8 @@
 {
   "meta": {
-    "db_version": 21,
+    "db_version": 22,
     "first_built": "2026-07-08",
-    "last_scrape": "2026-08-14",
+    "last_scrape": "2026-08-15",
     "source": "https://www.transperth.wa.gov.au/service-updates",
     "coordinate_source": "data.wa.gov.au PTA-001 (ArcGIS: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Transport/MapServer/14). Query by stopnumber (bus/CAT) or stopname LIKE (rail), outSR=4326. Exact stop/station coordinates, not approximations.",
     "scope": "City of Perth LGA only",
@@ -24,9 +24,9 @@
     "scrape_2026-08-10": "Weekly recrawl. Dropped 2 expired items: 25171 (Optus Stadium McIver/Claisebrook event disruption, ran only 9 Aug, before today 10 Aug), 25200 (Routes 995 & 999 Stirling Hwy Nedlands stops, weekend closure ended 9 Aug, before today 10 Aug - flagged for this exact outcome in the 9 Aug scrape note). Screened the full current Transperth service-updates page (both Service Disruptions and Planned Service Changes tables, ~90 rows) against scope_rule: every ID on the page today is already accounted for, either in the carried-over in-scope list or in excluded_examples from a prior week's screening (same article ID, same physical stop/segment, so a prior exclusion reason still holds even where the From/Until dates on the listing have shifted). No new candidate IDs appeared this run. 25194 (Routes 103, 995 & 998, Stirling Hwy Nedlands) ends today (10 Aug) - not before today, so kept for this run; flagged to be dropped as expired on the next recrawl. All other carried-over items' dates checked against the current page and matched the stored values exactly (25048, 25035, 25213, 25217, 25228, 25233, 25238, 25234, plus the ongoing items 21697-1, 21126, 20314 which carry no Until date). No PTA-001 coordinate lookups were needed this run since no new items entered scope. Net list: 12 items (12 carried over unchanged, 0 new, 2 dropped).",
     "scrape_2026-08-11": "Weekly recrawl. Dropped 1 expired item: 25194 (Routes 103, 995 & 998, Stirling Hwy Nedlands, ended 10 Aug - before today 11 Aug; also no longer listed on the current Transperth page). Screened the full current Transperth service-updates page (both Service Disruptions and Planned Service Changes tables, ~90 rows) against scope_rule. Found 3 new in-scope items, all one-hour weekday Bus Stops Accessibility Works Program stop closures on Thu 13 Aug: 25243 (Routes 24/32/33/39/72/73/176-179/270/910/930/935/940, East Perth stop 10072 Adelaide Tce after Plain St closed 10-11am), 25247 (Routes 38/220/960 and Yellow CAT, East Perth stop 12914 Wellington St Old Girls School CAT 52 closed 9-10am - Yellow CAT auto-qualifies regardless of suburb), 25253 (Routes 24/27/103/935 and Blue/Green/Purple CATs, West Perth stop 10093 Malcolm St/Harvest Terrace CAT 23 closed 11am-12pm - CAT service auto-qualifies; a different stop from the standing ongoing item 21126, which is CAT 29 on the same street). Excluded as out of scope after checking detail pages: 25242 (Armadale Line, Cannington-Byford segment, no City station), 25241 (Armadale & Thornlie-Cockburn Lines, Victoria Park to Byford/Cockburn Central, no City station), 25240 (Mandurah Line, Rockingham-Mandurah segment, no City station), 25244 (Kalamunda Rd stops, Maida Vale/Gooseberry Hill, City of Kalamunda), 25245 (West Swan Rd/Millhouse Rd stops, Belhus/Aveley, City of Swan), 25246 (Baldivis Rd stops, Baldivis, City of Rockingham), 25248 (Benara Rd/Bottlebrush Dr stops, Morley/Kiara, City of Bayswater), 25249 (Two Rocks Rd stop, Yanchep, City of Wanneroo), 25250 (Barker Rd stop, South Guildford, City of Swan), 25251 (Manning Rd stop, Wilson, City of Canning; Elizabeth Quay Bus Station destination is not the affected stop's suburb), 25252 (Manning Rd stop, Cannington, City of Canning; same pattern). All coordinates for the 3 new items' 3 affected stops (10072, 12914, 10093) confirmed via PTA-001 ArcGIS, reached via the Claude-in-Chrome browser tool after web_fetch again blocked the query URL under its provenance restriction (same workaround as prior scrapes). 11 other carried-over in-scope items (25048, 25035, 25213, 25217, 21697-1, 21126, 20314, 25228, 25233, 25238, 25234) had dates checked against the current page and carried over unchanged. NOTE: 25213 (Route 160 & Red CAT, East Perth) and 25233 (Routes 40-43, Lord St) both end today (11 Aug) - not before today, so kept this run; flagged to be re-assessed as expired on the next recrawl. Net list: 14 items (11 carried over unchanged, 3 new, 1 dropped).",
     "scrape_2026-08-12": "Weekly recrawl. Dropped 2 expired items: 25213 (Route 160 & Red CAT, five East Perth Plain St/Hay St stops, ended 11 Aug - before today 12 Aug), 25233 (Routes 40-43, four Lord St stops, ended 11 Aug - before today 12 Aug; also no longer listed on the current Transperth page). Screened the full current Transperth service-updates page (both Service Disruptions and Planned Service Changes tables, ~90 rows) against scope_rule. Found 1 new in-scope item: 25261 (Routes 24 & 96, three Broadway stops in Crawley - 17582, 17583, 17584 - closed 7am-5pm Fri 14 Aug for a road closure; same physical stops/pattern as the now-expired 25106 (27 Jul) and 25173 (4 Aug) Broadway Crawley closures seen in prior scrapes). Checked 6 other new candidate IDs and excluded all: 25258 (Routes 231/232, Chamberlain St/Ashburton Dr, Gosnells, City of Gosnells), 25259 (Routes 201/202, High Rd, Ferndale/Riverton/Lynwood/Parkwood, City of Canning), 25260 (Route 514, Parkway Rd, Bibra Lake, City of Cockburn), 25262 (Route 567, Baldivis Rd, Baldivis, City of Rockingham), 25263 (Route 427, Hugo St, Stirling, City of Stirling), 25257 (Routes 410/990 & Surf CAT, Scarborough Beach Rd, Innaloo, City of Stirling - Surf CAT is not one of the Red/Blue/Green/Yellow/Purple CATs and doesn't auto-qualify). All other candidates on today's page (25242/25241/25240/25236/25049/25046/25044/25170/25244/25245/25246/25248/25249/25250/25252/25199/25229/25230/25018/25219/25239/25210 and the full outer-suburb/metro-wide set) matched IDs already carried in excluded_examples from prior scrapes by identical physical stop/segment, so those exclusions still hold even where From/Until dates on the listing have shifted (redcliffe-station-car-park-disruption-2 and kelmscott-station-car-park-disruption-9 excluded on the same station-not-in-scope-list basis as prior car-park notices without needing a detail-page fetch). Coordinates for the new item's 3 affected stops (17582, 17583, 17584) confirmed via PTA-001 ArcGIS, reached via the Claude-in-Chrome browser tool after web_fetch again blocked the query URL under its provenance restriction (same workaround as prior scrapes). 12 other carried-over in-scope items (25048, 25035, 25217, 21697-1, 21126, 20314, 25228, 25238, 25234, 25243, 25247, 25253) had dates checked against the current page and carried over unchanged. Net list: 13 items (12 carried over unchanged, 1 new, 2 dropped).",
-    "next_run_note": "Weekday 11:05am hub deploy (east-perth-disruptions-weekly task) publishes this refresh automatically the same morning it runs. 25217 (Red CAT, Victoria Avenue & Town Hall), 25228 (15-route East Perth stop, Adelaide Tce before Plain St) and 25261 (Routes 24 & 96, Broadway Crawley) all end 14 Aug - re-assess as expired on the 15 Aug recrawl. 25267 (East Perth, Adelaide Tce Westend Causeway) ends 16 Aug; 25269 (Blue & Red CATs, Hay St Mall/Victoria Ave/Town Hall) ends 20 Aug; 25279 (Routes 40-43, Lord St after Bulwer St) ends 18 Aug - re-assess each as expired on its own end date's following recrawl. 25035 (Mandurah Line) ends 18 Aug - re-assess as expired on the 19 Aug recrawl.",
     "scrape_2026-08-13": "Weekly recrawl. No items dropped (none of the 13 stored items have an Until date before today 13 Aug; 25243/25247/25253 end today, kept per standing practice, flagged for expiry re-assessment on the 14 Aug recrawl). Screened the full current Transperth service-updates page (both Service Disruptions and Planned Service Changes tables, ~90 rows) against scope_rule: every ID on today's page is already accounted for, either in the carried-over in-scope list (25048, 25035, 25217, 21697-1, 21126, 20314, 25228, 25238, 25234, 25243, 25247, 25253, 25261) or in excluded_examples from a prior week's screening, with exclusion reasons still holding even where From/Until dates on the listing have shifted. No new candidate IDs appeared this run. Re-confirmed 25261 (Routes 24 & 96, Broadway Crawley, Fri 14 Aug) is still listed and unchanged - it briefly looked absent on a first pass of the page text but is present (From/Until Fri 14 Aug/Fri 14 Aug), confirmed also via its own detail page. All 13 carried-over items' dates checked against the current page/detail pages and matched the stored values exactly. No PTA-001 coordinate lookups were needed this run since no new items entered scope. Net list: 13 items (13 carried over unchanged, 0 new, 0 dropped).",
-    "scrape_2026-08-14": "Weekly recrawl. Dropped 3 expired items: 25243 (Routes 24-940 East Perth Adelaide Tce after Plain St), 25247 (Routes 38/220/960 & Yellow CAT, Wellington St East Perth), 25253 (Routes 24/27/103/935 & Blue/Green/Purple CATs, Malcolm St/Harvest Tce West Perth) - all three ended 13 Aug, before today 14 Aug. Screened the full current Transperth service-updates page (both Service Disruptions and Planned Service Changes tables, ~90 rows) against scope_rule: every ID already accounted for either in the carried-over in-scope list or in excluded_examples, except 12 new candidate IDs (25266-25279 range) fetched and checked this run. Found 3 new in-scope items: 25279 (Routes 40/41/42/43, Lord St after Bulwer St, Perth suburb - ID 11318 - closed daily 7am-3pm Mon 17-Tue 18 Aug; a second affected stop, 11319 Lord St after Marlborough St, is in Highgate and out of scope, so only 11318 is plotted), 25267 (Routes 32/33/39/72/73/176-179/270/910/930/935, Adelaide Tce Westend Causeway, East Perth - ID 10071 - closed nightly 8pm-last service Sat 15-Sun 16 Aug; a different stop from the expiring 25228, which closes Adelaide Tce before Plain St ID 10137), 25269 (Blue & Red CATs, Hay Street Mall CAT 3 plus Victoria Avenue CAT 84 and Town Hall CAT 85, closed nightly 7pm-last service Sun 16-Thu 20 Aug; the Red CAT stops are the same physical stops as the expiring 25217, this is effectively that closure continuing plus the Blue CAT Hay St Mall stop added, with a one-night gap on Sat 15 Aug between the two notices). Excluded as out of scope after checking detail pages: 25277 (Route 592 & School Special 737, Falcon/Wannanup, City of Mandurah), 25278 (Route 502, Watkins St, White Gum Valley, City of Fremantle), 25274 (Route 356, Rosher Rd, Lockridge, City of Swan), 25275 (Routes 402/414, Main St, Osborne Park, City of Stirling), 25266 (Routes 374/451, Marangaroo Dr, Marangaroo/Girrawheen, City of Wanneroo/Stirling), 25273 (Routes 443/444, Davallia Rd, Duncraig/Carine, City of Joondalup/Stirling), 25272 (Routes 27/28, Brockway Rd/Mooro Dr, Karrakatta/Mount Claremont, Town of Claremont/Cambridge - not a scope suburb), 25271 (Route 274, Peoples Av, Gooseberry Hill, City of Kalamunda - same Bus Stops Accessibility Works Program pattern as the already-excluded 25164/25244), 25268 (Routes 38/930, Shepperton Rd, Burswood - not a scope suburb; route destinations Cloverdale/Thornlie Station are also out of scope). All other IDs on today's page matched carried-over in-scope items or prior excluded_examples by identical physical stop/segment. All coordinates for the 3 new items' stops (11318, 10071, 12124) confirmed via PTA-001 ArcGIS, reached via the Claude-in-Chrome browser tool after web_fetch again blocked the query URL under its provenance restriction (same workaround as every prior scrape since 31 Jul 2026); CAT 84 and CAT 85 coordinates for 25269 reused from the existing ArcGIS-verified 25217 record (same physical stops). 10 other carried-over in-scope items (25048, 25035, 25217, 21697-1, 21126, 20314, 25228, 25238, 25234, 25261) had dates checked against the current page and carried over unchanged. NOTE: 25217 (Red CAT, Victoria Ave/Town Hall), 25228 (East Perth Adelaide Tce before Plain St) and 25261 (Broadway Crawley) all end today (14 Aug) - not before today, so kept this run; flagged to be re-assessed as expired on the 15 Aug recrawl. Net list: 13 items (10 carried over unchanged, 3 new, 3 dropped)."
+    "scrape_2026-08-14": "Weekly recrawl. Dropped 3 expired items: 25243 (Routes 24-940 East Perth Adelaide Tce after Plain St), 25247 (Routes 38/220/960 & Yellow CAT, Wellington St East Perth), 25253 (Routes 24/27/103/935 & Blue/Green/Purple CATs, Malcolm St/Harvest Tce West Perth) - all three ended 13 Aug, before today 14 Aug. Screened the full current Transperth service-updates page (both Service Disruptions and Planned Service Changes tables, ~90 rows) against scope_rule: every ID already accounted for either in the carried-over in-scope list or in excluded_examples, except 12 new candidate IDs (25266-25279 range) fetched and checked this run. Found 3 new in-scope items: 25279 (Routes 40/41/42/43, Lord St after Bulwer St, Perth suburb - ID 11318 - closed daily 7am-3pm Mon 17-Tue 18 Aug; a second affected stop, 11319 Lord St after Marlborough St, is in Highgate and out of scope, so only 11318 is plotted), 25267 (Routes 32/33/39/72/73/176-179/270/910/930/935, Adelaide Tce Westend Causeway, East Perth - ID 10071 - closed nightly 8pm-last service Sat 15-Sun 16 Aug; a different stop from the expiring 25228, which closes Adelaide Tce before Plain St ID 10137), 25269 (Blue & Red CATs, Hay Street Mall CAT 3 plus Victoria Avenue CAT 84 and Town Hall CAT 85, closed nightly 7pm-last service Sun 16-Thu 20 Aug; the Red CAT stops are the same physical stops as the expiring 25217, this is effectively that closure continuing plus the Blue CAT Hay St Mall stop added, with a one-night gap on Sat 15 Aug between the two notices). Excluded as out of scope after checking detail pages: 25277 (Route 592 & School Special 737, Falcon/Wannanup, City of Mandurah), 25278 (Route 502, Watkins St, White Gum Valley, City of Fremantle), 25274 (Route 356, Rosher Rd, Lockridge, City of Swan), 25275 (Routes 402/414, Main St, Osborne Park, City of Stirling), 25266 (Routes 374/451, Marangaroo Dr, Marangaroo/Girrawheen, City of Wanneroo/Stirling), 25273 (Routes 443/444, Davallia Rd, Duncraig/Carine, City of Joondalup/Stirling), 25272 (Routes 27/28, Brockway Rd/Mooro Dr, Karrakatta/Mount Claremont, Town of Claremont/Cambridge - not a scope suburb), 25271 (Route 274, Peoples Av, Gooseberry Hill, City of Kalamunda - same Bus Stops Accessibility Works Program pattern as the already-excluded 25164/25244), 25268 (Routes 38/930, Shepperton Rd, Burswood - not a scope suburb; route destinations Cloverdale/Thornlie Station are also out of scope). All other IDs on today's page matched carried-over in-scope items or prior excluded_examples by identical physical stop/segment. All coordinates for the 3 new items' stops (11318, 10071, 12124) confirmed via PTA-001 ArcGIS, reached via the Claude-in-Chrome browser tool after web_fetch again blocked the query URL under its provenance restriction (same workaround as every prior scrape since 31 Jul 2026); CAT 84 and CAT 85 coordinates for 25269 reused from the existing ArcGIS-verified 25217 record (same physical stops). 10 other carried-over in-scope items (25048, 25035, 25217, 21697-1, 21126, 20314, 25228, 25238, 25234, 25261) had dates checked against the current page and carried over unchanged. NOTE: 25217 (Red CAT, Victoria Ave/Town Hall), 25228 (East Perth Adelaide Tce before Plain St) and 25261 (Broadway Crawley) all end today (14 Aug) - not before today, so kept this run; flagged to be re-assessed as expired on the 15 Aug recrawl. Net list: 13 items (10 carried over unchanged, 3 new, 3 dropped).",
+    "scrape_2026-08-15": "Weekly recrawl (scheduled, on the home machine via Cowork). Dropped 3 expired items, all flagged for exactly this outcome in the 14 Aug scrape note: 25217 (Red CAT, Victoria Avenue & Town Hall), 25228 (East Perth, Adelaide Tce before Plain St), 25261 (Routes 24 & 96, Broadway Crawley) - all three ended 14 Aug, before today 15 Aug. 25217's Victoria Ave/Town Hall stops remain covered going forward by the already-stored 25269, which reopens the same Red CAT stops (plus Hay St Mall) from 16 Aug. Screened the full current Transperth service-updates page (both Service Disruptions and Planned Service Changes tables, ~90 rows) against scope_rule: every ID already accounted for either in the carried-over in-scope list or in excluded_examples, except 6 new candidate IDs fetched and checked this run: 25287 (Thornlie-Cockburn Line fault-closure effective immediately, Cockburn Central-Cannington segment only, no City of Perth station affected), 25282 (Route 361, Camboon Rd, Morley/Noranda, City of Bayswater), 25283 (Routes 443 & 444, Davallia Rd, Duncraig, City of Joondalup - same street/pattern as the already-excluded 25273), 25284 (Route 597, Steerforth Dr, Coodanup, City of Mandurah), 25280 (Route 424, North Beach Rd, Karrinyup/Carine, City of Stirling), 25281 (Routes 36 & 51, Welshpool Rd, Welshpool/Queens Park, City of Canning). All 6 excluded as out of scope; none named a City of Perth suburb or in-scope rail/CAT service. No new in-scope items this run. 10 carried-over in-scope items (25048, 25035, 21697-1, 21126, 20314, 25238, 25234, 25267, 25269, 25279) had dates checked against the current page and carried over unchanged; no PTA-001 coordinate lookups were needed since no new items entered scope. Net list: 10 items (10 carried over unchanged, 0 new, 3 dropped)."
   },
   "disruptions": [
     {
@@ -74,35 +74,6 @@
           -31.951582,
           115.858142,
           "Perth Underground"
-        ]
-      ]
-    },
-    {
-      "id": "25217",
-      "zones": [
-        "central"
-      ],
-      "mode": "cat",
-      "sev": "medium",
-      "title": "Red CAT - Victoria Avenue & Town Hall Stop Closures",
-      "routes": "Red CAT",
-      "start": "2026-08-10",
-      "end": "2026-08-14",
-      "ongoing": false,
-      "loc": "Victoria Avenue & Town Hall, Perth",
-      "stops": "Victoria Avenue (CAT 84), Town Hall (CAT 85)",
-      "impact": "Nightly road closures shut two CBD Red CAT stops; services diverted to nearby alternates",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25217",
-      "pts": [
-        [
-          -31.9563,
-          115.865251,
-          "Victoria Avenue (CAT 84)"
-        ],
-        [
-          -31.954829,
-          115.860746,
-          "Town Hall (CAT 85)"
         ]
       ]
     },
@@ -184,30 +155,6 @@
       ]
     },
     {
-      "id": "25228",
-      "zones": [
-        "east"
-      ],
-      "mode": "bus",
-      "sev": "medium",
-      "title": "Routes 32, 33, 39, 72, 73, 160, 176, 177, 178, 179, 270, 910, 930, 935 & 940 - East Perth Stop Closure",
-      "routes": "Routes 32, 33, 39, 72, 73, 160, 176, 177, 178, 179, 270, 910, 930, 935 & 940",
-      "start": "2026-08-12",
-      "end": "2026-08-14",
-      "ongoing": false,
-      "loc": "Adelaide Tce, East Perth",
-      "stops": "Adelaide Tce before Plain St (ID 10137), East Perth",
-      "impact": "Nightly road closures (9pm-5am) shut one East Perth stop used by 15 routes; services diverted to nearby alternates",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25228",
-      "pts": [
-        [
-          -31.960416,
-          115.873991,
-          "Adelaide Tce before Plain St"
-        ]
-      ]
-    },
-    {
       "id": "25238",
       "zones": [
         "central"
@@ -252,40 +199,6 @@
           -31.95118,
           115.86004,
           "Perth Station"
-        ]
-      ]
-    },
-    {
-      "id": "25261",
-      "zones": [
-        "west"
-      ],
-      "mode": "bus",
-      "sev": "low",
-      "title": "Routes 24 & 96 - Broadway Crawley Stop Closures",
-      "routes": "Routes 24 & 96",
-      "start": "2026-08-14",
-      "end": "2026-08-14",
-      "ongoing": false,
-      "loc": "Broadway, Crawley",
-      "stops": "Broadway after Edward St (17582), Broadway before Myers St (17583), Broadway before Caporn St (17584), Crawley",
-      "impact": "Daytime road closure (7am-5pm) shuts three Crawley Route 24 & 96 stops; services diverted to nearby alternates on Fairway",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25261",
-      "pts": [
-        [
-          -31.98080070559751,
-          115.8146022288403,
-          "Broadway after Edward St"
-        ],
-        [
-          -31.982143974305156,
-          115.81458590026611,
-          "Broadway before Myers St"
-        ],
-        [
-          -31.984031674386454,
-          115.81460275197593,
-          "Broadway before Caporn St"
         ]
       ]
     },
@@ -908,6 +821,42 @@
     {
       "id": "25253",
       "reason": "Routes 24/27/103/935 & Blue/Green/Purple CATs Malcolm St/Harvest Tce West Perth stop closure - expired 13 Aug 2026, before the 14 Aug scrape."
+    },
+    {
+      "id": "25217",
+      "reason": "Red CAT Victoria Avenue & Town Hall stop closure - expired 14 Aug 2026, before the 15 Aug scrape. Same physical stops reopen closed under 25269 from 16 Aug."
+    },
+    {
+      "id": "25228",
+      "reason": "East Perth Adelaide Tce before Plain St (ID 10137) stop closure - expired 14 Aug 2026, before the 15 Aug scrape."
+    },
+    {
+      "id": "25261",
+      "reason": "Routes 24 & 96 Broadway Crawley stop closures - expired 14 Aug 2026, before the 15 Aug scrape; no longer listed on the current Transperth page."
+    },
+    {
+      "id": "25287",
+      "reason": "Thornlie-Cockburn Line fault-closure (effective immediately, 15 Aug) - Cockburn Central to Cannington segment only, no City of Perth station affected."
+    },
+    {
+      "id": "25282",
+      "reason": "Route 361 - sole affected stop Camboon Rd, Morley/Noranda (City of Bayswater)."
+    },
+    {
+      "id": "25283",
+      "reason": "Routes 443 & 444 - affected stops on Davallia Rd, Duncraig (City of Joondalup); same street/pattern as the already-excluded 25273."
+    },
+    {
+      "id": "25284",
+      "reason": "Route 597 - affected stops on Steerforth Dr, Coodanup (City of Mandurah)."
+    },
+    {
+      "id": "25280",
+      "reason": "Route 424 - affected stops on North Beach Rd, Karrinyup/Carine (City of Stirling)."
+    },
+    {
+      "id": "25281",
+      "reason": "Routes 36 & 51 - sole affected stop Welshpool Rd, Welshpool (City of Canning)."
     }
   ]
 }
