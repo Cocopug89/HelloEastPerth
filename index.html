@@ -85,7 +85,13 @@ html{-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:1
   .clock .ampm{font-size:17px;font-weight:700;color:var(--sky);margin-left:4px}
 
   /* greeting */
-  .hello{margin-top:16px}
+  .hello{margin-top:16px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+  .hello .htext{flex:1;min-width:0}
+  .mreport{flex:none;display:flex;align-items:center;gap:10px;background:var(--amber);color:#3a2a06;border-radius:16px;padding:11px 16px;text-decoration:none;white-space:nowrap;box-shadow:0 8px 20px rgba(0,20,35,.28)}
+  .mreport .ri{font-size:24px;line-height:1}
+  .mreport .rl{display:flex;flex-direction:column;line-height:1.2;font-size:14.5px;font-weight:800;letter-spacing:.3px;text-transform:uppercase}
+  .mreport .rl b{font-size:11px;font-weight:700;letter-spacing:.4px;opacity:.78;text-transform:none}
+  .mreport:active{transform:scale(.97)}
   .hello h1{margin:0;font-family:var(--brush);font-weight:800;font-size:52px;line-height:1;color:#fff;letter-spacing:1px;text-transform:uppercase}
   .hello .date{margin-top:10px;font-size:16px;color:var(--sky);font-weight:600;text-transform:uppercase;letter-spacing:1px}
 
@@ -183,7 +189,11 @@ html{-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:1
     .clock .time{font-size:25px}
     .clock .ampm{font-size:12px}
     /* 2. greeting on one line */
-    .hello{margin-top:9px}
+    .hello{margin-top:9px;gap:10px}
+    .mreport{padding:9px 12px;gap:8px;border-radius:13px}
+    .mreport .ri{font-size:20px}
+    .mreport .rl{font-size:12.5px}
+    .mreport .rl b{display:none}
     .hello h1{font-size:22px;letter-spacing:0;white-space:normal;line-height:1.05}
     .hello .date{margin-top:3px;font-size:11.5px}
     /* 3. compact weather widget */
@@ -230,8 +240,11 @@ html{-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:1
   </div>
 
   <div class="hello">
-    <h1>East Perth Community Hub</h1>
-    <div class="date" id="date">&mdash;</div>
+    <div class="htext">
+      <h1>East Perth Community Hub</h1>
+      <div class="date" id="date">&mdash;</div>
+    </div>
+    <a class="mreport" href="report.html" aria-label="Report a problem to the City or the police"><span class="ri">&#128227;</span><span class="rl">Report<b>a problem</b></span></a>
   </div>
 
   <div class="weather" id="weather">
@@ -271,14 +284,15 @@ html{-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:1
       <span class="ic" style="background:rgba(91,194,231,.24)">&#128642;</span>
       <span class="txt"><div class="bt">Transport</div><div class="bs">Transperth train, bus &amp; CAT disruptions</div></span>
     </a>
-    <a class="btn" href="events.html">
-      <span class="ic" style="background:rgba(242,199,92,.22)">&#128197;</span>
-      <span class="txt"><div class="bt">EPCG Events</div><div class="bs" id="evSub">EPCG &amp; partner community events</div></span>
-    </a>
     <a class="btn" href="east-perth-public-notices.html#events">
       <span class="cnt" id="cEvt" style="background:var(--tealg);color:#06342c"></span>
       <span class="ic" style="background:rgba(73,197,177,.22)">&#127881;</span>
-      <span class="txt"><div class="bt">What's On</div><div class="bs">Festivals, markets, arts &amp; events across Perth</div></span>
+      <span class="txt"><div class="bt">What's On</div><div class="bs" id="evSub">EPCG and community events, plus what's on across Perth</div></span>
+    </a>
+    <a class="btn" href="east-perth-public-notices.html#fireworks">
+      <span class="cnt" id="cFw" style="background:#cfc0f7;color:#2a0f5c"></span>
+      <span class="ic" style="background:rgba(138,92,240,.20)">&#127878;</span>
+      <span class="txt"><div class="bt">Fireworks</div><div class="bs">Approved displays around Perth, from WorkSafe WA</div></span>
     </a>
     <a class="btn" href="east-perth-public-notices.html#bins">
       <span class="ic" style="background:rgba(206,220,0,.20)">&#128465;</span>
@@ -325,6 +339,7 @@ html{-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:1
 <script src="spotlight.js"></script>
 <script src="pta-data.js"></script>
 <script src="epcg-events.js"></script>
+<script src="fireworks-data.js"></script>
 <script>
 const HUB=window.HUB||{disruptions:[],tenders:[],notices:[],events:[]};
 const DATA=HUB.disruptions.filter(function(d){return d.zone==="east";});
@@ -530,7 +545,7 @@ setCnt("cEvt", (HUB.events||[]).length);
     close;
 })();
 
-/* ===== next-event teaser (mirror events.html) ===== */
+/* ===== next-event teaser: writes onto the What's On tile (events.html retired 16 Aug 2026) ===== */
 (function(){
 var t0=midnight();
 var up=EVENTS.filter(function(e){return new Date(e.d+"T00:00:00")>=t0;}).sort(function(a,b){return new Date(a.d+"T00:00:00")-new Date(b.d+"T00:00:00");});
@@ -540,6 +555,16 @@ var D=new Date(pick.d+"T00:00:00");
 var ds=D.toLocaleDateString("en-AU",{weekday:"short",day:"numeric",month:"short"});
 document.getElementById("evSub").textContent="Next: "+pick.t+" · "+ds;
 }
+})();
+
+/* ===== fireworks count: upcoming metro displays (WorkSafe WA schedule) ===== */
+(function(){
+  var el=document.getElementById("cFw"); if(!el) return;
+  var t0=midnight();
+  var n=(((window.FIREWORKS||{}).events)||[]).filter(function(f){
+    return new Date(f.date+"T00:00:00")>=t0;
+  }).length;
+  el.textContent=n;
 })();
 
 /* Freshness guard (fridge view) - mirrors the boards' 8-day threshold. hub-data.js refreshes every

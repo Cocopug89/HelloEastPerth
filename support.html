@@ -56,7 +56,12 @@ html{-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:1
 .card .fmsg.err{display:block;background:#fdecea;color:#8c2f28;border:1px solid #f0b4ae}
 .card .fnote{font-size:12.5px;color:var(--muted);margin-top:10px}
 .card .fnote a{color:var(--blue);font-weight:700}
-.cta{display:inline-block;background:var(--blue);color:#fff;font-weight:800;font-size:15px;padding:12px 22px;border-radius:26px;text-decoration:none}
+/* CTA blue darkened from var(--blue) #00A3E0 to #006C99 on 16 Aug 2026. White on #00A3E0
+   measured 2.87:1 against a 4.5 requirement, and at 15px/800 it does not qualify for the
+   large-text 3:1 allowance either. This was PRE-EXISTING on support.html, not introduced by
+   report.html; both are fixed together so the two pages keep the same button. #006C99 is
+   5.83:1 and is the same hue, just darker. Do not revert it to var(--blue). */
+.cta{display:inline-block;background:#006C99;color:#fff;font-weight:800;font-size:15px;padding:12px 22px;border-radius:26px;text-decoration:none}
   .cta:hover{filter:brightness(1.05)}
   .cta.pink{background:var(--pink);color:#4b1528}
 
@@ -144,6 +149,12 @@ body{margin:0;display:flex;flex-direction:column;height:100vh;overflow:hidden;pa
 @media(min-width:1180px){
   .wrap{grid-template-columns:repeat(3,1fr)!important}
 }
+.hglance .hreport{display:flex;align-items:center;gap:10px;background:var(--amber);color:#3a2a06;border:1px solid rgba(255,255,255,.20);border-radius:16px;padding:0 18px;text-decoration:none;white-space:nowrap;box-shadow:0 6px 16px rgba(0,20,35,.28)}
+.hglance .hreport .ri{font-size:24px;line-height:1}
+.hglance .hreport .rl{display:flex;flex-direction:column;line-height:1.2;font-size:14.5px;font-weight:800;letter-spacing:.3px;text-transform:uppercase}
+.hglance .hreport .rl b{font-size:11px;font-weight:700;letter-spacing:.4px;opacity:.78;text-transform:none}
+.hglance .hreport:hover{background:#f7d789}
+@media(max-width:1080px){.hglance .hreport .rl b{display:none}}
 </style>
 </head>
 <body>
@@ -151,6 +162,7 @@ body{margin:0;display:flex;flex-direction:column;height:100vh;overflow:hidden;pa
   <div class="hhead">
     <div class="hbrand" style="display:flex;align-items:center;gap:14px"><a href="https://www.eastperthcommunity.org.au/" target="_top" style="display:inline-flex;line-height:0;text-decoration:none" aria-label="Go to the East Perth Community home site"><img class="hlogo" src="epcg-logo-rev.png" alt="East Perth Community"></a><a href="east-perth-public-notices.html" class="brandlink"><h1>East Perth</h1></a></div>
     <div class="hglance">
+      <a class="hreport" href="report.html" aria-label="Report a problem to the City or the police"><span class="ri">&#128227;</span><span class="rl">Report<b>a problem</b></span></a>
       <div class="wxc"><span class="ico" id="hwxIco">&#127777;</span><div><div class="temp" id="hwxTemp">&mdash;</div><div class="cond" id="hwxCond">Loading&hellip;</div></div></div>
       <div class="clock"><div class="t" id="hclock">--:--</div><div class="d" id="hdate"></div></div>
       <button class="dburger" aria-label="Open menu" onclick="document.getElementById('dmenu').classList.toggle('open');event.stopPropagation();">&#9776;</button>
@@ -159,12 +171,13 @@ body{margin:0;display:flex;flex-direction:column;height:100vh;overflow:hidden;pa
         <a href="east-perth-public-notices.html#disruptions"><span class="mi">&#128679;</span>Disruptions</a>
         <a href="east-perth-public-notices.html#transport"><span class="mi">&#128650;</span>Transport</a>
         <a href="east-perth-public-notices.html#events"><span class="mi">&#127881;</span>What's On</a>
+        <a href="east-perth-public-notices.html#fireworks"><span class="mi">&#127878;</span>Fireworks</a>
         <a href="east-perth-public-notices.html#bins"><span class="mi">&#128465;</span>Bins</a>
         <a href="east-perth-public-notices.html#notices"><span class="mi">&#128196;</span>Notices</a>
         <a href="east-perth-public-notices.html#tenders"><span class="mi">&#128188;</span>Tenders</a>
         <a href="newsletters.html"><span class="mi">&#128240;</span>Newsletter</a>
-        <a href="events.html"><span class="mi">&#128197;</span>EPCG Events</a>
         <a href="support.html"><span class="mi">&#10084;&#65039;</span>Support Us</a>
+        <a href="report.html"><span class="mi">&#128227;</span>Report a problem</a>
       </div>
     </div>
   </div>
@@ -186,9 +199,10 @@ body{margin:0;display:flex;flex-direction:column;height:100vh;overflow:hidden;pa
   <a href="east-perth-public-notices.html#notices"><span class="mi">&#128196;</span>Notices</a>
   <a href="east-perth-public-notices.html#bins"><span class="mi">&#128465;</span>Bins</a>
   <a href="east-perth-public-notices.html#events"><span class="mi">&#127881;</span>What's On</a>
+  <a href="east-perth-public-notices.html#fireworks"><span class="mi">&#127878;</span>Fireworks</a>
   <a href="newsletters.html"><span class="mi">&#128240;</span>Newsletter</a>
-  <a href="events.html"><span class="mi">&#128197;</span>EPCG Events</a>
   <a href="support.html"><span class="mi">&#10084;&#65039;</span>Support</a>
+  <a href="report.html"><span class="mi">&#128227;</span>Report</a>
 </nav>
 
 <div class="wrap">

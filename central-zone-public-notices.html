@@ -304,6 +304,54 @@ section.tab.active{display:flex;flex-direction:column;flex:1;min-height:0;overfl
 /* Release credit line: byline · disclaimer · report a bug (desktop view) */
 .hubcredit{display:none}
 @media(min-width:768px){.hubcredit{display:flex;flex:none;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:5px 9px;margin-top:-8px;padding:0 2px 1px;font-size:10.5px;line-height:1.35;color:#6f92a8;text-align:center}.hubcredit .hc-by{font-weight:700;color:#8fb4c8}.hubcredit .hc-dis{max-width:none}.hubcredit .hc-sep{opacity:.5}.hubcredit a.hc-bug{color:#8fb4c8;font-weight:700;text-decoration:none;border-bottom:1px dotted rgba(143,180,200,.6)}.hubcredit a.hc-bug:hover{color:#cfe6f2}}
+.hglance .hreport{display:flex;align-items:center;gap:10px;background:var(--amber);color:#3a2a06;border:1px solid rgba(255,255,255,.20);border-radius:16px;padding:0 18px;text-decoration:none;white-space:nowrap;box-shadow:0 6px 16px rgba(0,20,35,.28)}
+.hglance .hreport .ri{font-size:24px;line-height:1}
+.hglance .hreport .rl{display:flex;flex-direction:column;line-height:1.2;font-size:14.5px;font-weight:800;letter-spacing:.3px;text-transform:uppercase}
+.hglance .hreport .rl b{font-size:11px;font-weight:700;letter-spacing:.4px;opacity:.78;text-transform:none}
+.hglance .hreport:hover{background:#f7d789}
+@media(max-width:1080px){.hglance .hreport .rl b{display:none}}
+#bar .brandrow{padding-right:64px}
+#bar .breport{margin-left:auto;display:inline-flex;align-items:center;gap:8px;background:var(--amber);color:#3a2a06;border-radius:14px;padding:9px 14px;text-decoration:none;font-weight:800;font-size:13.5px;letter-spacing:.4px;text-transform:uppercase;white-space:nowrap;box-shadow:0 6px 16px rgba(0,20,35,.28)}
+#bar .breport .ri{font-size:19px;line-height:1}
+#bar .breport:active{transform:scale(.97)}
+/* Highlight band colour, reworked 16 Aug 2026. It was amber and it failed twice: the rows are
+   WHITE cards (.row{background:#fff}), so .ecat.ecur put amber text on a pale amber wash on white
+   at 1.45:1 against a 4.5 requirement; and amber is now the header Report button, so the loudest
+   colour on the page was saying two different things. Pink is EPCG's own accent (spotlight border,
+   .cta.pink, the East Perth Local icon), it appears nowhere else in this list, and dark-on-pink is
+   an existing house pairing. The heading no longer carries the accent at all: coloured text on the
+   navy page background could not clear 4.5 in any brand hue at 13px, so the accent lives in the
+   chip, badge and row border where it sits on a solid fill, and the heading uses the standard
+   light label colour. */
+.curhead{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin:2px 0 8px}
+.curhead .ct{font-weight:800;font-size:13px;letter-spacing:1.2px;text-transform:uppercase;color:#eaf7fd}
+.curhead .ct::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--pink);margin-right:9px;vertical-align:1px}
+.evrow.evcur{background:#fdf2f6;border-left:3px solid var(--pink)}
+.evrow.evcur:hover{background:#fbe6ee}
+.curbadge{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.4px;border-radius:20px;padding:2px 10px;background:var(--pink);color:#4b1528}
+.ecat.ecur{background:var(--pink);color:#4b1528}
+.cursep{height:1px;background:rgba(255,255,255,.14);margin:14px 0 12px}
+/* ---- Fireworks (WorkSafe WA schedule). Violet #8a5cf0 is the existing "Major event"
+   marker colour from the disruptions map key and is used nowhere else in a list, so it
+   does not collide with sky .ecat, teal Ongoing, blue Recurring or pink EPCG.
+   Chip pairs are measured: #2a0f5c on #cfc0f7 is 9.49:1, #0b3a4a on --sky is 6.00:1.
+   White on #8a5cf0 was rejected at 4.31:1. ---- */
+.fwcard{border-left-color:#8a5cf0}
+.fwcard.fwpast{opacity:.55}
+.fwtop{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:5px}
+.fwwhen{font-size:12px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:#4b2a8a}
+.fwchip{display:inline-block;font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;border-radius:20px;padding:1px 8px;vertical-align:1px}
+.fwnear{background:#cfc0f7;color:#2a0f5c}
+.fwclose{background:var(--sky);color:#0b3a4a}
+.fwttl{font-size:14.5px;font-weight:700;line-height:1.3}
+.fwloc{font-size:12.5px;color:#5a6b7a;font-weight:600;margin-top:3px}
+.fwtime{font-size:12.5px;color:#12212e;margin-top:6px}
+.fwtime b{font-weight:800}
+.fwguide{background:rgba(138,92,240,.14);border:1px solid rgba(138,92,240,.42);border-radius:14px;padding:12px 15px;margin:0 0 14px;font-size:12.5px;line-height:1.6;color:#e7e2fb}
+.fwguide b{color:#fff}
+.fwguide q{font-style:italic;color:#efeaff}
+.fwguide a{color:var(--sky);font-weight:700}
+.fwstamp{font-size:11.5px;color:#a9cfe2;margin-top:9px}
 </style>
 </head>
 <body>
@@ -318,15 +366,17 @@ section.tab.active{display:flex;flex-direction:column;flex:1;min-height:0;overfl
   <a href="#notices"><span class="mi">&#128196;</span>Notices</a>
   <a href="#bins"><span class="mi">&#128465;</span>Bins</a>
   <a href="#events"><span class="mi">&#127881;</span>What's On</a>
+  <a href="#fireworks"><span class="mi">&#127878;</span>Fireworks</a>
   <a href="newsletters.html"><span class="mi">&#128240;</span>Newsletter</a>
-  <a href="events.html"><span class="mi">&#128197;</span>EPCG Events</a>
   <a href="support.html"><span class="mi">&#10084;&#65039;</span>Support</a>
+  <a href="report.html"><span class="mi">&#128227;</span>Report</a>
 </nav>
 
 <div id="deskhead">
   <div class="hhead">
     <div class="hbrand" onclick="activateTab('home');return false;" style="cursor:pointer"><a href="https://www.eastperthcommunity.org.au/" target="_top" onclick="event.stopPropagation()" style="display:inline-flex;line-height:0;text-decoration:none" aria-label="Go to the East Perth Community home site"><img class="hlogo" src="epcg-logo-rev.png" alt="East Perth Community"></a><div class="btext"><h1>Central Perth Community Hub</h1><div class="dstamp" id="dstamp"></div></div></div>
     <div class="hglance">
+      <a class="hreport" href="report.html" aria-label="Report a problem to the City or the police"><span class="ri">&#128227;</span><span class="rl">Report<b>a problem</b></span></a>
       <div class="wxc"><span class="ico" id="hwxIco">&#127777;</span><div><div class="temp" id="hwxTemp">&mdash;</div><div class="cond" id="hwxCond">Loading&hellip;</div></div></div>
       <div class="clock"><div class="t" id="hclock">--:--</div><div class="d" id="hdate"></div></div>
       <button class="dburger" aria-label="Open menu" onclick="document.getElementById('dmenu').classList.toggle('open');event.stopPropagation();">&#9776;</button>
@@ -335,12 +385,13 @@ section.tab.active{display:flex;flex-direction:column;flex:1;min-height:0;overfl
         <a href="#" onclick="activateTab('disruptions');document.getElementById('dmenu').classList.remove('open');return false;"><span class="mi">&#128679;</span>Disruptions</a>
         <a href="#" onclick="activateTab('transport');document.getElementById('dmenu').classList.remove('open');return false;"><span class="mi">&#128650;</span>Transport</a>
         <a href="#" onclick="activateTab('events');document.getElementById('dmenu').classList.remove('open');return false;"><span class="mi">&#127881;</span>What's On</a>
+        <a href="#" onclick="activateTab('fireworks');document.getElementById('dmenu').classList.remove('open');return false;"><span class="mi">&#127878;</span>Fireworks</a>
         <a href="#" onclick="activateTab('bins');document.getElementById('dmenu').classList.remove('open');return false;"><span class="mi">&#128465;</span>Bins</a>
         <a href="#" onclick="activateTab('notices');document.getElementById('dmenu').classList.remove('open');return false;"><span class="mi">&#128196;</span>Notices</a>
         <a href="#" onclick="activateTab('tenders');document.getElementById('dmenu').classList.remove('open');return false;"><span class="mi">&#128188;</span>Tenders</a>
         <a href="newsletters.html"><span class="mi">&#128240;</span>Newsletter</a>
-        <a href="events.html"><span class="mi">&#128197;</span>EPCG Events</a>
         <a href="support.html"><span class="mi">&#10084;&#65039;</span>Support Us</a>
+        <a href="report.html"><span class="mi">&#128227;</span>Report a problem</a>
       </div>
     </div>
   </div>
@@ -355,6 +406,7 @@ section.tab.active{display:flex;flex-direction:column;flex:1;min-height:0;overfl
   <div class="brandrow">
     <img class="logo" src="epcg-logo-rev.png" alt="East Perth Community">
     <div class="btitle"><h1>Central · CBD & Northbridge</h1></div>
+    <a class="breport" href="report.html" aria-label="Report a problem to the City or the police"><span class="ri">&#128227;</span><span class="rl">Report</span></a>
   </div>
   <div style="margin-top:12px"><span class="seg zones"><a href="west-zone-public-notices.html">West</a><span class="on" aria-current="true">Central</span><a href="east-perth-public-notices.html">East</a></span></div>
 </div>
@@ -366,6 +418,7 @@ section.tab.active{display:flex;flex-direction:column;flex:1;min-height:0;overfl
   <button data-tab="notices">Public Notices <span class="badge" id="bNot"></span></button>
   <button data-tab="bins">Bin Collection</button>
   <button data-tab="events">What's On</button>
+  <button data-tab="fireworks">Fireworks <span class="badge" id="bFw"></span></button>
 </div>
 
 <section class="tab active" id="tab-home">
@@ -410,9 +463,9 @@ section.tab.active{display:flex;flex-direction:column;flex:1;min-height:0;overfl
     <a onclick="activateTab('disruptions');return false;" href="#"><span class="i">&#128679;</span>Disruptions<span class="n" id="nDis">&middot;</span></a>
     <a onclick="activateTab('transport');return false;" href="#"><span class="i">&#128650;</span>Transport<span class="n" id="nPta">&middot;</span></a>
     <a onclick="activateTab('events');return false;" href="#"><span class="i">&#127881;</span>What's On<span class="n" id="nEv">&middot;</span></a>
+    <a onclick="activateTab('fireworks');return false;" href="#"><span class="i">&#127878;</span>Fireworks<span class="n" id="nFw">&middot;</span></a>
     <a onclick="activateTab('notices');return false;" href="#"><span class="i">&#128196;</span>Notices<span class="n" id="nNot">&middot;</span></a>
     <a onclick="activateTab('tenders');return false;" href="#"><span class="i">&#128188;</span>Tenders<span class="n" id="nTen">&middot;</span></a>
-    <a href="events.html"><span class="i">&#128197;</span>EPCG Events</a>
     <a href="support.html"><span class="i">&#10084;&#65039;</span>Support Us</a>
   </nav>
 </section>
@@ -515,7 +568,7 @@ section.tab.active{display:flex;flex-direction:column;flex:1;min-height:0;overfl
   </div>
 </section>
 <section class="tab" id="tab-events">
-  <div class="note">What's on across the City of Perth - sourced from visitperth.com, refreshed automatically each weekday. Sorted by ending soonest; recurring &amp; ongoing events are grouped at the bottom and labelled. Tap an event for full details.</div>
+  <div class="note">EPCG's own events first. Below them, what's on across East Perth and the City of Perth - sourced from visitperth.com, refreshed automatically each weekday. Sorted by ending soonest; recurring &amp; ongoing events are grouped at the bottom and labelled. Tap an event for full details.</div>
   <div class="controls">
     <span class="seg"><button class="on" data-scope="zone">Local</button><button data-scope="all">Across Perth</button></span>
     <button class="chipbtn" id="evRecur">Recurring only</button>
@@ -524,6 +577,17 @@ section.tab.active{display:flex;flex-direction:column;flex:1;min-height:0;overfl
   </div>
   <div id="evStatus" class="m" style="margin-bottom:8px"></div>
   <div id="evList"></div>
+</section>
+<section class="tab" id="tab-fireworks">
+  <div class="note">Approved fireworks events and close-proximity notifications across the Perth metropolitan area, from the WorkSafe WA schedule. Useful if you are wondering what the bangs were, or planning around a nervous dog.</div>
+  <div class="fwguide">
+    <b>This is a safety schedule, not an events calendar.</b> WorkSafe WA publishes it
+    <q>for guidance only</q> and states: <q>Start times and duration may vary from that indicated in the schedule.</q>
+    It also states: <q>While the department regulates the safe use of fireworks, it does not manage the fireworks displays. For specific information relating to any individual display, please contact the event organiser directly.</q>
+    Treat every time below as approximate and check with the organiser before relying on it.
+    <div class="fwstamp" id="fwStamp"></div>
+  </div>
+  <div id="fwList"></div>
 </section>
 <footer class="pgfoot">
   <details class="fdet">
@@ -541,6 +605,7 @@ section.tab.active{display:flex;flex-direction:column;flex:1;min-height:0;overfl
 <script src="hub-data.js"></script>
 <script src="epcg-manual.js"></script>
 <script src="epcg-events.js"></script>
+<script src="fireworks-data.js"></script>
 <script src="consultations.js"></script>
 <script src="spotlight.js"></script>
 <script>
@@ -873,6 +938,37 @@ function initEvents(){
   function isRecur(e){ return recurInfo(e).recur||isOngoing(e); }
   function fmtDate(e){ var p=(e.date||"").match(/([0-9]{1,2}) +([A-Za-z]{3})/g)||[]; if(p.length>=2){ if(p[0]===p[p.length-1]) return p[0]; var a=p[0].split(" "),b=p[p.length-1].split(" "); return (a[1]===b[1])?(a[0]+" - "+b[0]+" "+b[1]):(p[0]+" - "+p[p.length-1]); } return e.date||""; }
   function endLabel(e){ var g=(e.date||"").match(/([0-9]{1,2}) +([A-Za-z]{3})/g)||[]; return g.length?g[g.length-1]:""; }
+  /* CURATED BLOCK: EPCG and East Perth community events, folded in here 16 Aug 2026 when the
+     separate "EPCG Events" nav entry was retired to free button space. Source is
+     epcg-events.js (window.EPCG_EVENTS), hand-curated from the newsletter, NOT HUB.events.
+     It renders as its own band above the scraped listings because ~130 VisitPerth rows would
+     otherwise bury 11 local ones. The scope and type filters do NOT apply to it (curated
+     events are local and untyped by the scraper's vocabulary); the search box DOES. */
+  function curatedHtml(q){
+    var t0=new Date(); t0.setHours(0,0,0,0);
+    var evs=(window.EPCG_EVENTS||[]).filter(function(e){
+      return e.type==="epcg" && new Date(e.d+"T00:00:00")>=t0;
+    }).sort(function(a,b){ return new Date(a.d+"T00:00:00")-new Date(b.d+"T00:00:00"); });
+    if(q) evs=evs.filter(function(e){
+      return ((e.t||"")+" "+(e.venue||"")+" "+(e.note||"")).toLowerCase().indexOf(q)>=0;
+    });
+    if(!evs.length) return "";
+    var DS=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+    var MS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    var rows=evs.map(function(e){
+      var d=new Date(e.d+"T00:00:00"), n=Math.round((d-t0)/86400000);
+      var badge = n===0?"TODAY":(n===1?"TOMORROW":(n<=6?DS[d.getDay()].toUpperCase():d.getDate()+" "+MS[d.getMonth()].toUpperCase()));
+      var meta=[e.venue,e.time].filter(Boolean).join(" · ");
+      var href=e.url||"https://www.eastperthcommunity.org.au/", ext=" target='_blank' rel='noopener'";
+      return "<a class='row evrow evcur' href='"+esc(href)+"'"+ext+">"+
+        "<span class='dates' style='min-width:120px'><span class='curbadge'>"+esc(badge)+"</span></span>"+
+        "<span class='ecat ecur'>EPCG</span>"+
+        "<span class='ttl'>"+esc(e.t)+"</span>"+
+        "<span class='m evvenue'>"+esc(meta)+"</span></a>";
+    }).join("");
+    return "<div class='curhead'><span class='ct'>&#127881; EPCG events</span></div>"+
+      rows+"<div class='cursep'></div>";
+  }
   function render(){
     var q=((document.getElementById("evSearch")||{}).value||"").toLowerCase().replace(/^ +| +$/g,"");
     var items = scope==="all" ? all.slice() : all.filter(function(e){return e.zone===BZ;});
@@ -886,7 +982,7 @@ function initEvents(){
     var head=(recurOnly?"Recurring & ongoing":(scope==="all"?"Across Perth":"Local"))+" &middot; "+items.length+" event"+(items.length===1?"":"s");
     if(q) head+=" matching '"+esc(q)+"'";
     var TAG="display:inline-block;font-size:10px;font-weight:800;border-radius:20px;padding:1px 8px;margin-right:5px;vertical-align:1px;";
-    listEl.innerHTML = "<div class='t' style='margin:2px 0 8px'>"+head+"</div>" + (items.map(function(e){
+    listEl.innerHTML = curatedHtml(q) + "<div class='t' style='margin:2px 0 8px'>"+head+"</div>" + (items.map(function(e){
       var zt=(scope==="all"&&e.zone!=="unknown"&&e.zone!=="other")?(" &middot; "+e.zone):"";
       var info=recurInfo(e), dh;
       if(info.recur){ dh="<span style='"+TAG+"background:#5b8def;color:#fff'>Recurring</span>"+(info.days.length?"<span class='m'>"+info.days.join("/")+"</span>":""); }
@@ -895,7 +991,23 @@ function initEvents(){
       return "<a class='row evrow' href='"+esc(e.href)+"' target='_blank' rel='noopener'><span class='dates' style='min-width:120px'>"+dh+"</span>"+(e.cat?"<span class='ecat'>"+esc(e.cat)+"</span>":"")+"<span class='ttl'>"+esc(e.title)+"</span><span class='m evvenue'>"+esc(e.venue)+zt+"</span></a>";
     }).join("") || "<div class='m'>No events found for this view.</div>");
   }
-  function load(){ if(loaded) return; loaded=true; all=EVENTS; statusEl.textContent=""; var sel=document.getElementById("evType"); if(sel){ var seen={},cats=[]; all.forEach(function(e){var c=e.cat; if(c&&!seen[c]){seen[c]=1;cats.push(c);}}); cats.sort(); cats.forEach(function(c){var o=document.createElement("option"); o.value=c; o.textContent=c; sel.appendChild(o);}); } render(); }
+  /* Community entries in epcg-events.js are NOT highlighted (Jason, 16 Aug 2026: EPCG-hosted
+     events only get the highlight). They are mapped into the HUB.events shape and appended to
+     the ordinary local list instead, because the VisitPerth scrape does not carry them: it has
+     Perth City Farm as a venue but zero Farm After Five rows. Deleting them would remove them
+     from the hub entirely. Zone is derived with Z() from the venue string, same as the scrape. */
+  function curatedLocal(){
+    var t0=new Date(); t0.setHours(0,0,0,0);
+    var MS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    return (window.EPCG_EVENTS||[]).filter(function(e){
+      return e.type!=="epcg" && new Date(e.d+"T00:00:00")>=t0;
+    }).map(function(e){
+      var d=new Date(e.d+"T00:00:00");
+      return { title:e.t, href:e.url||"https://www.eastperthcommunity.org.au/", date:d.getDate()+" "+MS[d.getMonth()],
+               venue:e.venue||"", zone:Z(e.venue), cat:"Community" };
+    });
+  }
+  function load(){ if(loaded) return; loaded=true; all=EVENTS.concat(curatedLocal()); statusEl.textContent=""; var sel=document.getElementById("evType"); if(sel){ var seen={},cats=[]; all.forEach(function(e){var c=e.cat; if(c&&!seen[c]){seen[c]=1;cats.push(c);}}); cats.sort(); cats.forEach(function(c){var o=document.createElement("option"); o.value=c; o.textContent=c; sel.appendChild(o);}); } render(); }
   Array.prototype.forEach.call(host.querySelectorAll("[data-scope]"),function(b){b.addEventListener("click",function(){scope=b.dataset.scope;Array.prototype.forEach.call(host.querySelectorAll("[data-scope]"),function(x){x.classList.toggle("on",x===b);});render();});});
   var rb=document.getElementById("evRecur"); if(rb) rb.addEventListener("click",function(){ recurOnly=!recurOnly; rb.classList.toggle("on",recurOnly); render(); });
   var ty=document.getElementById("evType"); if(ty) ty.addEventListener("change",function(){ typeFilter=ty.value; render(); });
@@ -904,6 +1016,58 @@ function initEvents(){
   var btn=document.querySelector('#tabs button[data-tab="events"]');
   if(btn) btn.addEventListener("click",load);
 }
+
+/* ================= FIREWORKS (WorkSafe WA) ================= */
+/* Data: fireworks-data.js, built weekly by Tools/build_fireworks.py from
+   worksafe.wa.gov.au/schedule-fireworks-events. Metro only (postcode 6000-6199).
+   ⛔ Times are shown VERBATIM and always prefixed "Approx". Never reformat one, never
+   recompute one, never present this as an events calendar: WorkSafe regulates the safety
+   of fireworks, it does not run the displays. Both of its disclaimers are in the markup
+   above and must stay there. */
+(function fireworks(){
+  var FW=(window.FIREWORKS||{}), list=document.getElementById("fwList");
+  if(!list) return;
+  var evs=(FW.events||[]).slice();
+  function esc(x){return (x||"").replace(/[&<>]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c];});}
+  var t0=new Date(); t0.setHours(0,0,0,0);
+  var DS=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+  var MS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  function when(e){
+    var d=new Date(e.date+"T00:00:00"), n=Math.round((d-t0)/86400000);
+    if(n===0) return "Tonight";
+    if(n===1) return "Tomorrow";
+    return DS[d.getDay()]+" "+d.getDate()+" "+MS[d.getMonth()];
+  }
+  var upcoming=evs.filter(function(e){return new Date(e.date+"T00:00:00")>=t0;})
+                  .sort(function(a,b){return a.date<b.date?-1:(a.date>b.date?1:0);});
+  var stamp=document.getElementById("fwStamp");
+  if(stamp){
+    var bits=[];
+    if(FW.updated) bits.push("WorkSafe last updated this schedule on <b>"+esc(FW.updated)+"</b>");
+    if(FW.window) bits.push("it covers <b>"+esc(FW.window)+"</b>");
+    stamp.innerHTML=bits.join(", ")+(bits.length?". ":"")+
+      "<a href='"+esc(FW.source||"https://www.worksafe.wa.gov.au/schedule-fireworks-events")+"' target='_blank' rel='noopener'>Read the full statewide schedule &#8599;</a>";
+  }
+  if(!upcoming.length){
+    list.innerHTML="<div class='m'>No fireworks events listed for metropolitan Perth in the current schedule."+
+      (FW.window?" WorkSafe's schedule runs to the end of "+esc(FW.window.split(" to ").pop())+"; anything later is not published yet.":"")+"</div>";
+  } else {
+    list.innerHTML=upcoming.map(function(e){
+      var loc=[e.venue,e.street,e.suburb].filter(Boolean).join(", ");
+      return "<div class='card fwcard'>"+
+        "<div class='fwtop'><span class='fwwhen'>"+esc(when(e))+" &middot; "+esc(e.day)+"</span>"+
+        (e.near?"<span class='fwchip fwnear'>Near East Perth</span>":"")+
+        (e.close?"<span class='fwchip fwclose'>Close proximity only</span>":"")+"</div>"+
+        "<div class='fwttl'>"+esc(e.purpose||"Fireworks display")+"</div>"+
+        "<div class='fwloc'>"+esc(loc)+"</div>"+
+        "<div class='fwtime'><b>Approx "+esc(e.time)+"</b>"+(e.dur?" &middot; "+esc(e.dur):"")+
+        " &middot; times may vary</div>"+
+      "</div>";
+    }).join("");
+  }
+  function setn(id,v){var el=document.getElementById(id); if(el) el.textContent=v;}
+  setn("nFw",upcoming.length); setn("bFw",upcoming.length);
+})();
 
 /* ================= TRANSPORT (PTA / Transperth) ================= */
 /* City of Perth LGA disruptions only. Snapshot 2026-07-08, refreshed weekly. */
@@ -1125,6 +1289,15 @@ function homeBuild(){
   var items=[];
   items.push('&#128465; <b>Bins '+(tonight?"tonight":bd.toLocaleDateString("en-AU",{weekday:"short",day:"numeric",month:"short"}))+':</b> FOGO + '+altName+' &middot; out by 6am');
   var _t0=new Date();_t0.setHours(0,0,0,0);
+  (function(){ /* fireworks tonight or tomorrow: the "what was that bang" answer */
+    var _t1=new Date(_t0.getTime()+86400000);
+    ((window.FIREWORKS||{}).events||[]).forEach(function(f){
+      var d=new Date(f.date+"T00:00:00");
+      if(d.getTime()!==_t0.getTime() && d.getTime()!==_t1.getTime()) return;
+      items.push('&#127878; <b>Fireworks '+(d.getTime()===_t0.getTime()?'tonight':'tomorrow')+':</b> '+
+        esc(f.venue)+' &middot; approx '+esc(f.time)+' &middot; times may vary');
+    });
+  })();
   (window.EPCG_EVENTS||[]).filter(function(e){return new Date(e.d+"T00:00:00")>=_t0;}).sort(function(a,b){return new Date(a.d+"T00:00:00")-new Date(b.d+"T00:00:00");}).slice(0,3).forEach(function(e){var dd=new Date(e.d+"T00:00:00").toLocaleDateString("en-AU",{weekday:"short",day:"numeric",month:"short"});items.push('&#127881; <b>'+esc(e.t)+'</b> &middot; '+dd+(e.type==="epcg"?' &middot; EPCG':' &middot; Community'));});
   ev.slice(0,3).forEach(function(e){items.push('&#127881; <b>'+esc(e.title)+'</b> &middot; '+esc(e.date)+(e.cat?' ('+esc(e.cat)+')':''));});
   disS.filter(function(d){return d.sev!=="infra"&&!/ongoing|recurring/i.test(String(d.impact||"")+" "+String(d.title||""));}).slice(0,3).forEach(function(d){var ic=d.cat==="event"?"&#127881;":(d.cat==="infrastructure"?"&#128736;":"&#128679;");items.push(ic+' <b>'+esc(d.title)+'</b> &middot; '+esc(d.impact||d.loc));});
@@ -1178,17 +1351,17 @@ homeBuild();
      listings. Comes from epcg-events.js (window.EPCG_EVENTS), NOT from HUB.events. */
   function pinnedHtml(){
     var evs=(window.EPCG_EVENTS||[]).filter(function(e){
-      return new Date(e.d+"T00:00:00")>=today;
+      return e.type==="epcg" && new Date(e.d+"T00:00:00")>=today;
     }).sort(function(a,b){ return new Date(a.d+"T00:00:00")-new Date(b.d+"T00:00:00"); });
     if(!evs.length) return "";
-    var e=evs.find(function(x){return x.type==="epcg";}) || evs[0];   /* prefer an EPCG event */
+    var e=evs[0];   /* EPCG-hosted only: community entries are demoted into the local list */
     var d=new Date(e.d+"T00:00:00");
     var n=Math.round((d-today)/86400000);
     var badge = n===0 ? "TODAY" : (n===1 ? "TOMORROW" :
                 (n<=6 ? DSHORT[d.getDay()] : d.getDate()+" "+MSHORT[d.getMonth()].toUpperCase()));
-    var tag = e.type==="epcg" ? "EPCG" : "Community";
+    var tag = "EPCG";
     var meta = [e.venue, e.time].filter(Boolean).join(" \u00b7 ");
-    return "<a class='wo-item wo-pin' href='"+esc(e.url||"events.html")+"'"+(e.url?" target='_blank' rel='noopener'":"")+">"+
+    return "<a class='wo-item wo-pin' href='"+esc(e.url||"https://www.eastperthcommunity.org.au/")+"' target='_blank' rel='noopener'>"+
       "<div class='wo-top'><span class='wo-day epcg'>"+esc(badge)+"</span>"+
       "<span class='wo-cat'>"+tag+"</span></div>"+
       "<div class='wo-ttl'>"+esc(e.t)+"</div>"+

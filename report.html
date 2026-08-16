@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="EPCG community events in East Perth - markets, meetings and get-togethers run by the East Perth Community Group.">
+<meta name="description" content="Report a problem in East Perth: the right channel for maintenance, rangers, police and emergencies. Links to the City of Perth and WA Police.">
 <link rel="canonical" href="https://www.eastperthcommunity.org.au/epcg-hub">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
 
-<title>Upcoming EPCG Events</title>
+<title>Report a problem | East Perth</title>
 <style>
 html{-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:100%}
   :root{
@@ -34,29 +34,45 @@ html{-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:1
   .logo{width:210px;max-width:58vw;height:auto;display:block;margin:16px 0 4px}
   h1{font-family:var(--brush);font-weight:800;font-size:40px;letter-spacing:1px;text-transform:uppercase;margin:10px 0 2px;color:#fff}
   .sub{color:var(--sky);font-weight:600;font-size:14px;margin-bottom:18px}
+  .about{color:#dcecf6;font-size:15px;line-height:1.65;margin-bottom:24px}
 
-  .feat{display:block;background:linear-gradient(135deg,#ffffff,#f3f8fd);color:var(--ink);border-radius:20px;padding:20px 22px;box-shadow:0 12px 30px rgba(0,20,35,.3);margin-bottom:26px;text-decoration:none}
-  .feat .tag{display:inline-block;background:var(--pink);color:#4b1528;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;padding:3px 11px;border-radius:20px}
-  .feat .ft{font-size:26px;font-weight:800;margin:10px 0 6px}
-  .feat .meta{font-size:14.5px;color:#3a4652;font-weight:600;margin:3px 0}
-  .feat .meta b{color:var(--navy)}
-  .feat .note{font-size:13.5px;color:var(--muted);font-weight:500;margin:10px 0 14px;line-height:1.5}
-  .feat .book{display:inline-block;background:var(--blue);color:#fff;font-weight:800;font-size:14px;padding:10px 20px;border-radius:24px;text-decoration:none}
+  .card{background:linear-gradient(135deg,#ffffff,#f3f8fd);color:var(--ink);border-radius:20px;padding:22px;box-shadow:0 12px 30px rgba(0,20,35,.28);margin-bottom:18px}
+  .card h2{font-size:20px;margin:0 0 6px;color:var(--navy);text-transform:uppercase;letter-spacing:.5px}
+  .card p{font-size:14.5px;color:#3a4652;line-height:1.6;margin:0 0 14px}
+  
+/* ---- Tell us about your event: resident-submitted community content ---- */
+.card .fld{display:block;margin-bottom:12px}
+.card .fld label{display:block;font-size:12.5px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;color:#2a6f8f;margin-bottom:5px}
+.card .fld input,.card .fld textarea{width:100%;box-sizing:border-box;font-family:var(--sans);font-size:15px;color:var(--ink);background:#fff;border:1px solid #cfe0ea;border-radius:12px;padding:11px 13px}
+.card .fld input:focus,.card .fld textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,163,224,.18)}
+.card .fld textarea{min-height:92px;resize:vertical}
+.card .frow{display:flex;gap:12px;flex-wrap:wrap}
+.card .frow .fld{flex:1;min-width:180px}
+.card .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.card button.cta{border:none;cursor:pointer;font-family:var(--sans)}
+.card button.cta[disabled]{opacity:.6;cursor:default}
+.card .fmsg{margin-top:12px;font-size:14px;font-weight:700;border-radius:12px;padding:11px 13px;display:none}
+.card .fmsg.ok{display:block;background:#e6f6ee;color:#1c6b46;border:1px solid #a9dcc3}
+.card .fmsg.err{display:block;background:#fdecea;color:#8c2f28;border:1px solid #f0b4ae}
+.card .fnote{font-size:12.5px;color:var(--muted);margin-top:10px}
+.card .fnote a{color:var(--blue);font-weight:700}
+/* CTA blue darkened from var(--blue) #00A3E0 to #006C99 on 16 Aug 2026. White on #00A3E0
+   measured 2.87:1 against a 4.5 requirement, and at 15px/800 it does not qualify for the
+   large-text 3:1 allowance either. This was PRE-EXISTING on support.html, not introduced by
+   report.html; both are fixed together so the two pages keep the same button. #006C99 is
+   5.83:1 and is the same hue, just darker. Do not revert it to var(--blue). */
+.cta{display:inline-block;background:#006C99;color:#fff;font-weight:800;font-size:15px;padding:12px 22px;border-radius:26px;text-decoration:none}
+  .cta:hover{filter:brightness(1.05)}
+  .cta.pink{background:var(--pink);color:#4b1528}
 
-  h2{font-size:15px;text-transform:uppercase;letter-spacing:1.5px;color:var(--sky);margin:24px 0 10px;font-weight:700}
-  .row{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:14px 16px;margin-bottom:8px;text-decoration:none;color:#eaf7fd}
-  .row:hover{background:rgba(255,255,255,.16)}
-  .row .date{flex:none;text-align:center;min-width:52px;line-height:1.05}
-  .row .date .day{font-size:22px;font-weight:800;color:#fff}
-  .row .date .mon{font-size:11px;font-weight:700;text-transform:uppercase;color:var(--sky)}
-  .row .body{flex:1}
-  .row .rt{font-weight:700;font-size:16px}
-  .row .rm{color:#a9c6e0;font-size:12.5px;margin-top:2px}
-  .row .go{color:var(--sky);font-size:20px;font-weight:800}
-  .empty{background:rgba(255,255,255,.08);border-radius:12px;padding:18px;color:#a9c6e0;font-size:14px}
-  footer{margin-top:28px;text-align:center;font-size:12.5px;color:#9fcfe4;line-height:1.7}
-  footer a{color:#d6eefa}
-  @media(max-width:520px){ h1{font-size:32px} .feat .ft{font-size:22px} }
+  .code{margin:6px 0 14px;text-align:center}
+  .code .lbl{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
+  .code .id{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:34px;font-weight:800;color:var(--navy);letter-spacing:2px;margin:2px 0}
+  .code svg{max-width:100%;height:auto;margin-top:6px}
+  .steps{font-size:14px;color:#3a4652;line-height:1.6;margin:0 0 14px;padding-left:20px}
+  .steps li{margin-bottom:4px}
+  footer{margin-top:24px;text-align:center;font-size:12px;color:#9fcfe4;line-height:1.8}
+  @media(max-width:520px){ h1{font-size:32px} .code .id{font-size:26px} }
 .backtop{display:none;position:fixed;left:12px;top:10px;z-index:1900;background:var(--navy);color:#fff;border:1px solid rgba(255,255,255,.28);border-radius:22px;padding:9px 15px;font-size:13px;font-weight:700;font-family:var(--sans);box-shadow:0 6px 16px rgba(0,0,0,.34);cursor:pointer;align-items:center;gap:7px}
 @media(max-width:600px){.backtop.show{display:inline-flex}}
 .mburger{display:none}
@@ -116,9 +132,38 @@ body{margin:0;display:flex;flex-direction:column;height:100vh;overflow:hidden;pa
 .seg>*+*{border-left:1px solid rgba(255,255,255,.18)}
 .seg>a:hover{color:#fff;background:rgba(255,255,255,.12)}
 .wrap{flex:1!important;min-height:0;overflow-y:auto;max-width:1180px!important;width:100%;margin:0 auto!important;padding:4px 3% 26px!important}
-#list{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:12px}
-#list h2{grid-column:1/-1;margin:8px 0 2px}
+.wrap{display:grid!important;grid-template-columns:1fr 1fr;gap:16px 24px;align-content:start}
+.wrap>*{grid-column:1/-1}
+.wrap>.card{grid-column:auto;align-self:start}
 }
+
+/* ---- Aux page layout: match the header's margins, and fit all three modules across ----
+   The wrap was capped at max-width:1180px with its own 3% padding, while the header
+   (#deskhead) spans the full body width inside body's 18px 7% padding. That mismatch is
+   why the page looked inset and the third card was stranded in a 2-column grid. Drop the
+   cap and the extra padding so the wrap aligns exactly with the header, and go to three
+   columns once there is room. */
+@media(min-width:768px){
+  .wrap{max-width:none!important;padding:4px 0 26px!important}
+}
+@media(min-width:1180px){
+  .wrap{grid-template-columns:repeat(3,1fr)!important}
+}
+
+  /* ---- Report a problem page ----
+     Cards are equal height per grid row: the wrap's shared rule sets align-self:start,
+     which left ragged boxes. Stretch them, make each card a flex column, and push the
+     .cfoot action block to the bottom so every CTA in a row lines up. Also drop the
+     card's own margin-bottom inside the grid, where the 16px row gap already spaces them
+     and the two were stacking. */
+  .card.rep-000{border-left:6px solid #E0645E}
+  .card h2{display:flex;align-items:center;gap:10px;line-height:1.25}
+  ul.reps{margin:10px 0 14px;padding-left:20px;line-height:1.75}
+  ul.reps li{margin:0}
+  .cfoot{margin-top:auto;padding-top:4px}
+  @media(min-width:768px){
+    .wrap>.card{align-self:stretch!important;margin-bottom:0;display:flex;flex-direction:column}
+  }
 </style>
 </head>
 <body>
@@ -134,12 +179,13 @@ body{margin:0;display:flex;flex-direction:column;height:100vh;overflow:hidden;pa
         <a href="east-perth-public-notices.html#disruptions"><span class="mi">&#128679;</span>Disruptions</a>
         <a href="east-perth-public-notices.html#transport"><span class="mi">&#128650;</span>Transport</a>
         <a href="east-perth-public-notices.html#events"><span class="mi">&#127881;</span>What's On</a>
+        <a href="east-perth-public-notices.html#fireworks"><span class="mi">&#127878;</span>Fireworks</a>
         <a href="east-perth-public-notices.html#bins"><span class="mi">&#128465;</span>Bins</a>
         <a href="east-perth-public-notices.html#notices"><span class="mi">&#128196;</span>Notices</a>
         <a href="east-perth-public-notices.html#tenders"><span class="mi">&#128188;</span>Tenders</a>
         <a href="newsletters.html"><span class="mi">&#128240;</span>Newsletter</a>
-        <a href="events.html"><span class="mi">&#128197;</span>EPCG Events</a>
         <a href="support.html"><span class="mi">&#10084;&#65039;</span>Support Us</a>
+        <a href="report.html"><span class="mi">&#128227;</span>Report a problem</a>
       </div>
     </div>
   </div>
@@ -161,65 +207,115 @@ body{margin:0;display:flex;flex-direction:column;height:100vh;overflow:hidden;pa
   <a href="east-perth-public-notices.html#notices"><span class="mi">&#128196;</span>Notices</a>
   <a href="east-perth-public-notices.html#bins"><span class="mi">&#128465;</span>Bins</a>
   <a href="east-perth-public-notices.html#events"><span class="mi">&#127881;</span>What's On</a>
+  <a href="east-perth-public-notices.html#fireworks"><span class="mi">&#127878;</span>Fireworks</a>
   <a href="newsletters.html"><span class="mi">&#128240;</span>Newsletter</a>
-  <a href="events.html"><span class="mi">&#128197;</span>EPCG Events</a>
   <a href="support.html"><span class="mi">&#10084;&#65039;</span>Support</a>
+  <a href="report.html"><span class="mi">&#128227;</span>Report</a>
 </nav>
 
 <div class="wrap">
   <a href="https://www.eastperthcommunity.org.au/" target="_top" style="display:block;line-height:0;text-decoration:none" aria-label="Go to the East Perth Community home site"><img class="logo" src="epcg-logo-rev.png" alt="East Perth Community"></a>
-  <h1>What's On</h1>
-  <div class="sub">Upcoming EPCG &amp; East Perth community events</div>
+  <h1>Report a problem</h1>
+  <div class="sub">The right channel, first time</div>
 
-  <div id="feature"></div>
-  <div id="list"></div>
+  <div class="about">
+    This Hub shows you what is happening around East Perth. This page is the other half of that: how to
+    get something fixed. Every channel below belongs to the City of Perth or to WA Police, so your report
+    goes straight to the people who can act on it. The East Perth Community Group does not receive or
+    action reports, and we cannot chase one up for you.
+  </div>
 
-  <footer>Details from the <a href="https://mailchi.mp/409981945334/epcg-june-2026-newsletter" target="_blank" rel="noopener">latest EPCG newsletter</a>. Always check the booking link for the latest info.</footer>
+  <div class="card rep-000">
+    <h2>&#128680; Emergency: call 000</h2>
+    <p>Fire, a serious accident, life or property under threat, or a crime happening now. Do not use any
+       of the channels below for an emergency.</p>
+    <div class="cfoot">
+    <a class="cta" href="tel:000">Call 000</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>&#128247; Something broken or dumped</h2>
+    <p>Graffiti, illegal dumping, damaged footpaths and street trees, overflowing or damaged bins, potholes.
+       Report these to the City through <b>Snap Send Solve</b>, a free app the City of Perth supports and
+       which covers East Perth. Snap a photo, add the details, send. You get updates on your own report.</p>
+    <div class="cfoot">
+    <a class="cta" href="https://www.perth.wa.gov.au/contact/snap-send-solve" target="_blank" rel="noopener">Snap Send Solve at the City of Perth &#8599;</a>
+    <div class="fnote">No smartphone? Report it to the City on
+      <a href="tel:0894613333">(08) 9461 3333</a> or use the City's
+      <a href="https://www.perth.wa.gov.au/residents/report-an-issue" target="_blank" rel="noopener">Report an issue</a> page.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>&#128737;&#65039; A ranger matter</h2>
+    <p>City of Perth rangers are on duty seven days a week. Call them about:</p>
+    <ul class="reps">
+      <li>Abandoned vehicles and parking</li>
+      <li>Littering and footpath obstructions</li>
+      <li>Dogs, cats and other animals</li>
+      <li>Busking, street trading and permit checks</li>
+      <li>Unauthorised signage in public places</li>
+    </ul>
+    <div class="cfoot">
+    <a class="cta" href="tel:0894613333">Call the City on (08) 9461 3333</a>
+    <div class="fnote">Rangers work closely with police but are not a substitute for them. If a crime is
+      involved, call the police instead.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>&#128110; Antisocial behaviour, crime or a welfare concern</h2>
+    <p>This is a police matter, not a council one. Call <b>131 444</b> for general police assistance:</p>
+    <ul class="reps">
+      <li>Antisocial or disorderly behaviour, threats, trespassing</li>
+      <li>Drinking in the street or a park, drug use or paraphernalia</li>
+      <li>Suspicious behaviour, criminal damage, stealing</li>
+      <li>Welfare concerns about someone</li>
+    </ul>
+    <div class="cfoot">
+    <a class="cta" href="tel:131444">Call police assistance on 131 444</a>
+    <div class="fnote">Want to stay anonymous? Crime Stoppers WA takes reports on
+      <a href="tel:1800333000">1800 333 000</a> or
+      <a href="https://www.crimestopperswa.com.au/report/" target="_blank" rel="noopener">online</a>.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>&#128196; Still not sure who to call?</h2>
+    <p>The City publishes a one page guide that splits every common problem between rangers, police and 000.
+       Worth printing for a fridge or a strata noticeboard.</p>
+    <div class="cfoot">
+    <a class="cta pink" href="https://www.perth.wa.gov.au/-/media/Project/COP/COP/COP/Assets/Images-and-Video/Live-and-Work/Community-services-and-facilities/Community-Safety-and-Surveillance/23-371-Who-to-report-to-poster-A4---V3c---WEB.pdf" target="_blank" rel="noopener">Who to report to, City of Perth (PDF) &#8599;</a>
+    <div class="fnote">City Watch, the City's 24 hour CCTV and surveillance centre, is on
+      <a href="tel:0894613333">(08) 9461 3333</a>. Noise complaints have their own
+      <a href="https://www.perth.wa.gov.au/residents/noise-complaints" target="_blank" rel="noopener">page</a>.
+      Links checked 16 August 2026.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>&#128172; Talk it over with your neighbours</h2>
+    <p>The <b>East Perth Safety Network</b> is an independent local group running a community safety forum
+       on Facebook: somewhere to raise what you are seeing, compare notes with neighbours and find out what
+       is already in hand. EPSN sits on the Safety and Security Working Group that EPCG convenes with
+       WA Police and the City of Perth.</p>
+    <p>EPSN also runs a <b>safety survey</b> each quarter, open for about a week and posted in their group.
+       That is what turns a run of individual complaints into a figure the City and the police have to
+       answer, so joining is the way to catch the next one.</p>
+    <div class="cfoot">
+    <a class="cta" href="https://www.facebook.com/groups/1396502421338977" target="_blank" rel="noopener">Join East Perth Safety Network &#8599;</a>
+    <div class="fnote">Reporting a problem still needs one of the channels above. A post in the group is
+      not a report to the City or to the police.</div>
+    </div>
+  </div>
+
+  <footer>
+    East Perth Community Group Inc. &middot; ABN 55 213 353 802 &middot; PO Box 6112, East Perth WA 6892<br>
+    More about us at <a href="https://www.eastperthcommunity.org.au/about" target="_blank" rel="noopener" style="color:#d6eefa">eastperthcommunity.org.au</a>
+  </footer>
 </div>
 
-<!-- must load BEFORE the render script below: it reads window.EPCG_EVENTS at parse time.
-     This was loaded further down the page, so EPCG_EVENTS was undefined and the page
-     rendered "No upcoming events" while the ticker (which runs later) showed them fine. -->
-<script src="epcg-events.js"></script>
-<script>
-/* Events sourced from the EPCG June 2026 newsletter. Add new events here. */
-const EVENTS = (window.EPCG_EVENTS||[]);
-
-function midnight(){ const t=new Date(); t.setHours(0,0,0,0); return t; }
-function dt(iso){ return new Date(iso+"T00:00:00"); }
-function longDate(iso){ return dt(iso).toLocaleDateString("en-AU",{weekday:"long",day:"numeric",month:"long"}); }
-
-const upcoming = EVENTS.filter(e=>dt(e.d)>=midnight()).sort((a,b)=>dt(a.d)-dt(b.d));
-const feat = upcoming.find(e=>e.type==="epcg") || upcoming[0];
-const others = upcoming.filter(e=>e!==feat);
-
-const fEl=document.getElementById("feature");
-if(feat){
-  fEl.innerHTML =
-    "<div class='feat'>"
-    +"<span class='tag'>Next up</span>"
-    +"<div class='ft'>"+feat.t+"</div>"
-    +"<div class='meta'><b>"+longDate(feat.d)+"</b>"+(feat.time?(" &middot; "+feat.time):"")+"</div>"
-    +(feat.venue?("<div class='meta'>"+feat.venue+"</div>"):"")
-    +(feat.note?("<div class='note'>"+feat.note+"</div>"):"")
-    +(feat.url?("<a class='book' href='"+feat.url+"' target='_blank' rel='noopener'>Book / more info &#8599;</a>"):"")
-    +"</div>";
-} else {
-  fEl.innerHTML="<div class='empty'>No upcoming events listed right now - check the latest newsletter.</div>";
-}
-
-if(others.length){
-  let h="<h2>Also coming up</h2>";
-  others.forEach(function(e){
-    const D=dt(e.d);
-    h+="<a class='row' href='"+(e.url||"#")+"' target='_blank' rel='noopener'>"
-      +"<span class='date'><span class='day'>"+D.getDate()+"</span><span class='mon'>"+D.toLocaleDateString("en-AU",{month:"short"})+"</span></span>"
-      +"<span class='body'><div class='rt'>"+e.t+"</div><div class='rm'>"+(e.venue||"")+(e.note?(" &middot; "+e.note):"")+"</div></span>"
-      +"<span class='go'>&#8599;</span></a>";
-  });
-  document.getElementById("list").innerHTML=h;
-}
-</script>
 <script>
 (function(){var x0=null,y0=null,t0=0;
 addEventListener("touchstart",function(e){if(e.touches.length!==1){x0=null;return;}var t=e.touches[0];x0=t.clientX;y0=t.clientY;t0=Date.now();},{passive:true});
@@ -229,6 +325,7 @@ addEventListener("touchend",function(e){if(x0==null)return;var t=e.changedTouche
 <script>(function(){var bt=document.querySelector(".backtop");if(!bt)return;var a=document.getElementById("bar")||document.querySelector(".homebtn")||document.querySelector("h1");function upd(){var show;var r=a?a.getBoundingClientRect():null;if(r&&(r.width||r.height)){show=r.bottom<=6;}else{var y=(document.scrollingElement||document.documentElement||{}).scrollTop||window.pageYOffset||0;show=y>80;}bt.classList.toggle("show",!!show);}addEventListener("scroll",upd,{passive:true});addEventListener("resize",upd);setTimeout(upd,300);upd();})();</script>
 <script src="hub-data.js"></script>
 <script src="epcg-manual.js"></script>
+<script src="epcg-events.js"></script>
 <script src="pta-data.js"></script>
 <script>
 (function(){
