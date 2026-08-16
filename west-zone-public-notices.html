@@ -341,7 +341,8 @@ section.tab.active{display:flex;flex-direction:column;flex:1;min-height:0;overfl
 .fwtop{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:5px}
 .fwwhen{font-size:12px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:#4b2a8a}
 .fwchip{display:inline-block;font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;border-radius:20px;padding:1px 8px;vertical-align:1px}
-.fwnear{background:#cfc0f7;color:#2a0f5c}
+.fwzone{background:#eef1f4;color:#3c4a56}
+.fwzone.fwlocal{background:#cfc0f7;color:#2a0f5c}
 .fwclose{background:var(--sky);color:#0b3a4a}
 .fwttl{font-size:14.5px;font-weight:700;line-height:1.3}
 .fwloc{font-size:12.5px;color:#5a6b7a;font-weight:600;margin-top:3px}
@@ -1027,6 +1028,14 @@ function initEvents(){
 (function fireworks(){
   var FW=(window.FIREWORKS||{}), list=document.getElementById("fwList");
   if(!list) return;
+  /* Which board is this? Fireworks are zoned like everything else on the Hub and the
+     board decides what is local to IT. Corrected 16 Aug 2026: the first version baked a
+     single near="East Perth" boolean into the data, which labelled Nedlands Yacht Club
+     as near East Perth (it is visible from Nedlands) and printed "Near East Perth" on
+     the West and Central boards as well. Same expression initEvents() uses. */
+  var BZ=/central/i.test(document.title)?"central":(/west/i.test(document.title)?"west":"east");
+  var ZL={east:"East Perth",central:"Central Perth",west:"West Perth"};
+  function zlabel(z,suburb){ return ZL[z] || (suburb||"Greater Perth"); }
   var evs=(FW.events||[]).slice();
   function esc(x){return (x||"").replace(/[&<>]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c];});}
   var t0=new Date(); t0.setHours(0,0,0,0);
@@ -1056,7 +1065,7 @@ function initEvents(){
       var loc=[e.venue,e.street,e.suburb].filter(Boolean).join(", ");
       return "<div class='card fwcard'>"+
         "<div class='fwtop'><span class='fwwhen'>"+esc(when(e))+" &middot; "+esc(e.day)+"</span>"+
-        (e.near?"<span class='fwchip fwnear'>Near East Perth</span>":"")+
+        "<span class='fwchip fwzone"+(e.zone===BZ?" fwlocal":"")+"'>"+esc(zlabel(e.zone,e.suburb))+"</span>"+
         (e.close?"<span class='fwchip fwclose'>Close proximity only</span>":"")+"</div>"+
         "<div class='fwttl'>"+esc(e.purpose||"Fireworks display")+"</div>"+
         "<div class='fwloc'>"+esc(loc)+"</div>"+
@@ -1294,6 +1303,7 @@ function homeBuild(){
     ((window.FIREWORKS||{}).events||[]).forEach(function(f){
       var d=new Date(f.date+"T00:00:00");
       if(d.getTime()!==_t0.getTime() && d.getTime()!==_t1.getTime()) return;
+      if(f.zone!==HZ) return;   /* this board's zone only, like every other ticker item */
       items.push('&#127878; <b>Fireworks '+(d.getTime()===_t0.getTime()?'tonight':'tomorrow')+':</b> '+
         esc(f.venue)+' &middot; approx '+esc(f.time)+' &middot; times may vary');
     });
