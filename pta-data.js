@@ -1,7 +1,7 @@
 // Transperth (PTA) service disruptions relevant to the City of Perth.
 // Shared by east-perth-public-notices.html, central-zone-public-notices.html, west-zone-public-notices.html.
 // Source of record: pta-disruptions-db.json. Regenerated on weekly recrawl - do not hand-edit.
-// last_scrape: 2026-08-17
+// last_scrape: 2026-08-18
 window.PTA_DATA = [
   { id: "25048", zones: ["central"], mode: "train", sev: "high", title: "Armadale & Thornlie-Cockburn Lines - Nightly Closures", routes: "Armadale & Thornlie-Cockburn lines", start: "24/08/2026", end: "27/08/2026", ongoing: false, loc: "Perth Station", stops: "Perth Station (line closed toward Cannington)", impact: "Lines disrupted between Perth and Cannington; replacement buses each night", url: "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25048", pts: [[-31.95118,115.86004,"Perth Station"]] },
   { id: "25035", zones: ["central"], mode: "train", sev: "high", title: "Mandurah Line - Nightly Closures", routes: "Mandurah line", start: "16/08/2026", end: "18/08/2026", ongoing: false, loc: "Perth Underground", stops: "Perth Underground (line closed toward Aubin Grove)", impact: "Line disrupted between Perth Underground and Aubin Grove; replacement buses each night", url: "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25035", pts: [[-31.951582,115.858142,"Perth Underground"]] },
