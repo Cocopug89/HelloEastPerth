@@ -1,8 +1,8 @@
 {
   "meta": {
-    "db_version": 24,
+    "db_version": 25,
     "first_built": "2026-07-08",
-    "last_scrape": "2026-08-18",
+    "last_scrape": "2026-08-19",
     "source": "https://www.transperth.wa.gov.au/service-updates",
     "coordinate_source": "data.wa.gov.au PTA-001 (ArcGIS: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Transport/MapServer/14). Query by stopnumber (bus/CAT) or stopname LIKE (rail), outSR=4326. Exact stop/station coordinates, not approximations.",
     "scope": "City of Perth LGA only",
@@ -29,7 +29,8 @@
     "scrape_2026-08-15": "Weekly recrawl (scheduled, on the home machine via Cowork). Dropped 3 expired items, all flagged for exactly this outcome in the 14 Aug scrape note: 25217 (Red CAT, Victoria Avenue & Town Hall), 25228 (East Perth, Adelaide Tce before Plain St), 25261 (Routes 24 & 96, Broadway Crawley) - all three ended 14 Aug, before today 15 Aug. 25217's Victoria Ave/Town Hall stops remain covered going forward by the already-stored 25269, which reopens the same Red CAT stops (plus Hay St Mall) from 16 Aug. Screened the full current Transperth service-updates page (both Service Disruptions and Planned Service Changes tables, ~90 rows) against scope_rule: every ID already accounted for either in the carried-over in-scope list or in excluded_examples, except 6 new candidate IDs fetched and checked this run: 25287 (Thornlie-Cockburn Line fault-closure effective immediately, Cockburn Central-Cannington segment only, no City of Perth station affected), 25282 (Route 361, Camboon Rd, Morley/Noranda, City of Bayswater), 25283 (Routes 443 & 444, Davallia Rd, Duncraig, City of Joondalup - same street/pattern as the already-excluded 25273), 25284 (Route 597, Steerforth Dr, Coodanup, City of Mandurah), 25280 (Route 424, North Beach Rd, Karrinyup/Carine, City of Stirling), 25281 (Routes 36 & 51, Welshpool Rd, Welshpool/Queens Park, City of Canning). All 6 excluded as out of scope; none named a City of Perth suburb or in-scope rail/CAT service. No new in-scope items this run. 10 carried-over in-scope items (25048, 25035, 21697-1, 21126, 20314, 25238, 25234, 25267, 25269, 25279) had dates checked against the current page and carried over unchanged; no PTA-001 coordinate lookups were needed since no new items entered scope. Net list: 10 items (10 carried over unchanged, 0 new, 3 dropped).",
     "scrape_2026-08-16": "Weekly recrawl (staging run). No items dropped: none of the 10 stored items have an Until date before today 16 Aug; 25267 (Adelaide Tce Westend Causeway, East Perth) ends today, kept per standing practice, flagged for expiry re-assessment on the next recrawl. Screened the full current Transperth service-updates page (79 Service Disruptions rows plus 8 Planned Service Changes rows) against scope_rule: every ID on today's page is already accounted for, either in the carried-over in-scope list (25048, 25035, 21697-1, 21126, 20314, 25238, 25234, 25267, 25269, 25279) or in excluded_examples from a prior week's screening, with exclusion reasons still holding even where From/Until dates on the listing have shifted (including 25164, referenced via the 25271/25244 Bus Stops Accessibility Works Program pattern, Gooseberry Hill/Kalamunda). No new candidate IDs appeared this run. All 10 carried-over items' dates checked against the current page and matched the stored values exactly. No PTA-001 coordinate lookups were needed since no new items entered scope. Net list: 10 items (10 carried over unchanged, 0 new, 0 dropped).",
     "scrape_2026-08-17": "Weekly recrawl. Dropped 1 expired item: 25267 (Routes 32/33/39/72/73/176-179/270/910/930/935, Adelaide Tce Westend Causeway, East Perth) - ended 16 Aug, before today 17 Aug; flagged for exactly this outcome in the 16 Aug scrape note. Screened the full current Transperth service-updates page (both Service Disruptions and Planned Service Changes tables, ~90 rows) against scope_rule: every single ID on today's page is already accounted for, either in the carried-over in-scope list (25048, 25035, 21697-1, 21126, 20314, 25238, 25234, 25269, 25279) or in excluded_examples from a prior week's screening, with exclusion reasons still holding even where From/Until dates on the listing have shifted. No new candidate IDs appeared this run. All 9 remaining carried-over items' dates checked against the current page and matched the stored values exactly. No PTA-001 coordinate lookups were needed since no new items entered scope. Net list: 9 items (9 carried over unchanged, 0 new, 1 dropped).",
-    "scrape_2026-08-18": "Weekly recrawl. No items dropped: 25035 (Mandurah Line) and 25279 (Routes 40-43 Lord St) both end today 18 Aug - not before today, so kept per standing practice, flagged for expiry re-assessment on the next recrawl. Screened the full current Transperth service-updates page (both Service Disruptions and Planned Service Changes tables, ~70 rows) against scope_rule: every ID already accounted for, either in the carried-over in-scope list (25048, 25035, 21697-1, 21126, 20314, 25238, 25234, 25269, 25279) or in excluded_examples from a prior week's screening, except 2 new candidate IDs checked this run: 25142 (Route 479, sole affected stop Portofino Prm, Mindarie, City of Wanneroo) and 25020 (Routes 443 & 444, sole affected stop Davallia Rd, Duncraig, City of Joondalup - detail page shows a stale Fri 17-31 Jul date range vs the listing's Fri 17 Jul-Fri 21 Aug, consistent with the recurring mirror-cache discrepancy seen on other items; out of scope regardless of date). Both excluded as out of scope. No new in-scope items this run. All 9 carried-over items' dates checked against the current page and matched stored values exactly. No PTA-001 coordinate lookups were needed since no new items entered scope. Net list: 9 items (9 carried over unchanged, 0 new, 0 dropped)."
+    "scrape_2026-08-18": "Weekly recrawl. No items dropped: 25035 (Mandurah Line) and 25279 (Routes 40-43 Lord St) both end today 18 Aug - not before today, so kept per standing practice, flagged for expiry re-assessment on the next recrawl. Screened the full current Transperth service-updates page (both Service Disruptions and Planned Service Changes tables, ~70 rows) against scope_rule: every ID already accounted for, either in the carried-over in-scope list (25048, 25035, 21697-1, 21126, 20314, 25238, 25234, 25269, 25279) or in excluded_examples from a prior week's screening, except 2 new candidate IDs checked this run: 25142 (Route 479, sole affected stop Portofino Prm, Mindarie, City of Wanneroo) and 25020 (Routes 443 & 444, sole affected stop Davallia Rd, Duncraig, City of Joondalup - detail page shows a stale Fri 17-31 Jul date range vs the listing's Fri 17 Jul-Fri 21 Aug, consistent with the recurring mirror-cache discrepancy seen on other items; out of scope regardless of date). Both excluded as out of scope. No new in-scope items this run. All 9 carried-over items' dates checked against the current page and matched stored values exactly. No PTA-001 coordinate lookups were needed since no new items entered scope. Net list: 9 items (9 carried over unchanged, 0 new, 0 dropped).",
+    "scrape_2026-08-19": "Weekly recrawl (staging run). Dropped 3 items: 25035 (Mandurah Line Nightly Closures, ended 18 Aug, before today 19 Aug), 25279 (Routes 40-43 Lord St after Bulwer St, Perth, ended 18 Aug, before today 19 Aug; also no longer listed on the current Transperth page), 25269 (Blue & Red CATs Hay St Mall/Victoria Avenue/Town Hall, stored end 20 Aug not yet reached, but absent from today's Transperth service-updates page and its own detail URL is no longer reachable - treated as pulled from the live site early and dropped). Screened the full current Transperth service-updates page (both Service Disruptions and Planned Service Changes tables, ~90 rows) against scope_rule, fetching detail pages for every new candidate ID (25309, perth-station-escalator-works-10, perth-underground-station-lift-disruption-6, 25300-25308, 25301). Found 4 new in-scope items: 25309 (Airport/Armadale/Ellenbrook/Midland/Thornlie-Cockburn lines, Optus Stadium event disruption Sun 23 Aug - McIver Station closed 8.12-9.19pm, Claisebrook & McIver Platform 3 closed 3.02-5.02pm, Claisebrook Platform 1 closed 7.50-9.20pm; McIver is suburb PERTH per PTA-001 so zones central+east), perth-station-escalator-works-10 (Perth Station, platforms 8/9 escalators out of service daily 6am-4pm, 17 Aug-4 Sep), perth-underground-station-lift-disruption-6 (Perth Underground, Lift 3 out of service, ongoing from 17 Aug), 25305 (Routes 402/403/404, four Cleaver St stops in West Perth - 12709, 12710, 27616, 27617 - closed 9am-3pm on scattered dates 20-29 Aug). Checked 15 other new candidate IDs this run (25300, 25301, 25296, 25297, 25298, 25299, 25302, 25303, 25304, 25306, 25307, 25308) and excluded all as out of scope - Mount Lawley/Highgate, Doubleview, Safety Bay, Menora/Coolbinia, Girrawheen, Carine, Walliston/Gooseberry Hill/Kalamunda (Bus Stops Accessibility Works Program), Upper Swan (same program), Mount Hawthorn/Leederville, Scarborough, Dianella, Bibra Lake - none named a City of Perth suburb or in-scope rail/CAT service. All other candidates on today's page (25242/25241/25240/25236/25049/25046/25044/25018 and the full outer-suburb/metro-wide set) matched IDs already carried in excluded_examples from prior scrapes by identical physical stop/segment; exclusions still hold even where From/Until dates on the listing have shifted. Coordinates for the 4 new items' stops confirmed via PTA-001 ArcGIS: McIver Platform 1 (Mciver Stn Platform 1, suburb PERTH), Claisebrook Platform 1 (Claisebrook Stn Platform 1, suburb EAST PERTH), and the four Cleaver St stopnumbers (12709/12710/27616/27617, suburb WEST PERTH) all queried directly this run - web_fetch again blocked the ArcGIS query URL under its provenance restriction, reached instead via the Claude-in-Chrome browser tool (navigate + get_page_text against the same endpoint), same workaround as every prior scrape since 31 Jul 2026. Perth Station and Perth Underground coordinates reused from the existing ArcGIS-verified values (unchanged locations, already verified in the stored 25048/25238/25234/25035 records). 6 other carried-over in-scope items (25048, 21697-1, 21126, 20314, 25238, 25234) had dates checked against the current page and carried over unchanged. Net list: 10 items (6 carried over unchanged, 4 new, 3 dropped)."
   },
   "disruptions": [
     {
@@ -53,30 +54,6 @@
           -31.95118,
           115.86004,
           "Perth Station"
-        ]
-      ]
-    },
-    {
-      "id": "25035",
-      "zones": [
-        "central"
-      ],
-      "mode": "train",
-      "sev": "high",
-      "title": "Mandurah Line - Nightly Closures",
-      "routes": "Mandurah line",
-      "start": "2026-08-16",
-      "end": "2026-08-18",
-      "ongoing": false,
-      "loc": "Perth Underground",
-      "stops": "Perth Underground (line closed toward Aubin Grove)",
-      "impact": "Line disrupted between Perth Underground and Aubin Grove; replacement buses each night",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25035",
-      "pts": [
-        [
-          -31.951582,
-          115.858142,
-          "Perth Underground"
         ]
       ]
     },
@@ -206,60 +183,119 @@
       ]
     },
     {
-      "id": "25269",
+      "id": "25309",
       "zones": [
-        "central"
+        "central",
+        "east"
       ],
-      "mode": "cat",
+      "mode": "train",
       "sev": "medium",
-      "title": "Blue & Red CATs - Hay St Mall, Victoria Avenue & Town Hall Stop Closures",
-      "routes": "Blue CAT, Red CAT",
-      "start": "2026-08-16",
-      "end": "2026-08-20",
+      "title": "Airport, Armadale, Ellenbrook, Midland & Thornlie-Cockburn Lines - McIver & Claisebrook Disruption",
+      "routes": "Airport, Armadale, Ellenbrook, Midland & Thornlie-Cockburn lines",
+      "start": "2026-08-23",
+      "end": "2026-08-23",
       "ongoing": false,
-      "loc": "Hay St Mall & Victoria Avenue/Town Hall, Perth",
-      "stops": "Hay Street Mall (CAT 3), Victoria Avenue (CAT 84), Town Hall (CAT 85), Perth",
-      "impact": "Nightly road closures (7pm-last service) shut three CBD CAT stops; services diverted to nearby alternates",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25269",
+      "loc": "McIver & Claisebrook Stations",
+      "stops": "McIver Station, Claisebrook Station (platforms 1 & 3)",
+      "impact": "Optus Stadium event disruption (AFL Round 24, Sun 23 Aug): McIver Station closed 8.12-9.19pm; Claisebrook & McIver Platform 3 closed 3.02-5.02pm; Claisebrook Platform 1 closed 7.50-9.20pm; Thornlie-Cockburn trains skip Claisebrook/McIver for periods either side",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25309",
       "pts": [
         [
-          -31.954914,
-          115.860081,
-          "Hay Street Mall (CAT 3)"
+          -31.951842,
+          115.866506,
+          "McIver Station"
         ],
         [
-          -31.9563,
-          115.865251,
-          "Victoria Avenue (CAT 84)"
-        ],
-        [
-          -31.954829,
-          115.860746,
-          "Town Hall (CAT 85)"
+          -31.949638,
+          115.872308,
+          "Claisebrook Station"
         ]
       ]
     },
     {
-      "id": "25279",
+      "id": "perth-station-escalator-works-10",
       "zones": [
         "central"
       ],
-      "mode": "bus",
+      "mode": "train",
       "sev": "low",
-      "title": "Routes 40, 41, 42 & 43 - Lord St Stop Closure",
-      "routes": "Routes 40, 41, 42 & 43",
+      "title": "Perth Station - Escalator Works",
+      "routes": "Perth Station (platforms 8/9 escalators)",
       "start": "2026-08-17",
-      "end": "2026-08-18",
+      "end": "2026-09-04",
       "ongoing": false,
-      "loc": "Lord St, Perth",
-      "stops": "Lord St after Bulwer St (ID 11318), Perth",
-      "impact": "Daily closure (7am-3pm) shuts a Perth Lord St stop used by routes 40-43; services diverted to nearby alternates",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25279",
+      "loc": "Perth Station",
+      "stops": "Perth Station, escalators between platforms 8/9 and the overpass",
+      "impact": "Escalators between platforms 8/9 and the station overpass out of service daily 6am-4pm for maintenance; stairs and lifts available at the eastern end of platforms 8 & 9",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/perth-station-escalator-works-10",
       "pts": [
         [
-          -31.944411,
-          115.872913,
-          "Lord St after Bulwer St"
+          -31.95118,
+          115.86004,
+          "Perth Station"
+        ]
+      ]
+    },
+    {
+      "id": "perth-underground-station-lift-disruption-6",
+      "zones": [
+        "central"
+      ],
+      "mode": "train",
+      "sev": "low",
+      "title": "Perth Underground Station - Lift Disruption",
+      "routes": "Perth Underground Station (Lift 3)",
+      "start": "2026-08-17",
+      "end": "",
+      "ongoing": true,
+      "loc": "Perth Underground",
+      "stops": "Perth Underground, Lift 3 (Murray St entrance)",
+      "impact": "Lift 3 out of service due to a mechanical fault (ongoing); alternative access via escalators 6-9 and stairs at the southern end, or Lift 1 at the Wellington St entrance",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/perth-underground-station-lift-disruption-6",
+      "pts": [
+        [
+          -31.951582,
+          115.858142,
+          "Perth Underground"
+        ]
+      ]
+    },
+    {
+      "id": "25305",
+      "zones": [
+        "west"
+      ],
+      "mode": "bus",
+      "sev": "medium",
+      "title": "Routes 402, 403 & 404 - Cleaver St Stop Closures",
+      "routes": "Routes 402, 403 & 404",
+      "start": "2026-08-20",
+      "end": "2026-08-29",
+      "ongoing": false,
+      "loc": "Cleaver St, West Perth",
+      "stops": "Cleaver St after Vincent St (12709), before Vincent St (12710), after Carr St (27616), after Kingston Av (27617), West Perth",
+      "impact": "Daily 9am-3pm road closures (Thu 20-Sat 22, Mon 24-Sat 29 Aug) shut four West Perth Cleaver St stops used by routes 402/403/404; services diverted to nearby alternates",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25305",
+      "pts": [
+        [
+          -31.937428,
+          115.849301,
+          "Cleaver St after Vincent St"
+        ],
+        [
+          -31.937052,
+          115.849167,
+          "Cleaver St before Vincent St"
+        ],
+        [
+          -31.939547,
+          115.848781,
+          "Cleaver St after Carr St"
+        ],
+        [
+          -31.939254,
+          115.848838,
+          "Cleaver St after Kingston Av"
         ]
       ]
     }
@@ -844,6 +880,70 @@
     {
       "id": "25020",
       "reason": "Routes 443 & 444 - sole affected stop Davallia Rd, Duncraig (City of Joondalup); detail page shows stale Fri 17-31 Jul dates vs listing's Fri 17 Jul-21 Aug, same mirror-cache pattern seen elsewhere - out of scope regardless."
+    },
+    {
+      "id": "25269",
+      "reason": "Blue & Red CATs Hay St Mall/Victoria Avenue/Town Hall stop closure - no longer listed on the Transperth service-updates page as of 19 Aug (stored end 20 Aug not yet reached, but the notice and its own detail URL are both gone from the live site, consistent with an early pull; dropped as no longer current)."
+    },
+    {
+      "id": "25300",
+      "reason": "Routes 40-43 - affected stops on Guildford Rd/Lord St, Mount Lawley (City of Vincent); nearest alternate in Highgate."
+    },
+    {
+      "id": "25301",
+      "reason": "Route 422 - sole affected stop Huntriss Rd, Doubleview (City of Stirling)."
+    },
+    {
+      "id": "25296",
+      "reason": "Route 557 - affected stops on Charthouse Rd/Seahaven St, Safety Bay (City of Rockingham)."
+    },
+    {
+      "id": "25297",
+      "reason": "Routes 19/360/960 - affected stops on Alexander Dr/Holmfirth St/Bradford St, Menora/Coolbinia (City of Stirling/Bayswater)."
+    },
+    {
+      "id": "25298",
+      "reason": "Routes 374/386/386X - affected stops on Girrawheen Av, Girrawheen (City of Wanneroo)."
+    },
+    {
+      "id": "25299",
+      "reason": "Routes 423/425/441/442/443/444 - sole affected stop Beach Rd, Carine (City of Stirling)."
+    },
+    {
+      "id": "25302",
+      "reason": "Routes 274/275 & School Special 728 - affected stops on Grove Rd/Banksia Rd/Kalamunda Rd, Walliston/Gooseberry Hill/Kalamunda (City of Kalamunda); same Bus Stops Accessibility Works Program pattern as 25164/25244/25271."
+    },
+    {
+      "id": "25303",
+      "reason": "Routes 310/345 & School Specials - affected stops on Great Northern Hwy/Apple St/Orange Av/Rose St, Upper Swan (City of Swan); same Bus Stops Accessibility Works Program pattern as 25191/25192/25245."
+    },
+    {
+      "id": "25304",
+      "reason": "Route 15 - affected stops on Scarborough Beach Rd/The Boulevarde/Oxford St, Mount Hawthorn/Leederville (Town of Cambridge/City of Vincent); same pattern as 25239."
+    },
+    {
+      "id": "25306",
+      "reason": "Routes 410/412/421 - affected stops on Coral St/Pearl Pde, Scarborough (City of Stirling)."
+    },
+    {
+      "id": "25307",
+      "reason": "Route 20 - sole affected stop Light St, Dianella (City of Stirling)."
+    },
+    {
+      "id": "25308",
+      "reason": "Route 514 - affected stops on Walliabup Wy/Meller Rd/Annois Rd/Parkway Rd, Bibra Lake (City of Cockburn); same pattern as 25260."
+    },
+    {
+      "id": "25046 / 25049 / 25044 / 25018",
+      "reason": "Rail nightly-closure notices where the closed segment is entirely outside the CBD (Bayswater-High Wycombe, Armadale-Byford, Cannington-Cockburn Central, Cockburn Central-Mandurah); no in-scope station named as affected (same physical segments as prior weeks; only listed dates rolled forward)."
+    },
+    {
+      "id": "25242 / 25241 / 25240 / 25236",
+      "reason": "Rail nightly-closure notices (Armadale, Armadale & Thornlie-Cockburn, Mandurah, Fremantle lines) whose closed segments run Cannington-Byford, Victoria Park-Byford/Cockburn Central, Rockingham-Mandurah and Claremont-Fremantle respectively; no City of Perth station in the closed segment."
+    },
+    {
+      "id": "25263 / 25278 / 25280 / 25281 / 25275 / 25258 / 25283 / 25244 / 25245 / 25249 / 25271 / 25199 / 25230 / 25210 / 25191 / 25192 / 25142 / 25120 / 25124 / 25052 / 25020 / 25164",
+      "reason": "Carried forward from prior scrapes - same physical stops/segments outside the City of Perth (Stirling, White Gum Valley, Karrinyup/Carine, Welshpool, Osborne Park, Gosnells, Duncraig, Maida Vale/Gooseberry Hill, Belhus/Aveley, Yanchep, Gooseberry Hill, Daglish, Scarborough, Beechboro, Midland/Bellevue, Mindarie, Roleystone/Kelmscott, Bibra Lake, Baldivis, Innaloo, Duncraig, Kalamunda) - exclusion reasons still hold even where From/Until dates on the listing have shifted."
     }
   ]
 }
