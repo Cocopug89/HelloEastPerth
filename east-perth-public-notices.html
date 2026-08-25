@@ -307,15 +307,20 @@ section.tab.active{display:flex;flex-direction:column;flex:1;min-height:0;overfl
 /* Release credit line: byline · disclaimer · report a bug (desktop view) */
 .hubcredit{display:none}
 @media(min-width:768px){.hubcredit{display:flex;flex:none;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:5px 9px;margin-top:-8px;padding:0 2px 1px;font-size:10.5px;line-height:1.35;color:#6f92a8;text-align:center}.hubcredit .hc-by{font-weight:700;color:#8fb4c8}.hubcredit .hc-dis{max-width:none}.hubcredit .hc-sep{opacity:.5}.hubcredit a.hc-bug{color:#8fb4c8;font-weight:700;text-decoration:none;border-bottom:1px dotted rgba(143,180,200,.6)}.hubcredit a.hc-bug:hover{color:#cfe6f2}}
-.hglance .hreport{display:flex;align-items:center;gap:10px;background:var(--amber);color:#3a2a06;border:1px solid rgba(255,255,255,.20);border-radius:16px;padding:0 18px;text-decoration:none;white-space:nowrap;box-shadow:0 6px 16px rgba(0,20,35,.28)}
-.hglance .hreport .ri{font-size:24px;line-height:1}
-.hglance .hreport .rl{display:flex;flex-direction:column;line-height:1.2;font-size:14.5px;font-weight:800;letter-spacing:.3px;text-transform:uppercase}
-.hglance .hreport .rl b{font-size:11px;font-weight:700;letter-spacing:.4px;opacity:.78;text-transform:none}
+/* Report button, reduced to an icon tile 24 Aug 2026. It was a labelled amber pill sitting
+   first in .hglance, which pushed the weather and clock along and wrapped .hhead at narrower
+   widths. It is now the same 58x60 square as .dburger and sits immediately left of it, so it
+   occupies burger-sized space and displaces nothing. Label text is kept in the DOM for
+   screen readers via aria-label plus title; do not re-add a visible .rl here. */
+.hglance .hreport{flex:none;display:flex;align-items:center;justify-content:center;width:58px;height:60px;padding:0;background:var(--amber);color:#3a2a06;border:1px solid rgba(255,255,255,.20);border-radius:16px;text-decoration:none;box-shadow:0 6px 16px rgba(0,20,35,.28)}
+.hglance .hreport .ri{font-size:26px;line-height:1}
+.hglance .hreport .rl{display:none}
 .hglance .hreport:hover{background:#f7d789}
-@media(max-width:1080px){.hglance .hreport .rl b{display:none}}
+.hglance .hreport:active{transform:scale(.97)}
 #bar .brandrow{padding-right:64px}
-#bar .breport{margin-left:auto;display:inline-flex;align-items:center;gap:8px;background:var(--amber);color:#3a2a06;border-radius:14px;padding:9px 14px;text-decoration:none;font-weight:800;font-size:13.5px;letter-spacing:.4px;text-transform:uppercase;white-space:nowrap;box-shadow:0 6px 16px rgba(0,20,35,.28)}
-#bar .breport .ri{font-size:19px;line-height:1}
+#bar .breport{margin-left:auto;flex:none;display:inline-flex;align-items:center;justify-content:center;width:46px;height:40px;background:var(--amber);color:#3a2a06;border-radius:12px;text-decoration:none;box-shadow:0 6px 16px rgba(0,20,35,.28)}
+#bar .breport .ri{font-size:22px;line-height:1}
+#bar .breport .rl{display:none}
 #bar .breport:active{transform:scale(.97)}
 /* Highlight band colour, reworked 16 Aug 2026. It was amber and it failed twice: the rows are
    WHITE cards (.row{background:#fff}), so .ecat.ecur put amber text on a pale amber wash on white
@@ -380,9 +385,9 @@ section.tab.active{display:flex;flex-direction:column;flex:1;min-height:0;overfl
   <div class="hhead">
     <div class="hbrand" onclick="activateTab('home');return false;" style="cursor:pointer"><a href="https://www.eastperthcommunity.org.au/" target="_top" onclick="event.stopPropagation()" style="display:inline-flex;line-height:0;text-decoration:none" aria-label="Go to the East Perth Community home site"><img class="hlogo" src="epcg-logo-rev.png" alt="East Perth Community"></a><div class="btext"><h1>East Perth Community Hub</h1><div class="dstamp" id="dstamp"></div></div></div>
     <div class="hglance">
-      <a class="hreport" href="report.html" aria-label="Report a problem to the City or the police"><span class="ri">&#128227;</span><span class="rl">Report<b>a problem</b></span></a>
       <div class="wxc"><span class="ico" id="hwxIco">&#127777;</span><div><div class="temp" id="hwxTemp">&mdash;</div><div class="cond" id="hwxCond">Loading&hellip;</div></div></div>
       <div class="clock"><div class="t" id="hclock">--:--</div><div class="d" id="hdate"></div></div>
+      <a class="hreport" href="report.html" title="Report a problem" aria-label="Report a problem to the City or the police"><span class="ri">&#128227;</span><span class="rl">Report<b>a problem</b></span></a>
       <button class="dburger" aria-label="Open menu" onclick="document.getElementById('dmenu').classList.toggle('open');event.stopPropagation();">&#9776;</button>
       <div id="dmenu" class="dmenu">
         <a href="#" onclick="activateTab('home');document.getElementById('dmenu').classList.remove('open');return false;"><span class="mi">&#8962;</span>Home</a>
@@ -410,7 +415,7 @@ section.tab.active{display:flex;flex-direction:column;flex:1;min-height:0;overfl
   <div class="brandrow">
     <img class="logo" src="epcg-logo-rev.png" alt="East Perth Community">
     <div class="btitle"><h1>East Perth</h1></div>
-    <a class="breport" href="report.html" aria-label="Report a problem to the City or the police"><span class="ri">&#128227;</span><span class="rl">Report</span></a>
+    <a class="breport" href="report.html" title="Report a problem" aria-label="Report a problem to the City or the police"><span class="ri">&#128227;</span><span class="rl">Report</span></a>
   </div>
   <div style="margin-top:12px"><span class="seg zones"><a href="west-zone-public-notices.html">West</a><a href="central-zone-public-notices.html">Central</a><span class="on" aria-current="true">East</span></span></div>
 </div>

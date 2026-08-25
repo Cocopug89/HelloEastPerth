@@ -149,12 +149,16 @@ body{margin:0;display:flex;flex-direction:column;height:100vh;overflow:hidden;pa
 @media(min-width:1180px){
   .wrap{grid-template-columns:repeat(3,1fr)!important}
 }
-.hglance .hreport{display:flex;align-items:center;gap:10px;background:var(--amber);color:#3a2a06;border:1px solid rgba(255,255,255,.20);border-radius:16px;padding:0 18px;text-decoration:none;white-space:nowrap;box-shadow:0 6px 16px rgba(0,20,35,.28)}
-.hglance .hreport .ri{font-size:24px;line-height:1}
-.hglance .hreport .rl{display:flex;flex-direction:column;line-height:1.2;font-size:14.5px;font-weight:800;letter-spacing:.3px;text-transform:uppercase}
-.hglance .hreport .rl b{font-size:11px;font-weight:700;letter-spacing:.4px;opacity:.78;text-transform:none}
+/* Report button, reduced to an icon tile 24 Aug 2026. It was a labelled amber pill sitting
+   first in .hglance, which pushed the weather and clock along and wrapped .hhead at narrower
+   widths. It is now the same 58x60 square as .dburger and sits immediately left of it, so it
+   occupies burger-sized space and displaces nothing. Label text is kept in the DOM for
+   screen readers via aria-label plus title; do not re-add a visible .rl here. */
+.hglance .hreport{flex:none;display:flex;align-items:center;justify-content:center;width:58px;height:60px;padding:0;background:var(--amber);color:#3a2a06;border:1px solid rgba(255,255,255,.20);border-radius:16px;text-decoration:none;box-shadow:0 6px 16px rgba(0,20,35,.28)}
+.hglance .hreport .ri{font-size:26px;line-height:1}
+.hglance .hreport .rl{display:none}
 .hglance .hreport:hover{background:#f7d789}
-@media(max-width:1080px){.hglance .hreport .rl b{display:none}}
+.hglance .hreport:active{transform:scale(.97)}
 </style>
 </head>
 <body>
@@ -162,9 +166,9 @@ body{margin:0;display:flex;flex-direction:column;height:100vh;overflow:hidden;pa
   <div class="hhead">
     <div class="hbrand" style="display:flex;align-items:center;gap:14px"><a href="https://www.eastperthcommunity.org.au/" target="_top" style="display:inline-flex;line-height:0;text-decoration:none" aria-label="Go to the East Perth Community home site"><img class="hlogo" src="epcg-logo-rev.png" alt="East Perth Community"></a><a href="east-perth-public-notices.html" class="brandlink"><h1>East Perth</h1></a></div>
     <div class="hglance">
-      <a class="hreport" href="report.html" aria-label="Report a problem to the City or the police"><span class="ri">&#128227;</span><span class="rl">Report<b>a problem</b></span></a>
       <div class="wxc"><span class="ico" id="hwxIco">&#127777;</span><div><div class="temp" id="hwxTemp">&mdash;</div><div class="cond" id="hwxCond">Loading&hellip;</div></div></div>
       <div class="clock"><div class="t" id="hclock">--:--</div><div class="d" id="hdate"></div></div>
+      <a class="hreport" href="report.html" title="Report a problem" aria-label="Report a problem to the City or the police"><span class="ri">&#128227;</span><span class="rl">Report<b>a problem</b></span></a>
       <button class="dburger" aria-label="Open menu" onclick="document.getElementById('dmenu').classList.toggle('open');event.stopPropagation();">&#9776;</button>
       <div id="dmenu" class="dmenu">
         <a href="east-perth-public-notices.html"><span class="mi">&#8962;</span>Home</a>
