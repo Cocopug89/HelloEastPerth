@@ -116,11 +116,16 @@
     alt:   "EPCG Annual General Meeting, Thursday 17 September 2026, Common Ground East Perth",
     name:  "EPCG Annual General Meeting",
     blurb: "The group's AGM is on <b>Thursday 17 September</b> at Common Ground, 119 Hill St, from 5.30 pm for a 6 pm start. Hear what has been achieved this year, meet the incoming committee and help shape what the group works on next. Hosted with the support of Mission Australia and Common Ground.",
-    highlight: "\ud83d\uddf3\ufe0f Nominations have closed, with valid nominations received for <b>all four office bearer positions and five ordinary committee positions</b>. The incoming committee takes office at the meeting.",
+    highlight: "\ud83d\uddf3\ufe0f <b>Only paid-up Ordinary Members can vote.</b> If your membership is due, renew before the meeting. Nominations have closed, with valid nominations received for all four office bearer positions and five ordinary committee positions.",
     meta:  "\ud83d\udcc5 Thursday 17 September, 5.30 pm for a 6 pm start &nbsp;&middot;&nbsp; \ud83d\udccd Common Ground, 119 Hill St, East Perth",
     ribbon:"\ud83c\udf9f\ufe0f EPCG Event",
-    ctas:  [{label:"Get your free ticket", href:"https://events.humanitix.com/east-perth-community-group-2026-agm", style:"b1"},
-            {label:"Read the August newsletter", href:"https://mailchi.mp/f7ecf37cae05/epcg-august-2026-newsletter", style:"b2"}]
+    /* CTA order set by the Treasurer, 30 Aug 2026: renewal leads, the ticket follows. Only paid-up
+       Ordinary Members can vote, so a renewal is the thing a reader most needs to act on before
+       17 Sep. The ticket link is kept as the second button rather than dropped - the AGM is
+       capacity managed and this card is the only booking route on the board. The newsletter CTA
+       came out to make room; it is already the feature card on newsletters.html. */
+    ctas:  [{label:"Renew your membership to vote", href:"https://www.eastperthcommunity.org.au/new-membership-form", style:"b1"},
+            {label:"Get your free ticket", href:"https://events.humanitix.com/east-perth-community-group-2026-agm", style:"b2"}]
   };
 
 
