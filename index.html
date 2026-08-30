@@ -340,6 +340,7 @@ html{-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:1
 <script src="pta-data.js"></script>
 <script src="epcg-events.js"></script>
 <script src="fireworks-data.js"></script>
+<script src="bulk-collection.js"></script>
 <script>
 const HUB=window.HUB||{disruptions:[],tenders:[],notices:[],events:[]};
 const DATA=HUB.disruptions.filter(function(d){return d.zone==="east";});
@@ -470,6 +471,25 @@ sub="In "+b.diff+" days ("+b.date.toLocaleDateString("en-AU",{weekday:"short",da
 items.push({cls:cls, em:em, txt:msg});
 var bs=document.getElementById("binSub"); bs.textContent=sub; bs.style.color=col;
 }
+
+/* Bulk verge collection. The fridge view gets a NARROWER window than the bins tab card:
+   10 days before the set-out window opens, through to the round's show_until. The scroll is
+   the phone's whole interface and a card three weeks out would just be one more thing to
+   scroll past. Data and every date come from bulk-collection.js. */
+(function(){
+var B=window.BULK_COLLECTION; if(!B||!B.rounds) return;
+for(var i=0;i<B.rounds.length;i++){
+var r=B.rounds[i], from=new Date(r.setout_from+"T00:00:00"), until=new Date(r.show_until+"T23:59:59");
+if(t0>until) continue;
+if((from-t0)>10*864e5) continue;
+var st=new Date(r.starts+"T00:00:00"), fmt={weekday:"short",day:"numeric",month:"short"};
+var msg=(t0>=from)
+  ? "Bulk verge collection - out by "+r.setout_to_time+" "+new Date(r.setout_to+"T00:00:00").toLocaleDateString("en-AU",fmt)+", collected from "+st.toLocaleDateString("en-AU",fmt)
+  : "Bulk verge collection - put it out from "+r.setout_from_time+" "+from.toLocaleDateString("en-AU",fmt);
+items.push({cls:"soon", em:"\uD83D\uDE9B", txt:msg});
+break;
+}
+})();
 
 /* next EPCG event - always on the scroll */
 if(typeof EVENTS!=="undefined" && EVENTS.length){

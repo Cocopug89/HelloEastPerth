@@ -611,6 +611,7 @@ section.tab.active{display:flex;flex-direction:column;flex:1;min-height:0;overfl
 <script src="hub-data.js"></script>
 <script src="epcg-manual.js"></script>
 <script src="epcg-events.js"></script>
+<script src="bulk-collection.js"></script>
 <script src="fireworks-data.js"></script>
 <script src="consultations.js"></script>
 <script src="spotlight.js"></script>
@@ -878,6 +879,30 @@ function renderBins(){
   function monday(d){var x=new Date(d);x.setDate(d.getDate()-((d.getDay()+6)%7));x.setHours(0,0,0,0);return x;}
   function altOf(d){var wk=Math.round((monday(d)-GEN_ANCHOR)/6048e5);return (((wk%2)+2)%2===0)?"gen":"recy";}
   function pill(k){return '<span style="display:inline-block;font-size:11px;font-weight:600;color:#1f2933;padding:2px 9px;border-radius:20px;margin-right:6px;background:'+C[k]+'">'+NAME[k]+'</span>';}
+  /* BULK VERGE COLLECTION, added 30 Aug 2026. Data is `bulk-collection.js`, curated by hand
+     because the City publishes one round at a time inside an accordion and no scrape produces
+     it. The card appears between the round's show_from and show_until and then disappears on
+     its own, so the tab needs no takedown. Every date is formatted from the data - nothing here
+     is typed twice, which is what stopped the old hand-typed "updated 8 Jul" line from rotting.
+     The collection is city-wide, so this is identical on all three boards. */
+  function bulkHtml(){
+    var B=window.BULK_COLLECTION;
+    if(!B||!B.rounds||!B.rounds.length) return "";
+    var t=new Date(); t.setHours(0,0,0,0); var r=null;
+    for(var i=0;i<B.rounds.length;i++){
+      var x=B.rounds[i];
+      if(new Date(x.show_from+"T00:00:00")<=t && new Date(x.show_until+"T23:59:59")>=t){ r=x; break; }
+    }
+    if(!r) return "";
+    function fd(s,o){ return new Date(s+"T00:00:00").toLocaleDateString("en-AU", o||{weekday:"long",day:"numeric",month:"long"}); }
+    return '<div class="card" style="margin:0 0 14px;border-left:4px solid #8a5cf0">'
+      +'<div class="t">Bulk verge collection</div>'
+      +'<div class="d">Put it out between <b>'+r.setout_from_time+' '+fd(r.setout_from)+'</b> and <b>'+r.setout_to_time+' '+fd(r.setout_to)+'</b>. Collection starts <b>'+fd(r.starts)+'</b>.</div>'
+      +'<div class="m" style="margin-top:8px">'+r.accepted+'</div>'
+      +'<div class="m" style="margin-top:6px">'+r.excluded+'</div>'
+      +'<div class="m" style="margin-top:6px">A City of Perth service, checked '+fd(B.checked,{day:"numeric",month:"short",year:"numeric"})+' &middot; <a href="'+B.source+'" target="_blank" rel="noopener">details and the full list on the City\'s site</a></div>'
+      +'</div>';
+  }
   function draw(){
     var today=new Date();today.setHours(0,0,0,0);
     var up=[];for(var d=new Date(START);d<=END;d.setDate(d.getDate()+1)){if(d.getDay()===day&&d>=today)up.push(new Date(d));}
@@ -886,7 +911,7 @@ function renderBins(){
     if(!up.length){nx+='<div class="m">No more scheduled collections in this period.</div>';}
     up.forEach(function(d){var a=altOf(d);
       nx+='<div class="row" style="cursor:default"><span class="dates" style="min-width:150px">'+d.toLocaleDateString("en-AU",{weekday:"short",day:"numeric",month:"short"})+'</span>'+pill("fogo")+pill(a)+'</div>';});
-    document.getElementById("binNext").innerHTML=nx;
+    document.getElementById("binNext").innerHTML=bulkHtml()+nx;
     var leg='<div style="display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:#cfe8f5;margin:16px 0 8px">';
     ["fogo","recy","gen"].forEach(function(k){leg+='<span><i style="display:inline-block;width:12px;height:12px;border-radius:3px;background:'+C[k]+';margin-right:5px;vertical-align:-2px"></i>'+(k==="fogo"?"FOGO (every week)":NAME[k]+" week")+'</span>';});
     leg+='</div>';
