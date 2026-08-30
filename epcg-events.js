@@ -52,8 +52,11 @@ window.EPCG_EVENTS = [
     note:"Perth City Farm after hours, second Thursday of every month. Farm Shop, dinner at Be Free Cafe, line dancing, hatha yoga, drop-in art with Piece by Peace and a featured workshop that changes each month. Summer evenings run later, to 9 pm. Individual sessions are ticketed separately through the Farm.",
     url:"https://perthcityfarm.org.au/farm-after-five/" },
   /* --- end partner series ---------------------------------------------------- */
+  /* Venue, ticketing and nomination outcome updated 30 Aug 2026 from the August newsletter
+     (https://mailchi.mp/f7ecf37cae05/epcg-august-2026-newsletter). Nominations closed 20 Aug,
+     so the nomination call is gone and the ticket link is the call to action. */
   { d:"2026-09-17", t:"EPCG Annual General Meeting", type:"epcg", time:"5.30 pm for a 6 pm start",
-    venue:"Venue to be advised",
-    note:"All committee positions are vacated. Only paid-up Ordinary Members may vote or stand. Nominations close 11.59 pm AWST Thu 20 Aug - form to secretary.eastperthcommunity@gmail.com. Free tickets for numbers, available in the coming weeks.",
-    url:"https://www.eastperthcommunity.org.au/" }
+    venue:"Common Ground, 119 Hill St, East Perth",
+    note:"Hear what the group has achieved this year and help shape what it works on next. Free tickets, one per order, so guest numbers can be managed. Only paid-up Ordinary Members may vote. Proxy forms to the Secretary by 6 pm Wed 16 September. Hosted with the support of Mission Australia and Common Ground.",
+    url:"https://events.humanitix.com/east-perth-community-group-2026-agm" }
 ];

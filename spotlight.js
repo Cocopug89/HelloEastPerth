@@ -102,10 +102,32 @@
   };
   */
 
+  /* EPCG 2026 AGM. Live 30 Aug 2026, aligned with the August newsletter, whose whole front
+     half is the AGM - there is no Business Spotlight section this month. This is EPCG's own
+     event, not a placement, so the ribbon is overridden and it is never labelled Sponsored.
+     ARTWORK: agm-2026.jpg, the house AGM tile rebuilt square at 800x800 from
+     `11 EPCG/.../2026 AGM/_build/build_tile_hub.py` with the confirmed venue and the
+     post-nomination copy. The nominations-era tile is stale (it says "Location to be advised"
+     and quotes the 20 Aug nomination deadline) - do not reuse it.
+     RETIRE AFTER 17 SEP 2026: put MERCEDES back on east and central, and note that Mercedes
+     itself expires 25 Sep 2026, after which east goes back to HANOI. */
+  var AGM = {
+    img:   "agm-2026.jpg",
+    alt:   "EPCG Annual General Meeting, Thursday 17 September 2026, Common Ground East Perth",
+    name:  "EPCG Annual General Meeting",
+    blurb: "The group's AGM is on <b>Thursday 17 September</b> at Common Ground, 119 Hill St, from 5.30 pm for a 6 pm start. Hear what has been achieved this year, meet the incoming committee and help shape what the group works on next. Hosted with the support of Mission Australia and Common Ground.",
+    highlight: "\ud83d\uddf3\ufe0f Nominations have closed, with valid nominations received for <b>all four office bearer positions and five ordinary committee positions</b>. The incoming committee takes office at the meeting.",
+    meta:  "\ud83d\udcc5 Thursday 17 September, 5.30 pm for a 6 pm start &nbsp;&middot;&nbsp; \ud83d\udccd Common Ground, 119 Hill St, East Perth",
+    ribbon:"\ud83c\udf9f\ufe0f EPCG Event",
+    ctas:  [{label:"Get your free ticket", href:"https://events.humanitix.com/east-perth-community-group-2026-agm", style:"b1"},
+            {label:"Read the August newsletter", href:"https://mailchi.mp/f7ecf37cae05/epcg-august-2026-newsletter", style:"b2"}]
+  };
+
+
   window.SPOTLIGHT = {
-    east:    MERCEDES,  /* until 25 Sep 2026, then back to HANOI */
-    central: MERCEDES,  /* was null and falling back to an East Perth cafe */
+    east:    AGM,       /* until 17 Sep 2026, then MERCEDES until 25 Sep, then HANOI */
+    central: AGM,       /* until 17 Sep 2026, then back to MERCEDES */
     west:    null,      /* no advertiser yet - falls back */
-    FALLBACK: MERCEDES  /* swap this for an "advertise here" card once you start selling */
+    FALLBACK: AGM       /* swap this for an "advertise here" card once you start selling */
   };
 })();
