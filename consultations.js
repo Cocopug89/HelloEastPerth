@@ -13,7 +13,7 @@
 /* The board reads this to show a freshness stamp in the header and to WARN when this
    feed has gone stale. A hand-typed date drifted before (the page claimed "8 Jul" while
    the data was from the 12th), so it is generated, never written by hand. */
-window.CONSULTATIONS_GENERATED = "2026-08-31";
+window.CONSULTATIONS_GENERATED = "2026-08-24";
 
 window.CONSULTATIONS = [
 {"typ": "Community", "title": "Neighbourhood Events", "url": "https://yoursay.perth.wa.gov.au/neighbourhood-events", "pub": null, "close": "2026-08-31", "kind": "consultation", "src": "Your Say Perth"},
