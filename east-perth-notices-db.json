@@ -2,7 +2,7 @@
  "meta": {
   "db_version": 2,
   "first_built": "2026-07-05",
-  "last_scrape": "2026-09-04",
+  "last_scrape": "2026-09-06",
   "source": "https://perth.wa.gov.au/public-notices/all-public-notices",
   "note": "Assessed record of City of Perth public notices. On each weekly scrape, only refs NOT already present here are fetched/assessed; open/closed status is recomputed from stored close dates. Items no longer on the City list are marked archived rather than deleted."
  },
