@@ -601,7 +601,7 @@ section.tab.active{display:flex;flex-direction:column;flex:1;min-height:0;overfl
     <div class="frow" style="margin-top:12px">
       <span><b>City of Perth</b> &middot; <a href="https://perth.wa.gov.au/public-notices/all-public-notices" target="_blank" rel="noopener">public notices, works, tenders &amp; bin collection</a></span>
       <span><b>Transperth (PTA)</b> &middot; <a href="https://www.transperth.wa.gov.au/service-updates" target="_blank" rel="noopener">public transport service updates</a> (City of Perth stops only)</span>
-      <span><b>Map</b> &middot; &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> &amp; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>, via <a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a></span>
+      <span><b>Map</b> &middot; &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors, via <a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a></span>
       <div class="fnote">An East Perth Community Group service &middot; refreshed weekly &middot; independent of the City of Perth. Always confirm critical details with the official source.</div>
     </div>
   </details>
@@ -823,7 +823,7 @@ function initMap(){
   statusEl.style.display="none";
   document.getElementById("map").style.display="block";
   const map=L.map("map").setView([-31.9500,115.8585],14);
-  L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",{subdomains:"abcd",maxZoom:20,attribution:"&copy; OpenStreetMap &copy; CARTO"}).addTo(map);
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:"&copy; OpenStreetMap contributors"}).addTo(map);
   const obstruction=L.layerGroup().addTo(map), event=L.layerGroup().addTo(map), roadclosure=L.layerGroup().addTo(map), infrastructure=L.layerGroup().addTo(map);
   const seen={};
   const HOVER = !(window.matchMedia && (window.matchMedia("(hover: none)").matches || window.matchMedia("(max-width: 600px)").matches));
@@ -1259,7 +1259,7 @@ function initPtaMap(){
   document.getElementById("ptaStatus").style.display="none";
   document.getElementById("ptaMap").style.display="block";
   var map=L.map("ptaMap").setView([-31.9530,115.8600],14);
-  L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",{subdomains:"abcd",maxZoom:20,attribution:"&copy; OpenStreetMap &copy; CARTO"}).addTo(map);
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:"&copy; OpenStreetMap contributors"}).addTo(map);
   var group=L.layerGroup().addTo(map);
   var HOVER = !(window.matchMedia && (window.matchMedia("(hover: none)").matches || window.matchMedia("(max-width: 600px)").matches));
   var seen={};
