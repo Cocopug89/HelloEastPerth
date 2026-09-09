@@ -2,7 +2,7 @@
  "meta": {
   "db_version": 2,
   "first_built": "2026-07-05",
-  "last_scrape": "2026-09-07",
+  "last_scrape": "2026-09-09",
   "source": "https://perth.wa.gov.au/public-notices/all-public-notices",
   "note": "Assessed record of City of Perth public notices. On each weekly scrape, only refs NOT already present here are fetched/assessed; open/closed status is recomputed from stored close dates. Items no longer on the City list are marked archived rather than deleted."
  },
@@ -429,7 +429,7 @@
   },
   {
    "ref": "PAN000009",
-   "title": "Provision of Events’ Medical, First Aid, Site Management and Workforce Services",
+   "title": "Provision of Events\u2019 Medical, First Aid, Site Management and Workforce Services",
    "zone": "city",
    "slug": "provision-of-events-medical-first-aid-site-mgmt-and-workforce-services---invitation-no-pan000009",
    "url": "https://perth.wa.gov.au/public-notices/provision-of-events-medical-first-aid-site-mgmt-and-workforce-services---invitation-no-pan000009",
@@ -495,7 +495,7 @@
    "closes": "2026-09-08",
    "assessed": true,
    "firstSeen": "2026-08-08",
-   "lastSeen": "2026-09-07",
+   "lastSeen": "2026-09-09",
    "onCityList": true,
    "archived": false
   },
@@ -525,7 +525,7 @@
    "zone": "central",
    "assessed": true,
    "firstSeen": "2026-08-15",
-   "lastSeen": "2026-09-07",
+   "lastSeen": "2026-09-09",
    "onCityList": true,
    "archived": false
   },
@@ -539,7 +539,7 @@
    "closes": "2026-09-17",
    "assessed": true,
    "firstSeen": "2026-08-29",
-   "lastSeen": "2026-09-07",
+   "lastSeen": "2026-09-09",
    "onCityList": true,
    "archived": false
   },
@@ -553,10 +553,40 @@
    "zone": "central",
    "assessed": true,
    "firstSeen": "2026-09-04",
-   "lastSeen": "2026-09-07",
+   "lastSeen": "2026-09-09",
    "onCityList": true,
    "archived": false,
    "slug": "wellington-street-overpass-renewal-tender-no-rft000301"
+  },
+  {
+   "ref": "RFT000302",
+   "title": "Hay Street Two-Way Conversion (William St to Elder St) - Tender No. RFT000302",
+   "zone": "central",
+   "slug": "hay-street-two-way-conversion-william-st-to-elder-st---tender-no-rft000302",
+   "url": "https://perth.wa.gov.au/public-notices/hay-street-two-way-conversion-william-st-to-elder-st---tender-no-rft000302",
+   "published": "2026-09-08",
+   "closes": "2026-10-08",
+   "kind": "tender",
+   "assessed": true,
+   "firstSeen": "2026-09-09",
+   "lastSeen": "2026-09-09",
+   "onCityList": true,
+   "archived": false
+  },
+  {
+   "ref": "RFT000300",
+   "title": "Claisebrook Cove Revitalisation Stage 1 - Tender No. RFT000300",
+   "zone": "east",
+   "slug": "claisebrook-cove-revitalisation-stage-1---tender-no-rft000300",
+   "url": "https://perth.wa.gov.au/public-notices/claisebrook-cove-revitalisation-stage-1---tender-no-rft000300",
+   "published": "2026-09-08",
+   "closes": "2026-10-13",
+   "kind": "tender",
+   "assessed": true,
+   "firstSeen": "2026-09-09",
+   "lastSeen": "2026-09-09",
+   "onCityList": true,
+   "archived": false
   }
  ],
  "notices": [
@@ -571,7 +601,7 @@
    "closes": "2026-09-25",
    "assessed": true,
    "firstSeen": "2026-07-08",
-   "lastSeen": "2026-09-07",
+   "lastSeen": "2026-09-09",
    "onCityList": true,
    "archived": false
   },
@@ -586,7 +616,7 @@
    "closes": "2026-09-25",
    "assessed": true,
    "firstSeen": "2026-07-08",
-   "lastSeen": "2026-09-07",
+   "lastSeen": "2026-09-09",
    "onCityList": true,
    "archived": false
   },
@@ -601,7 +631,7 @@
    "closes": "2026-07-15",
    "assessed": true,
    "firstSeen": "2026-07-05",
-   "lastSeen": "2026-09-07",
+   "lastSeen": "2026-09-09",
    "onCityList": true,
    "archived": false
   },
@@ -616,7 +646,7 @@
    "closes": "2026-06-18",
    "assessed": true,
    "firstSeen": "2026-07-05",
-   "lastSeen": "2026-09-07",
+   "lastSeen": "2026-09-09",
    "onCityList": true,
    "archived": false
   },
@@ -631,7 +661,7 @@
    "closes": "2026-02-18",
    "assessed": true,
    "firstSeen": "2026-07-05",
-   "lastSeen": "2026-09-07",
+   "lastSeen": "2026-09-09",
    "onCityList": true,
    "archived": false
   },
@@ -646,7 +676,7 @@
    "closes": "2026-01-17",
    "assessed": true,
    "firstSeen": "2026-07-05",
-   "lastSeen": "2026-09-07",
+   "lastSeen": "2026-09-09",
    "onCityList": true,
    "archived": false
   },
@@ -661,7 +691,7 @@
    "closes": "2026-01-17",
    "assessed": true,
    "firstSeen": "2026-07-05",
-   "lastSeen": "2026-09-07",
+   "lastSeen": "2026-09-09",
    "onCityList": true,
    "archived": false
   },
@@ -706,7 +736,7 @@
    "closes": "",
    "assessed": true,
    "firstSeen": "2026-07-05",
-   "lastSeen": "2026-09-07",
+   "lastSeen": "2026-09-09",
    "onCityList": true,
    "archived": false
   },
@@ -722,7 +752,7 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-09-07",
+   "lastSeen": "2026-09-09",
    "onCityList": true,
    "archived": false
   },
@@ -738,7 +768,7 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-09-07",
+   "lastSeen": "2026-09-09",
    "onCityList": true,
    "archived": false
   },
@@ -754,7 +784,7 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-09-07",
+   "lastSeen": "2026-09-09",
    "onCityList": true,
    "archived": false
   },
@@ -770,7 +800,7 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-09-07",
+   "lastSeen": "2026-09-09",
    "onCityList": true,
    "archived": false
   },
@@ -786,7 +816,7 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-09-07",
+   "lastSeen": "2026-09-09",
    "onCityList": true,
    "archived": false
   },
@@ -802,7 +832,7 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-09-07",
+   "lastSeen": "2026-09-09",
    "onCityList": true,
    "archived": false
   },
@@ -818,7 +848,7 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-09-07",
+   "lastSeen": "2026-09-09",
    "onCityList": true,
    "archived": false
   },
@@ -834,7 +864,7 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-09-07",
+   "lastSeen": "2026-09-09",
    "onCityList": true,
    "archived": false
   },
@@ -850,7 +880,7 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-09-07",
+   "lastSeen": "2026-09-09",
    "onCityList": true,
    "archived": false
   },
@@ -866,7 +896,7 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-09-07",
+   "lastSeen": "2026-09-09",
    "onCityList": true,
    "archived": false
   },
@@ -882,7 +912,7 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-09-07",
+   "lastSeen": "2026-09-09",
    "onCityList": true,
    "archived": false
   },
@@ -898,7 +928,7 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-09-07",
+   "lastSeen": "2026-09-09",
    "onCityList": true,
    "archived": false
   },
@@ -914,7 +944,7 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-09-07",
+   "lastSeen": "2026-09-09",
    "onCityList": true,
    "archived": false
   },
@@ -930,7 +960,7 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-09-07",
+   "lastSeen": "2026-09-09",
    "onCityList": true,
    "archived": false
   },
@@ -960,7 +990,7 @@
    "kind": "notice",
    "assessed": true,
    "firstSeen": "2026-08-02",
-   "lastSeen": "2026-09-07",
+   "lastSeen": "2026-09-09",
    "onCityList": true,
    "archived": false
   },
@@ -975,7 +1005,7 @@
    "kind": "notice",
    "assessed": true,
    "firstSeen": "2026-08-02",
-   "lastSeen": "2026-09-07",
+   "lastSeen": "2026-09-09",
    "onCityList": true,
    "archived": false
   },
@@ -990,7 +1020,7 @@
    "closes": "2026-09-17",
    "assessed": true,
    "firstSeen": "2026-09-03",
-   "lastSeen": "2026-09-07",
+   "lastSeen": "2026-09-09",
    "onCityList": true,
    "archived": false
   }
