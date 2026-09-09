@@ -654,18 +654,48 @@ function activateTab(name){
 }
 document.querySelectorAll("#tabs button").forEach(b=>b.addEventListener("click",()=>activateTab(b.dataset.tab)));
 function goToDetails(id){
-  document.getElementById("disSearch").value="";
-  document.querySelectorAll("#legend .lchip").forEach(function(x){ x.classList.remove("off"); });
-  mapTimeMode="today"; document.querySelectorAll("#mapctl [data-time]").forEach(function(x){ x.classList.toggle("on", x.dataset.time==="today"); });
-  applyDisFilters(); activateTab("disruptions");
+  /* 9 Sep 2026 fix. This used to force mapTimeMode back to "today" on every pin tap, so
+     tapping a pin while the Show filter was on "All current" snapped the board back to
+     Today: the pin vanished under the finger and the card it was meant to scroll to no
+     longer existed, so nothing happened. Widen only what would hide this item; leave
+     every other filter the user set alone. */
+  const d=DATA.filter(function(x){ return x.id===id; })[0];
+  const searchEl=document.getElementById("disSearch");
+  if(d){
+    if(mapTimeMode==="today" && !activeToday(d)){
+      mapTimeMode="all";
+      document.querySelectorAll("#mapctl [data-time]").forEach(function(x){ x.classList.toggle("on", x.dataset.time==="all"); });
+    }
+    document.querySelectorAll("#legend .lchip").forEach(function(x){ if(x.dataset.cat===d.cat) x.classList.remove("off"); });
+    const q=(searchEl.value||"").toLowerCase();
+    if(q && (d.title+" "+d.loc+" "+d.desc+" "+d.id).toLowerCase().indexOf(q)===-1) searchEl.value="";
+  } else {
+    searchEl.value="";
+    document.querySelectorAll("#legend .lchip").forEach(function(x){ x.classList.remove("off"); });
+  }
+  applyDisFilters();
+  if(!document.getElementById("tab-disruptions").classList.contains("active")) activateTab("disruptions");
   const card=document.querySelector('#disList .card[data-id="'+id+'"]');
   if(card){ card.scrollIntoView({behavior:"smooth",block:"center"}); card.classList.remove("flash"); void card.offsetWidth; card.classList.add("flash"); }
 }
 
 function goToPta(id){
-  document.getElementById("ptaSearch").value="";
-  document.querySelectorAll("#ptalegend .lchip").forEach(function(x){ x.classList.remove("off"); });
-  ptaTimeMode="today"; document.querySelectorAll("#ptamapctl [data-ptime]").forEach(function(x){ x.classList.toggle("on", x.dataset.ptime==="today"); });
+  /* Same fix as goToDetails, 9 Sep 2026: widen only what hides the item, never reset the
+     user's Show / Modes / search state back to Active today. */
+  var d=PTA.filter(function(x){ return x.id===id; })[0];
+  var searchEl=document.getElementById("ptaSearch");
+  if(d){
+    if(ptaTimeMode==="today" && !ptaActiveToday(d)){
+      ptaTimeMode="all";
+      document.querySelectorAll("#ptamapctl [data-ptime]").forEach(function(x){ x.classList.toggle("on", x.dataset.ptime==="all"); });
+    }
+    document.querySelectorAll("#ptalegend .lchip").forEach(function(x){ if(x.dataset.mode===d.mode) x.classList.remove("off"); });
+    var q=(searchEl.value||"").toLowerCase();
+    if(q && (d.title+" "+d.routes+" "+d.stops+" "+d.loc+" "+d.desc).toLowerCase().indexOf(q)===-1) searchEl.value="";
+  } else {
+    searchEl.value="";
+    document.querySelectorAll("#ptalegend .lchip").forEach(function(x){ x.classList.remove("off"); });
+  }
   applyPtaFilters();
   var card=document.querySelector('#ptaList .card[data-id="'+id+'"]');
   if(card){ card.scrollIntoView({behavior:"smooth",block:"center"}); card.classList.remove("flash"); void card.offsetWidth; card.classList.add("flash"); }
