@@ -8,5 +8,5 @@ disclaimers:["Start times and duration may vary from that indicated in the sched
 events:[
 {"date": "2026-09-11", "day": "Friday", "time": "5:10 PM to 6:10 PM", "dur": "5 minutes", "venue": "Optus Stadium", "street": "Victoria Park Dr", "suburb": "Burswood", "postcode": "6100", "purpose": "AFL 2026 Semi Finals Fremantle Dockers vs Geelong Cats", "close": true, "zone": "east"},
 {"date": "2026-09-12", "day": "Saturday", "time": "9:30 PM", "dur": "5 minutes", "venue": "Sandalford Wines", "street": "West Swan Rd", "suburb": "Caversham", "postcode": "6055", "purpose": "Private Event", "close": true, "zone": "other"},
-{"date": "2026-09-20", "day": "Sunday", "time": "4:00 PM to 7:30 PM 2 x 30 seconds", "dur": "", "venue": "Optus Stadium", "street": "Victoria Park Dr", "suburb": "Burswood", "postcode": "6100", "purpose": "Wafl Grand Finals", "close": true, "zone": "east"},
+{"date": "2026-09-20", "day": "Sunday", "time": "4:00 PM to 7:30 PM", "dur": "2 x 30 seconds", "venue": "Optus Stadium", "street": "Victoria Park Dr", "suburb": "Burswood", "postcode": "6100", "purpose": "WAFL Grand Finals", "close": true, "zone": "east"},
 ]};
