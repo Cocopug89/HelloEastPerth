@@ -132,9 +132,11 @@
   /* THE PAVILION WACA GROUND - free community pool party, Sun 27 Sep 2026. Live 19 Sep 2026 as the
      highlight between the August newsletter and the next one (Jason). Someone else's event passed on,
      NOT a placement and NOT paid, so the ribbon is "Community Event" and it is never labelled Sponsored.
-     ARTWORK: pool-party-2026.jpg, the house shared-notice tile rebuilt at 800x800 from
-     `11 EPCG/East Perth Community Group/Communications/2026-09-19 - Social Tile - Pavilion WACA pool party - spec.json`.
-     Not the venue's own banner: it is landscape and would lose its sides in the portrait crop.
+     ARTWORK: pool-party-2026.jpg, 720x1200 PORTRAIT, built by
+     `11 EPCG/East Perth Community Group/Communications/_build/build_hub_card_pool.py`. The square social
+     tile was tried first and failed live: .spot-media measured 204x458 (ratio 0.45) at a 929px window,
+     so object-fit:cover cut the headline off both sides. Every word on this card sits in a centred
+     480x820 safe zone that survives ratios 0.45 to 0.84. Not the venue's banner (landscape, same problem).
      The venue page says "Join us this October" above a 27 September date; the date is stated twice
      on that page and 27 Sep 2026 is a Sunday, so the copy here uses 27 Sep only.
      RETIRE AFTER 27 SEP 2026: east goes back to HANOI, FALLBACK back to HANOI. */
