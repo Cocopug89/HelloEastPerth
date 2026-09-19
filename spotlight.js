@@ -129,10 +129,31 @@
   };
 
 
+  /* THE PAVILION WACA GROUND - free community pool party, Sun 27 Sep 2026. Live 19 Sep 2026 as the
+     highlight between the August newsletter and the next one (Jason). Someone else's event passed on,
+     NOT a placement and NOT paid, so the ribbon is "Community Event" and it is never labelled Sponsored.
+     ARTWORK: pool-party-2026.jpg, the house shared-notice tile rebuilt at 800x800 from
+     `11 EPCG/East Perth Community Group/Communications/2026-09-19 - Social Tile - Pavilion WACA pool party - spec.json`.
+     Not the venue's own banner: it is landscape and would lose its sides in the portrait crop.
+     The venue page says "Join us this October" above a 27 September date; the date is stated twice
+     on that page and 27 Sep 2026 is a Sunday, so the copy here uses 27 Sep only.
+     RETIRE AFTER 27 SEP 2026: east goes back to HANOI, FALLBACK back to HANOI. */
+  var POOL = {
+    img:   "pool-party-2026.jpg",
+    alt:   "Free community pool party at The Pavilion WACA Ground, Sunday 27 September 2026, 1 pm to 4 pm",
+    name:  "Free Community Pool Party, The Pavilion WACA Ground",
+    blurb: "The Pavilion at the WACA Ground is opening its doors for a <b>free</b> community pool party. Bring the family for splash and play in the pool, kids activities, and a look around the centre and its programs, right here in East Perth.",
+    highlight: "\ud83c\udfca <b>Free entry</b>, Sunday 27 September, 1 pm to 4 pm. Check the venue's supervision rules for younger swimmers before you go.",
+    meta:  "\ud83d\udcc5 Sunday 27 September, 1 pm to 4 pm &nbsp;&middot;&nbsp; \ud83d\udccd The Pavilion, WACA Ground, East Perth",
+    ribbon:"\ud83c\udf88 Community Event",
+    ctas:  [{label:"Event details", href:"https://thepavilionwacaground.com.au/open-day", style:"b1"}]
+  };
+
+
   window.SPOTLIGHT = {
-    east:    AGM,       /* until 17 Sep 2026, then MERCEDES until 25 Sep, then HANOI */
-    central: AGM,       /* until 17 Sep 2026, then back to MERCEDES */
+    east:    POOL,      /* 19 Sep to 27 Sep 2026 (pool party), then HANOI. AGM retired 19 Sep. */
+    central: MERCEDES,  /* until 25 Sep 2026 (scholarship closes), then null so it falls back */
     west:    null,      /* no advertiser yet - falls back */
-    FALLBACK: AGM       /* swap this for an "advertise here" card once you start selling */
+    FALLBACK: POOL      /* until 27 Sep 2026, then HANOI. Swap for an "advertise here" card once selling */
   };
 })();

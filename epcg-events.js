@@ -59,4 +59,11 @@ window.EPCG_EVENTS = [
     venue:"Common Ground, 119 Hill St, East Perth",
     note:"Hear what the group has achieved this year and help shape what it works on next. Free tickets, one per order, so guest numbers can be managed. Only paid-up Ordinary Members may vote. Proxy forms to the Secretary by 6 pm Wed 16 September. Hosted with the support of Mission Australia and Common Ground.",
     url:"https://events.humanitix.com/east-perth-community-group-2026-agm" }
+  ,
+  /* Added 19 Sep 2026: not in the VisitPerth scrape (checked hub-data.js, zero rows for Pavilion or WACA),
+     so it is curated here as a community entry. Also the hub Spotlight until 27 Sep. */
+  { d:"2026-09-27", t:"Free Community Pool Party", type:"community", time:"1 pm to 4 pm",
+    venue:"The Pavilion, WACA Ground, East Perth",
+    note:"Free entry. Splash and play in the pool, kids activities, and a look around the centre and its programs. Run by The Pavilion WACA Ground.",
+    url:"https://thepavilionwacaground.com.au/open-day" }
 ];
