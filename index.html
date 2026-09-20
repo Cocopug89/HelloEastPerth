@@ -164,6 +164,18 @@ html{-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:1
   .spdesc{font-size:14.5px;color:#3a4652;font-weight:500;line-height:1.55;margin:8px 0 10px}
   .spmeta{font-size:13px;color:var(--muted);font-weight:600}
   .splink{display:inline-block;margin-top:12px;background:var(--pink);color:#4b1528;font-weight:800;font-size:13.5px;padding:8px 16px;border-radius:22px}
+  /* Highlight carousel (20 Sep 2026): one slide per zone that has its own spotlight, auto-advancing. */
+  .spvp{overflow:hidden;border-radius:20px;touch-action:pan-y}
+  .sptrack{display:flex;transition:transform .5s ease}
+  .spslide{flex:0 0 100%;min-width:100%;display:flex}
+  .spslide .spcard{flex:1;margin:0}
+  .sptag{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:8px}
+  .sparea{background:var(--ink);color:#fff;font-size:11px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;padding:4px 10px;border-radius:12px}
+  .sprib{font-size:12px;font-weight:700;color:var(--muted)}
+  .spdots{display:flex;justify-content:center;gap:10px;margin-top:12px}
+  .spdot{width:10px;height:10px;border-radius:50%;border:0;padding:0;background:rgba(255,255,255,.35);cursor:pointer}
+  .spdot.on{background:var(--amber);width:26px;border-radius:6px}
+  @media (prefers-reduced-motion:reduce){.sptrack{transition:none}}
   .connect{margin-top:26px;text-align:center}
   .cxhead{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--sky);margin-bottom:12px}
   .cxrow{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
@@ -540,29 +552,53 @@ setCnt("cDis", DATA.filter(function(d){return !isPast(d);}).length);
 setCnt("cTra", ((window.PTA_DATA)||[]).filter(function(d){return (!d.zones||d.zones.indexOf("east")>=0) && !(d.end && parseDMY(d.end)<midnight());}).length);
 setCnt("cEvt", (HUB.events||[]).length);
 
-/* ---- Business / Neighbourhood Spotlight (phone view) ----
-   Reads the SAME spotlight.js the boards use. HZ does not exist on this page, so it takes the east
-   entry and falls back exactly as the boards do. Card markup is the phone layout (thumb + body),
-   not the boards' media panel, so this renders the same data into different chrome. */
+/* ---- Neighbourhood Highlights carousel (phone view), 20 Sep 2026 ----
+   Reads the SAME spotlight.js the boards use. The phone page has no zone toggle, so instead of showing
+   only the east entry it shows ONE SLIDE PER ZONE that resolves to a distinct spotlight (east, central,
+   west, each falling back to FALLBACK exactly as the boards do). A zone that falls back to an object
+   already shown is skipped, so the same card never appears twice. Each slide is labelled with its area.
+   Auto-advances every 7 s; pauses while the page is hidden, and stops for good once the reader swipes
+   or taps a dot (they are driving now). One distinct spotlight = no dots, no timer. */
 (function(){
   var host=document.getElementById("spotHost"); if(!host) return;
-  var S=window.SPOTLIGHT||{}, b=S.east||S.FALLBACK;
-  if(!b){ host.style.display="none"; return; }
-  var cta=(b.ctas&&b.ctas[0])||null;
-  var head=b.ribbon || "\u2605 Monthly Business Spotlight";
-  var open=cta?("<a class='spcard' href='"+cta.href+"' target='_blank' rel='noopener'>"):"<div class='spcard'>";
-  var close=cta?"</a>":"</div>";
-  host.innerHTML=
-    "<div class='sphead'>"+head+"</div>"+
-    open+
+  var S=window.SPOTLIGHT||{};
+  var Z=[["east","East Perth"],["central","CBD & Northbridge"],["west","West Perth, Nedlands & Crawley"]];
+  var seen=[], slides=[];
+  Z.forEach(function(z){ var b=S[z[0]]||S.FALLBACK; if(b && seen.indexOf(b)<0){ seen.push(b); slides.push({b:b,area:z[1]}); } });
+  if(!slides.length){ host.style.display="none"; return; }
+  function card(x){
+    var b=x.b, cta=(b.ctas&&b.ctas[0])||null;
+    var open=cta?("<a class='spcard' href='"+cta.href+"' target='_blank' rel='noopener'>"):"<div class='spcard'>";
+    return "<div class='spslide'>"+open+
       "<img class='spthumb' src='"+b.img+"' alt='"+(b.alt||b.name)+"' loading='lazy' onerror=\"this.style.display='none'\">"+
       "<div class='spbody'>"+
+        "<div class='sptag'><span class='sparea'>\ud83d\udccd "+x.area+"</span>"+(b.ribbon?"<span class='sprib'>"+b.ribbon+"</span>":"")+"</div>"+
         "<div class='spname'>"+b.name+"</div>"+
         (b.blurb?"<div class='spdesc'>"+b.blurb+"</div>":"")+
         (b.meta?"<div class='spmeta'>"+b.meta+"</div>":"")+
         (cta?"<span class='splink'>"+cta.label+" \u2197</span>":"")+
-      "</div>"+
-    close;
+      "</div>"+(cta?"</a>":"</div>")+"</div>";
+  }
+  var n=slides.length;
+  host.innerHTML="<div class='sphead'>"+(n>1?"Neighbourhood Highlights":"Neighbourhood Highlight")+"</div>"+
+    "<div class='spvp'><div class='sptrack'>"+slides.map(card).join("")+"</div></div>"+
+    (n>1?"<div class='spdots' role='tablist'>"+slides.map(function(x,k){return "<button class='spdot"+(k?"":" on")+"' aria-label='Show "+x.area+" highlight'></button>";}).join("")+"</div>":"");
+  if(n<2) return;
+  var track=host.querySelector(".sptrack"), dots=host.querySelectorAll(".spdot"), cur=0, timer=null, stopped=false;
+  function go(k){ cur=(k+n)%n; track.style.transform="translateX(-"+(cur*100)+"%)";
+    for(var d=0;d<dots.length;d++) dots[d].className="spdot"+(d===cur?" on":""); }
+  function start(){ if(stopped||timer) return; timer=setInterval(function(){ go(cur+1); },7000); }
+  function halt(){ if(timer){ clearInterval(timer); timer=null; } }
+  function takeOver(){ stopped=true; halt(); }
+  for(var d=0;d<dots.length;d++)(function(k){ dots[k].addEventListener("click",function(){ takeOver(); go(k); }); })(d);
+  var x0=null, y0=null;
+  track.addEventListener("touchstart",function(e){ x0=e.touches[0].clientX; y0=e.touches[0].clientY; halt(); },{passive:true});
+  track.addEventListener("touchend",function(e){
+    if(x0===null) return; var dx=e.changedTouches[0].clientX-x0, dy=e.changedTouches[0].clientY-y0; x0=null;
+    if(Math.abs(dx)>40 && Math.abs(dx)>Math.abs(dy)){ takeOver(); go(cur+(dx<0?1:-1)); } else start();
+  },{passive:true});
+  document.addEventListener("visibilitychange",function(){ document.hidden?halt():start(); });
+  start();
 })();
 
 /* ===== next-event teaser: writes onto the What's On tile (events.html retired 16 Aug 2026) ===== */
