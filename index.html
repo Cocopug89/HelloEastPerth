@@ -570,7 +570,7 @@ setCnt("cEvt", (HUB.events||[]).length);
     var b=x.b, cta=(b.ctas&&b.ctas[0])||null;
     var open=cta?("<a class='spcard' href='"+cta.href+"' target='_blank' rel='noopener'>"):"<div class='spcard'>";
     return "<div class='spslide'>"+open+
-      "<img class='spthumb' src='"+b.img+"' alt='"+(b.alt||b.name)+"' loading='lazy' onerror=\"this.style.display='none'\">"+
+      "<img class='spthumb' src='"+b.img+"'"+(b.thumbpos?" style='object-position:"+b.thumbpos+"'":"")+" alt='"+(b.alt||b.name)+"' loading='lazy' onerror=\"this.style.display='none'\">"+
       "<div class='spbody'>"+
         "<div class='sptag'><span class='sparea'>\ud83d\udccd "+x.area+"</span>"+(b.ribbon?"<span class='sprib'>"+b.ribbon+"</span>":"")+"</div>"+
         "<div class='spname'>"+b.name+"</div>"+

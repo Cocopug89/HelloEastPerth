@@ -33,6 +33,7 @@
  *
  *   `expires` is mandatory so a dead coupon cannot rot on the board the way the old hand-typed
  *   "updated 8 Jul" date did. After that date the offer block disappears; the business stays.
+ *   thumbpos  optional CSS object-position for the PHONE view's landscape strip crop (index.html), e.g. "50% 30%".
  *   ribbon    optional override of the corner label. Use "Sponsored" for a PAID placement -
  *             an unlabelled ad is the kind of thing that gets a community group in trouble.
  *
@@ -149,6 +150,7 @@
     highlight: "\ud83c\udfca <b>Free entry</b>, Sunday 27 September, 1 pm to 4 pm. Check the venue's supervision rules for younger swimmers before you go.",
     meta:  "\ud83d\udcc5 Sunday 27 September, 1 pm to 4 pm &nbsp;&middot;&nbsp; \ud83d\udccd The Pavilion, WACA Ground, East Perth &nbsp;&middot;&nbsp; Artwork: The Pavilion WACA Ground",
     ribbon:"\ud83c\udf88 Community Event",
+    thumbpos:"50% 60%",  /* phone strip crop: show the kids, not the middle of the wordmark */
     ctas:  [{label:"Event details", href:"https://thepavilionwacaground.com.au/open-day", style:"b1"}]
   };
 
@@ -170,6 +172,7 @@
     highlight: "\ud83c\udf15 <b>Monday 28 September.</b> Sunset 6.16 pm, moonrise 8.06 pm. Everyone welcome, bring your family and friends.",
     meta:  "\ud83d\udcc5 Monday 28 September, sunset 6.16 pm &nbsp;&middot;&nbsp; \ud83d\udccd Central Matilda Bay &nbsp;&middot;&nbsp; \ud83e\uddfa BYO picnic",
     ribbon:"\ud83c\udf15 Community Event",
+    thumbpos:"50% 30%",  /* phone strip crop: show the title and skyline */
     ctas:  []
   };
 
