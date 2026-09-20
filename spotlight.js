@@ -153,10 +153,31 @@
   };
 
 
+  /* MOON RISING CEREMONY, Matilda Bay, Mon 28 Sep 2026. Live 20 Sep 2026 on the WEST board only (Jason).
+     Passed to Jason by a neighbouring group's counterpart; someone else's event, not a placement, never
+     "Sponsored". ARTWORK: moon-rising-2026.jpg, the organisers' square poster at 720px wide, centred on a
+     720x1200 portrait with a blurred, darkened copy of itself above and below, so it reads whole at the
+     0.6 panel ratio seen at 1440px and loses only the info row's outer edges at 0.45. Source poster (from
+     Jason's screenshot) in `11 EPCG/East Perth Community Group/Communications/_build/`. No public event
+     link was supplied, so there is no CTA button; the renderer handles an empty ctas list.
+     The poster carries the "Save Matilda Bay" campaign line. The card copy describes the event only.
+     RETIRE AFTER 28 SEP 2026: set west back to null (falls back). */
+  var MOON = {
+    img:   "moon-rising-2026.jpg",
+    alt:   "Moon Rising Ceremony with Elder Trevor Walley, Matilda Bay, Monday 28 September 2026",
+    name:  "Moon Rising Ceremony at Matilda Bay",
+    blurb: "Join <b>Elder Trevor Walley</b> for a relaxed evening on Whadjuk Noongar Country at Matilda Bay, watching the sun set and the moon rise over the river. Bring a picnic, a rug or a chair for an evening of Country, community and connection.",
+    highlight: "\ud83c\udf15 <b>Monday 28 September.</b> Sunset 6.16 pm, moonrise 8.06 pm. Everyone welcome, bring your family and friends.",
+    meta:  "\ud83d\udcc5 Monday 28 September, sunset 6.16 pm &nbsp;&middot;&nbsp; \ud83d\udccd Central Matilda Bay &nbsp;&middot;&nbsp; \ud83e\uddfa BYO picnic",
+    ribbon:"\ud83c\udf15 Community Event",
+    ctas:  []
+  };
+
+
   window.SPOTLIGHT = {
     east:    POOL,      /* 19 Sep to 27 Sep 2026 (pool party), then HANOI. AGM retired 19 Sep. */
     central: MERCEDES,  /* until 25 Sep 2026 (scholarship closes), then null so it falls back */
-    west:    null,      /* no advertiser yet - falls back */
+    west:    MOON,      /* 20 Sep to 28 Sep 2026 (Moon Rising, Matilda Bay), then null so it falls back */
     FALLBACK: POOL      /* until 27 Sep 2026, then HANOI. Swap for an "advertise here" card once selling */
   };
 })();
