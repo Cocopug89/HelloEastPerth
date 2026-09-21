@@ -286,7 +286,7 @@ section.tab.active{display:flex;flex-direction:column;flex:1;min-height:0;overfl
 #tab-home.active .hometop{flex:1;min-height:460px}
 #tab-home.active .spotlight,#tab-home.active .whatson{min-height:0}
 .note,.banner{flex:none}
-#tab-tenders.active #tenList,#tab-notices.active #notList,#tab-events.active #evList{flex:1;overflow-y:auto;min-height:0}
+#tab-tenders.active #tenList,#tab-notices.active #notList,#tab-events.active #evList,#tab-fireworks.active #fwList{flex:1;overflow-y:auto;min-height:0}
 #tab-bins.active{display:grid;grid-template-columns:minmax(300px,0.9fr) 1.1fr;grid-template-rows:auto auto auto auto;grid-template-areas:"note note" "ctrl ctrl" "next cal" "info info";gap:14px 26px;align-content:start;overflow-y:auto}
 #tab-bins.active > .note{grid-area:note;margin:0}
 #tab-bins.active > .controls{grid-area:ctrl;margin:0}
@@ -585,7 +585,7 @@ section.tab.active{display:flex;flex-direction:column;flex:1;min-height:0;overfl
   <div id="evList"></div>
 </section>
 <section class="tab" id="tab-fireworks">
-  <div class="note">Approved fireworks events and close-proximity notifications across the Perth metropolitan area, from the WorkSafe WA schedule. Useful if you are wondering what the bangs were, or planning around a nervous dog.</div>
+  <div class="note">Approved fireworks events and close-proximity notifications within sight of the City of Perth, from the WorkSafe WA schedule. Displays further out, such as Claremont Showgrounds, are left off; the full schedule is linked below. Useful if you are wondering what the bangs were, or planning around a nervous dog.</div>
   <div class="fwguide">
     <b>This is a safety schedule, not an events calendar.</b> WorkSafe WA publishes it
     <q>for guidance only</q> and states: <q>Start times and duration may vary from that indicated in the schedule.</q>
@@ -1107,7 +1107,11 @@ function initEvents(){
     if(n===1) return "Tomorrow";
     return DS[d.getDay()]+" "+d.getDate()+" "+MS[d.getMonth()];
   }
-  var upcoming=evs.filter(function(e){return new Date(e.date+"T00:00:00")>=t0;})
+  /* Within sight of the City of Perth only (21 Sep 2026). Zone "other" is a metro postcode
+     outside the three City zones (e.g. Claremont Showgrounds, ~9km out) and cannot be seen or
+     heard from the city, so it is dropped here, not in the data. Optus Stadium stays: it is
+     zoned east by the STEP 5 carve-out. */
+  var upcoming=evs.filter(function(e){return ZL[e.zone] && new Date(e.date+"T00:00:00")>=t0;})
                   .sort(function(a,b){return a.date<b.date?-1:(a.date>b.date?1:0);});
   var stamp=document.getElementById("fwStamp");
   if(stamp){
@@ -1118,7 +1122,7 @@ function initEvents(){
       "<a href='"+esc(FW.source||"https://www.worksafe.wa.gov.au/schedule-fireworks-events")+"' target='_blank' rel='noopener'>Read the full statewide schedule &#8599;</a>";
   }
   if(!upcoming.length){
-    list.innerHTML="<div class='m'>No fireworks events listed for metropolitan Perth in the current schedule."+
+    list.innerHTML="<div class='m'>No fireworks events listed within sight of the City of Perth in the current schedule."+
       (FW.window?" WorkSafe's schedule runs to the end of "+esc(FW.window.split(" to ").pop())+"; anything later is not published yet.":"")+"</div>";
   } else {
     list.innerHTML=upcoming.map(function(e){

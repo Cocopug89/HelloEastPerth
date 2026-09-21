@@ -618,7 +618,7 @@ document.getElementById("evSub").textContent="Next: "+pick.t+" · "+ds;
   var el=document.getElementById("cFw"); if(!el) return;
   var t0=midnight();
   var n=(((window.FIREWORKS||{}).events)||[]).filter(function(f){
-    return new Date(f.date+"T00:00:00")>=t0;
+    return /^(east|central|west)$/.test(f.zone||"") && new Date(f.date+"T00:00:00")>=t0;  /* City of Perth zones only, as on the boards */
   }).length;
   el.textContent=n;
 })();
