@@ -13,7 +13,7 @@
 /* The board reads this to show a freshness stamp in the header and to WARN when this
    feed has gone stale. A hand-typed date drifted before (the page claimed "8 Jul" while
    the data was from the 12th), so it is generated, never written by hand. */
-window.CONSULTATIONS_GENERATED = "2026-09-14";
+window.CONSULTATIONS_GENERATED = "2026-09-21";
 
 window.CONSULTATIONS = [
 {"typ": "Planning (City of Perth)", "title": "Local Planning Scheme No. 3", "url": "https://yoursay.perth.wa.gov.au/local-planning-scheme-no-3", "pub": "", "close": "2026-09-25", "kind": "consultation", "src": "Your Say Perth", "grp": "Local Planning Scheme No. 3"},
