@@ -87,6 +87,7 @@ section.tab.active{display:block}
 .evtype{border:1px solid rgba(255,255,255,.25);border-radius:22px;padding:6px 12px;font-size:12.5px;background:rgba(255,255,255,.95);color:#12212e;font-family:var(--sans);font-weight:600;cursor:pointer;max-width:170px}
 .ecat{display:inline-block;font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;color:#0b3a4a;background:var(--sky);border-radius:20px;padding:1px 7px;margin-right:6px;vertical-align:1px}
 .freepill{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.4px;color:#fff;background:#6FA83A;border-radius:20px;padding:1px 7px;margin-right:6px;vertical-align:1px}
+.fepill{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.4px;color:#5E7986;background:#fff;border:1px solid #5E7986;border-radius:20px;padding:0 6px;margin-right:6px;vertical-align:1px}
 @media(max-width:600px){.row.evrow{display:grid;grid-template-columns:1fr auto;grid-template-areas:'date cat' 'title title' 'venue venue';gap:3px 8px;align-items:center}.row.evrow .dates{grid-area:date;min-width:0!important}.row.evrow .ecat{grid-area:cat;justify-self:end;margin-right:0}.row.evrow .ttl{grid-area:title;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:13.5px}.row.evrow .evvenue{grid-area:venue}}
 .chipbtn{border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.10);border-radius:22px;padding:6px 13px;font-size:12.5px;color:#eaf7fd;cursor:pointer;font-family:var(--sans);font-weight:600}
 .chipbtn:hover{background:rgba(255,255,255,.18)}
@@ -1052,7 +1053,7 @@ function initEvents(){
       if(info.recur){ dh="<span style='"+TAG+"background:#5b8def;color:#fff'>Recurring</span>"+(info.days.length?"<span class='m'>"+info.days.join("/")+"</span>":""); }
       else if(isOngoing(e)){ dh="<span style='"+TAG+"background:#49C5B1;color:#08322b'>Ongoing</span><span class='m'>to "+esc(endLabel(e))+"</span>"; }
       else { dh="<span>"+esc(fmtDate(e))+"</span>"; }
-      return "<a class='row evrow' href='"+esc(e.href)+"' target='_blank' rel='noopener'><span class='dates' style='min-width:120px'>"+dh+"</span>"+(e.cat?"<span class='ecat'>"+esc(e.cat)+"</span>":"")+"<span class='ttl'>"+(e.free?"<span class='freepill'>FREE</span>":"")+esc(e.title)+"</span><span class='m evvenue'>"+esc(e.venue)+zt+"</span></a>";
+      return "<a class='row evrow' href='"+esc(e.href)+"' target='_blank' rel='noopener'><span class='dates' style='min-width:120px'>"+dh+"</span>"+(e.cat?"<span class='ecat'>"+esc(e.cat)+"</span>":"")+"<span class='ttl'>"+(e.free?"<span class='freepill'>FREE</span>":(e.fe?"<span class='fepill' title='No entry charge; the listing promotes something paid'>FREE ENTRY</span>":""))+esc(e.title)+"</span><span class='m evvenue'>"+esc(e.venue)+zt+"</span></a>";
     }).join("") || "<div class='m'>No events found for this view.</div>");
   }
   /* Community entries in epcg-events.js are NOT highlighted (Jason, 16 Aug 2026: EPCG-hosted
