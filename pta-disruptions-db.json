@@ -1,8 +1,9 @@
 {
   "meta": {
-    "db_version": 55,
+    "db_version": 56,
     "first_built": "2026-07-08",
-    "last_scrape": "2026-09-25",
+    "last_scrape": "2026-09-27",
+    "scrape_2026-09-27": "Staging recrawl. Dropped 2 expired items: 25649 (Yellow CAT, Waterloo Cr, ended 26 Sep) and 25651 (Routes 28/30/31/81-85/910 CBD and West Perth stops, ended 26 Sep). No new in-scope items. Newly screened and excluded: 25678 (Routes 41/42/43, all affected stops in Maylands; Elizabeth Quay Bus Station is only a destination), 25685 (Route 34, Como), 25659 (Fremantle/South Fremantle), 25660 (Route 403, North Perth/Mount Hawthorn), 25683 (Hamilton Hill), 25679 (Bibra Lake), 25680 (Waikiki), 25682 (Cockburn Central/South Lake), 25684 (Woodvale), 25681 (Halls Head). Net list: 16 items (16 carried over, 0 new, 2 dropped). 25537 ends today, kept, to be re-assessed as expired on the next recrawl.",
     "scrape_2026-09-25": "Staging recrawl. Dropped 1 expired item: 25575 (Blue CAT Hay St Mall, ended 24 Sep). Added 5 new in-scope items (25658 Route 84, Wellington St and Sutherland St West Perth, Mon 28 Sep from 9pm, is the fifth): 25643 (Routes 160 & Red CAT, three East Perth Plain St/Queens Gardens stops, nightly 24-29 Sep), 25649 (Yellow CAT, two East Perth Waterloo Cr stops, nightly 25-26 Sep), 25651 (Routes 28/30/31/81-85/910, seven CBD and West Perth stops, Sat 26 Sep), 25657 (Purple CAT and Routes 24/27/103, Outram St West Perth, 28-29 Sep). Coordinates from PTA-001. Screened and excluded: 25663 (Burswood), 25656 (Melville/Applecross), 25664/25672 (Fremantle), 25669 (Wembley), 25662 (Inglewood), 25671 (Yokine), 25677 (Wattle Grove), 25661 (Scarborough/Doubleview), 25647 (Wilson), 25668 (Mandurah), 25655 (Leederville). Net list: 18 items.",
     "source": "https://www.transperth.wa.gov.au/service-updates",
     "coordinate_source": "data.wa.gov.au PTA-001 (ArcGIS: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Transport/MapServer/14). Query by stopnumber (bus/CAT) or stopname LIKE (rail), outSR=4326. Exact stop/station coordinates, not approximations.",
@@ -435,38 +436,6 @@
       "impact": "Thu 24 Sep - Tue 29 Sep, nightly from 9pm until last service, three East Perth stops closed for road closures; alternatives Carlton (CAT 82), WACA (CAT 105), Bennett Street (CAT 103) and Hale St after Hay St",
       "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25643",
       "pts": [[-31.959356, 115.8745, "Hay St Plain Street (CAT 81)"], [-31.960018, 115.876566, "Hay St Queens Gardens (CAT 143)"], [-31.959222, 115.87463, "Hay St Plain Street (CAT 104)"]]
-    },
-    {
-      "id": "25649",
-      "zones": ["east"],
-      "mode": "cat",
-      "sev": "medium",
-      "title": "Yellow CAT - Waterloo Cr Main Roads Stops Closed (Nightly)",
-      "routes": "Yellow CAT",
-      "start": "2026-09-25",
-      "end": "2026-09-26",
-      "ongoing": false,
-      "loc": "Waterloo Crescent, East Perth",
-      "stops": "Waterloo Cr Main Roads (ID 16944, CAT 73); Waterloo Cr Main Roads (ID 16951, CAT 51)",
-      "impact": "Fri 25 Sep - Sat 26 Sep, nightly from 9pm until last service, two Yellow CAT stops closed for road closures; alternatives Old Girls School (CAT 72, CAT 52) and Nile Street (CAT 74, CAT 50)",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25649",
-      "pts": [[-31.957454, 115.877228, "Waterloo Cr Main Roads (CAT 73)"], [-31.957699, 115.877697, "Waterloo Cr Main Roads (CAT 51)"]]
-    },
-    {
-      "id": "25651",
-      "zones": ["central", "west"],
-      "mode": "bus",
-      "sev": "medium",
-      "title": "Routes 28, 30, 31, 81-85 & 910 - CBD and West Perth Stops Closed",
-      "routes": "Routes 28, 30, 31, 81, 82, 83, 84, 85 & 910",
-      "start": "2026-09-26",
-      "end": "2026-09-26",
-      "ongoing": false,
-      "loc": "St Georges Tce / Milligan St, Perth and Wellington St / Sutherland St, West Perth",
-      "stops": "Wellington St after George St (ID 12927); Wellington St Watertown (ID 23086, CAT 61); Sutherland St (ID 26654, CAT 36); St Georges Tce Stand 1 (ID 10117, CAT 31); St Georges Tce Stand 2 (ID 10116); St Georges Tce Stand 5 (ID 10122); Milligan St after Murray St (ID 28732)",
-      "impact": "Sat 26 Sep, from first service until 4pm, seven stops closed for road closures; alternatives include Harold Boas Gardens, City West Station, Elizabeth Quay Bus Station Stand A2, St Georges Tce Stand 8 and Perth Busport",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25651",
-      "pts": [[-31.953346, 115.852632, "St Georges Tce Stand 2"], [-31.953112, 115.851916, "St Georges Tce Stand 1 (CAT 31)"], [-31.954527, 115.856247, "St Georges Tce Stand 5"], [-31.948376, 115.848999, "Wellington St after George St"], [-31.947651, 115.846759, "Wellington St Watertown (CAT 61)"], [-31.946253, 115.846909, "Sutherland St (CAT 36)"], [-31.951124, 115.852017, "Milligan St after Murray St"]]
     },
     {
       "id": "25658",
