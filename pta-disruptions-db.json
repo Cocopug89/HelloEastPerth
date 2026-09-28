@@ -1,8 +1,9 @@
 {
   "meta": {
-    "db_version": 56,
+    "db_version": 57,
     "first_built": "2026-07-08",
-    "last_scrape": "2026-09-27",
+    "last_scrape": "2026-09-28",
+    "scrape_2026-09-28": "Staging recrawl. Dropped 1 expired item: 25537 (Airport/Armadale/Ellenbrook/Midland/Thornlie-Cockburn Lines Wallabies v Springboks stadium disruption at Claisebrook & McIver, ended 27 Sep, before today 28 Sep; also no longer listed on the current Transperth page). Screened the full current Transperth service-updates page (Service Disruptions and Planned Service Changes tables) against scope_rule. All 15 remaining in-scope items (20314, 21126, 21697-1, routes-40-41-42-and-43-timetable-change, perth-underground-escalator-disruption, 25480, 25463, 25479, 25483, 25484, 25487, 25488, 25643, 25658, 25657) checked against the live page and carried over unchanged; 25643 and 25657 end tomorrow 29 Sep, 25658 ends today - none before today, all kept. Checked 11 new candidate IDs not previously screened: 25687 (Routes 402/990, Mount Hawthorn/North Perth), 25688 (Routes 511/512/513/520/530/531/532/548/549/998, Fremantle), 25689 (Route 463, Craigie), 25690 (Route 567, Baldivis), 25628 (Routes 219/220/519, Armadale), 25638 (Route 470, Iluka/Burns Beach), 25640 (Route 460, Mullaloo), 25644 (Routes 111/148/158/500/910, Alfred Cove), 25645 (Routes 443/444 & School Special 783, Padbury/Duncraig), 25666 (Route 567, Baldivis), bull-creek-station-escalator-works-6 (Bull Creek Station, not an in-scope rail station) - all excluded, no City of Perth suburb or in-scope station affected. Also reconfirmed 10 candidates newly excluded on the 27 Sep run but not yet added to excluded_examples (25678, 25685, 25659, 25660, 25683, 25679, 25680, 25682, 25684, 25681) are still off the in-scope path; added all to excluded_examples this run. No new in-scope items found. No PTA-001 coordinate lookups were needed since no new items entered scope. Net list: 15 items (15 carried over unchanged, 0 new, 1 dropped).",
     "scrape_2026-09-27": "Staging recrawl. Dropped 2 expired items: 25649 (Yellow CAT, Waterloo Cr, ended 26 Sep) and 25651 (Routes 28/30/31/81-85/910 CBD and West Perth stops, ended 26 Sep). No new in-scope items. Newly screened and excluded: 25678 (Routes 41/42/43, all affected stops in Maylands; Elizabeth Quay Bus Station is only a destination), 25685 (Route 34, Como), 25659 (Fremantle/South Fremantle), 25660 (Route 403, North Perth/Mount Hawthorn), 25683 (Hamilton Hill), 25679 (Bibra Lake), 25680 (Waikiki), 25682 (Cockburn Central/South Lake), 25684 (Woodvale), 25681 (Halls Head). Net list: 16 items (16 carried over, 0 new, 2 dropped). 25537 ends today, kept, to be re-assessed as expired on the next recrawl.",
     "scrape_2026-09-25": "Staging recrawl. Dropped 1 expired item: 25575 (Blue CAT Hay St Mall, ended 24 Sep). Added 5 new in-scope items (25658 Route 84, Wellington St and Sutherland St West Perth, Mon 28 Sep from 9pm, is the fifth): 25643 (Routes 160 & Red CAT, three East Perth Plain St/Queens Gardens stops, nightly 24-29 Sep), 25649 (Yellow CAT, two East Perth Waterloo Cr stops, nightly 25-26 Sep), 25651 (Routes 28/30/31/81-85/910, seven CBD and West Perth stops, Sat 26 Sep), 25657 (Purple CAT and Routes 24/27/103, Outram St West Perth, 28-29 Sep). Coordinates from PTA-001. Screened and excluded: 25663 (Burswood), 25656 (Melville/Applecross), 25664/25672 (Fremantle), 25669 (Wembley), 25662 (Inglewood), 25671 (Yokine), 25677 (Wattle Grove), 25661 (Scarborough/Doubleview), 25647 (Wilson), 25668 (Mandurah), 25655 (Leederville). Net list: 18 items.",
     "source": "https://www.transperth.wa.gov.au/service-updates",
@@ -77,20 +78,7 @@
     "scrape_2026-09-20": "Weekly recrawl. No items dropped: none of the 20 stored items have an Until date before today 20 Sep (25609, 25531 and 25580 all end today 20 Sep - not before - so retained; 25531's detail page confirms the disruption window runs through Sun 20 Sep despite an ambiguous 'Sat 19 Sep' reading of the summary table, reconfirmed directly against the live detail page). Screened the full current Transperth Service Disruptions and Planned Service Changes tables against scope_rule. Checked one genuinely new candidate not previously logged: 25605 (Routes 206/207/208/209/517/518 Bus Stop Disruption) - excluded, sole affected stop 10505 (South St after Beasley Rd, Willetton) is outside the City of Perth. Every other candidate on this week's page (25494, 25481, 25242, 25558, 25599, 25527, 25597, 25585, 25588, 25589, 25592, 25594, 25595, 25596, 25603, 25604, 25584, 25586, 25600, 25581, 25579, 25568, 25569, 25593, 25562, 25548, 25544, 25534, 25512, 25514, 25515, 25517, 25461, 25427, 25429, 25434, 25435, 25425, 25403, 25409, 25387, 25400, 25391, 25327, 25306, 25298, 25210, 25191, 25192, 25052, 24981, 24984, 24970, 24965, 24934, 24880, 24665, 24613, 24552, 23615, 23544, 23219, 22483, 25606, 25607, route-284-service-change) carries the same numeric/slug ID as an exclusion already logged in a prior week's scrape against the same affected stops, so was treated as still-excluded without a full refetch; non-ID items (Warnbro Station escalator x2, Burswood Station car park, Guildford Station Car Park, Perth CBD Planned Protest [also expired], Stirling Station Car Park, Greenwood Station car park [expired], Alkimos Station escalator, Redcliffe/Kelmscott/Edgewater/Murdoch items, East Cannington Bus Service Changes, September Bus Service Changes [metro-wide, no single City-of-Perth stop], September School Service Changes [school specials out of scope], Transit Admin Office Closure [not a service]) excluded on the same basis as prior weeks without a fetch. No new in-scope items this run. Net list: 20 items (20 carried over unchanged, 0 new, 0 dropped).",
     "scrape_2026-09-22": "Weekly recrawl (staging run, scheduled task pta-transport-recrawl-staging). Screened the full current Transperth service-updates page (~90 Service Disruptions + Planned Service Changes rows) against scope_rule. Fetched detail pages for every train-line item, all three CAT items, and every bus-route disruption whose route number pattern could plausibly touch the City (25494 Airport Line Bayswater-High Wycombe, 25481 Midland Line Bayswater-Midland, 25242 Armadale Line Cannington-Byford - all excluded, no City segment; 25597 Routes 34/930 Bentley, 25624 Routes 37/39/999 Carlisle, 25599 Routes 233/518 Cockburn Central, 25622 Train Replacement 901 Guildford, 25600 Routes 412/423/998/Surf CAT Innaloo/Stirling, 25579 Routes 38/998/999 Cloverdale/Belmont, 25558 Route 511 Samson/Hilton - all excluded, no affected stop in a City-of-Perth suburb). One item dropped as expired: 25591 (Stirling Hwy, Nedlands - was a single day, Mon 21 Sep, now past). No new in-scope items found; the remaining 16 items carry over unchanged from the 2026-09-21 scrape with identical dates, stops and coordinates, so no new PTA-001 ArcGIS lookups were required this run. perth-cbd-planned-protest (Thu 17 Sep, Routes 34/40-43/949/950/980 + Blue/Red CATs) also confirmed expired and was never carried.",
     "scrape_2026-09-23": "Weekly recrawl (LIVE run, scheduled task pta-transport-recrawl-staging - task body confirms this build is live, not staging). Screened the full current Transperth Service Disruptions and Planned Service Changes tables (~40 rows) against scope_rule using an already-fetched listing. One item dropped as expired: 25590 (Blue CAT Hay Street Mall CAT 3 stop closure, ended Tue 22 Sep, before today 23 Sep). Fetched detail pages for every candidate not already resolved in the excluded_examples registry, prioritising rail nightly/day closures and any route that could plausibly touch the City: 25494 (Airport Line Afternoon Closure, Bayswater-High Wycombe - no City segment, matches prior exclusion for this ID), 25481 (Midland Line Nightly Closures, Bayswater-Midland - no City segment, matches prior exclusion), 25527 (Route 479, sole stop in Mindarie), 25626 (Routes 243 & 244, stops in Seville Grove/Kelmscott/Armadale), 25627 (Route 107, stop in Mosman Park), 25629 (Routes 308/310/312, stops in Midland), 25620 (Route 220, stop in Maddington), 25621 (Routes 360/361/451/360X, stop in Alexander Heights), 25623 (Route 451, stop in Marangaroo), 25625 (Routes 320/321, stops in Midland/Midvale/Bellevue), 25585 (Routes 111/114/115/160/658/659/910, sole affected stop in Applecross - City of Melville, not City of Perth, despite some route destinations reading 'to East Perth'), 25592 (Routes 320/321, same Midland/Midvale/Bellevue stops as 25625, different date range), 25595 (Routes 421/423, stops in Innaloo/Doubleview), 25568 (Route 443, stops in Padbury), 25569 (Routes 308/310/312/358/359 + School Specials, stops in Midland/Middle Swan) - all excluded, no affected stop in a City-of-Perth suburb, and logged to excluded_examples. No new in-scope items found. The remaining 15 items carry over unchanged from the 2026-09-22 scrape with identical dates, stops and coordinates, so no new PTA-001 ArcGIS lookups were required this run. Net list: 15 items (15 carried over unchanged, 0 new, 1 dropped [25590]).",
-    "pending_review": [
-      {
-        "title": "The Yellow CAT Service Disruption",
-        "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25649",
-        "dates": "25/09/2026-26/09/2026",
-        "note": "In-scope candidate (CAT service, stops 16944 & 16951, Main Roads/East Perth area) but exact coordinates could not be verified this run - SLIP PTA-001 API was unreachable (network allowlist blocked public-services.slip.wa.gov.au). Not added; needs coordinate lookup next run or manual add."
-      },
-      {
-        "title": "Routes 160 and Red CAT Service Disruption",
-        "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25643",
-        "dates": "24/09/2026-29/09/2026",
-        "note": "In-scope candidate (Red CAT + Route 160, stops 16906/28765/16937, Plain St & Queens Gardens, East Perth) but exact coordinates could not be verified this run - SLIP PTA-001 API was unreachable (network allowlist blocked public-services.slip.wa.gov.au). Not added; needs coordinate lookup next run or manual add."
-      }
-    ]
+    "pending_review": []
   },
   "disruptions": [
     {
@@ -392,36 +380,6 @@
       ]
     },
     {
-      "id": "25537",
-      "zones": [
-        "central",
-        "east"
-      ],
-      "mode": "train",
-      "sev": "high",
-      "title": "Airport, Armadale, Ellenbrook, Midland & Thornlie-Cockburn Lines - Wallabies v Springboks Stadium Disruption",
-      "routes": "Airport, Armadale, Ellenbrook, Midland & Thornlie-Cockburn lines",
-      "start": "2026-09-27",
-      "end": "2026-09-27",
-      "ongoing": false,
-      "loc": "Claisebrook Station, East Perth & McIver Station, Perth",
-      "stops": "McIver Station (closed approx. 7.15pm-9.00pm); Claisebrook & McIver Platform 3 to Perth (closed approx. 3.10pm-5.16pm); Claisebrook Platform 1 to Perth (closed approx. 7.15pm-9.05pm); Claisebrook & McIver not served by Thornlie-Cockburn trains approx. 2.27pm-11.27pm",
-      "impact": "Sun 27 Sep, multiple timed platform and station closures at Claisebrook and McIver to facilitate Optus Stadium services for the Wallabies v Springboks match; replacement bus from Wellington St during the McIver closure",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25537",
-      "pts": [
-        [
-          -31.94956,
-          115.87224,
-          "Claisebrook Station"
-        ],
-        [
-          -31.95176,
-          115.86648,
-          "McIver Station"
-        ]
-      ]
-    },
-    {
       "id": "25643",
       "zones": ["east"],
       "mode": "cat",
@@ -471,6 +429,90 @@
     }
   ],
   "excluded_examples": [
+    {
+      "id": "25687",
+      "reason": "Routes 402 & 990 affected stops are in Mount Hawthorn / North Perth - outside the City."
+    },
+    {
+      "id": "25688",
+      "reason": "Routes 511/512/513/520/530/531/532/548/549/998 affected stop is on Market St, Fremantle - outside the City."
+    },
+    {
+      "id": "25689",
+      "reason": "Route 463 affected stop is on Camberwarra Dr, Craigie - outside the City."
+    },
+    {
+      "id": "25690",
+      "reason": "Route 567 affected stop is on Baldivis Rd, Baldivis - outside the City."
+    },
+    {
+      "id": "25628",
+      "reason": "Routes 219, 220 & 519 affected stops are in Armadale - outside the City."
+    },
+    {
+      "id": "25638",
+      "reason": "Route 470 affected stops are in Iluka / Burns Beach - outside the City."
+    },
+    {
+      "id": "25640",
+      "reason": "Route 460 affected stop is on Oceanside Prom, Mullaloo - outside the City."
+    },
+    {
+      "id": "25644",
+      "reason": "Routes 111/148/158/500/910 affected stop is on Canning Hwy, Alfred Cove - outside the City."
+    },
+    {
+      "id": "25645",
+      "reason": "Routes 443/444 & School Special 783 affected stops are in Padbury / Duncraig - outside the City."
+    },
+    {
+      "id": "25666",
+      "reason": "Route 567 affected stop is on Baldivis Rd, Baldivis - outside the City."
+    },
+    {
+      "id": "bull-creek-station-escalator-works-6",
+      "reason": "Bull Creek Station is not an in-scope City of Perth rail station."
+    },
+    {
+      "id": "25678",
+      "reason": "Routes 41/42/43 affected stops are in Maylands - outside the City."
+    },
+    {
+      "id": "25685",
+      "reason": "Route 34 affected stop is in Como - outside the City."
+    },
+    {
+      "id": "25659",
+      "reason": "Affected stops are in Fremantle / South Fremantle."
+    },
+    {
+      "id": "25660",
+      "reason": "Route 403 affected stops are in North Perth / Mount Hawthorn - outside the City."
+    },
+    {
+      "id": "25683",
+      "reason": "Route 532 affected stop is in Hamilton Hill - outside the City."
+    },
+    {
+      "id": "25679",
+      "reason": "Route 520 affected stop is in Bibra Lake - outside the City."
+    },
+    {
+      "id": "25680",
+      "reason": "Route 559 affected stop is in Waikiki - outside the City."
+    },
+    {
+      "id": "25682",
+      "reason": "Routes 514 & 520 affected stops are in Cockburn Central / South Lake - outside the City."
+    },
+    {
+      "id": "25684",
+      "reason": "Route 467 affected stop is in Woodvale - outside the City."
+    },
+    {
+      "id": "25681",
+      "reason": "Routes 591 & 592 affected stops are in Halls Head - outside the City."
+    },
     {
       "id": "25494",
       "reason": "Airport Line closure is Bayswater-High Wycombe; no City of Perth station in the closed segment."

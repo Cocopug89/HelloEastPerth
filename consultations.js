@@ -13,14 +13,10 @@
 /* The board reads this to show a freshness stamp in the header and to WARN when this
    feed has gone stale. A hand-typed date drifted before (the page claimed "8 Jul" while
    the data was from the 12th), so it is generated, never written by hand. */
-window.CONSULTATIONS_GENERATED = "2026-09-21";
+window.CONSULTATIONS_GENERATED = "2026-09-28";
 
 window.CONSULTATIONS = [
-{"typ": "Planning (City of Perth)", "title": "Local Planning Scheme No. 3", "url": "https://yoursay.perth.wa.gov.au/local-planning-scheme-no-3", "pub": "", "close": "2026-09-25", "kind": "consultation", "src": "Your Say Perth", "grp": "Local Planning Scheme No. 3"},
-{"typ": "Planning (City of Perth)", "title": "Designation of Heritage Areas and Local Planning Policies", "url": "https://yoursay.perth.wa.gov.au/lps3-heritage-areas", "pub": "", "close": "2026-09-25", "kind": "consultation", "src": "Your Say Perth", "grp": "Local Planning Scheme No. 3"},
-{"typ": "Planning (City of Perth)", "title": "LPS3 Local Planning Policies", "url": "https://yoursay.perth.wa.gov.au/lps3-local-planning-policies", "pub": "", "close": "2026-09-25", "kind": "consultation", "src": "Your Say Perth", "grp": "Local Planning Scheme No. 3"},
-{"typ": "Planning (City of Perth)", "title": "Character Area Local Planning Policies", "url": "https://yoursay.perth.wa.gov.au/character-area-local-planning-policies", "pub": "", "close": "2026-09-25", "kind": "consultation", "src": "Your Say Perth", "grp": "Local Planning Scheme No. 3"},
-{"typ": "Planning (City of Perth)", "title": "Redevelopment Area Local Planning Policies", "url": "https://yoursay.perth.wa.gov.au/redevelopment-area-local-planning-policies", "pub": "", "close": "2026-09-25", "kind": "consultation", "src": "Your Say Perth", "grp": "Local Planning Scheme No. 3"}
+{"typ": "Planning (City of Perth)", "title": "Draft Heritage List Policy", "url": "https://yoursay.perth.wa.gov.au/draft-heritage-list-policy", "pub": "", "close": "2026-10-15", "kind": "consultation", "src": "Your Say Perth"}
 ];
 
 /* Collapse map: City notices that are really ONE consultation published as several
