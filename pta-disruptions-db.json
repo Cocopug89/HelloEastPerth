@@ -1,8 +1,9 @@
 {
   "meta": {
-    "db_version": 57,
+    "db_version": 58,
     "first_built": "2026-07-08",
-    "last_scrape": "2026-09-28",
+    "last_scrape": "2026-09-29",
+    "scrape_2026-09-29": "Staging recrawl (shift 2, Hub Editor). Dropped 1 expired item: 25658 (Route 84, Wellington St & Sutherland St, West Perth, ended 28 Sep, before today 29 Sep). Screened the full current Transperth service-updates page (Service Disruptions and Planned Service Changes tables) against scope_rule. The 14 remaining in-scope items (20314, 21126, 21697-1, routes-40-41-42-and-43-timetable-change, perth-underground-escalator-disruption, 25480, 25463, 25479, 25483, 25484, 25487, 25488, 25643, 25657) all still appear on the live page with unchanged dates and were carried over unchanged; 25643 and 25657 both end today 29 Sep - not before today, so kept, flagged for expiry re-assessment on the next recrawl. Every other ID on today's page matched either a standing in-scope item or a previously-logged excluded_examples entry (same physical stop/segment), except one: 25665 (Route 567 per the listing) - its detail page returned Route 542 / Parmelia-Wellard content instead, a mirror-cache mismatch consistent with the pattern logged repeatedly in this db's history; excluded either way, no City of Perth stop affected. No new in-scope items found. No PTA-001 coordinate lookups were needed since no new items entered scope. Net list: 14 items (14 carried over unchanged, 0 new, 1 dropped).",
     "scrape_2026-09-28": "Staging recrawl. Dropped 1 expired item: 25537 (Airport/Armadale/Ellenbrook/Midland/Thornlie-Cockburn Lines Wallabies v Springboks stadium disruption at Claisebrook & McIver, ended 27 Sep, before today 28 Sep; also no longer listed on the current Transperth page). Screened the full current Transperth service-updates page (Service Disruptions and Planned Service Changes tables) against scope_rule. All 15 remaining in-scope items (20314, 21126, 21697-1, routes-40-41-42-and-43-timetable-change, perth-underground-escalator-disruption, 25480, 25463, 25479, 25483, 25484, 25487, 25488, 25643, 25658, 25657) checked against the live page and carried over unchanged; 25643 and 25657 end tomorrow 29 Sep, 25658 ends today - none before today, all kept. Checked 11 new candidate IDs not previously screened: 25687 (Routes 402/990, Mount Hawthorn/North Perth), 25688 (Routes 511/512/513/520/530/531/532/548/549/998, Fremantle), 25689 (Route 463, Craigie), 25690 (Route 567, Baldivis), 25628 (Routes 219/220/519, Armadale), 25638 (Route 470, Iluka/Burns Beach), 25640 (Route 460, Mullaloo), 25644 (Routes 111/148/158/500/910, Alfred Cove), 25645 (Routes 443/444 & School Special 783, Padbury/Duncraig), 25666 (Route 567, Baldivis), bull-creek-station-escalator-works-6 (Bull Creek Station, not an in-scope rail station) - all excluded, no City of Perth suburb or in-scope station affected. Also reconfirmed 10 candidates newly excluded on the 27 Sep run but not yet added to excluded_examples (25678, 25685, 25659, 25660, 25683, 25679, 25680, 25682, 25684, 25681) are still off the in-scope path; added all to excluded_examples this run. No new in-scope items found. No PTA-001 coordinate lookups were needed since no new items entered scope. Net list: 15 items (15 carried over unchanged, 0 new, 1 dropped).",
     "scrape_2026-09-27": "Staging recrawl. Dropped 2 expired items: 25649 (Yellow CAT, Waterloo Cr, ended 26 Sep) and 25651 (Routes 28/30/31/81-85/910 CBD and West Perth stops, ended 26 Sep). No new in-scope items. Newly screened and excluded: 25678 (Routes 41/42/43, all affected stops in Maylands; Elizabeth Quay Bus Station is only a destination), 25685 (Route 34, Como), 25659 (Fremantle/South Fremantle), 25660 (Route 403, North Perth/Mount Hawthorn), 25683 (Hamilton Hill), 25679 (Bibra Lake), 25680 (Waikiki), 25682 (Cockburn Central/South Lake), 25684 (Woodvale), 25681 (Halls Head). Net list: 16 items (16 carried over, 0 new, 2 dropped). 25537 ends today, kept, to be re-assessed as expired on the next recrawl.",
     "scrape_2026-09-25": "Staging recrawl. Dropped 1 expired item: 25575 (Blue CAT Hay St Mall, ended 24 Sep). Added 5 new in-scope items (25658 Route 84, Wellington St and Sutherland St West Perth, Mon 28 Sep from 9pm, is the fifth): 25643 (Routes 160 & Red CAT, three East Perth Plain St/Queens Gardens stops, nightly 24-29 Sep), 25649 (Yellow CAT, two East Perth Waterloo Cr stops, nightly 25-26 Sep), 25651 (Routes 28/30/31/81-85/910, seven CBD and West Perth stops, Sat 26 Sep), 25657 (Purple CAT and Routes 24/27/103, Outram St West Perth, 28-29 Sep). Coordinates from PTA-001. Screened and excluded: 25663 (Burswood), 25656 (Melville/Applecross), 25664/25672 (Fremantle), 25669 (Wembley), 25662 (Inglewood), 25671 (Yokine), 25677 (Wattle Grove), 25661 (Scarborough/Doubleview), 25647 (Wilson), 25668 (Mandurah), 25655 (Leederville). Net list: 18 items.",
@@ -396,22 +397,6 @@
       "pts": [[-31.959356, 115.8745, "Hay St Plain Street (CAT 81)"], [-31.960018, 115.876566, "Hay St Queens Gardens (CAT 143)"], [-31.959222, 115.87463, "Hay St Plain Street (CAT 104)"]]
     },
     {
-      "id": "25658",
-      "zones": ["west"],
-      "mode": "bus",
-      "sev": "low",
-      "title": "Route 84 - Wellington St & Sutherland St Stops Closed",
-      "routes": "Route 84",
-      "start": "2026-09-28",
-      "end": "2026-09-28",
-      "ongoing": false,
-      "loc": "Wellington St / Sutherland St, West Perth",
-      "stops": "Wellington St after George St (ID 12927); Sutherland St (ID 26654, CAT 36)",
-      "impact": "Mon 28 Sep, from 9pm until last service, two West Perth stops not in use for road closures; alternatives City West Station (CAT 37) and Perth Busport",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25658",
-      "pts": [[-31.948376, 115.848999, "Wellington St after George St"], [-31.946253, 115.846909, "Sutherland St (CAT 36)"]]
-    },
-    {
       "id": "25657",
       "zones": ["west"],
       "mode": "cat",
@@ -637,6 +622,10 @@
       "title": "Route 403 Service Disruption",
       "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25650",
       "reason": "Affected stops all in Mount Hawthorn, outside City of Perth"
+    },
+    {
+      "id": "25665",
+      "reason": "Detail page mirror-cache mismatch: URL served Route 542 content (Parmelia/Wellard) instead of the listed Route 567 title; either way, no City of Perth stop affected."
     }
   ]
 }
