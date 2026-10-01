@@ -57,6 +57,34 @@
   };
 
 
+  /* WIRIN, the cafe at The Pavilion, WACA Ground. Live 1 Oct 2026 on east and as FALLBACK, replacing
+     Hanoi Soulmates (Jason: "old news"). Not paid, so the default "Business Spotlight" ribbon, never
+     Sponsored. Undated, so no `until`.
+     SOURCES, checked 1 Oct 2026: wacaground.com.au/visitors/wirin/ (description, @wirin.cafe, photo);
+     the September menu PDF linked from it (26004-wirin-cafe-menu-SEP.pdf: hours, kids menu, lunch from
+     11.30); Instagram @wirin.cafe bio (same hours); buggybuddys.com.au review, 5 Mar 2026 (Karvan coffee,
+     timber and soft light, shaded outdoor tables, highchairs).
+     ⚠ The Aug 2025 announcement and the March review describe a menu "inspired by the six Noongar seasons"
+     and dishes like a Korean fried chicken croffle. The September menu has none of that; it is a
+     straight all-day breakfast and lunch menu. So the copy here claims the name's meaning, not the
+     seasons menu. Re-check before repeating it. Do NOT confuse @restaurant_wirin, a restaurant in The Hague.
+     The CTA goes to the WACA's Wirin page rather than the menu PDF, because the PDF is monthly (SEP) and
+     would rot; the page links whichever menu is current.
+     ARTWORK: wirin-2026.jpg, 720x1200, the WACA's own 1347x540 photo (credited DZuks, Feb 2026, in its
+     filename) centred on a blurred copy of itself, built by
+     `11 EPCG/East Perth Community Group/Communications/_build/build_hub_card_wirin.py`. Credited in `meta`. */
+  var WIRIN = {
+    img:   "wirin-2026.jpg",
+    alt:   "Pastries on ceramic plates at Wirin, the cafe at The Pavilion, WACA Ground",
+    name:  "Wirin, The Pavilion at the WACA",
+    blurb: "At the front door of The Pavilion, the WACA Ground's new pool and health club, <b>Wirin</b> takes its name from the Noongar word for spirit and is made for slowing down. Soft light and timber inside, shaded tables outside, coffee by local roaster <b>Karvan</b>, and an all-day breakfast with lunch from 11.30.",
+    highlight: "🧒 <b>Family friendly:</b> a kids menu from $10, highchairs, and the Pavilion's splash park right next door.",
+    meta:  "📍 The Pavilion, WACA Ground, Nelson Cres, East Perth &nbsp;&middot;&nbsp; ⏱ 6.30am-2pm Mon-Fri, 8am-2pm Sat-Sun &nbsp;&middot;&nbsp; Photo: WACA Ground",
+    ctas:  [{label:"See the menu", href:"https://wacaground.com.au/visitors/wirin/", style:"b1"},
+            {label:"Follow @wirin.cafe", href:"https://www.instagram.com/wirin.cafe/", style:"b2"}]
+  };
+
+
   /* MERCEDES COLLEGE - Mercy Scholarship. Live 31 Jul 2026, aligned with the July newsletter's
      Spotlight section. NOT a paid placement and NOT a business: the school approached EPCG and
      asked us to pass the news on, so the ribbon is overridden to "Neighbourhood Spotlight" rather
@@ -193,9 +221,9 @@
   /* A zone whose card has passed its `until` resolves to null and the boards fall back to
      FALLBACK. Expired cards can stay in the file; they no longer render. */
   window.SPOTLIGHT = {
-    east:    live(POOL),      /* pool party to 27 Sep 2026, then falls back to HANOI. AGM retired 19 Sep. */
-    central: live(MERCEDES),  /* to 25 Sep 2026 (scholarship closes), then falls back */
-    west:    live(MOON),      /* to 28 Sep 2026 (Moon Rising, Matilda Bay), then falls back */
-    FALLBACK: HANOI           /* undated. Swap for an "advertise here" card once selling */
+    east:    WIRIN,           /* from 1 Oct 2026. Hanoi Soulmates retired (card kept above, unused). */
+    central: live(MERCEDES),  /* expired 25 Sep 2026, falls back */
+    west:    live(MOON),      /* expired 28 Sep 2026, falls back */
+    FALLBACK: WIRIN           /* undated. Swap for an "advertise here" card once selling */
   };
 })();
