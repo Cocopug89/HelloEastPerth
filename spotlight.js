@@ -36,8 +36,14 @@
  *   thumbpos  optional CSS object-position for the PHONE view's landscape strip crop (index.html), e.g. "50% 30%".
  *   ribbon    optional override of the corner label. Use "Sponsored" for a PAID placement -
  *             an unlabelled ad is the kind of thing that gets a community group in trouble.
+ *   until     "YYYY-MM-DD", Perth date. The card shows THROUGH this day and then drops out on its
+ *             own, and its zone falls back. Give every dated card one (event day, closing date).
+ *             Added 1 Oct 2026: before this, spotlights only had "RETIRE AFTER" comments, nobody
+ *             actioned them, and the pool party, Mercedes and Moon Rising all sat on the board
+ *             days past their dates.
  *
- * A zone set to null falls back to FALLBACK below, so no board is ever empty.
+ * A zone set to null, or whose card has passed its `until`, falls back to FALLBACK below, so no
+ * board is ever empty. FALLBACK itself should be an undated card.
  */
 (function(){
   var HANOI = {
@@ -78,6 +84,7 @@
     highlight: "\ud83c\udf93 Open to students starting <b>Years 8 to 11 in 2027</b>. Applicants show exceptional talent or potential in one of five areas: the arts, sport, academic excellence, community service, or leadership.",
     meta:  "\ud83d\udcc5 Applications close <b>25 September 2026</b> &nbsp;&middot;&nbsp; \ud83d\udccd Victoria Square, Perth",
     ribbon:"\ud83c\udf93 Neighbourhood Spotlight",
+    until: "2026-09-25",
     ctas:  [{label:"Scholarship details", href:"https://www.mercedes.wa.edu.au/enrolments-private/scholarships/", style:"b1"}]
   };
 
@@ -151,6 +158,7 @@
     meta:  "\ud83d\udcc5 Sunday 27 September, 1 pm to 4 pm &nbsp;&middot;&nbsp; \ud83d\udccd The Pavilion, WACA Ground, East Perth &nbsp;&middot;&nbsp; Artwork: The Pavilion WACA Ground",
     ribbon:"\ud83c\udf88 Community Event",
     thumbpos:"50% 60%",  /* phone strip crop: show the kids, not the middle of the wordmark */
+    until: "2026-09-27",
     ctas:  [{label:"Event details", href:"https://thepavilionwacaground.com.au/open-day", style:"b1"}]
   };
 
@@ -173,14 +181,21 @@
     meta:  "\ud83d\udcc5 Monday 28 September, sunset 6.16 pm &nbsp;&middot;&nbsp; \ud83d\udccd Central Matilda Bay &nbsp;&middot;&nbsp; \ud83e\uddfa BYO picnic",
     ribbon:"\ud83c\udf15 Community Event",
     thumbpos:"50% 30%",  /* phone strip crop: show the title and skyline */
+    until: "2026-09-28",
     ctas:  []
   };
 
 
+  /* Perth has no daylight saving, so UTC+8 all year gives today's Perth date. */
+  var TODAY = new Date(Date.now() + 8*3600*1000).toISOString().slice(0,10);
+  function live(c){ return (c && (!c.until || TODAY <= c.until)) ? c : null; }
+
+  /* A zone whose card has passed its `until` resolves to null and the boards fall back to
+     FALLBACK. Expired cards can stay in the file; they no longer render. */
   window.SPOTLIGHT = {
-    east:    POOL,      /* 19 Sep to 27 Sep 2026 (pool party), then HANOI. AGM retired 19 Sep. */
-    central: MERCEDES,  /* until 25 Sep 2026 (scholarship closes), then null so it falls back */
-    west:    MOON,      /* 20 Sep to 28 Sep 2026 (Moon Rising, Matilda Bay), then null so it falls back */
-    FALLBACK: POOL      /* until 27 Sep 2026, then HANOI. Swap for an "advertise here" card once selling */
+    east:    live(POOL),      /* pool party to 27 Sep 2026, then falls back to HANOI. AGM retired 19 Sep. */
+    central: live(MERCEDES),  /* to 25 Sep 2026 (scholarship closes), then falls back */
+    west:    live(MOON),      /* to 28 Sep 2026 (Moon Rising, Matilda Bay), then falls back */
+    FALLBACK: HANOI           /* undated. Swap for an "advertise here" card once selling */
   };
 })();
