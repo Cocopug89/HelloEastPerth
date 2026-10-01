@@ -66,4 +66,11 @@ window.EPCG_EVENTS = [
     venue:"The Pavilion, WACA Ground, East Perth",
     note:"Free entry. Splash and play in the pool, kids activities, and a look around the centre and its programs. Run by The Pavilion WACA Ground.",
     url:"https://thepavilionwacaground.com.au/open-day" }
+  ,
+  /* Added 1 Oct 2026 on Jason's instruction, from the Humanitix page. Not in the scrape
+     (checked Live Site, zero rows for Doing Co or get-together). Organiser is Doing Co. */
+  { d:"2026-11-03", t:"Neighbourhood Get-Together", type:"community", time:"5.30 pm to 7 pm",
+    venue:"Perth Mint, 310 Hay St, East Perth",
+    note:"A relaxed evening for East Perth residents, local businesses and school communities. No presentations and no long meetings, just food on the house and a chance to meet the people who share the neighbourhood. Drop in when it suits. Run by Doing Co.",
+    url:"https://events.humanitix.com/inner-east-perth-get-together" }
 ];
