@@ -41,7 +41,11 @@
         why: "SkyVista Ferris Wheel. Auto value put it at the Terrace Road Car Park. It is on the foreshore. Reverted once already - this is the fix that keeps it." },
       { id: "OB-2026/746",
         set: { lng: 115.8761 },
-        why: "Hay St tower crane removal - belongs at the Plain St corner (Garden Towers), not where the auto value placed it." }
+        why: "Hay St tower crane removal - belongs at the Plain St corner (Garden Towers), not where the auto value placed it." },
+      { id: "INF-JOHNOLDHAM",
+        set: { lat: -31.958344, lng: 115.847151, zone: "central", geo: undefined,
+               impact: "Water feature not running until further notice." },
+        why: "John Oldham Park waterfall out of order. The scrape could not resolve the location (geo none, zone unknown), so it showed on no board. Pin from Jason, 2 Oct 2026; zone from Tools/zone_assign.py on that pin (central, rotated y 3930, outside the East Perth band)." }
     ],
 
     /* ---- replace: one scraped record that is actually several ---- */
