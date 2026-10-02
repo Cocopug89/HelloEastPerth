@@ -1,8 +1,9 @@
 {
   "meta": {
-    "db_version": 60,
+    "db_version": 61,
     "first_built": "2026-07-08",
-    "last_scrape": "2026-10-01",
+    "last_scrape": "2026-10-02",
+    "scrape_2026-10-02": "Staging recrawl (shift 2, Hub Editor). Dropped 2 items: 25701 (Stirling Hwy Nedlands, ended 1 Oct, before today) and 21126 (Harvest Tce CAT 29 stop, no longer listed on the live Transperth page and its detail URL returns page not found; treated as withdrawn). Added 2 new in-scope items: 25719 (Routes 28/30/31/81-85/910, seven stops across Perth and West Perth, Sat 3, Sun 4, Sat 10, Sun 11 Oct until 4pm, zones central+west) and 25720 (Blue & Purple CATs and Routes 24/27/935, stop 10093 Harvest Terrace CAT 23, West Perth, Sat 3 Oct, zone west). Coordinates for all 8 stops from PTA-001 ArcGIS this run. Newly screened and excluded: 25717 (Murdoch), 25718 (Routes 176/998, Oats St, East Victoria Park/Carlisle), 25721 (Route 412, Scarborough), 25716 (Route 246, Haynes/Hilbert), 25707 (Beechboro), 25706/25665 (Parmelia/Wellard), 25708/25709/25710/25711/25713 (as logged 1 Oct). The 10 other carried-over items (20314, 21697-1, perth-underground-escalator-disruption, 25480, 25463, 25479, 25483, 25484, 25487, 25488) all still listed with unchanged dates. Net list: 12 items (10 carried over, 2 new, 2 dropped).",
     "scrape_2026-10-01": "Staging recrawl (shift 2, Hub Editor). Dropped 1 item: routes-40-41-42-and-43-timetable-change (Lord St HBF Park timed-stop change) - no longer listed in either table on the live Transperth page and its detail URL now returns 'we can't find the page'; treated as withdrawn. No new in-scope items. Detail pages fetched for 10 new candidates, all excluded: 25706 (Route 542, Parmelia/Wellard), 25707 (Route 356, Beechboro), 25708 (Route 592, Halls Head), 25709 (Route 423, Sorrento), 25710 (Route 107, Mosman Park), 25711 (Routes 244/246, Armadale), 25713 (Route 999, Churchlands/Woodlands), 25704 (Route 249, Hilbert), 25705 (Routes 390/391/467/468/471/473/474, Joondalup), 25712 (Route 593, Dawesville). Other rows matched standing exclusions. The 11 carried-over items (20314, 21126, 21697-1, perth-underground-escalator-disruption, 25480, 25463, 25479, 25483, 25484, 25487, 25488) all still appear on the page with unchanged dates; 25701 (Stirling Hwy Nedlands) ends today 1 Oct, not before today, so kept and flagged for expiry on the next recrawl. No PTA-001 lookups needed. Net list: 12 items (12 carried over, 0 new, 1 dropped).",
     "scrape_2026-09-30": "Staging recrawl (shift 2, Hub Editor). Dropped 2 items that ended 29 Sep, before today 30 Sep: 25643 (Routes 160 & Red CAT, East Perth Plain St/Queens Gardens) and 25657 (Purple CAT and Routes 24/27/103, Outram St West Perth). Added 1 new in-scope item: 25701 (Routes 103/995/998, stop 10378 Stirling Hwy after Portland St, suburb NEDLANDS per PTA-001, Thu 1 Oct 8am-3pm, zone west; same physical stop as earlier 25344 and 25591). Coordinates from PTA-001 ArcGIS this run. Screened and excluded: 25702 (Yanchep Line Clarkson-Yanchep, Mandurah Line delays, no City station), 25692, 25693, 25694, 25695, 25696, 25697, 25698, 25699, 25700 (stops in Westminster, Swan View, Mount Hawthorn, Padbury, Leederville, Mirrabooka/Dianella, Subiaco, Hilbert - outside the City). The 12 other in-scope items (20314, 21126, 21697-1, routes-40-41-42-and-43-timetable-change, perth-underground-escalator-disruption, 25480, 25463, 25479, 25483, 25484, 25487, 25488) all still appear on the live page with unchanged dates and were carried over. Net list: 13 items (12 carried over, 1 new, 2 dropped).",
     "scrape_2026-09-29": "Staging recrawl (shift 2, Hub Editor). Dropped 1 expired item: 25658 (Route 84, Wellington St & Sutherland St, West Perth, ended 28 Sep, before today 29 Sep). Screened the full current Transperth service-updates page (Service Disruptions and Planned Service Changes tables) against scope_rule. The 14 remaining in-scope items (20314, 21126, 21697-1, routes-40-41-42-and-43-timetable-change, perth-underground-escalator-disruption, 25480, 25463, 25479, 25483, 25484, 25487, 25488, 25643, 25657) all still appear on the live page with unchanged dates and were carried over unchanged; 25643 and 25657 both end today 29 Sep - not before today, so kept, flagged for expiry re-assessment on the next recrawl. Every other ID on today's page matched either a standing in-scope item or a previously-logged excluded_examples entry (same physical stop/segment), except one: 25665 (Route 567 per the listing) - its detail page returned Route 542 / Parmelia-Wellard content instead, a mirror-cache mismatch consistent with the pattern logged repeatedly in this db's history; excluded either way, no City of Perth stop affected. No new in-scope items found. No PTA-001 coordinate lookups were needed since no new items entered scope. Net list: 14 items (14 carried over unchanged, 0 new, 1 dropped).",
@@ -105,30 +106,6 @@
           -31.940848,
           115.849096,
           "Newcastle St after Golding St"
-        ]
-      ]
-    },
-    {
-      "id": "21126",
-      "zones": [
-        "west"
-      ],
-      "mode": "cat",
-      "sev": "low",
-      "title": "CATs & Routes 24, 27, 103, 935 - Harvest Tce Stop Closed",
-      "routes": "Blue, Green & Purple CATs, Routes 24, 27, 103, 935",
-      "start": "2026-04-16",
-      "end": "",
-      "ongoing": true,
-      "loc": "Harvest Terrace, West Perth",
-      "stops": "Harvest Terrace CAT stop (ID 29)",
-      "impact": "Single West Perth CAT/bus stop closed (ongoing)",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/21126",
-      "pts": [
-        [
-          -31.952802,
-          115.84747,
-          "Malcolm St / Harvest Terrace (CAT 29)"
         ]
       ]
     },
@@ -354,20 +331,36 @@
       ]
     },
     {
-      "id": "25701",
-      "zones": ["west"],
+      "id": "25719",
+      "zones": ["central", "west"],
       "mode": "bus",
-      "sev": "low",
-      "title": "Routes 103, 995 & 998 - Stirling Hwy Stop Closed",
-      "routes": "Routes 103, 995 & 998",
-      "start": "2026-10-01",
-      "end": "2026-10-01",
+      "sev": "medium",
+      "title": "Routes 28, 30, 31, 81-85 & 910 - CBD and West Perth Stops Closed",
+      "routes": "Routes 28, 30, 31, 81, 82, 83, 84, 85 & 910",
+      "start": "2026-10-03",
+      "end": "2026-10-11",
       "ongoing": false,
-      "loc": "Stirling Hwy, Nedlands",
-      "stops": "Stirling Hwy after Portland St (ID 10378)",
-      "impact": "Thu 1 Oct, 8am-3pm, one Nedlands stop closed for road closures; alternatives Stirling Hwy after Smyth Rd (10377) and after Clifton St (10380); routes 103 and 995 divert to Elizabeth Quay Bus Station, 998 to Galleria Bus Station",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25701",
-      "pts": [[-31.978051, 115.809355, "Stirling Hwy after Portland St"]]
+      "loc": "Wellington St, Sutherland St, Milligan St, St Georges Tce - Perth and West Perth",
+      "stops": "Wellington St after George St (12927), Watertown CAT 61 (23086), St Georges Tce Stand 1 CAT 31 (10117), Milligan St after Murray St (28732), Sutherland St CAT 36 (26654), St Georges Tce Stand 2 (10116), St Georges Tce Stand 5 (10122)",
+      "impact": "Sat 3, Sun 4, Sat 10 and Sun 11 Oct, daily from first service until 4pm, seven CBD and West Perth stops closed for road closures; alternatives include Harold Boas Gardens CAT 41, Elizabeth Quay Bus Station Stand A2, City West Station CAT 37, St Georges Tce Stand 8 and Perth Busport",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25719",
+      "pts": [[-31.948376, 115.848999, "Wellington St after George St"], [-31.947651, 115.846759, "Wellington St Watertown (CAT 61)"], [-31.953112, 115.851916, "St Georges Tce Stand 1 (CAT 31)"], [-31.951124, 115.852017, "Milligan St after Murray St"], [-31.946253, 115.846909, "Sutherland St (CAT 36)"], [-31.953346, 115.852632, "St Georges Tce Stand 2"], [-31.954527, 115.856247, "St Georges Tce Stand 5"]]
+    },
+    {
+      "id": "25720",
+      "zones": ["west"],
+      "mode": "cat",
+      "sev": "low",
+      "title": "Blue & Purple CATs, Routes 24, 27 & 935 - Harvest Tce Stop Closed",
+      "routes": "Blue CAT, Purple CAT, Routes 24, 27 & 935",
+      "start": "2026-10-03",
+      "end": "2026-10-03",
+      "ongoing": false,
+      "loc": "Malcolm St / Harvest Terrace, West Perth",
+      "stops": "Harvest Terrace CAT 23 (ID 10093)",
+      "impact": "Sat 3 Oct, 6am-5pm, one West Perth CAT/bus stop closed; alternatives Mount Street CAT 22 (10092), Dumas House CAT 32 (10094) and Fraser Avenue CAT 24 (17500)",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25720",
+      "pts": [[-31.953021, 115.847493, "Malcolm St / Harvest Terrace (CAT 23)"]]
     }
   ],
   "excluded_examples": [
