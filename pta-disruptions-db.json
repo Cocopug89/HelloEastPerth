@@ -1,8 +1,9 @@
 {
   "meta": {
-    "db_version": 61,
+    "db_version": 62,
     "first_built": "2026-07-08",
-    "last_scrape": "2026-10-02",
+    "last_scrape": "2026-10-03",
+    "scrape_2026-10-03": "Staging recrawl (shift 2, Hub Editor). Nothing dropped (25720 ends today 3 Oct, kept; 25719 and the other 10 carried-over items all still listed with unchanged dates). Added 2 new in-scope items: planned-protest-perth-cbd (Tue 6 Oct 5:30-6:30pm, nine William St and Wellington St stands in Perth, zone central; a second notice, perth-cbd-planned-protest-1, is the same event and is folded in) and 25738 (Route 51 and train replacement routes 901/902/903/907/908, Brook St East Perth and Fielder St at Claisebrook Station, nightly 5-8 Oct, zone east). Coordinates for the 9 protest stops and Brook St (28933) from PTA-001 ArcGIS this run; stop 16966 (Fielder St, Claisebrook Station) returned no feature, so it is plotted at the Claisebrook Station representative platform coordinate. Screened and excluded: 25730 (Cannington), 25728 (Como), 25734/25736 (Applecross/Alfred Cove), 25737 (Yokine), 25731 (Willetton/Bull Creek), 25732 (Kardinya), 25726 (Murdoch), 25729 (Myaree), 25727 (Osborne Park), 25741 (High Wycombe), 25724 (Armadale), 25725 (Claremont), 25735 (Henley Brook); Surf CAT item 25745 is not a qualifying CAT. Net list: 14 items (12 carried over, 2 new, 0 dropped).",
     "scrape_2026-10-02": "Staging recrawl (shift 2, Hub Editor). Dropped 2 items: 25701 (Stirling Hwy Nedlands, ended 1 Oct, before today) and 21126 (Harvest Tce CAT 29 stop, no longer listed on the live Transperth page and its detail URL returns page not found; treated as withdrawn). Added 2 new in-scope items: 25719 (Routes 28/30/31/81-85/910, seven stops across Perth and West Perth, Sat 3, Sun 4, Sat 10, Sun 11 Oct until 4pm, zones central+west) and 25720 (Blue & Purple CATs and Routes 24/27/935, stop 10093 Harvest Terrace CAT 23, West Perth, Sat 3 Oct, zone west). Coordinates for all 8 stops from PTA-001 ArcGIS this run. Newly screened and excluded: 25717 (Murdoch), 25718 (Routes 176/998, Oats St, East Victoria Park/Carlisle), 25721 (Route 412, Scarborough), 25716 (Route 246, Haynes/Hilbert), 25707 (Beechboro), 25706/25665 (Parmelia/Wellard), 25708/25709/25710/25711/25713 (as logged 1 Oct). The 10 other carried-over items (20314, 21697-1, perth-underground-escalator-disruption, 25480, 25463, 25479, 25483, 25484, 25487, 25488) all still listed with unchanged dates. Net list: 12 items (10 carried over, 2 new, 2 dropped).",
     "scrape_2026-10-01": "Staging recrawl (shift 2, Hub Editor). Dropped 1 item: routes-40-41-42-and-43-timetable-change (Lord St HBF Park timed-stop change) - no longer listed in either table on the live Transperth page and its detail URL now returns 'we can't find the page'; treated as withdrawn. No new in-scope items. Detail pages fetched for 10 new candidates, all excluded: 25706 (Route 542, Parmelia/Wellard), 25707 (Route 356, Beechboro), 25708 (Route 592, Halls Head), 25709 (Route 423, Sorrento), 25710 (Route 107, Mosman Park), 25711 (Routes 244/246, Armadale), 25713 (Route 999, Churchlands/Woodlands), 25704 (Route 249, Hilbert), 25705 (Routes 390/391/467/468/471/473/474, Joondalup), 25712 (Route 593, Dawesville). Other rows matched standing exclusions. The 11 carried-over items (20314, 21126, 21697-1, perth-underground-escalator-disruption, 25480, 25463, 25479, 25483, 25484, 25487, 25488) all still appear on the page with unchanged dates; 25701 (Stirling Hwy Nedlands) ends today 1 Oct, not before today, so kept and flagged for expiry on the next recrawl. No PTA-001 lookups needed. Net list: 12 items (12 carried over, 0 new, 1 dropped).",
     "scrape_2026-09-30": "Staging recrawl (shift 2, Hub Editor). Dropped 2 items that ended 29 Sep, before today 30 Sep: 25643 (Routes 160 & Red CAT, East Perth Plain St/Queens Gardens) and 25657 (Purple CAT and Routes 24/27/103, Outram St West Perth). Added 1 new in-scope item: 25701 (Routes 103/995/998, stop 10378 Stirling Hwy after Portland St, suburb NEDLANDS per PTA-001, Thu 1 Oct 8am-3pm, zone west; same physical stop as earlier 25344 and 25591). Coordinates from PTA-001 ArcGIS this run. Screened and excluded: 25702 (Yanchep Line Clarkson-Yanchep, Mandurah Line delays, no City station), 25692, 25693, 25694, 25695, 25696, 25697, 25698, 25699, 25700 (stops in Westminster, Swan View, Mount Hawthorn, Padbury, Leederville, Mirrabooka/Dianella, Subiaco, Hilbert - outside the City). The 12 other in-scope items (20314, 21126, 21697-1, routes-40-41-42-and-43-timetable-change, perth-underground-escalator-disruption, 25480, 25463, 25479, 25483, 25484, 25487, 25488) all still appear on the live page with unchanged dates and were carried over. Net list: 13 items (12 carried over, 1 new, 2 dropped).",
@@ -361,6 +362,38 @@
       "impact": "Sat 3 Oct, 6am-5pm, one West Perth CAT/bus stop closed; alternatives Mount Street CAT 22 (10092), Dumas House CAT 32 (10094) and Fraser Avenue CAT 24 (17500)",
       "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25720",
       "pts": [[-31.953021, 115.847493, "Malcolm St / Harvest Terrace (CAT 23)"]]
+    },
+    {
+      "id": "planned-protest-perth-cbd",
+      "zones": ["central"],
+      "mode": "bus",
+      "sev": "medium",
+      "title": "Planned Protest Perth CBD - William & Wellington St Stands Closed",
+      "routes": "Routes 34, 40, 41, 42, 43, 950, 950X & 980 disrupted; Routes 24, 27, 32, 33, 38, 39, 51, 72, 111, 160, 176-178, 220, 270, 910, 930, 935, 940, 960 and Red & Yellow CATs may be delayed",
+      "start": "2026-10-06",
+      "end": "2026-10-06",
+      "ongoing": false,
+      "loc": "William St and Wellington St, Perth CBD",
+      "stops": "William St Stands 1-7 (10224, 10225, 25070, 26766, 26767, 26768, 26769), Wellington St Stands 6 and 10 (12902, 26201)",
+      "impact": "Tue 6 Oct, 5:30pm-6:30pm, nine CBD bus stands closed to facilitate road closures for a planned protest; temporary stops at Elizabeth Quay Bus Station, Milligan St, WA Museum and Hay St Mall; minor delays and missed connections possible",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/planned-protest-perth-cbd",
+      "pts": [[-31.953287, 115.857196, "William St Stand 1"], [-31.953881, 115.856934, "William St Stand 2"], [-31.954335, 115.856747, "William St Stand 3"], [-31.952743, 115.857281, "William St Stand 4"], [-31.952896, 115.857202, "William St Stand 5"], [-31.953068, 115.857141, "William St Stand 6"], [-31.953244, 115.857005, "William St Stand 7"], [-31.951400, 115.859061, "Wellington St Stand 6"], [-31.951904, 115.859961, "Wellington St Stand 10"]]
+    },
+    {
+      "id": "25738",
+      "zones": ["east"],
+      "mode": "bus",
+      "sev": "medium",
+      "title": "Route 51 & Train Replacement Buses - Brook St and Claisebrook Station Stops Closed",
+      "routes": "Route 51; Train Replacement Routes 901, 902, 903, 907 & 908",
+      "start": "2026-10-05",
+      "end": "2026-10-08",
+      "ongoing": false,
+      "loc": "Brook St and Fielder St (Claisebrook Station), East Perth",
+      "stops": "Brook St before Royal St (28933); Fielder St, Claisebrook Station (16966)",
+      "impact": "Mon 5 - Thu 8 Oct, nightly from 8:30pm until last service, two East Perth stops closed for road closures; alternatives Wellington Square CAT 54 (12917) and a temporary stop at Fielder St, Claisebrook Station (16967)",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25738",
+      "pts": [[-31.952258, 115.874837, "Brook St before Royal St"], [-31.94956, 115.87224, "Claisebrook Station (Fielder St)"]]
     }
   ],
   "excluded_examples": [
