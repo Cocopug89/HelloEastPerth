@@ -13,10 +13,11 @@
 /* The board reads this to show a freshness stamp in the header and to WARN when this
    feed has gone stale. A hand-typed date drifted before (the page claimed "8 Jul" while
    the data was from the 12th), so it is generated, never written by hand. */
-window.CONSULTATIONS_GENERATED = "2026-09-28";
+window.CONSULTATIONS_GENERATED = "2026-10-05";
 
 window.CONSULTATIONS = [
-{"typ": "Planning (City of Perth)", "title": "Draft Heritage List Policy", "url": "https://yoursay.perth.wa.gov.au/draft-heritage-list-policy", "pub": "", "close": "2026-10-15", "kind": "consultation", "src": "Your Say Perth"}
+{"typ": "Planning (City of Perth)", "title": "Draft Heritage List Policy", "url": "https://yoursay.perth.wa.gov.au/draft-heritage-list-policy", "pub": "2026-09-23", "close": "2026-10-15", "kind": "consultation", "src": "Your Say Perth"},
+{"typ": "Planning (City of Perth)", "title": "Boorloo Perth 1829-2029: acknowledging the past, shaping our future", "url": "https://yoursay.perth.wa.gov.au/boorloo-perth-1829-2029-acknowledging-past-shaping-our-future", "pub": "2026-10-02", "close": "2026-11-15", "kind": "consultation", "src": "Your Say Perth"}
 ];
 
 /* Collapse map: City notices that are really ONE consultation published as several

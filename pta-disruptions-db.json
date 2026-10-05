@@ -1,8 +1,9 @@
 {
   "meta": {
-    "db_version": 63,
+    "db_version": 64,
     "first_built": "2026-07-08",
-    "last_scrape": "2026-10-04",
+    "last_scrape": "2026-10-05",
+    "scrape_2026-10-05": "Staging recrawl (shift 2, Hub Editor). Dropped 3 items that ended Sun 4 Oct, before today: 25480, 25463, 25479 (all Sunday 4 Oct train day closures at Perth and Perth Underground, also no longer listed). No new in-scope items. 25618 (Perth Running Festival) re-fetched: still no stop list published, so pts stays empty; re-check next recrawl. Re-checked long-running listings against scope_rule: 22483, 24970 and 24934 (Bentley and West Leederville), 25387 (Belmont and Redcliffe) - all outside the City, excluded. Every other row on the page matches a standing in-scope item or a prior excluded_examples entry. Carried over unchanged: 20314, 21697-1, perth-underground-escalator-disruption, 25483, 25484, 25487, 25488, 25719, 25618, planned-protest-perth-cbd, 25738. No PTA-001 lookups needed. Net list: 11 items (11 carried over, 0 new, 3 dropped).",
     "scrape_2026-10-04": "Staging recrawl (shift 2, Hub Editor). Dropped 1 item: 25720 (Harvest Tce CAT 23, West Perth, ended 3 Oct, before today) - no longer listed. Added 1 new in-scope item: 25618 (Perth Running Festival, Blue and Red CATs plus Routes 34/35/114/115/160/950/995, Sun 11 Oct all day; CATs auto-qualify; the detail page gives no stop list yet, so pts is empty and zone is set to central for the CBD road closures; re-check for stops on the next recrawl). Screened and excluded: 25727 (Route 414, Osborne Park), 25739 (Route 514, Bibra Lake), 25740 (Route 445, Greenwood), 25742 (Routes 574/585, Lakelands); the other new rows match prior exclusions by region. Carried over unchanged: 25480, 25463, 25479 (end today 4 Oct, kept), 25483, 25484, 25487, 25488, 25719, planned-protest-perth-cbd (second notice perth-cbd-planned-protest-1 folded in), 25738, 20314, 21697-1, perth-underground-escalator-disruption. No PTA-001 lookups needed. Net list: 14 items (13 carried over, 1 new, 1 dropped).",
     "scrape_2026-10-03": "Staging recrawl (shift 2, Hub Editor). Nothing dropped (25720 ends today 3 Oct, kept; 25719 and the other 10 carried-over items all still listed with unchanged dates). Added 2 new in-scope items: planned-protest-perth-cbd (Tue 6 Oct 5:30-6:30pm, nine William St and Wellington St stands in Perth, zone central; a second notice, perth-cbd-planned-protest-1, is the same event and is folded in) and 25738 (Route 51 and train replacement routes 901/902/903/907/908, Brook St East Perth and Fielder St at Claisebrook Station, nightly 5-8 Oct, zone east). Coordinates for the 9 protest stops and Brook St (28933) from PTA-001 ArcGIS this run; stop 16966 (Fielder St, Claisebrook Station) returned no feature, so it is plotted at the Claisebrook Station representative platform coordinate. Screened and excluded: 25730 (Cannington), 25728 (Como), 25734/25736 (Applecross/Alfred Cove), 25737 (Yokine), 25731 (Willetton/Bull Creek), 25732 (Kardinya), 25726 (Murdoch), 25729 (Myaree), 25727 (Osborne Park), 25741 (High Wycombe), 25724 (Armadale), 25725 (Claremont), 25735 (Henley Brook); Surf CAT item 25745 is not a qualifying CAT. Net list: 14 items (12 carried over, 2 new, 0 dropped).",
     "scrape_2026-10-02": "Staging recrawl (shift 2, Hub Editor). Dropped 2 items: 25701 (Stirling Hwy Nedlands, ended 1 Oct, before today) and 21126 (Harvest Tce CAT 29 stop, no longer listed on the live Transperth page and its detail URL returns page not found; treated as withdrawn). Added 2 new in-scope items: 25719 (Routes 28/30/31/81-85/910, seven stops across Perth and West Perth, Sat 3, Sun 4, Sat 10, Sun 11 Oct until 4pm, zones central+west) and 25720 (Blue & Purple CATs and Routes 24/27/935, stop 10093 Harvest Terrace CAT 23, West Perth, Sat 3 Oct, zone west). Coordinates for all 8 stops from PTA-001 ArcGIS this run. Newly screened and excluded: 25717 (Murdoch), 25718 (Routes 176/998, Oats St, East Victoria Park/Carlisle), 25721 (Route 412, Scarborough), 25716 (Route 246, Haynes/Hilbert), 25707 (Beechboro), 25706/25665 (Parmelia/Wellard), 25708/25709/25710/25711/25713 (as logged 1 Oct). The 10 other carried-over items (20314, 21697-1, perth-underground-escalator-disruption, 25480, 25463, 25479, 25483, 25484, 25487, 25488) all still listed with unchanged dates. Net list: 12 items (10 carried over, 2 new, 2 dropped).",
@@ -161,78 +162,6 @@
           -31.951569,
           115.858099,
           "Perth Underground Station Platform 1"
-        ]
-      ]
-    },
-    {
-      "id": "25480",
-      "zones": [
-        "central"
-      ],
-      "mode": "train",
-      "sev": "low",
-      "title": "Airport & Fremantle Lines - Platform Change to Perth Underground",
-      "routes": "Airport & Fremantle lines",
-      "start": "2026-10-04",
-      "end": "2026-10-04",
-      "ongoing": false,
-      "loc": "Perth Underground Station",
-      "stops": "Perth Underground Station (Airport & Fremantle lines run from here instead of Perth Station)",
-      "impact": "Sun 4 Oct, Airport and Fremantle line trains will run from Perth Underground instead of Perth Station, to facilitate works on the Airport, Ellenbrook and Midland lines",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25480",
-      "pts": [
-        [
-          -31.951569,
-          115.858099,
-          "Perth Underground Station Platform 1"
-        ]
-      ]
-    },
-    {
-      "id": "25463",
-      "zones": [
-        "central"
-      ],
-      "mode": "train",
-      "sev": "high",
-      "title": "Armadale & Thornlie-Cockburn Lines - Day Closure",
-      "routes": "Armadale & Thornlie-Cockburn lines",
-      "start": "2026-10-04",
-      "end": "2026-10-04",
-      "ongoing": false,
-      "loc": "Perth Station",
-      "stops": "Perth Station (Armadale Line disrupted Perth-Perth Stadium; Thornlie-Cockburn Line disrupted Perth-Beckenham)",
-      "impact": "Sun 4 Oct, full-day closure: the Armadale Line will be disrupted between Perth and Perth Stadium and the Thornlie-Cockburn Line between Perth and Beckenham",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25463",
-      "pts": [
-        [
-          -31.95118,
-          115.86004,
-          "Perth Station"
-        ]
-      ]
-    },
-    {
-      "id": "25479",
-      "zones": [
-        "central"
-      ],
-      "mode": "train",
-      "sev": "high",
-      "title": "Airport, Ellenbrook & Midland Lines - Day Closure",
-      "routes": "Airport, Ellenbrook & Midland lines",
-      "start": "2026-10-04",
-      "end": "2026-10-04",
-      "ongoing": false,
-      "loc": "Perth Station",
-      "stops": "Perth Station (lines disrupted Perth-High Wycombe, Perth-Ellenbrook, Perth-Midland)",
-      "impact": "Sun 4 Oct, full-day closure: the Airport, Ellenbrook and Midland lines will be disrupted from Perth to High Wycombe, Perth to Ellenbrook and Perth to Midland",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25479",
-      "pts": [
-        [
-          -31.95118,
-          115.86004,
-          "Perth Station"
         ]
       ]
     },
