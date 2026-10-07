@@ -1,8 +1,8 @@
 {
   "meta": {
-    "db_version": 65,
+    "db_version": 66,
     "first_built": "2026-07-08",
-    "last_scrape": "2026-10-06",
+    "last_scrape": "2026-10-07",
     "source": "https://www.transperth.wa.gov.au/service-updates",
     "coordinate_source": "data.wa.gov.au PTA-001 (ArcGIS: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Transport/MapServer/14). Query by stopnumber (bus/CAT) or stopname LIKE (rail), outSR=4326. Exact stop/station coordinates, not approximations.",
     "scope": "City of Perth LGA only",
@@ -212,95 +212,176 @@
       "pts": []
     },
     {
-      "id": "perth-cbd-planned-protest-1",
+      "id": "25776",
       "zones": [
-        "central"
+        "central",
+        "west"
       ],
       "mode": "bus",
       "sev": "medium",
-      "title": "Planned Protest Perth CBD - William & Wellington St Stands Closed",
-      "routes": "Routes 34, 40, 41, 42, 43, 950, 950X & 980 disrupted; Routes 24, 27, 32, 33, 38, 39, 51, 72, 111, 160, 176-178, 220, 270, 910, 930, 935, 940, 960 and Red & Yellow CATs may be delayed",
-      "start": "2026-10-06",
-      "end": "2026-10-06",
+      "title": "Routes 19, 360 & 960 - Fitzgerald St Stops Closed",
+      "routes": "Routes 19, 360 & 960",
+      "start": "2026-10-07",
+      "end": "2026-10-07",
       "ongoing": false,
-      "loc": "William St and Wellington St, Perth CBD",
-      "stops": "William St Stands 1-7 (10224, 10225, 25070, 26766, 26767, 26768, 26769), Wellington St Stands 6 and 10 (12902, 26201)",
-      "impact": "Tue 6 Oct, 5:30pm-6:30pm, nine CBD bus stands closed to facilitate road closures for a planned protest; temporary stops at Elizabeth Quay Bus Station, Milligan St, WA Museum and Hay St Mall; minor delays and missed connections possible",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/perth-cbd-planned-protest-1",
+      "loc": "Fitzgerald St, Perth and West Perth",
+      "stops": "Fitzgerald St after Cowle St (22027, West Perth); Fitzgerald St after Randell St (22028, Perth)",
+      "impact": "Wed 7 Oct, from 7pm until last service, two Fitzgerald St stops closed; alternatives 22026, 12820, 12816 and 12817",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25776",
       "pts": [
         [
-          -31.953287,
-          115.857196,
-          "William St Stand 1"
+          -31.9398,
+          115.856223,
+          "Fitzgerald St after Cowle St"
         ],
         [
-          -31.953881,
-          115.856934,
-          "William St Stand 2"
-        ],
-        [
-          -31.954335,
-          115.856747,
-          "William St Stand 3"
-        ],
-        [
-          -31.952743,
-          115.857281,
-          "William St Stand 4"
-        ],
-        [
-          -31.952896,
-          115.857202,
-          "William St Stand 5"
-        ],
-        [
-          -31.953068,
-          115.857141,
-          "William St Stand 6"
-        ],
-        [
-          -31.953244,
-          115.857005,
-          "William St Stand 7"
-        ],
-        [
-          -31.9514,
-          115.859061,
-          "Wellington St Stand 6"
-        ],
-        [
-          -31.951904,
-          115.859961,
-          "Wellington St Stand 10"
+          -31.939915,
+          115.856324,
+          "Fitzgerald St after Randell St"
         ]
       ]
     },
     {
-      "id": "25738",
+      "id": "25772",
       "zones": [
-        "east"
+        "central"
       ],
-      "mode": "bus",
-      "sev": "medium",
-      "title": "Route 51 & Train Replacement Buses - Brook St and Claisebrook Station Stops Closed",
-      "routes": "Route 51; Train Replacement Routes 901, 902, 903, 907 & 908",
-      "start": "2026-10-05",
-      "end": "2026-10-08",
+      "mode": "train",
+      "sev": "high",
+      "title": "Mandurah Line - Nightly Closures (Elizabeth Quay)",
+      "routes": "Mandurah line",
+      "start": "2026-11-04",
+      "end": "2026-11-08",
       "ongoing": false,
-      "loc": "Brook St and Fielder St (Claisebrook Station), East Perth",
-      "stops": "Brook St before Royal St (28933); Fielder St, Claisebrook Station (16966)",
-      "impact": "Mon 5 - Thu 8 Oct, nightly from 8:30pm until last service, two East Perth stops closed for road closures; alternatives Wellington Square CAT 54 (12917) and a temporary stop at Fielder St, Claisebrook Station (16967)",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25738",
+      "loc": "Elizabeth Quay Station",
+      "stops": "Elizabeth Quay Station (line disrupted Elizabeth Quay-Aubin Grove)",
+      "impact": "Wed 4 Nov - Sun 8 Nov, Mandurah Line disrupted nightly between Elizabeth Quay and Aubin Grove",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25772",
       "pts": [
         [
-          -31.952258,
-          115.874837,
-          "Brook St before Royal St"
-        ],
+          -31.95674,
+          115.85541,
+          "Elizabeth Quay Station"
+        ]
+      ]
+    },
+    {
+      "id": "25775",
+      "zones": [
+        "central"
+      ],
+      "mode": "train",
+      "sev": "high",
+      "title": "Yanchep Line - Nightly Closures (Perth-Whitfords)",
+      "routes": "Yanchep line",
+      "start": "2026-11-09",
+      "end": "2026-11-12",
+      "ongoing": false,
+      "loc": "Perth Station",
+      "stops": "Perth Station (line disrupted Perth-Whitfords)",
+      "impact": "Mon 9 Nov - Thu 12 Nov, Yanchep Line disrupted nightly between Perth and Whitfords",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25775",
+      "pts": [
         [
-          -31.94956,
-          115.87224,
-          "Claisebrook Station (Fielder St)"
+          -31.95118,
+          115.86004,
+          "Perth Station"
+        ]
+      ]
+    },
+    {
+      "id": "25781",
+      "zones": [
+        "central"
+      ],
+      "mode": "train",
+      "sev": "medium",
+      "title": "Airport, Ellenbrook & Midland Lines - Afternoon Closure",
+      "routes": "Airport, Ellenbrook & Midland lines",
+      "start": "2026-11-15",
+      "end": "2026-11-15",
+      "ongoing": false,
+      "loc": "Perth Station",
+      "stops": "Perth Station (lines disrupted Perth-High Wycombe, Perth-Ellenbrook, Perth-Midland)",
+      "impact": "Sun 15 Nov, afternoon closure, Airport, Ellenbrook and Midland lines disrupted from Perth",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25781",
+      "pts": [
+        [
+          -31.95118,
+          115.86004,
+          "Perth Station"
+        ]
+      ]
+    },
+    {
+      "id": "25782",
+      "zones": [
+        "central"
+      ],
+      "mode": "train",
+      "sev": "low",
+      "title": "Airport & Fremantle Lines - Platform Change to Perth Underground",
+      "routes": "Airport & Fremantle lines",
+      "start": "2026-11-15",
+      "end": "2026-11-15",
+      "ongoing": false,
+      "loc": "Perth Underground Station",
+      "stops": "Perth Underground Station (Airport and Fremantle lines run from here to facilitate works)",
+      "impact": "Sun 15 Nov, Airport and Fremantle lines run from Perth Underground to facilitate works on the Airport, Ellenbrook and Midland lines",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25782",
+      "pts": [
+        [
+          -31.951569,
+          115.858099,
+          "Perth Underground Station"
+        ]
+      ]
+    },
+    {
+      "id": "25783",
+      "zones": [
+        "central"
+      ],
+      "mode": "train",
+      "sev": "medium",
+      "title": "Armadale & Thornlie-Cockburn Lines - Afternoon Closure",
+      "routes": "Armadale & Thornlie-Cockburn lines",
+      "start": "2026-11-15",
+      "end": "2026-11-15",
+      "ongoing": false,
+      "loc": "Perth Station",
+      "stops": "Perth Station (Armadale Line disrupted Perth-Perth Stadium; Thornlie-Cockburn Line disrupted Perth-Beckenham)",
+      "impact": "Sun 15 Nov, afternoon closure, Armadale Line disrupted between Perth and Perth Stadium and Thornlie-Cockburn Line between Perth and Beckenham",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25783",
+      "pts": [
+        [
+          -31.95118,
+          115.86004,
+          "Perth Station"
+        ]
+      ]
+    },
+    {
+      "id": "25788",
+      "zones": [
+        "central"
+      ],
+      "mode": "train",
+      "sev": "high",
+      "title": "Armadale & Thornlie-Cockburn Lines - Nightly Closures",
+      "routes": "Armadale & Thornlie-Cockburn lines",
+      "start": "2026-11-29",
+      "end": "2026-12-03",
+      "ongoing": false,
+      "loc": "Perth Station",
+      "stops": "Perth Station (lines disrupted Perth-Cannington)",
+      "impact": "Sun 29 Nov - Thu 3 Dec, Armadale and Thornlie-Cockburn lines disrupted nightly between Perth and Cannington",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25788",
+      "pts": [
+        [
+          -31.95118,
+          115.86004,
+          "Perth Station"
         ]
       ]
     }
@@ -562,6 +643,50 @@
     {
       "id": "25665",
       "reason": "Detail page mirror-cache mismatch: URL served Route 542 content (Parmelia/Wellard) instead of the listed Route 567 title; either way, no City of Perth stop affected."
+    },
+    {
+      "id": "25787",
+      "reason": "Mandurah Line closure is Rockingham-Mandurah; no City of Perth station."
+    },
+    {
+      "id": "25786",
+      "reason": "Yanchep Line closure is Whitfords-Yanchep; no City of Perth station."
+    },
+    {
+      "id": "25785",
+      "reason": "Airport Line closure is Bayswater-High Wycombe; no City of Perth station."
+    },
+    {
+      "id": "25784",
+      "reason": "Ellenbrook Line closure is Bayswater-Ellenbrook; no City of Perth station."
+    },
+    {
+      "id": "25768",
+      "reason": "Thornlie-Cockburn Line closure is Cannington-Cockburn Central; no City of Perth station."
+    },
+    {
+      "id": "25767",
+      "reason": "Mandurah Line closure is Cockburn Central-Mandurah; no City of Perth station."
+    },
+    {
+      "id": "25777",
+      "reason": "Route 160 stops are Stock Rd, O'Connor - outside the City."
+    },
+    {
+      "id": "25769",
+      "reason": "Route 249 stop is Wungong Rd, Wungong - outside the City."
+    },
+    {
+      "id": "25770",
+      "reason": "Routes 96 & 406 stop is Green St, Joondanna - outside the City."
+    },
+    {
+      "id": "25736",
+      "reason": "Routes 111/148/158/910 stop is Canning Hwy, Alfred Cove - outside the City."
+    },
+    {
+      "id": "23615",
+      "reason": "Route 28 stop is Hay St, Jolimont - outside the City."
     }
   ]
 }
