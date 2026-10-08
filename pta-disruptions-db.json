@@ -1,8 +1,8 @@
 {
   "meta": {
-    "db_version": 66,
+    "db_version": 67,
     "first_built": "2026-07-08",
-    "last_scrape": "2026-10-07",
+    "last_scrape": "2026-10-08",
     "source": "https://www.transperth.wa.gov.au/service-updates",
     "coordinate_source": "data.wa.gov.au PTA-001 (ArcGIS: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Transport/MapServer/14). Query by stopnumber (bus/CAT) or stopname LIKE (rail), outSR=4326. Exact stop/station coordinates, not approximations.",
     "scope": "City of Perth LGA only",
@@ -210,36 +210,6 @@
       "impact": "Sun 11 Oct, all day, Blue and Red CATs and seven bus routes disrupted to facilitate road closures for the Perth Running Festival; affected stops to be confirmed",
       "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25618",
       "pts": []
-    },
-    {
-      "id": "25776",
-      "zones": [
-        "central",
-        "west"
-      ],
-      "mode": "bus",
-      "sev": "medium",
-      "title": "Routes 19, 360 & 960 - Fitzgerald St Stops Closed",
-      "routes": "Routes 19, 360 & 960",
-      "start": "2026-10-07",
-      "end": "2026-10-07",
-      "ongoing": false,
-      "loc": "Fitzgerald St, Perth and West Perth",
-      "stops": "Fitzgerald St after Cowle St (22027, West Perth); Fitzgerald St after Randell St (22028, Perth)",
-      "impact": "Wed 7 Oct, from 7pm until last service, two Fitzgerald St stops closed; alternatives 22026, 12820, 12816 and 12817",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25776",
-      "pts": [
-        [
-          -31.9398,
-          115.856223,
-          "Fitzgerald St after Cowle St"
-        ],
-        [
-          -31.939915,
-          115.856324,
-          "Fitzgerald St after Randell St"
-        ]
-      ]
     },
     {
       "id": "25772",
@@ -687,6 +657,22 @@
     {
       "id": "23615",
       "reason": "Route 28 stop is Hay St, Jolimont - outside the City."
+    },
+    {
+      "id": "25793",
+      "reason": "Route 20 stop is Light St, Dianella - outside the City."
+    },
+    {
+      "id": "25796",
+      "reason": "Routes 403 & 404 stop is London St, North Perth - outside the City."
+    },
+    {
+      "id": "25728",
+      "reason": "Route 30 stop is Ley St, Como - outside the City."
+    },
+    {
+      "id": "22483",
+      "reason": "Routes 30/34/72/73/101/920/999 stops are Hayman Rd / Curtin Bus Station, Bentley - outside the City."
     }
   ]
 }
