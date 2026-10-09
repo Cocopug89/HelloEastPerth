@@ -1,8 +1,8 @@
 {
   "meta": {
-    "db_version": 67,
+    "db_version": 68,
     "first_built": "2026-07-08",
-    "last_scrape": "2026-10-08",
+    "last_scrape": "2026-10-09",
     "source": "https://www.transperth.wa.gov.au/service-updates",
     "coordinate_source": "data.wa.gov.au PTA-001 (ArcGIS: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Transport/MapServer/14). Query by stopnumber (bus/CAT) or stopname LIKE (rail), outSR=4326. Exact stop/station coordinates, not approximations.",
     "scope": "City of Perth LGA only",
@@ -10,7 +10,14 @@
     "rendering": "Data is also emitted to pta-data.js (window.PTA_DATA) which all three zone pages load via <script src>. On each weekly scrape, regenerate BOTH this file and pta-data.js. Each affected stop is plotted at its exact coordinate; pts = [ [lat, lng, stop name], ... ].",
     "zones": "Each disruption carries zones[] = the board zone(s) its affected stops fall in, by suburb: east = East Perth; central = Perth CBD / Northbridge (incl. Perth, Perth Underground, McIver, Elizabeth Quay stations); west = West Perth / Nedlands / Crawley. Each zone page shows only disruptions whose zones include that page's zone; a disruption spanning two zones appears on both.",
     "note": "Assessed record of Transperth (PTA) service updates relevant to the City of Perth. On each weekly scrape, refresh the list, re-assess new refs against scope_rule, look up exact coordinates for each named stop number via the coordinate_source, assign zones from each stop's suburb, recompute current/past status from stored end dates, and drop items no longer on the Transperth list.",
-    "pending_review": []
+    "pending_review": [],
+    "excluded_examples": [
+      "25488 Yanchep Line Nightly Closures 25-29 Oct (Butler/Joondalup/Clarkson to Yanchep, no City station affected)",
+      "25767/25787 Mandurah Line (Cockburn Central or Rockingham to Mandurah)",
+      "25768 Thornlie-Cockburn Line (Cannington to Cockburn Central)",
+      "25784/25785/25786 Ellenbrook, Airport, Yanchep lines (outer sections only)",
+      "25730, 25718, 25579, 24970, 22483, 23544, 25815, 24613, 25741, 25764, 23615, 25052 and 25737 (all affected stops outside the City)"
+    ]
   },
   "disruptions": [
     {
@@ -194,22 +201,336 @@
       ]
     },
     {
-      "id": "25618",
+      "id": "perth-running-festival-service-disruption-1",
       "zones": [
-        "central"
+        "east",
+        "central",
+        "west"
       ],
       "mode": "cat",
       "sev": "medium",
-      "title": "Perth Running Festival - Blue & Red CATs and Routes 34, 35, 114, 115, 160, 950 & 995 Disrupted",
-      "routes": "Routes 34, 35, 114, 115, 160, 950, 995, Blue CAT & Red CAT",
+      "title": "Perth Running Festival - Blue & Red CATs and Routes 30, 31, 34, 35, 114, 115, 160, 950 & 995 Disrupted",
+      "routes": "Routes 30, 31, 34, 35, 114, 115, 160, 950, 995, Blue CAT & Red CAT",
       "start": "2026-10-11",
       "end": "2026-10-11",
       "ongoing": false,
-      "loc": "Perth CBD (road closures for Perth Running Festival)",
-      "stops": "Stop-by-stop details not yet published by Transperth (notice says further details coming soon)",
-      "impact": "Sun 11 Oct, all day, Blue and Red CATs and seven bus routes disrupted to facilitate road closures for the Perth Running Festival; affected stops to be confirmed",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25618",
-      "pts": []
+      "loc": "Perth CBD, East Perth and Mounts Bay Rd Crawley (road closures for Perth Running Festival)",
+      "stops": "St Georges Tce, Adelaide Tce, Hay St, Hale St, William St, Mounts Bay Rd, Elizabeth Quay Bus Station, Braithwaite St and CAT stops (32 City stops closed)",
+      "impact": "Sun 11 Oct, first service until 1pm, Blue and Red CATs and routes 30, 31, 34, 35, 114, 115, 160, 950 and 995 disrupted by road closures; 32 City stops not in use; alternatives include Perth Busport and Elizabeth Quay Bus Station stands",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/perth-running-festival-service-disruption-1",
+      "pts": [
+        [
+          -31.953244,
+          115.857005,
+          "William St Stand 7"
+        ],
+        [
+          -31.955901,
+          115.853573,
+          "Elizabeth Quay Bus Stn Stand A1"
+        ],
+        [
+          -31.956207,
+          115.853726,
+          "Elizabeth Quay Bus Stn Stand C3"
+        ],
+        [
+          -31.956154,
+          115.853164,
+          "Elizabeth Quay Bus Stn Stand D1"
+        ],
+        [
+          -31.956127,
+          115.853474,
+          "Elizabeth Quay Bus Stn Stand C2"
+        ],
+        [
+          -31.954427,
+          115.855946,
+          "St Georges Tce Stand 4 - Before William St"
+        ],
+        [
+          -31.955194,
+          115.858282,
+          "St Georges Tce Stand 7 - After William St"
+        ],
+        [
+          -31.956132,
+          115.861181,
+          "St Georges Tce Stand 10 - Before Pier St"
+        ],
+        [
+          -31.957074,
+          115.86406,
+          "St Georges Tce Stand 13 - After Irwin St"
+        ],
+        [
+          -31.957063,
+          115.863401,
+          "St Georges Tce Stand 22 - After Victoria Av"
+        ],
+        [
+          -31.955987,
+          115.860114,
+          "St Georges Tce Stand 25 - Before Barrack St"
+        ],
+        [
+          -31.955213,
+          115.857802,
+          "St Georges Tce Stand 28 - Before Howard St"
+        ],
+        [
+          -31.958393,
+          115.867761,
+          "Adelaide Tce Before Hill St"
+        ],
+        [
+          -31.958221,
+          115.866641,
+          "Adelaide Tce After Hill St"
+        ],
+        [
+          -31.959306,
+          115.870531,
+          "Adelaide Tce Before Bennett St"
+        ],
+        [
+          -31.960416,
+          115.873991,
+          "Adelaide Tce Before Plain St"
+        ],
+        [
+          -31.961902,
+          115.878317,
+          "Adelaide Tce Westend Causeway"
+        ],
+        [
+          -31.957651,
+          115.869409,
+          "Hay St Before Hill St"
+        ],
+        [
+          -31.958746,
+          115.872654,
+          "Hay St Before Bennett St"
+        ],
+        [
+          -31.958237,
+          115.871185,
+          "Hay St Carlton CAT 82"
+        ],
+        [
+          -31.959356,
+          115.8745,
+          "Hay St Plain Street CAT 81"
+        ],
+        [
+          -31.960018,
+          115.876566,
+          "Hay St Queens Gardens CAT 143"
+        ],
+        [
+          -31.959519,
+          115.878171,
+          "Hale St After Hay St"
+        ],
+        [
+          -31.960659,
+          115.880814,
+          "Braithwaite St Trinity College CAT 80"
+        ],
+        [
+          -31.965427,
+          115.840042,
+          "Mounts Bay Rd Old Swan Brewery"
+        ],
+        [
+          -31.958854,
+          115.846138,
+          "Mounts Bay Rd The Mount Hospital"
+        ],
+        [
+          -31.956033,
+          115.848105,
+          "Mounts Bay Rd After Mitchell Fwy"
+        ],
+        [
+          -31.975083,
+          115.822558,
+          "Mounts Bay Rd After Crawley Av"
+        ],
+        [
+          -31.973365,
+          115.82588,
+          "Mounts Bay Rd Before Wingfield Av"
+        ],
+        [
+          -31.975651,
+          115.818712,
+          "Mounts Bay Rd Before Winthrop Av"
+        ],
+        [
+          -31.959584,
+          115.857871,
+          "Barrack Sq Barrack Square CAT 2"
+        ],
+        [
+          -31.954076,
+          115.860597,
+          "Barrack St Hay Street Mall CAT 20"
+        ]
+      ]
+    },
+    {
+      "id": "25813",
+      "zones": [
+        "central"
+      ],
+      "mode": "bus",
+      "sev": "medium",
+      "title": "Routes 24, 27, 32, 33, 39, 72, 73, 160, 176-178, 270, 910, 930, 935 & 940 - St Georges Tce Stops Closed Saturdays",
+      "routes": "Routes 24, 27, 32, 33, 39, 72, 73, 160, 176, 177, 178, 270, 910, 930, 935 & 940",
+      "start": "2026-10-10",
+      "end": "2026-10-24",
+      "ongoing": false,
+      "loc": "St Georges Tce, Perth",
+      "stops": "St Georges Tce Stands 3, 4, 5, 6, 7, 8, 24, 26, 27, 28, 29, 30 (IDs 10118, 10121, 10122, 10123, 10126, 10124, 10081, 10084, 10085, 10087, 10088, 10089)",
+      "impact": "Sat 10, 17 and 24 Oct, first service until 11am, 12 St Georges Tce stops closed for road closures; alternatives include other St Georges Tce stands and Elizabeth Quay Bus Station",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25813",
+      "pts": [
+        [
+          -31.956179,
+          115.860702,
+          "St Georges Tce Stand 24 - Before Barrack St"
+        ],
+        [
+          -31.955362,
+          115.858272,
+          "St Georges Tce Stand 27 - After Sherwood Ct"
+        ],
+        [
+          -31.95553,
+          115.858779,
+          "St Georges Tce Stand 26 - After Barrack St"
+        ],
+        [
+          -31.954226,
+          115.854718,
+          "St Georges Tce Stand 30 - After William St"
+        ],
+        [
+          -31.954527,
+          115.856247,
+          "St Georges Tce Stand 5 - Before William St"
+        ],
+        [
+          -31.955431,
+          115.858987,
+          "St Georges Tce Stand 8 - Before Barrack St"
+        ],
+        [
+          -31.954285,
+          115.855513,
+          "St Georges Tce Stand 3 - Before William St"
+        ],
+        [
+          -31.954978,
+          115.857602,
+          "St Georges Tce Stand 6 - After William St"
+        ],
+        [
+          -31.954921,
+          115.856922,
+          "St Georges Tce Stand 29 - Before William St"
+        ],
+        [
+          -31.954427,
+          115.855946,
+          "St Georges Tce Stand 4 - Before William St"
+        ],
+        [
+          -31.955194,
+          115.858282,
+          "St Georges Tce Stand 7 - After William St"
+        ],
+        [
+          -31.955213,
+          115.857802,
+          "St Georges Tce Stand 28 - Before Howard St"
+        ]
+      ]
+    },
+    {
+      "id": "25812",
+      "zones": [
+        "west"
+      ],
+      "mode": "cat",
+      "sev": "low",
+      "title": "Route 28 & Yellow CAT - Colin St Stop Closed",
+      "routes": "Route 28 & Yellow CAT",
+      "start": "2026-10-10",
+      "end": "2026-10-10",
+      "ongoing": false,
+      "loc": "Wellington St (Colin St CAT 62), West Perth",
+      "stops": "Colin Street CAT 62 (ID 23087)",
+      "impact": "Sat 10 Oct, 9am to 2pm, Yellow CAT stop closed for road closures; alternative is Harold Boas Gardens CAT 41",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25812",
+      "pts": [
+        [
+          -31.946352,
+          115.842759,
+          "Colin Street (CAT 62)"
+        ]
+      ]
+    },
+    {
+      "id": "25814",
+      "zones": [
+        "west"
+      ],
+      "mode": "cat",
+      "sev": "low",
+      "title": "Routes 950, 995 & Purple CAT - UWA CAT Stop Closed",
+      "routes": "Routes 950, 995 & Purple CAT",
+      "start": "2026-10-10",
+      "end": "2026-10-10",
+      "ongoing": false,
+      "loc": "Stirling Hwy (UWA CAT 121), Crawley",
+      "stops": "UWA CAT 121 (ID 26723)",
+      "impact": "Sat 10 Oct, 8am to 5pm, Purple CAT stop closed; alternative is Stirling Hwy opposite University of WA",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25814",
+      "pts": [
+        [
+          -31.976598,
+          115.815043,
+          "UWA (CAT 121)"
+        ]
+      ]
+    },
+    {
+      "id": "25810",
+      "zones": [
+        "west"
+      ],
+      "mode": "bus",
+      "sev": "low",
+      "title": "Route 25 - Monash Av Stop Closed",
+      "routes": "Route 25",
+      "start": "2026-10-09",
+      "end": "2026-10-10",
+      "ongoing": false,
+      "loc": "Monash Av, Nedlands",
+      "stops": "Monash Av after Clifton St (ID 17386)",
+      "impact": "Fri 9 and Sat 10 Oct, 7am to 2pm, single Nedlands bus stop closed for road closures; alternatives include Monash Avenue CAT 117",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25810",
+      "pts": [
+        [
+          -31.970625,
+          115.810744,
+          "Monash Av After Clifton St"
+        ]
+      ]
     },
     {
       "id": "25772",
