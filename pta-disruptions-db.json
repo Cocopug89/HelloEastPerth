@@ -1,8 +1,8 @@
 {
   "meta": {
-    "db_version": 68,
+    "db_version": 69,
     "first_built": "2026-07-08",
-    "last_scrape": "2026-10-09",
+    "last_scrape": "2026-10-10",
     "source": "https://www.transperth.wa.gov.au/service-updates",
     "coordinate_source": "data.wa.gov.au PTA-001 (ArcGIS: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Transport/MapServer/14). Query by stopnumber (bus/CAT) or stopname LIKE (rail), outSR=4326. Exact stop/station coordinates, not approximations.",
     "scope": "City of Perth LGA only",
@@ -509,6 +509,30 @@
       ]
     },
     {
+      "id": "25825",
+      "zones": [
+        "central"
+      ],
+      "mode": "cat",
+      "sev": "low",
+      "title": "Blue CAT - Hay Street Mall Stop Closed Nightly",
+      "routes": "Blue CAT",
+      "start": "2026-10-12",
+      "end": "2026-10-14",
+      "ongoing": false,
+      "loc": "Barrack St (Hay Street Mall CAT 20), Perth",
+      "stops": "Hay Street Mall CAT 20 (ID 28509)",
+      "impact": "Mon 12 Oct - Wed 14 Oct, nightly from 7pm until last service, Blue CAT stop closed for road closures; alternatives are Barrack Square CAT 2 and WA Museum Boola Bardip CAT 19",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25825",
+      "pts": [
+        [
+          -31.954076,
+          115.860597,
+          "Barrack St Hay Street Mall CAT 20"
+        ]
+      ]
+    },
+    {
       "id": "25810",
       "zones": [
         "west"
@@ -994,6 +1018,26 @@
     {
       "id": "22483",
       "reason": "Routes 30/34/72/73/101/920/999 stops are Hayman Rd / Curtin Bus Station, Bentley - outside the City."
+    },
+    {
+      "id": "25824",
+      "reason": "Route 38 and train replacement 907/908 stops are Mint St / Shepperton Rd / Archer St, East Victoria Park and Carlisle - outside the City."
+    },
+    {
+      "id": "25823",
+      "reason": "Routes 910 & 998 stops are Queen Victoria St, Fremantle - outside the City."
+    },
+    {
+      "id": "25839",
+      "reason": "Route 950 stops are Beaufort St, Mount Lawley / Inglewood - outside the City."
+    },
+    {
+      "id": "25829",
+      "reason": "Routes 403, 404 & 990 stops are in North Perth - outside the City."
+    },
+    {
+      "id": "25833",
+      "reason": "Routes 24, 995, 998 & 999 stops are Leura Av, Claremont - outside the City."
     }
   ]
 }
