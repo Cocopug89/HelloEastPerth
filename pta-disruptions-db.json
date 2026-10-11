@@ -1,8 +1,8 @@
 {
   "meta": {
-    "db_version": 69,
+    "db_version": 70,
     "first_built": "2026-07-08",
-    "last_scrape": "2026-10-10",
+    "last_scrape": "2026-10-11",
     "source": "https://www.transperth.wa.gov.au/service-updates",
     "coordinate_source": "data.wa.gov.au PTA-001 (ArcGIS: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Transport/MapServer/14). Query by stopnumber (bus/CAT) or stopname LIKE (rail), outSR=4326. Exact stop/station coordinates, not approximations.",
     "scope": "City of Perth LGA only",
@@ -461,54 +461,6 @@
       ]
     },
     {
-      "id": "25812",
-      "zones": [
-        "west"
-      ],
-      "mode": "cat",
-      "sev": "low",
-      "title": "Route 28 & Yellow CAT - Colin St Stop Closed",
-      "routes": "Route 28 & Yellow CAT",
-      "start": "2026-10-10",
-      "end": "2026-10-10",
-      "ongoing": false,
-      "loc": "Wellington St (Colin St CAT 62), West Perth",
-      "stops": "Colin Street CAT 62 (ID 23087)",
-      "impact": "Sat 10 Oct, 9am to 2pm, Yellow CAT stop closed for road closures; alternative is Harold Boas Gardens CAT 41",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25812",
-      "pts": [
-        [
-          -31.946352,
-          115.842759,
-          "Colin Street (CAT 62)"
-        ]
-      ]
-    },
-    {
-      "id": "25814",
-      "zones": [
-        "west"
-      ],
-      "mode": "cat",
-      "sev": "low",
-      "title": "Routes 950, 995 & Purple CAT - UWA CAT Stop Closed",
-      "routes": "Routes 950, 995 & Purple CAT",
-      "start": "2026-10-10",
-      "end": "2026-10-10",
-      "ongoing": false,
-      "loc": "Stirling Hwy (UWA CAT 121), Crawley",
-      "stops": "UWA CAT 121 (ID 26723)",
-      "impact": "Sat 10 Oct, 8am to 5pm, Purple CAT stop closed; alternative is Stirling Hwy opposite University of WA",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25814",
-      "pts": [
-        [
-          -31.976598,
-          115.815043,
-          "UWA (CAT 121)"
-        ]
-      ]
-    },
-    {
       "id": "25825",
       "zones": [
         "central"
@@ -529,30 +481,6 @@
           -31.954076,
           115.860597,
           "Barrack St Hay Street Mall CAT 20"
-        ]
-      ]
-    },
-    {
-      "id": "25810",
-      "zones": [
-        "west"
-      ],
-      "mode": "bus",
-      "sev": "low",
-      "title": "Route 25 - Monash Av Stop Closed",
-      "routes": "Route 25",
-      "start": "2026-10-09",
-      "end": "2026-10-10",
-      "ongoing": false,
-      "loc": "Monash Av, Nedlands",
-      "stops": "Monash Av after Clifton St (ID 17386)",
-      "impact": "Fri 9 and Sat 10 Oct, 7am to 2pm, single Nedlands bus stop closed for road closures; alternatives include Monash Avenue CAT 117",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25810",
-      "pts": [
-        [
-          -31.970625,
-          115.810744,
-          "Monash Av After Clifton St"
         ]
       ]
     },
@@ -1038,6 +966,54 @@
     {
       "id": "25833",
       "reason": "Routes 24, 995, 998 & 999 stops are Leura Av, Claremont - outside the City."
+    },
+    {
+      "id": "25826",
+      "reason": "Routes 574 & 585 stop is Lake Valley Dr, Lakelands - outside the City."
+    },
+    {
+      "id": "25827",
+      "reason": "Routes 308/310/312 stops are Hamersley St / Margaret St, Midland - outside the City."
+    },
+    {
+      "id": "25828",
+      "reason": "Route 275 stop is Canning Rd, Kalamunda - outside the City."
+    },
+    {
+      "id": "25830",
+      "reason": "Route 550 stops are Kent St, Rockingham - outside the City."
+    },
+    {
+      "id": "25831",
+      "reason": "Route 990 stop is Scarborough Beach Rd, Osborne Park - outside the City."
+    },
+    {
+      "id": "25832",
+      "reason": "Route 520 stop is Semple Ct, Cockburn Central - outside the City."
+    },
+    {
+      "id": "25835",
+      "reason": "Routes 503/513/998/999 stops are South St, Kardinya - outside the City."
+    },
+    {
+      "id": "25836",
+      "reason": "Route 95 stop is Harborne St, Wembley - outside the City."
+    },
+    {
+      "id": "25837",
+      "reason": "Routes 543 & 544 stops are Sulphur Rd, Bertram - outside the City."
+    },
+    {
+      "id": "25838",
+      "reason": "Route 160 stop is North Lake Rd, Winthrop - outside the City."
+    },
+    {
+      "id": "25840",
+      "reason": "Route 551 stops are Parkin St, Rockingham - outside the City."
+    },
+    {
+      "id": "25841",
+      "reason": "Airport, Ellenbrook, Fremantle and Midland lines delays (technical issue, 11 Oct); network-wide, names no single City station or stop."
     }
   ]
 }
