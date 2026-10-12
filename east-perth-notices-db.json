@@ -2,7 +2,7 @@
  "meta": {
   "db_version": 2,
   "first_built": "2026-07-05",
-  "last_scrape": "2026-10-11",
+  "last_scrape": "2026-10-12",
   "source": "https://perth.wa.gov.au/public-notices/all-public-notices",
   "note": "Assessed record of City of Perth public notices. On each weekly scrape, only refs NOT already present here are fetched/assessed; open/closed status is recomputed from stored close dates. Items no longer on the City list are marked archived rather than deleted."
  },
@@ -554,8 +554,8 @@
    "assessed": true,
    "firstSeen": "2026-09-04",
    "lastSeen": "2026-10-11",
-   "onCityList": true,
-   "archived": false,
+   "onCityList": false,
+   "archived": true,
    "slug": "wellington-street-overpass-renewal-tender-no-rft000301"
   },
   {
@@ -570,8 +570,8 @@
    "assessed": true,
    "firstSeen": "2026-09-09",
    "lastSeen": "2026-10-11",
-   "onCityList": true,
-   "archived": false
+   "onCityList": false,
+   "archived": true
   },
   {
    "ref": "RFT000300",
@@ -584,7 +584,7 @@
    "kind": "tender",
    "assessed": true,
    "firstSeen": "2026-09-09",
-   "lastSeen": "2026-10-11",
+   "lastSeen": "2026-10-12",
    "onCityList": true,
    "archived": false
   },
@@ -599,7 +599,7 @@
    "kind": "consultation",
    "assessed": true,
    "firstSeen": "2026-10-03",
-   "lastSeen": "2026-10-11",
+   "lastSeen": "2026-10-12",
    "onCityList": true,
    "archived": false
   },
@@ -614,7 +614,7 @@
    "kind": "consultation",
    "assessed": true,
    "firstSeen": "2026-10-10",
-   "lastSeen": "2026-10-11",
+   "lastSeen": "2026-10-12",
    "onCityList": true,
    "archived": false
   }
@@ -631,7 +631,7 @@
    "closes": "2026-09-25",
    "assessed": true,
    "firstSeen": "2026-07-08",
-   "lastSeen": "2026-10-11",
+   "lastSeen": "2026-10-12",
    "onCityList": true,
    "archived": false
   },
@@ -646,7 +646,7 @@
    "closes": "2026-09-25",
    "assessed": true,
    "firstSeen": "2026-07-08",
-   "lastSeen": "2026-10-11",
+   "lastSeen": "2026-10-12",
    "onCityList": true,
    "archived": false
   },
@@ -661,7 +661,7 @@
    "closes": "2026-07-15",
    "assessed": true,
    "firstSeen": "2026-07-05",
-   "lastSeen": "2026-10-11",
+   "lastSeen": "2026-10-12",
    "onCityList": true,
    "archived": false
   },
@@ -676,7 +676,7 @@
    "closes": "2026-06-18",
    "assessed": true,
    "firstSeen": "2026-07-05",
-   "lastSeen": "2026-10-11",
+   "lastSeen": "2026-10-12",
    "onCityList": true,
    "archived": false
   },
@@ -691,7 +691,7 @@
    "closes": "2026-02-18",
    "assessed": true,
    "firstSeen": "2026-07-05",
-   "lastSeen": "2026-10-11",
+   "lastSeen": "2026-10-12",
    "onCityList": true,
    "archived": false
   },
@@ -706,7 +706,7 @@
    "closes": "2026-01-17",
    "assessed": true,
    "firstSeen": "2026-07-05",
-   "lastSeen": "2026-10-11",
+   "lastSeen": "2026-10-12",
    "onCityList": true,
    "archived": false
   },
@@ -721,7 +721,7 @@
    "closes": "2026-01-17",
    "assessed": true,
    "firstSeen": "2026-07-05",
-   "lastSeen": "2026-10-11",
+   "lastSeen": "2026-10-12",
    "onCityList": true,
    "archived": false
   },
@@ -766,7 +766,7 @@
    "closes": "",
    "assessed": true,
    "firstSeen": "2026-07-05",
-   "lastSeen": "2026-10-11",
+   "lastSeen": "2026-10-12",
    "onCityList": true,
    "archived": false
   },
@@ -782,7 +782,7 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-10-11",
+   "lastSeen": "2026-10-12",
    "onCityList": true,
    "archived": false
   },
@@ -798,7 +798,7 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-10-11",
+   "lastSeen": "2026-10-12",
    "onCityList": true,
    "archived": false
   },
@@ -814,7 +814,7 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-10-11",
+   "lastSeen": "2026-10-12",
    "onCityList": true,
    "archived": false
   },
@@ -830,9 +830,9 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-10-06",
-   "onCityList": false,
-   "archived": true
+   "lastSeen": "2026-10-12",
+   "onCityList": true,
+   "archived": false
   },
   {
    "typ": "Governance",
@@ -846,7 +846,7 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-10-11",
+   "lastSeen": "2026-10-12",
    "onCityList": true,
    "archived": false
   },
@@ -862,7 +862,7 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-10-11",
+   "lastSeen": "2026-10-12",
    "onCityList": true,
    "archived": false
   },
@@ -878,7 +878,7 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-10-11",
+   "lastSeen": "2026-10-12",
    "onCityList": true,
    "archived": false
   },
@@ -894,7 +894,7 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-10-11",
+   "lastSeen": "2026-10-12",
    "onCityList": true,
    "archived": false
   },
@@ -910,9 +910,9 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-10-09",
-   "onCityList": false,
-   "archived": true
+   "lastSeen": "2026-10-12",
+   "onCityList": true,
+   "archived": false
   },
   {
    "typ": "Governance",
@@ -926,9 +926,9 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-10-07",
-   "onCityList": false,
-   "archived": true
+   "lastSeen": "2026-10-12",
+   "onCityList": true,
+   "archived": false
   },
   {
    "typ": "Governance",
@@ -942,9 +942,9 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-10-06",
-   "onCityList": false,
-   "archived": true
+   "lastSeen": "2026-10-12",
+   "onCityList": true,
+   "archived": false
   },
   {
    "typ": "Governance",
@@ -958,9 +958,9 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-10-05",
-   "onCityList": false,
-   "archived": true
+   "lastSeen": "2026-10-12",
+   "onCityList": true,
+   "archived": false
   },
   {
    "typ": "Governance",
@@ -974,9 +974,9 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-10-05",
-   "onCityList": false,
-   "archived": true
+   "lastSeen": "2026-10-12",
+   "onCityList": true,
+   "archived": false
   },
   {
    "typ": "Governance",
@@ -1020,7 +1020,7 @@
    "kind": "notice",
    "assessed": true,
    "firstSeen": "2026-08-02",
-   "lastSeen": "2026-10-11",
+   "lastSeen": "2026-10-12",
    "onCityList": true,
    "archived": false
   },
@@ -1035,7 +1035,7 @@
    "kind": "notice",
    "assessed": true,
    "firstSeen": "2026-08-02",
-   "lastSeen": "2026-10-11",
+   "lastSeen": "2026-10-12",
    "onCityList": true,
    "archived": false
   },
@@ -1050,7 +1050,7 @@
    "closes": "2026-09-17",
    "assessed": true,
    "firstSeen": "2026-09-03",
-   "lastSeen": "2026-10-11",
+   "lastSeen": "2026-10-12",
    "onCityList": true,
    "archived": false
   },
