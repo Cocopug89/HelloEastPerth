@@ -1,8 +1,8 @@
 {
   "meta": {
-    "db_version": 70,
+    "db_version": 71,
     "first_built": "2026-07-08",
-    "last_scrape": "2026-10-11",
+    "last_scrape": "2026-10-12",
     "source": "https://www.transperth.wa.gov.au/service-updates",
     "coordinate_source": "data.wa.gov.au PTA-001 (ArcGIS: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Transport/MapServer/14). Query by stopnumber (bus/CAT) or stopname LIKE (rail), outSR=4326. Exact stop/station coordinates, not approximations.",
     "scope": "City of Perth LGA only",
@@ -142,242 +142,6 @@
           -31.95118,
           115.86004,
           "Perth Station"
-        ]
-      ]
-    },
-    {
-      "id": "25719",
-      "zones": [
-        "central",
-        "west"
-      ],
-      "mode": "bus",
-      "sev": "medium",
-      "title": "Routes 28, 30, 31, 81-85 & 910 - CBD and West Perth Stops Closed",
-      "routes": "Routes 28, 30, 31, 81, 82, 83, 84, 85 & 910",
-      "start": "2026-10-03",
-      "end": "2026-10-11",
-      "ongoing": false,
-      "loc": "Wellington St, Sutherland St, Milligan St, St Georges Tce - Perth and West Perth",
-      "stops": "Wellington St after George St (12927), Watertown CAT 61 (23086), St Georges Tce Stand 1 CAT 31 (10117), Milligan St after Murray St (28732), Sutherland St CAT 36 (26654), St Georges Tce Stand 2 (10116), St Georges Tce Stand 5 (10122)",
-      "impact": "Sat 3, Sun 4, Sat 10 and Sun 11 Oct, daily from first service until 4pm, seven CBD and West Perth stops closed for road closures; alternatives include Harold Boas Gardens CAT 41, Elizabeth Quay Bus Station Stand A2, City West Station CAT 37, St Georges Tce Stand 8 and Perth Busport",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25719",
-      "pts": [
-        [
-          -31.948376,
-          115.848999,
-          "Wellington St after George St"
-        ],
-        [
-          -31.947651,
-          115.846759,
-          "Wellington St Watertown (CAT 61)"
-        ],
-        [
-          -31.953112,
-          115.851916,
-          "St Georges Tce Stand 1 (CAT 31)"
-        ],
-        [
-          -31.951124,
-          115.852017,
-          "Milligan St after Murray St"
-        ],
-        [
-          -31.946253,
-          115.846909,
-          "Sutherland St (CAT 36)"
-        ],
-        [
-          -31.953346,
-          115.852632,
-          "St Georges Tce Stand 2"
-        ],
-        [
-          -31.954527,
-          115.856247,
-          "St Georges Tce Stand 5"
-        ]
-      ]
-    },
-    {
-      "id": "perth-running-festival-service-disruption-1",
-      "zones": [
-        "east",
-        "central",
-        "west"
-      ],
-      "mode": "cat",
-      "sev": "medium",
-      "title": "Perth Running Festival - Blue & Red CATs and Routes 30, 31, 34, 35, 114, 115, 160, 950 & 995 Disrupted",
-      "routes": "Routes 30, 31, 34, 35, 114, 115, 160, 950, 995, Blue CAT & Red CAT",
-      "start": "2026-10-11",
-      "end": "2026-10-11",
-      "ongoing": false,
-      "loc": "Perth CBD, East Perth and Mounts Bay Rd Crawley (road closures for Perth Running Festival)",
-      "stops": "St Georges Tce, Adelaide Tce, Hay St, Hale St, William St, Mounts Bay Rd, Elizabeth Quay Bus Station, Braithwaite St and CAT stops (32 City stops closed)",
-      "impact": "Sun 11 Oct, first service until 1pm, Blue and Red CATs and routes 30, 31, 34, 35, 114, 115, 160, 950 and 995 disrupted by road closures; 32 City stops not in use; alternatives include Perth Busport and Elizabeth Quay Bus Station stands",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/perth-running-festival-service-disruption-1",
-      "pts": [
-        [
-          -31.953244,
-          115.857005,
-          "William St Stand 7"
-        ],
-        [
-          -31.955901,
-          115.853573,
-          "Elizabeth Quay Bus Stn Stand A1"
-        ],
-        [
-          -31.956207,
-          115.853726,
-          "Elizabeth Quay Bus Stn Stand C3"
-        ],
-        [
-          -31.956154,
-          115.853164,
-          "Elizabeth Quay Bus Stn Stand D1"
-        ],
-        [
-          -31.956127,
-          115.853474,
-          "Elizabeth Quay Bus Stn Stand C2"
-        ],
-        [
-          -31.954427,
-          115.855946,
-          "St Georges Tce Stand 4 - Before William St"
-        ],
-        [
-          -31.955194,
-          115.858282,
-          "St Georges Tce Stand 7 - After William St"
-        ],
-        [
-          -31.956132,
-          115.861181,
-          "St Georges Tce Stand 10 - Before Pier St"
-        ],
-        [
-          -31.957074,
-          115.86406,
-          "St Georges Tce Stand 13 - After Irwin St"
-        ],
-        [
-          -31.957063,
-          115.863401,
-          "St Georges Tce Stand 22 - After Victoria Av"
-        ],
-        [
-          -31.955987,
-          115.860114,
-          "St Georges Tce Stand 25 - Before Barrack St"
-        ],
-        [
-          -31.955213,
-          115.857802,
-          "St Georges Tce Stand 28 - Before Howard St"
-        ],
-        [
-          -31.958393,
-          115.867761,
-          "Adelaide Tce Before Hill St"
-        ],
-        [
-          -31.958221,
-          115.866641,
-          "Adelaide Tce After Hill St"
-        ],
-        [
-          -31.959306,
-          115.870531,
-          "Adelaide Tce Before Bennett St"
-        ],
-        [
-          -31.960416,
-          115.873991,
-          "Adelaide Tce Before Plain St"
-        ],
-        [
-          -31.961902,
-          115.878317,
-          "Adelaide Tce Westend Causeway"
-        ],
-        [
-          -31.957651,
-          115.869409,
-          "Hay St Before Hill St"
-        ],
-        [
-          -31.958746,
-          115.872654,
-          "Hay St Before Bennett St"
-        ],
-        [
-          -31.958237,
-          115.871185,
-          "Hay St Carlton CAT 82"
-        ],
-        [
-          -31.959356,
-          115.8745,
-          "Hay St Plain Street CAT 81"
-        ],
-        [
-          -31.960018,
-          115.876566,
-          "Hay St Queens Gardens CAT 143"
-        ],
-        [
-          -31.959519,
-          115.878171,
-          "Hale St After Hay St"
-        ],
-        [
-          -31.960659,
-          115.880814,
-          "Braithwaite St Trinity College CAT 80"
-        ],
-        [
-          -31.965427,
-          115.840042,
-          "Mounts Bay Rd Old Swan Brewery"
-        ],
-        [
-          -31.958854,
-          115.846138,
-          "Mounts Bay Rd The Mount Hospital"
-        ],
-        [
-          -31.956033,
-          115.848105,
-          "Mounts Bay Rd After Mitchell Fwy"
-        ],
-        [
-          -31.975083,
-          115.822558,
-          "Mounts Bay Rd After Crawley Av"
-        ],
-        [
-          -31.973365,
-          115.82588,
-          "Mounts Bay Rd Before Wingfield Av"
-        ],
-        [
-          -31.975651,
-          115.818712,
-          "Mounts Bay Rd Before Winthrop Av"
-        ],
-        [
-          -31.959584,
-          115.857871,
-          "Barrack Sq Barrack Square CAT 2"
-        ],
-        [
-          -31.954076,
-          115.860597,
-          "Barrack St Hay Street Mall CAT 20"
         ]
       ]
     },
@@ -1014,6 +778,34 @@
     {
       "id": "25841",
       "reason": "Airport, Ellenbrook, Fremantle and Midland lines delays (technical issue, 11 Oct); network-wide, names no single City station or stop."
+    },
+    {
+      "id": "25797",
+      "reason": "Routes 37, 39 & 284 stop is Belmont Av, Cloverdale - outside the City."
+    },
+    {
+      "id": "25732",
+      "reason": "Route 999 stops are South St, Kardinya - outside the City."
+    },
+    {
+      "id": "25734",
+      "reason": "Routes 111 & 910 stop is Canning Hwy, Applecross - outside the City."
+    },
+    {
+      "id": "25656",
+      "reason": "Routes 111 & 910 stops are Canning Hwy, Melville / Applecross - outside the City."
+    },
+    {
+      "id": "25387",
+      "reason": "Route 935 stops are Belvidere St / Epsom Av, Belmont / Redcliffe - outside the City."
+    },
+    {
+      "id": "25210",
+      "reason": "Route 356 stops are Thorburn Av, Beechboro - outside the City."
+    },
+    {
+      "id": "25791",
+      "reason": "Routes 355 & 356 stops are Altone Rd / Thorburn Av, Bennett Springs / Beechboro - outside the City."
     }
   ]
 }
