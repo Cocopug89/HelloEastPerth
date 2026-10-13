@@ -73,4 +73,13 @@ window.EPCG_EVENTS = [
     venue:"Perth Mint, 310 Hay St, East Perth",
     note:"A relaxed evening for East Perth residents, local businesses and school communities. No presentations and no long meetings, just food on the house and a chance to meet the people who share the neighbourhood. Drop in when it suits. Run by Doing Co.",
     url:"https://events.humanitix.com/inner-east-perth-get-together" }
+  ,
+  /* Added 13 Oct 2026 on Jason's instruction, from the venue's Instagram poster (@shoppeonlangley,
+     posted 13 Oct). Not in the scrape (checked Live Site, zero rows for Shoppe, Kaya or Indonesian).
+     Date, hours, venue and free entry are from the poster; address from the VisitPerth venue page.
+     No event page was found, so the link is the venue's Instagram, where the post lives. */
+  { d:"2026-11-01", t:"Kaya Festival: Indonesian Food and Ping Pong Exhibition", type:"community", time:"10 am to 4 pm",
+    venue:"Shoppe on Langley Park, 30 Terrace Road, East Perth",
+    note:"Free entry. Indonesian food and a ping pong exhibition under the canopy at Shoppe on Langley Park. Supporters named on the poster include the Indonesian Chamber of Commerce WA and Hot Shot Table Tennis Centre.",
+    url:"https://www.instagram.com/shoppeonlangley/" }
 ];
