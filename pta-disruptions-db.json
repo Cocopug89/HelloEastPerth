@@ -1,8 +1,8 @@
 {
   "meta": {
-    "db_version": 71,
+    "db_version": 72,
     "first_built": "2026-07-08",
-    "last_scrape": "2026-10-12",
+    "last_scrape": "2026-10-13",
     "source": "https://www.transperth.wa.gov.au/service-updates",
     "coordinate_source": "data.wa.gov.au PTA-001 (ArcGIS: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Transport/MapServer/14). Query by stopnumber (bus/CAT) or stopname LIKE (rail), outSR=4326. Exact stop/station coordinates, not approximations.",
     "scope": "City of Perth LGA only",
@@ -391,9 +391,79 @@
           "Perth Station"
         ]
       ]
+    },
+    {
+      "id": "november-service-changes",
+      "zones": [
+        "east"
+      ],
+      "mode": "bus",
+      "sev": "low",
+      "title": "Routes 111 & 160 - Hay St East Perth CAT Stops Dropped, Queens Gardens CAT Stop Used (from 1 Nov)",
+      "routes": "Routes 111 & 160",
+      "start": "2026-11-01",
+      "end": "",
+      "ongoing": true,
+      "loc": "Hay St, East Perth",
+      "stops": "Hay St Plain Street CAT 81 (ID 16906) and Hay St Carlton CAT 82 (ID 16907) no longer served; Hay St Queens Gardens CAT 143 (ID 28765) served instead",
+      "impact": "From Sun 1 Nov, Routes 111 and 160 stop serving two Hay St East Perth stops and use the Queens Gardens CAT stop instead (part of the November Service Changes; CAT services also get time changes)",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/november-service-changes",
+      "pts": [
+        [
+          -31.959356,
+          115.8745,
+          "Hay St Plain Street CAT 81"
+        ],
+        [
+          -31.958237,
+          115.871185,
+          "Hay St Carlton CAT 82"
+        ],
+        [
+          -31.960018,
+          115.876566,
+          "Hay St Queens Gardens CAT 143"
+        ]
+      ]
     }
   ],
   "excluded_examples": [
+    {
+      "id": "25850",
+      "reason": "Routes 38/998/999 stops are Wright St, Kewdale - outside the City."
+    },
+    {
+      "id": "25851",
+      "reason": "Routes 27 & 102 stop is Shenton Rd, Swanbourne - outside the City."
+    },
+    {
+      "id": "25857",
+      "reason": "Routes 177 & 178 stop is Berwick St, St James - outside the City; Elizabeth Quay is only the destination."
+    },
+    {
+      "id": "25854",
+      "reason": "Routes 935 & 999 stop is Hardey Rd, Belmont - outside the City."
+    },
+    {
+      "id": "25845",
+      "reason": "Route 82 stops are The Boulevard, Floreat / City Beach / Wembley Downs - outside the City."
+    },
+    {
+      "id": "25847",
+      "reason": "Routes 402/403/990 stops are Leederville / North Perth - outside the City."
+    },
+    {
+      "id": "25848",
+      "reason": "Route 406 stop is Green St, Joondanna - outside the City."
+    },
+    {
+      "id": "25849",
+      "reason": "Route 403 stop is Edinboro St, Mount Hawthorn - outside the City."
+    },
+    {
+      "id": "24934",
+      "reason": "Routes 81-85 & 650 stop is Cambridge St, West Leederville - outside the City."
+    },
     {
       "id": "25488",
       "reason": "Yanchep Line closure is Butler/Joondalup/Clarkson-Yanchep; detail page now gives the segment and no City of Perth station is in it."
