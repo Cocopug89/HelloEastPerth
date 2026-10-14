@@ -1,8 +1,8 @@
 {
   "meta": {
-    "db_version": 72,
+    "db_version": 73,
     "first_built": "2026-07-08",
-    "last_scrape": "2026-10-13",
+    "last_scrape": "2026-10-14",
     "source": "https://www.transperth.wa.gov.au/service-updates",
     "coordinate_source": "data.wa.gov.au PTA-001 (ArcGIS: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Transport/MapServer/14). Query by stopnumber (bus/CAT) or stopname LIKE (rail), outSR=4326. Exact stop/station coordinates, not approximations.",
     "scope": "City of Perth LGA only",
@@ -16,7 +16,8 @@
       "25767/25787 Mandurah Line (Cockburn Central or Rockingham to Mandurah)",
       "25768 Thornlie-Cockburn Line (Cannington to Cockburn Central)",
       "25784/25785/25786 Ellenbrook, Airport, Yanchep lines (outer sections only)",
-      "25730, 25718, 25579, 24970, 22483, 23544, 25815, 24613, 25741, 25764, 23615, 25052 and 25737 (all affected stops outside the City)"
+      "25730, 25718, 25579, 24970, 22483, 23544, 25815, 24613, 25741, 25764, 23615, 25052 and 25737 (all affected stops outside the City)",
+      "25863 Route 41 (Caledonian Av, Maylands), 25862, 25865, 25868, 25853, 25400 (all outside the City)"
     ]
   },
   "disruptions": [
@@ -389,6 +390,78 @@
           -31.95118,
           115.86004,
           "Perth Station"
+        ]
+      ]
+    },
+    {
+      "id": "east-perth-station-lift-disruption-14",
+      "zones": [
+        "east"
+      ],
+      "mode": "train",
+      "sev": "low",
+      "title": "East Perth Station - Lift Closures",
+      "routes": "Airport, Ellenbrook & Midland lines",
+      "start": "2026-10-14",
+      "end": "2026-10-15",
+      "ongoing": false,
+      "loc": "East Perth Station",
+      "stops": "East Perth Station western and eastern car park lifts",
+      "impact": "Wed 14 Oct 6-10am western car park lift closed; Wed 14 Oct 10am-4pm and Thu 15 Oct 6am-4pm eastern car park lift closed; platform lifts and stairs remain open; call 1800 800 022 an hour before travel for assistance",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/east-perth-station-lift-disruption-14",
+      "pts": [
+        [
+          -31.944252778175798,
+          115.8771627782783,
+          "East Perth Station Platform 1"
+        ]
+      ]
+    },
+    {
+      "id": "perth-station-escalator-disruption-14",
+      "zones": [
+        "central"
+      ],
+      "mode": "train",
+      "sev": "low",
+      "title": "Perth Station - Platform 8/9 Escalators Out of Service",
+      "routes": "Perth Station",
+      "start": "2026-10-05",
+      "end": "2026-10-23",
+      "ongoing": false,
+      "loc": "Perth Station",
+      "stops": "Perth Station Platform 8/9 eastern end escalators",
+      "impact": "Mon 5 Oct to Fri 23 Oct, escalators at the eastern end of Platform 8/9 out of service; lifts and stairs are the alternative",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/perth-station-escalator-disruption-14",
+      "pts": [
+        [
+          -31.95118,
+          115.86004,
+          "Perth Station"
+        ]
+      ]
+    },
+    {
+      "id": "25860",
+      "zones": [
+        "west"
+      ],
+      "mode": "cat",
+      "sev": "low",
+      "title": "Green CAT - Colin St South Stop Closed",
+      "routes": "Green CAT",
+      "start": "2026-10-15",
+      "end": "2026-10-16",
+      "ongoing": false,
+      "loc": "Colin St, West Perth",
+      "stops": "Colin St South CAT 33 (ID 26650)",
+      "impact": "Thu 15 and Fri 16 Oct, 9am to 3pm, Green CAT stop closed for road closures; alternatives are stops 10094 (Kings Park Rd Dumas House CAT 32) and 26652 (Colin St North CAT 34)",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25860",
+      "pts": [
+        [
+          -31.95128115081096,
+          115.84093781804877,
+          "Colin St South CAT 33"
         ]
       ]
     },
@@ -876,6 +949,30 @@
     {
       "id": "25791",
       "reason": "Routes 355 & 356 stops are Altone Rd / Thorburn Av, Bennett Springs / Beechboro - outside the City."
+    },
+    {
+      "id": "25863",
+      "reason": "Route 41 stops are Caledonian Av, Maylands - outside the City."
+    },
+    {
+      "id": "25862",
+      "reason": "Route 998 stop is Leach Hwy, Shelley - outside the City."
+    },
+    {
+      "id": "25865",
+      "reason": "Route 345 stop is Great Northern Hwy, Bullsbrook - outside the City."
+    },
+    {
+      "id": "25868",
+      "reason": "Route 391 stop is Jewel Way, Banksia Grove - outside the City."
+    },
+    {
+      "id": "25853",
+      "reason": "Route 553 stops are in Rockingham - outside the City."
+    },
+    {
+      "id": "25400",
+      "reason": "Route 425 stop is Okely Rd, Carine - outside the City."
     }
   ]
 }
