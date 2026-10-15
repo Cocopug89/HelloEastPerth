@@ -1,8 +1,8 @@
 {
   "meta": {
-    "db_version": 73,
+    "db_version": 74,
     "first_built": "2026-07-08",
-    "last_scrape": "2026-10-14",
+    "last_scrape": "2026-10-15",
     "source": "https://www.transperth.wa.gov.au/service-updates",
     "coordinate_source": "data.wa.gov.au PTA-001 (ArcGIS: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Transport/MapServer/14). Query by stopnumber (bus/CAT) or stopname LIKE (rail), outSR=4326. Exact stop/station coordinates, not approximations.",
     "scope": "City of Perth LGA only",
@@ -17,7 +17,8 @@
       "25768 Thornlie-Cockburn Line (Cannington to Cockburn Central)",
       "25784/25785/25786 Ellenbrook, Airport, Yanchep lines (outer sections only)",
       "25730, 25718, 25579, 24970, 22483, 23544, 25815, 24613, 25741, 25764, 23615, 25052 and 25737 (all affected stops outside the City)",
-      "25863 Route 41 (Caledonian Av, Maylands), 25862, 25865, 25868, 25853, 25400 (all outside the City)"
+      "25863 Route 41 (Caledonian Av, Maylands), 25862, 25865, 25868, 25853, 25400 (all outside the City)",
+      "25870, 25871, 25872, 25873, 25874, 25881, 25882, 25861, 25820, 25804 (all affected stops outside the City)"
     ]
   },
   "disruptions": [
@@ -226,26 +227,201 @@
       ]
     },
     {
-      "id": "25825",
+      "id": "25876",
       "zones": [
         "central"
       ],
-      "mode": "cat",
-      "sev": "low",
-      "title": "Blue CAT - Hay Street Mall Stop Closed Nightly",
-      "routes": "Blue CAT",
-      "start": "2026-10-12",
-      "end": "2026-10-14",
+      "mode": "bus",
+      "sev": "medium",
+      "title": "Routes 40, 41, 42 & 43 - Lord St Perth Stops Closed Saturday Afternoon",
+      "routes": "Routes 40, 41, 42 & 43",
+      "start": "2026-10-17",
+      "end": "2026-10-17",
       "ongoing": false,
-      "loc": "Barrack St (Hay Street Mall CAT 20), Perth",
-      "stops": "Hay Street Mall CAT 20 (ID 28509)",
-      "impact": "Mon 12 Oct - Wed 14 Oct, nightly from 7pm until last service, Blue CAT stop closed for road closures; alternatives are Barrack Square CAT 2 and WA Museum Boola Bardip CAT 19",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25825",
+      "loc": "Lord St, Perth",
+      "stops": "Lord St before Brewer St (11316), before Murchison Tce (11317), after Coolgardie Tce (11656), after Brewer St (11657)",
+      "impact": "Sat 17 Oct, 2pm to 8.15pm, four Lord St stops closed for road closures; alternatives are Lord St after Bulwer St (11318), Newcastle St before and after Lord St (24376, 12883) and Lord St after Windsor St (11655)",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25876",
       "pts": [
         [
-          -31.954076,
-          115.860597,
-          "Barrack St Hay Street Mall CAT 20"
+          -31.947569,
+          115.870513,
+          "Lord St Before Brewer St"
+        ],
+        [
+          -31.945859,
+          115.871893,
+          "Lord St Before Murchison Tce"
+        ],
+        [
+          -31.946238,
+          115.871786,
+          "Lord St After Coolgardie Tce"
+        ],
+        [
+          -31.947734,
+          115.870584,
+          "Lord St After Brewer St"
+        ]
+      ]
+    },
+    {
+      "id": "25877",
+      "zones": [
+        "central",
+        "west"
+      ],
+      "mode": "cat",
+      "sev": "high",
+      "title": "Yellow CAT & Routes 28, 30, 31, 82, 84, 85 & 910 - Wellington St, Sutherland St and St Georges Tce Stops Closed Overnight",
+      "routes": "Yellow CAT; Routes 28, 30, 31, 82, 84, 85 & 910",
+      "start": "2026-10-17",
+      "end": "2026-10-18",
+      "ongoing": false,
+      "loc": "Wellington St, Sutherland St, Milligan St and St Georges Tce, Perth and West Perth",
+      "stops": "Wellington St (12897, 23090, 12927, 23086, 12900, 12925, 23085), Sutherland St (26655, 26654), Milligan St (28731, 28732), St Georges Tce (10091, 10117, 10085, 10090, 10116, 10122)",
+      "impact": "From 11.30pm Sat 17 Oct until last service Sun 18 Oct, 17 stops closed for road closures; alternatives include Harold Boas Gardens, City West Station, Elizabeth Quay Bus Station, St Georges Tce Stands 8 and 24, and Perth Busport",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25877",
+      "pts": [
+        [
+          -31.949179,
+          115.852249,
+          "Wellington St Arena CAT 65"
+        ],
+        [
+          -31.947504,
+          115.847153,
+          "Wellington St Watertown CAT 64"
+        ],
+        [
+          -31.948376,
+          115.848999,
+          "Wellington St After George St"
+        ],
+        [
+          -31.947651,
+          115.846759,
+          "Wellington St Watertown CAT 61"
+        ],
+        [
+          -31.95342,
+          115.852218,
+          "St Georges Tce Stand 32 (CAT 21)"
+        ],
+        [
+          -31.951014,
+          115.851907,
+          "Milligan St Before Murray St"
+        ],
+        [
+          -31.953112,
+          115.851916,
+          "St Georges Tce Stand 1 (CAT 31)"
+        ],
+        [
+          -31.951124,
+          115.852017,
+          "Milligan St After Murray St"
+        ],
+        [
+          -31.946441,
+          115.847026,
+          "Sutherland St CAT 40"
+        ],
+        [
+          -31.946253,
+          115.846909,
+          "Sutherland St CAT 36"
+        ],
+        [
+          -31.955362,
+          115.858272,
+          "St Georges Tce Stand 27 - After Sherwood Ct"
+        ],
+        [
+          -31.95416,
+          115.85452,
+          "St Georges Tce Stand 31 - After William St"
+        ],
+        [
+          -31.953346,
+          115.852632,
+          "St Georges Tce Stand 2 - After Milligan St"
+        ],
+        [
+          -31.954527,
+          115.856247,
+          "St Georges Tce Stand 5 - Before William St"
+        ],
+        [
+          -31.950765,
+          115.857132,
+          "Wellington St Yagan Square CAT 66"
+        ],
+        [
+          -31.951112,
+          115.857439,
+          "Wellington St Yagan Square CAT 59"
+        ],
+        [
+          -31.949834,
+          115.853562,
+          "Wellington St Arena CAT 60"
+        ]
+      ]
+    },
+    {
+      "id": "25880",
+      "zones": [
+        "central",
+        "west"
+      ],
+      "mode": "bus",
+      "sev": "medium",
+      "title": "Routes 28, 30, 31, 81-85 & 910 - Wellington St, Sutherland St and St Georges Tce Stops Closed Saturday",
+      "routes": "Routes 28, 30, 31, 81, 82, 83, 84, 85 & 910",
+      "start": "2026-10-17",
+      "end": "2026-10-17",
+      "ongoing": false,
+      "loc": "Wellington St, Sutherland St, Milligan St and St Georges Tce, Perth and West Perth",
+      "stops": "Wellington St (12927, 23086), Sutherland St (26654), Milligan St (28732), St Georges Tce (10117, 10116, 10122)",
+      "impact": "Sat 17 Oct, first service until 4.30pm, seven stops closed for road closures; alternatives include Harold Boas Gardens, City West Station, Elizabeth Quay Bus Station Stand A2, St Georges Tce Stand 8 and Perth Busport",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25880",
+      "pts": [
+        [
+          -31.948376,
+          115.848999,
+          "Wellington St After George St"
+        ],
+        [
+          -31.947651,
+          115.846759,
+          "Wellington St Watertown CAT 61"
+        ],
+        [
+          -31.953112,
+          115.851916,
+          "St Georges Tce Stand 1 (CAT 31)"
+        ],
+        [
+          -31.951124,
+          115.852017,
+          "Milligan St After Murray St"
+        ],
+        [
+          -31.946253,
+          115.846909,
+          "Sutherland St CAT 36"
+        ],
+        [
+          -31.953346,
+          115.852632,
+          "St Georges Tce Stand 2 - After Milligan St"
+        ],
+        [
+          -31.954527,
+          115.856247,
+          "St Georges Tce Stand 5 - Before William St"
         ]
       ]
     },
@@ -973,6 +1149,62 @@
     {
       "id": "25400",
       "reason": "Route 425 stop is Okely Rd, Carine - outside the City."
+    },
+    {
+      "id": "25870",
+      "reason": "Route 520 stop is Elderberry Dr, South Lake - outside the City."
+    },
+    {
+      "id": "25871",
+      "reason": "Route 925 stop is Burrendah Blvd, Willetton - outside the City."
+    },
+    {
+      "id": "25872",
+      "reason": "Routes 114/115/520/532 stops are Rockingham Rd / Carrington St, Hamilton Hill - outside the City."
+    },
+    {
+      "id": "25873",
+      "reason": "Route 502 stop is Leach Hwy, Willagee - outside the City."
+    },
+    {
+      "id": "25874",
+      "reason": "Route 243 stops are Cammillo Rd, Kelmscott - outside the City."
+    },
+    {
+      "id": "25881",
+      "reason": "Routes 209/210/228 stops are Burslem Dr, Maddington - outside the City."
+    },
+    {
+      "id": "25882",
+      "reason": "Routes 412 & 998 stops are Liege St / Rosewood Av, Woodlands - outside the City."
+    },
+    {
+      "id": "25861",
+      "reason": "Routes 443/444 stops are Warwick Rd / Lilburne Rd, Duncraig - outside the City."
+    },
+    {
+      "id": "25820",
+      "reason": "Route 479 stop is Portofino Prm, Mindarie - outside the City."
+    },
+    {
+      "id": "25804",
+      "reason": "Routes 207/208/210 stops are Garden St, Thornlie - outside the City."
+    },
+    {
+      "id": "25803",
+      "reason": "Route 310 stop is Third Av, Woodbridge - outside the City."
+    },
+    {
+      "id": "25790",
+      "reason": "Routes 443/444 stops are Davallia Rd, Duncraig - outside the City."
+    },
+    {
+      "id": "25705",
+      "reason": "Routes 390-474 stop is Grand Blvd, Joondalup - outside the City."
+    },
+    {
+      "id": "25327",
+      "reason": "Route 107 stop is McCabe St, Mosman Park - outside the City."
     }
   ]
 }
