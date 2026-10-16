@@ -82,4 +82,12 @@ window.EPCG_EVENTS = [
     venue:"Shoppe on Langley Park, 30 Terrace Road, East Perth",
     note:"Free entry. Indonesian food and a ping pong exhibition under the canopy at Shoppe on Langley Park. Supporters named on the poster include the Indonesian Chamber of Commerce WA and Hot Shot Table Tennis Centre.",
     url:"https://www.instagram.com/shoppeonlangley/" }
+  ,
+  /* Added 16 Oct 2026 on Jason's instruction, from the City of Perth Facebook post (16 Oct). Not in the
+     scrape (checked Live Site, zero rows for Pink October, Langley Plaza or breast cancer). The post says
+     "Shoppe on Langley Plaza"; the venue string matches the Kaya entry above, which is the same venue. */
+  { d:"2026-10-31", t:"Pink October Perth", type:"community", time:"11 am to 5 pm",
+    venue:"Shoppe on Langley Park, 30 Terrace Road, East Perth",
+    note:"Free family afternoon: multicultural food stalls 11 am to 4 pm, live performances 12.30 to 3 pm, a kids' pre-loved market 11 am to 4 pm, and a health education station on breast cancer. Supports the National Breast Cancer Foundation and Breast Cancer Care WA. Run by the Australia Chinese Women's Business Association with Light Up Events and Marketing. Free registration on Humanitix.",
+    url:"https://events.humanitix.com/pink-october-perth" }
 ];
