@@ -1,8 +1,8 @@
 {
   "meta": {
-    "db_version": 74,
+    "db_version": 75,
     "first_built": "2026-07-08",
-    "last_scrape": "2026-10-15",
+    "last_scrape": "2026-10-16",
     "source": "https://www.transperth.wa.gov.au/service-updates",
     "coordinate_source": "data.wa.gov.au PTA-001 (ArcGIS: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Transport/MapServer/14). Query by stopnumber (bus/CAT) or stopname LIKE (rail), outSR=4326. Exact stop/station coordinates, not approximations.",
     "scope": "City of Perth LGA only",
@@ -18,7 +18,8 @@
       "25784/25785/25786 Ellenbrook, Airport, Yanchep lines (outer sections only)",
       "25730, 25718, 25579, 24970, 22483, 23544, 25815, 24613, 25741, 25764, 23615, 25052 and 25737 (all affected stops outside the City)",
       "25863 Route 41 (Caledonian Av, Maylands), 25862, 25865, 25868, 25853, 25400 (all outside the City)",
-      "25870, 25871, 25872, 25873, 25874, 25881, 25882, 25861, 25820, 25804 (all affected stops outside the City)"
+      "25870, 25871, 25872, 25873, 25874, 25881, 25882, 25861, 25820, 25804 (all affected stops outside the City)",
+      "25885 Routes 114/530/549, 25887 Route 45, 25888 Routes 441-464, 25889 Routes 276/277, 25890 Route 567 (all affected stops outside the City); November Stand Changes (no City stand named)"
     ]
   },
   "disruptions": [
@@ -72,54 +73,6 @@
           -31.956509,
           115.88379,
           "Matagarup Bridge (CAT 79)"
-        ]
-      ]
-    },
-    {
-      "id": "25483",
-      "zones": [
-        "central"
-      ],
-      "mode": "train",
-      "sev": "high",
-      "title": "Mandurah Line - Nightly Closures",
-      "routes": "Mandurah line",
-      "start": "2026-10-11",
-      "end": "2026-10-15",
-      "ongoing": false,
-      "loc": "Perth Underground Station",
-      "stops": "Perth Underground Station (line disrupted Perth Underground-Aubin Grove)",
-      "impact": "Sun 11 Oct - Thu 15 Oct, Mandurah Line disrupted nightly between Perth Underground and Aubin Grove; replacement buses each night",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25483",
-      "pts": [
-        [
-          -31.951569,
-          115.858099,
-          "Perth Underground Station"
-        ]
-      ]
-    },
-    {
-      "id": "25484",
-      "zones": [
-        "central"
-      ],
-      "mode": "train",
-      "sev": "low",
-      "title": "Yanchep Line - Platform Change to Perth Station",
-      "routes": "Yanchep line",
-      "start": "2026-10-11",
-      "end": "2026-10-15",
-      "ongoing": false,
-      "loc": "Perth Station",
-      "stops": "Perth Station (Yanchep Line runs from here to facilitate Mandurah Line works)",
-      "impact": "Sun 11 Oct - Thu 15 Oct, Yanchep Line will run from Perth Station to facilitate works on the Mandurah Line",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25484",
-      "pts": [
-        [
-          -31.95118,
-          115.86004,
-          "Perth Station"
         ]
       ]
     },
@@ -426,6 +379,35 @@
       ]
     },
     {
+      "id": "25886",
+      "zones": [
+        "central"
+      ],
+      "mode": "cat",
+      "sev": "medium",
+      "title": "Red CAT - Hay St Central Park and His Majesty's Stops Closed Sunday Evening",
+      "routes": "Red CAT",
+      "start": "2026-10-18",
+      "end": "2026-10-18",
+      "ongoing": false,
+      "loc": "Hay St, Perth",
+      "stops": "Hay St Central Park CAT 87 (ID 16912), Hay St His Majesty's CAT 88 (ID 16913)",
+      "impact": "Sun 18 Oct, from 8pm until last service, two Red CAT stops closed; alternatives are Perth Underground Station CAT 86 (10223) and QV1 CAT 89 (16914)",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25886",
+      "pts": [
+        [
+          -31.953287777949196,
+          115.85602888926645,
+          "Hay St Central Park CAT 87"
+        ],
+        [
+          -31.952567822282287,
+          115.85380947352762,
+          "Hay St His Majesty's CAT 88"
+        ]
+      ]
+    },
+    {
       "id": "25772",
       "zones": [
         "central"
@@ -566,30 +548,6 @@
           -31.95118,
           115.86004,
           "Perth Station"
-        ]
-      ]
-    },
-    {
-      "id": "east-perth-station-lift-disruption-14",
-      "zones": [
-        "east"
-      ],
-      "mode": "train",
-      "sev": "low",
-      "title": "East Perth Station - Lift Closures",
-      "routes": "Airport, Ellenbrook & Midland lines",
-      "start": "2026-10-14",
-      "end": "2026-10-15",
-      "ongoing": false,
-      "loc": "East Perth Station",
-      "stops": "East Perth Station western and eastern car park lifts",
-      "impact": "Wed 14 Oct 6-10am western car park lift closed; Wed 14 Oct 10am-4pm and Thu 15 Oct 6am-4pm eastern car park lift closed; platform lifts and stairs remain open; call 1800 800 022 an hour before travel for assistance",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/east-perth-station-lift-disruption-14",
-      "pts": [
-        [
-          -31.944252778175798,
-          115.8771627782783,
-          "East Perth Station Platform 1"
         ]
       ]
     },
@@ -1205,6 +1163,30 @@
     {
       "id": "25327",
       "reason": "Route 107 stop is McCabe St, Mosman Park - outside the City."
+    },
+    {
+      "id": "25885",
+      "reason": "Routes 114/530/549 stop is Rockingham Rd, Hamilton Hill - outside the City."
+    },
+    {
+      "id": "25887",
+      "reason": "Route 45 stops are Reid St / West Rd, Bassendean - outside the City."
+    },
+    {
+      "id": "25888",
+      "reason": "Routes 441-464 stop is Whitfords Av, Craigie - outside the City."
+    },
+    {
+      "id": "25889",
+      "reason": "Routes 276 & 277 stop is Newburn Rd, High Wycombe - outside the City."
+    },
+    {
+      "id": "25890",
+      "reason": "Route 567 stop is Grandis Dr, Baldivis - outside the City."
+    },
+    {
+      "id": "november-stand-changes",
+      "reason": "Stand changes are at Bayswater, Claremont, Curtin, Fremantle, Galleria, Murdoch, Oats St, Shenton Park and Stirling - none in the City."
     }
   ]
 }
