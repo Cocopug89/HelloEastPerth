@@ -1,8 +1,8 @@
 {
   "meta": {
-    "db_version": 75,
+    "db_version": 76,
     "first_built": "2026-07-08",
-    "last_scrape": "2026-10-16",
+    "last_scrape": "2026-10-17",
     "source": "https://www.transperth.wa.gov.au/service-updates",
     "coordinate_source": "data.wa.gov.au PTA-001 (ArcGIS: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Transport/MapServer/14). Query by stopnumber (bus/CAT) or stopname LIKE (rail), outSR=4326. Exact stop/station coordinates, not approximations.",
     "scope": "City of Perth LGA only",
@@ -205,6 +205,55 @@
           -31.945859,
           115.871893,
           "Lord St Before Murchison Tce"
+        ],
+        [
+          -31.946238,
+          115.871786,
+          "Lord St After Coolgardie Tce"
+        ],
+        [
+          -31.947734,
+          115.870584,
+          "Lord St After Brewer St"
+        ]
+      ]
+    },
+    {
+      "id": "25895",
+      "zones": [
+        "central"
+      ],
+      "mode": "bus",
+      "sev": "medium",
+      "title": "Routes 40, 41, 42 & 43 - Lord St Perth Stops Closed Saturday Evening",
+      "routes": "Routes 40, 41, 42 & 43",
+      "start": "2026-10-17",
+      "end": "2026-10-17",
+      "ongoing": false,
+      "loc": "Lord St, Perth",
+      "stops": "Lord St Perth stops 11316, 11317, 11318, 11655, 11656, 11657 (within the Lord St and Guildford Rd corridor, stops 11316-11323 and 11652-11657)",
+      "impact": "Sat 17 Oct, 6.15pm to 8.15pm, road closures; Route 40 terminates at Galleria Bus Station, Route 41 at Bayswater Station, Routes 42 and 43 at Maylands (or Elizabeth Quay for some); alternatives include East Pde East Perth Station (12985, 12986) and Newcastle St before and after Lord St (24376, 12883)",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25895",
+      "pts": [
+        [
+          -31.947569,
+          115.870513,
+          "Lord St Before Brewer St"
+        ],
+        [
+          -31.945859,
+          115.871893,
+          "Lord St Before Murchison Tce"
+        ],
+        [
+          -31.94441,
+          115.872913,
+          "Lord St After Bulwer St"
+        ],
+        [
+          -31.944543,
+          115.873003,
+          "Lord St After Windsor St"
         ],
         [
           -31.946238,
@@ -572,30 +621,6 @@
           -31.95118,
           115.86004,
           "Perth Station"
-        ]
-      ]
-    },
-    {
-      "id": "25860",
-      "zones": [
-        "west"
-      ],
-      "mode": "cat",
-      "sev": "low",
-      "title": "Green CAT - Colin St South Stop Closed",
-      "routes": "Green CAT",
-      "start": "2026-10-15",
-      "end": "2026-10-16",
-      "ongoing": false,
-      "loc": "Colin St, West Perth",
-      "stops": "Colin St South CAT 33 (ID 26650)",
-      "impact": "Thu 15 and Fri 16 Oct, 9am to 3pm, Green CAT stop closed for road closures; alternatives are stops 10094 (Kings Park Rd Dumas House CAT 32) and 26652 (Colin St North CAT 34)",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25860",
-      "pts": [
-        [
-          -31.95128115081096,
-          115.84093781804877,
-          "Colin St South CAT 33"
         ]
       ]
     },
@@ -1183,6 +1208,14 @@
     {
       "id": "25890",
       "reason": "Route 567 stop is Grandis Dr, Baldivis - outside the City."
+    },
+    {
+      "id": "25894",
+      "reason": "Routes 246 & 249 stops are Lexington Av / Rowley Rd, Hilbert - outside the City."
+    },
+    {
+      "id": "25896",
+      "reason": "Route 356 stops are Thorburn Av, Beechboro - outside the City."
     },
     {
       "id": "november-stand-changes",
