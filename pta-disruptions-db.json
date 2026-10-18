@@ -1,8 +1,8 @@
 {
   "meta": {
-    "db_version": 76,
+    "db_version": 77,
     "first_built": "2026-07-08",
-    "last_scrape": "2026-10-17",
+    "last_scrape": "2026-10-18",
     "source": "https://www.transperth.wa.gov.au/service-updates",
     "coordinate_source": "data.wa.gov.au PTA-001 (ArcGIS: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Transport/MapServer/14). Query by stopnumber (bus/CAT) or stopname LIKE (rail), outSR=4326. Exact stop/station coordinates, not approximations.",
     "scope": "City of Perth LGA only",
@@ -19,7 +19,8 @@
       "25730, 25718, 25579, 24970, 22483, 23544, 25815, 24613, 25741, 25764, 23615, 25052 and 25737 (all affected stops outside the City)",
       "25863 Route 41 (Caledonian Av, Maylands), 25862, 25865, 25868, 25853, 25400 (all outside the City)",
       "25870, 25871, 25872, 25873, 25874, 25881, 25882, 25861, 25820, 25804 (all affected stops outside the City)",
-      "25885 Routes 114/530/549, 25887 Route 45, 25888 Routes 441-464, 25889 Routes 276/277, 25890 Route 567 (all affected stops outside the City); November Stand Changes (no City stand named)"
+      "25885 Routes 114/530/549, 25887 Route 45, 25888 Routes 441-464, 25889 Routes 276/277, 25890 Route 567 (all affected stops outside the City); November Stand Changes (no City stand named)",
+      "25905 Route 42 (Guildford Rd / Eighth Av, Maylands), 25906 (Lawson St, Bentley), 25898 (North Lake Rd, Willagee), 25900 (Cottesloe), 25902/25903 (Canning Hwy, Palmyra/Bicton; Kardinya), 25904 (Nicholson Rd, Lynwood), 25899 All Train Lines delays (network-wide) - none in the City"
     ]
   },
   "disruptions": [
@@ -180,94 +181,6 @@
       ]
     },
     {
-      "id": "25876",
-      "zones": [
-        "central"
-      ],
-      "mode": "bus",
-      "sev": "medium",
-      "title": "Routes 40, 41, 42 & 43 - Lord St Perth Stops Closed Saturday Afternoon",
-      "routes": "Routes 40, 41, 42 & 43",
-      "start": "2026-10-17",
-      "end": "2026-10-17",
-      "ongoing": false,
-      "loc": "Lord St, Perth",
-      "stops": "Lord St before Brewer St (11316), before Murchison Tce (11317), after Coolgardie Tce (11656), after Brewer St (11657)",
-      "impact": "Sat 17 Oct, 2pm to 8.15pm, four Lord St stops closed for road closures; alternatives are Lord St after Bulwer St (11318), Newcastle St before and after Lord St (24376, 12883) and Lord St after Windsor St (11655)",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25876",
-      "pts": [
-        [
-          -31.947569,
-          115.870513,
-          "Lord St Before Brewer St"
-        ],
-        [
-          -31.945859,
-          115.871893,
-          "Lord St Before Murchison Tce"
-        ],
-        [
-          -31.946238,
-          115.871786,
-          "Lord St After Coolgardie Tce"
-        ],
-        [
-          -31.947734,
-          115.870584,
-          "Lord St After Brewer St"
-        ]
-      ]
-    },
-    {
-      "id": "25895",
-      "zones": [
-        "central"
-      ],
-      "mode": "bus",
-      "sev": "medium",
-      "title": "Routes 40, 41, 42 & 43 - Lord St Perth Stops Closed Saturday Evening",
-      "routes": "Routes 40, 41, 42 & 43",
-      "start": "2026-10-17",
-      "end": "2026-10-17",
-      "ongoing": false,
-      "loc": "Lord St, Perth",
-      "stops": "Lord St Perth stops 11316, 11317, 11318, 11655, 11656, 11657 (within the Lord St and Guildford Rd corridor, stops 11316-11323 and 11652-11657)",
-      "impact": "Sat 17 Oct, 6.15pm to 8.15pm, road closures; Route 40 terminates at Galleria Bus Station, Route 41 at Bayswater Station, Routes 42 and 43 at Maylands (or Elizabeth Quay for some); alternatives include East Pde East Perth Station (12985, 12986) and Newcastle St before and after Lord St (24376, 12883)",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25895",
-      "pts": [
-        [
-          -31.947569,
-          115.870513,
-          "Lord St Before Brewer St"
-        ],
-        [
-          -31.945859,
-          115.871893,
-          "Lord St Before Murchison Tce"
-        ],
-        [
-          -31.94441,
-          115.872913,
-          "Lord St After Bulwer St"
-        ],
-        [
-          -31.944543,
-          115.873003,
-          "Lord St After Windsor St"
-        ],
-        [
-          -31.946238,
-          115.871786,
-          "Lord St After Coolgardie Tce"
-        ],
-        [
-          -31.947734,
-          115.870584,
-          "Lord St After Brewer St"
-        ]
-      ]
-    },
-    {
       "id": "25877",
       "zones": [
         "central",
@@ -369,61 +282,6 @@
           -31.949834,
           115.853562,
           "Wellington St Arena CAT 60"
-        ]
-      ]
-    },
-    {
-      "id": "25880",
-      "zones": [
-        "central",
-        "west"
-      ],
-      "mode": "bus",
-      "sev": "medium",
-      "title": "Routes 28, 30, 31, 81-85 & 910 - Wellington St, Sutherland St and St Georges Tce Stops Closed Saturday",
-      "routes": "Routes 28, 30, 31, 81, 82, 83, 84, 85 & 910",
-      "start": "2026-10-17",
-      "end": "2026-10-17",
-      "ongoing": false,
-      "loc": "Wellington St, Sutherland St, Milligan St and St Georges Tce, Perth and West Perth",
-      "stops": "Wellington St (12927, 23086), Sutherland St (26654), Milligan St (28732), St Georges Tce (10117, 10116, 10122)",
-      "impact": "Sat 17 Oct, first service until 4.30pm, seven stops closed for road closures; alternatives include Harold Boas Gardens, City West Station, Elizabeth Quay Bus Station Stand A2, St Georges Tce Stand 8 and Perth Busport",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25880",
-      "pts": [
-        [
-          -31.948376,
-          115.848999,
-          "Wellington St After George St"
-        ],
-        [
-          -31.947651,
-          115.846759,
-          "Wellington St Watertown CAT 61"
-        ],
-        [
-          -31.953112,
-          115.851916,
-          "St Georges Tce Stand 1 (CAT 31)"
-        ],
-        [
-          -31.951124,
-          115.852017,
-          "Milligan St After Murray St"
-        ],
-        [
-          -31.946253,
-          115.846909,
-          "Sutherland St CAT 36"
-        ],
-        [
-          -31.953346,
-          115.852632,
-          "St Georges Tce Stand 2 - After Milligan St"
-        ],
-        [
-          -31.954527,
-          115.856247,
-          "St Georges Tce Stand 5 - Before William St"
         ]
       ]
     },
@@ -621,6 +479,30 @@
           -31.95118,
           115.86004,
           "Perth Station"
+        ]
+      ]
+    },
+    {
+      "id": "25907",
+      "zones": [
+        "west"
+      ],
+      "mode": "bus",
+      "sev": "low",
+      "title": "Routes 24 & 96 - Broadway Crawley Stop Closed Monday",
+      "routes": "Routes 24 & 96",
+      "start": "2026-10-19",
+      "end": "2026-10-19",
+      "ongoing": false,
+      "loc": "Broadway, Crawley",
+      "stops": "Broadway before Caporn St (ID 17584)",
+      "impact": "Mon 19 Oct, 8am to 2.30pm, one Crawley stop closed for road closures; alternatives are Broadway before Myers St (17583), Broadway after Princess Rd (17585) and Hackett Dr after Parkway (28424)",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25907",
+      "pts": [
+        [
+          -31.984031674386454,
+          115.81460275197593,
+          "Broadway Before Caporn St"
         ]
       ]
     },
@@ -1220,6 +1102,34 @@
     {
       "id": "november-stand-changes",
       "reason": "Stand changes are at Bayswater, Claremont, Curtin, Fremantle, Galleria, Murdoch, Oats St, Shenton Park and Stirling - none in the City."
+    },
+    {
+      "id": "25905",
+      "reason": "Route 42 stops are Guildford Rd / Eighth Av, Maylands - outside the City."
+    },
+    {
+      "id": "25906",
+      "reason": "Routes 30/72/73/101/920/999 stop is Lawson St, Bentley - outside the City."
+    },
+    {
+      "id": "25898",
+      "reason": "Route 160 stop is North Lake Rd, Willagee - outside the City."
+    },
+    {
+      "id": "25900",
+      "reason": "Route 102 stops are Broome St / Eric St, Cottesloe - outside the City."
+    },
+    {
+      "id": "25902",
+      "reason": "Routes 111/659/910 stops are Canning Hwy, Palmyra / Bicton - outside the City."
+    },
+    {
+      "id": "25904",
+      "reason": "Routes 203 & 207 stop is Nicholson Rd, Lynwood - outside the City."
+    },
+    {
+      "id": "25899",
+      "reason": "All Train Lines delays; network-wide, names no single City station."
     }
   ]
 }
