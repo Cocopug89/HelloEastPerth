@@ -1,8 +1,8 @@
 {
   "meta": {
-    "db_version": 77,
+    "db_version": 78,
     "first_built": "2026-07-08",
-    "last_scrape": "2026-10-18",
+    "last_scrape": "2026-10-19",
     "source": "https://www.transperth.wa.gov.au/service-updates",
     "coordinate_source": "data.wa.gov.au PTA-001 (ArcGIS: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Transport/MapServer/14). Query by stopnumber (bus/CAT) or stopname LIKE (rail), outSR=4326. Exact stop/station coordinates, not approximations.",
     "scope": "City of Perth LGA only",
@@ -181,136 +181,31 @@
       ]
     },
     {
-      "id": "25877",
-      "zones": [
-        "central",
-        "west"
-      ],
-      "mode": "cat",
-      "sev": "high",
-      "title": "Yellow CAT & Routes 28, 30, 31, 82, 84, 85 & 910 - Wellington St, Sutherland St and St Georges Tce Stops Closed Overnight",
-      "routes": "Yellow CAT; Routes 28, 30, 31, 82, 84, 85 & 910",
-      "start": "2026-10-17",
-      "end": "2026-10-18",
-      "ongoing": false,
-      "loc": "Wellington St, Sutherland St, Milligan St and St Georges Tce, Perth and West Perth",
-      "stops": "Wellington St (12897, 23090, 12927, 23086, 12900, 12925, 23085), Sutherland St (26655, 26654), Milligan St (28731, 28732), St Georges Tce (10091, 10117, 10085, 10090, 10116, 10122)",
-      "impact": "From 11.30pm Sat 17 Oct until last service Sun 18 Oct, 17 stops closed for road closures; alternatives include Harold Boas Gardens, City West Station, Elizabeth Quay Bus Station, St Georges Tce Stands 8 and 24, and Perth Busport",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25877",
-      "pts": [
-        [
-          -31.949179,
-          115.852249,
-          "Wellington St Arena CAT 65"
-        ],
-        [
-          -31.947504,
-          115.847153,
-          "Wellington St Watertown CAT 64"
-        ],
-        [
-          -31.948376,
-          115.848999,
-          "Wellington St After George St"
-        ],
-        [
-          -31.947651,
-          115.846759,
-          "Wellington St Watertown CAT 61"
-        ],
-        [
-          -31.95342,
-          115.852218,
-          "St Georges Tce Stand 32 (CAT 21)"
-        ],
-        [
-          -31.951014,
-          115.851907,
-          "Milligan St Before Murray St"
-        ],
-        [
-          -31.953112,
-          115.851916,
-          "St Georges Tce Stand 1 (CAT 31)"
-        ],
-        [
-          -31.951124,
-          115.852017,
-          "Milligan St After Murray St"
-        ],
-        [
-          -31.946441,
-          115.847026,
-          "Sutherland St CAT 40"
-        ],
-        [
-          -31.946253,
-          115.846909,
-          "Sutherland St CAT 36"
-        ],
-        [
-          -31.955362,
-          115.858272,
-          "St Georges Tce Stand 27 - After Sherwood Ct"
-        ],
-        [
-          -31.95416,
-          115.85452,
-          "St Georges Tce Stand 31 - After William St"
-        ],
-        [
-          -31.953346,
-          115.852632,
-          "St Georges Tce Stand 2 - After Milligan St"
-        ],
-        [
-          -31.954527,
-          115.856247,
-          "St Georges Tce Stand 5 - Before William St"
-        ],
-        [
-          -31.950765,
-          115.857132,
-          "Wellington St Yagan Square CAT 66"
-        ],
-        [
-          -31.951112,
-          115.857439,
-          "Wellington St Yagan Square CAT 59"
-        ],
-        [
-          -31.949834,
-          115.853562,
-          "Wellington St Arena CAT 60"
-        ]
-      ]
-    },
-    {
-      "id": "25886",
+      "id": "25910",
       "zones": [
         "central"
       ],
       "mode": "cat",
       "sev": "medium",
-      "title": "Red CAT - Hay St Central Park and His Majesty's Stops Closed Sunday Evening",
-      "routes": "Red CAT",
-      "start": "2026-10-18",
-      "end": "2026-10-18",
+      "title": "Blue CAT - Hay Street Mall Stops Closed Nightly",
+      "routes": "Blue CAT",
+      "start": "2026-10-20",
+      "end": "2026-10-29",
       "ongoing": false,
-      "loc": "Hay St, Perth",
-      "stops": "Hay St Central Park CAT 87 (ID 16912), Hay St His Majesty's CAT 88 (ID 16913)",
-      "impact": "Sun 18 Oct, from 8pm until last service, two Red CAT stops closed; alternatives are Perth Underground Station CAT 86 (10223) and QV1 CAT 89 (16914)",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25886",
+      "loc": "Barrack St / Hay Street Mall, Perth",
+      "stops": "Hay Street Mall CAT 3 (ID 12124), Hay Street Mall CAT 20 (ID 28509)",
+      "impact": "Tue 20 and Wed 21 Oct, then Sun 25 to Thu 29 Oct, nightly from 7pm until last service, two Blue CAT stops closed for road closures; alternatives are Perth Station CAT 4 (12129), Barrack Square CAT 2 (16974) and WA Museum Boola Bardip CAT 19 (26623)",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25910",
       "pts": [
         [
-          -31.953287777949196,
-          115.85602888926645,
-          "Hay St Central Park CAT 87"
+          -31.954914,
+          115.860081,
+          "Hay Street Mall CAT 3"
         ],
         [
-          -31.952567822282287,
-          115.85380947352762,
-          "Hay St His Majesty's CAT 88"
+          -31.954076,
+          115.860597,
+          "Hay Street Mall CAT 20"
         ]
       ]
     },
@@ -1130,6 +1025,54 @@
     {
       "id": "25899",
       "reason": "All Train Lines delays; network-wide, names no single City station."
+    },
+    {
+      "id": "25915",
+      "reason": "Route 15 stop is Oxford St, Leederville - outside the City."
+    },
+    {
+      "id": "25916",
+      "reason": "Route 107 stop is Wellington St, Mosman Park - outside the City."
+    },
+    {
+      "id": "25918",
+      "reason": "Route 41 stops are East St / Caledonian Av, Maylands - outside the City."
+    },
+    {
+      "id": "25919",
+      "reason": "Route 34 stop is South Tce, Kensington - outside the City."
+    },
+    {
+      "id": "25908",
+      "reason": "Route 270 stop is Abernethy Rd, Perth Airport - outside the City."
+    },
+    {
+      "id": "25909",
+      "reason": "Route 998 stop is Stirling Hwy, Claremont - outside the City."
+    },
+    {
+      "id": "25914",
+      "reason": "Routes 114/115/510 stop is Riseley St, Ardross - outside the City."
+    },
+    {
+      "id": "25920",
+      "reason": "Routes 114/530/531 stop is Rockingham Rd, Spearwood - outside the City."
+    },
+    {
+      "id": "25922",
+      "reason": "Route 246 stop is Forrest Rd, Hilbert - outside the City."
+    },
+    {
+      "id": "25917",
+      "reason": "Routes 511/513/520/530/531 stop is Wray Av, Fremantle - outside the City."
+    },
+    {
+      "id": "25913",
+      "reason": "Route 530 stops are Osprey Dr, Yangebup - outside the City."
+    },
+    {
+      "id": "25911",
+      "reason": "Route 465 stop is Trappers Dr, Woodvale - outside the City."
     }
   ]
 }
