@@ -1,8 +1,8 @@
 {
   "meta": {
-    "db_version": 78,
+    "db_version": 79,
     "first_built": "2026-07-08",
-    "last_scrape": "2026-10-19",
+    "last_scrape": "2026-10-20",
     "source": "https://www.transperth.wa.gov.au/service-updates",
     "coordinate_source": "data.wa.gov.au PTA-001 (ArcGIS: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Transport/MapServer/14). Query by stopnumber (bus/CAT) or stopname LIKE (rail), outSR=4326. Exact stop/station coordinates, not approximations.",
     "scope": "City of Perth LGA only",
@@ -177,6 +177,40 @@
           -31.955213,
           115.857802,
           "St Georges Tce Stand 28 - Before Howard St"
+        ]
+      ]
+    },
+    {
+      "id": "25944",
+      "zones": [
+        "central"
+      ],
+      "mode": "bus",
+      "sev": "low",
+      "title": "Routes 24, 27, 32, 33, 39, 72, 73, 111, 160, 176-178, 270, 910, 930, 935 & 940 - St Georges Tce Stands 3, 4 & 5 Closed Tuesday",
+      "routes": "Routes 24, 27, 32, 33, 39, 72, 73, 111, 160, 176, 177, 178, 270, 910, 930, 935 & 940",
+      "start": "2026-10-20",
+      "end": "2026-10-20",
+      "ongoing": false,
+      "loc": "St Georges Tce, Perth",
+      "stops": "St Georges Tce Stands 3, 4, 5 (IDs 10118, 10121, 10122)",
+      "impact": "Tue 20 Oct, 9am to 12pm, three St Georges Tce stands closed; alternatives are Stands 2 (10116), 6 (10123), 7 (10126), 8 (10124) and Elizabeth Quay Bus Station",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25944",
+      "pts": [
+        [
+          -31.954285,
+          115.855513,
+          "St Georges Tce Stand 3 - Before William St"
+        ],
+        [
+          -31.954427,
+          115.855946,
+          "St Georges Tce Stand 4 - Before William St"
+        ],
+        [
+          -31.954527,
+          115.856247,
+          "St Georges Tce Stand 5 - Before William St"
         ]
       ]
     },
@@ -378,21 +412,21 @@
       ]
     },
     {
-      "id": "25907",
+      "id": "25927",
       "zones": [
         "west"
       ],
       "mode": "bus",
       "sev": "low",
-      "title": "Routes 24 & 96 - Broadway Crawley Stop Closed Monday",
+      "title": "Routes 24 & 96 - Broadway Crawley Stop Closed 21-28 Oct",
       "routes": "Routes 24 & 96",
-      "start": "2026-10-19",
-      "end": "2026-10-19",
+      "start": "2026-10-21",
+      "end": "2026-10-28",
       "ongoing": false,
       "loc": "Broadway, Crawley",
       "stops": "Broadway before Caporn St (ID 17584)",
-      "impact": "Mon 19 Oct, 8am to 2.30pm, one Crawley stop closed for road closures; alternatives are Broadway before Myers St (17583), Broadway after Princess Rd (17585) and Hackett Dr after Parkway (28424)",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25907",
+      "impact": "Wed 21 to Fri 23 Oct and Mon 26 to Wed 28 Oct, 7am to 5pm daily, one Crawley stop closed for road closures; Route 24 diverts to Claremont Station and Route 96 to Crawley; alternatives are Broadway before Myers St (17583), Fairway after Myers St (25685) and Fairway before Princess Rd (25686)",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25927",
       "pts": [
         [
           -31.984031674386454,
@@ -1073,6 +1107,26 @@
     {
       "id": "25911",
       "reason": "Route 465 stop is Trappers Dr, Woodvale - outside the City."
+    },
+    {
+      "id": "25925",
+      "reason": "Route 27 stop is Alfred Rd, Swanbourne - outside the City."
+    },
+    {
+      "id": "25930",
+      "reason": "Routes 114/115/160/910 stops are Canning Hwy, Applecross - outside the City."
+    },
+    {
+      "id": "25933",
+      "reason": "Route 160 stop is Wray Av, Fremantle - outside the City."
+    },
+    {
+      "id": "25923",
+      "reason": "Route 43 stops are Central Av, Maylands - outside the City."
+    },
+    {
+      "id": "25935",
+      "reason": "Routes 114 & 915 stop is Marmion St, Booragoon - outside the City."
     }
   ]
 }
