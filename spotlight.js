@@ -214,6 +214,27 @@
   };
 
 
+  /* CITY OF PERTH COMMUNITY POP-UP ENGAGEMENT, Wellington Square, Sun 1 Nov 2026. Live 21 Oct 2026 on the
+     EAST board as this week's spotlight (Jason, interview of 21 Oct). The City asked neighbourhood groups to
+     share it (secretary mailbox, Community Groups, 20 Oct 2026 10:27); someone else's event passed on, not a
+     placement, never "Sponsored". ARTWORK: popup-wellington-sq-2026.jpg, the City's own poster at 720 wide on
+     a 720x1200 portrait over a blurred copy of itself, by
+     `11 EPCG/East Perth Community Group/Communications/_build/build_hub_card_popup.py`. No public event page
+     was given, so no CTA. Drops off after 1 Nov on its own and east falls back to WIRIN. */
+  var POPUP = {
+    img:   "popup-wellington-sq-2026.jpg",
+    alt:   "City of Perth Community Pop-Up Engagement, Sunday 1 November 2026, 8 to 10am, Wellington Square, East Perth",
+    name:  "Meet the City's Teams in Wellington Square",
+    blurb: "The City of Perth is bringing its <b>Community Safety Team, Safe City Rangers, Waste and Cleaning Team and Parks Team</b> to Wellington Square. Drop by to ask questions, raise a concern or give feedback on what you see in the neighbourhood, face to face.",
+    highlight: "📅 <b>Sunday 1 November, 8 to 10am</b>, next to the children's playground. The first of four pop-ups across the city.",
+    meta:  "📅 Sunday 1 November, 8 to 10am &nbsp;&middot;&nbsp; 📍 Wellington Square, East Perth &nbsp;&middot;&nbsp; Poster: City of Perth",
+    ribbon:"🏛️ Community Event",
+    thumbpos:"50% 35%",  /* phone strip crop: the tent and the ranger ute */
+    until: "2026-11-01",
+    ctas:  []
+  };
+
+
   /* Perth has no daylight saving, so UTC+8 all year gives today's Perth date. */
   var TODAY = new Date(Date.now() + 8*3600*1000).toISOString().slice(0,10);
   function live(c){ return (c && (!c.until || TODAY <= c.until)) ? c : null; }
@@ -221,7 +242,7 @@
   /* A zone whose card has passed its `until` resolves to null and the boards fall back to
      FALLBACK. Expired cards can stay in the file; they no longer render. */
   window.SPOTLIGHT = {
-    east:    WIRIN,           /* from 1 Oct 2026. Hanoi Soulmates retired (card kept above, unused). */
+    east:    live(POPUP),     /* 21 Oct to 1 Nov 2026, then falls back to WIRIN (east's card since 1 Oct). */
     central: live(MERCEDES),  /* expired 25 Sep 2026, falls back */
     west:    live(MOON),      /* expired 28 Sep 2026, falls back */
     FALLBACK: WIRIN           /* undated. Swap for an "advertise here" card once selling */
