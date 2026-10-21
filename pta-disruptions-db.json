@@ -1,8 +1,8 @@
 {
   "meta": {
-    "db_version": 79,
+    "db_version": 80,
     "first_built": "2026-07-08",
-    "last_scrape": "2026-10-20",
+    "last_scrape": "2026-10-21",
     "source": "https://www.transperth.wa.gov.au/service-updates",
     "coordinate_source": "data.wa.gov.au PTA-001 (ArcGIS: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Transport/MapServer/14). Query by stopnumber (bus/CAT) or stopname LIKE (rail), outSR=4326. Exact stop/station coordinates, not approximations.",
     "scope": "City of Perth LGA only",
@@ -20,7 +20,8 @@
       "25863 Route 41 (Caledonian Av, Maylands), 25862, 25865, 25868, 25853, 25400 (all outside the City)",
       "25870, 25871, 25872, 25873, 25874, 25881, 25882, 25861, 25820, 25804 (all affected stops outside the City)",
       "25885 Routes 114/530/549, 25887 Route 45, 25888 Routes 441-464, 25889 Routes 276/277, 25890 Route 567 (all affected stops outside the City); November Stand Changes (no City stand named)",
-      "25905 Route 42 (Guildford Rd / Eighth Av, Maylands), 25906 (Lawson St, Bentley), 25898 (North Lake Rd, Willagee), 25900 (Cottesloe), 25902/25903 (Canning Hwy, Palmyra/Bicton; Kardinya), 25904 (Nicholson Rd, Lynwood), 25899 All Train Lines delays (network-wide) - none in the City"
+      "25905 Route 42 (Guildford Rd / Eighth Av, Maylands), 25906 (Lawson St, Bentley), 25898 (North Lake Rd, Willagee), 25900 (Cottesloe), 25902/25903 (Canning Hwy, Palmyra/Bicton; Kardinya), 25904 (Nicholson Rd, Lynwood), 25899 All Train Lines delays (network-wide) - none in the City",
+      "25952, 25933 Route 160 (Hampton Rd, Fremantle), 25949, 25930, 25935, 25918, 25958, 25919, 25923, 25920, 25906 and other 21-24 Oct bus items (all affected stops outside the City)"
     ]
   },
   "disruptions": [
@@ -181,40 +182,6 @@
       ]
     },
     {
-      "id": "25944",
-      "zones": [
-        "central"
-      ],
-      "mode": "bus",
-      "sev": "low",
-      "title": "Routes 24, 27, 32, 33, 39, 72, 73, 111, 160, 176-178, 270, 910, 930, 935 & 940 - St Georges Tce Stands 3, 4 & 5 Closed Tuesday",
-      "routes": "Routes 24, 27, 32, 33, 39, 72, 73, 111, 160, 176, 177, 178, 270, 910, 930, 935 & 940",
-      "start": "2026-10-20",
-      "end": "2026-10-20",
-      "ongoing": false,
-      "loc": "St Georges Tce, Perth",
-      "stops": "St Georges Tce Stands 3, 4, 5 (IDs 10118, 10121, 10122)",
-      "impact": "Tue 20 Oct, 9am to 12pm, three St Georges Tce stands closed; alternatives are Stands 2 (10116), 6 (10123), 7 (10126), 8 (10124) and Elizabeth Quay Bus Station",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25944",
-      "pts": [
-        [
-          -31.954285,
-          115.855513,
-          "St Georges Tce Stand 3 - Before William St"
-        ],
-        [
-          -31.954427,
-          115.855946,
-          "St Georges Tce Stand 4 - Before William St"
-        ],
-        [
-          -31.954527,
-          115.856247,
-          "St Georges Tce Stand 5 - Before William St"
-        ]
-      ]
-    },
-    {
       "id": "25910",
       "zones": [
         "central"
@@ -240,6 +207,61 @@
           -31.954076,
           115.860597,
           "Hay Street Mall CAT 20"
+        ]
+      ]
+    },
+    {
+      "id": "25954",
+      "zones": [
+        "west",
+        "central"
+      ],
+      "mode": "bus",
+      "sev": "medium",
+      "title": "Routes 28, 30, 31, 81-85 & 910 - Wellington St, Milligan St & St Georges Tce Stops Closed Saturday",
+      "routes": "Routes 28, 30, 31, 81, 82, 83, 84, 85 & 910",
+      "start": "2026-10-24",
+      "end": "2026-10-24",
+      "ongoing": false,
+      "loc": "Wellington St West Perth; Milligan St and St Georges Tce, Perth",
+      "stops": "Wellington St after George St (ID 12927), Watertown CAT 61 (ID 23086), Sutherland St CAT 36 (ID 26654), Stand 1 CAT 31 (ID 10117), Milligan St after Murray St (ID 28732), St Georges Tce Stands 2 and 5 (IDs 10116, 10122)",
+      "impact": "Sat 24 Oct, first service until 2pm, seven City bus stops closed for road closures; alternatives are Harold Boas Gardens CAT 41, City West Station CAT 37, Elizabeth Quay Bus Station Stand A2 (12224), St Georges Tce Stand 8 (10124) and Perth Busport",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25954",
+      "pts": [
+        [
+          -31.948376,
+          115.848999,
+          "Wellington St After George St"
+        ],
+        [
+          -31.947651,
+          115.846759,
+          "Wellington St Watertown CAT 61"
+        ],
+        [
+          -31.946253,
+          115.846909,
+          "Sutherland St CAT 36"
+        ],
+        [
+          -31.953112,
+          115.851916,
+          "St Georges Tce Stand 1 CAT 31"
+        ],
+        [
+          -31.951124,
+          115.852017,
+          "Milligan St After Murray St"
+        ],
+        [
+          -31.953346,
+          115.852632,
+          "St Georges Tce Stand 2 - After Milligan St"
+        ],
+        [
+          -31.954527,
+          115.856247,
+          "St Georges Tce Stand 5 - Before William St"
         ]
       ]
     },
