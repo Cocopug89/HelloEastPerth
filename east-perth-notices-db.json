@@ -2,7 +2,7 @@
   "meta": {
     "db_version": 2,
     "first_built": "2026-07-05",
-    "last_scrape": "2026-10-23",
+    "last_scrape": "2026-10-24",
     "source": "https://perth.wa.gov.au/public-notices/all-public-notices",
     "note": "Assessed record of City of Perth public notices. On each weekly scrape, only refs NOT already present here are fetched/assessed; open/closed status is recomputed from stored close dates. Items no longer on the City list are marked archived rather than deleted."
   },
@@ -429,7 +429,7 @@
     },
     {
       "ref": "PAN000009",
-      "title": "Provision of Events\u2019 Medical, First Aid, Site Management and Workforce Services",
+      "title": "Provision of Events’ Medical, First Aid, Site Management and Workforce Services",
       "zone": "city",
       "slug": "provision-of-events-medical-first-aid-site-mgmt-and-workforce-services---invitation-no-pan000009",
       "url": "https://perth.wa.gov.au/public-notices/provision-of-events-medical-first-aid-site-mgmt-and-workforce-services---invitation-no-pan000009",
@@ -599,7 +599,7 @@
       "kind": "consultation",
       "assessed": true,
       "firstSeen": "2026-10-03",
-      "lastSeen": "2026-10-23",
+      "lastSeen": "2026-10-24",
       "onCityList": true,
       "archived": false
     },
@@ -614,7 +614,7 @@
       "kind": "consultation",
       "assessed": true,
       "firstSeen": "2026-10-10",
-      "lastSeen": "2026-10-23",
+      "lastSeen": "2026-10-24",
       "onCityList": true,
       "archived": false
     },
@@ -629,7 +629,7 @@
       "kind": "consultation",
       "assessed": true,
       "firstSeen": "2026-10-14",
-      "lastSeen": "2026-10-23",
+      "lastSeen": "2026-10-24",
       "onCityList": true,
       "archived": false
     },
@@ -644,7 +644,7 @@
       "kind": "consultation",
       "assessed": true,
       "firstSeen": "2026-10-14",
-      "lastSeen": "2026-10-23",
+      "lastSeen": "2026-10-24",
       "onCityList": true,
       "archived": false
     },
@@ -659,7 +659,7 @@
       "zone": "city",
       "assessed": true,
       "firstSeen": "2026-10-19",
-      "lastSeen": "2026-10-23",
+      "lastSeen": "2026-10-24",
       "onCityList": true,
       "archived": false
     },
@@ -674,7 +674,7 @@
       "zone": "central",
       "assessed": true,
       "firstSeen": "2026-10-21",
-      "lastSeen": "2026-10-23",
+      "lastSeen": "2026-10-24",
       "onCityList": true,
       "archived": false
     }
@@ -691,7 +691,7 @@
       "closes": "2026-09-25",
       "assessed": true,
       "firstSeen": "2026-07-08",
-      "lastSeen": "2026-10-23",
+      "lastSeen": "2026-10-24",
       "onCityList": true,
       "archived": false
     },
@@ -706,7 +706,7 @@
       "closes": "2026-09-25",
       "assessed": true,
       "firstSeen": "2026-07-08",
-      "lastSeen": "2026-10-23",
+      "lastSeen": "2026-10-24",
       "onCityList": true,
       "archived": false
     },
@@ -721,7 +721,7 @@
       "closes": "2026-07-15",
       "assessed": true,
       "firstSeen": "2026-07-05",
-      "lastSeen": "2026-10-23",
+      "lastSeen": "2026-10-24",
       "onCityList": true,
       "archived": false
     },
@@ -736,7 +736,7 @@
       "closes": "2026-06-18",
       "assessed": true,
       "firstSeen": "2026-07-05",
-      "lastSeen": "2026-10-23",
+      "lastSeen": "2026-10-24",
       "onCityList": true,
       "archived": false
     },
@@ -751,7 +751,7 @@
       "closes": "2026-02-18",
       "assessed": true,
       "firstSeen": "2026-07-05",
-      "lastSeen": "2026-10-23",
+      "lastSeen": "2026-10-24",
       "onCityList": true,
       "archived": false
     },
@@ -766,7 +766,7 @@
       "closes": "2026-01-17",
       "assessed": true,
       "firstSeen": "2026-07-05",
-      "lastSeen": "2026-10-23",
+      "lastSeen": "2026-10-24",
       "onCityList": true,
       "archived": false
     },
@@ -781,7 +781,7 @@
       "closes": "2026-01-17",
       "assessed": true,
       "firstSeen": "2026-07-05",
-      "lastSeen": "2026-10-23",
+      "lastSeen": "2026-10-24",
       "onCityList": true,
       "archived": false
     },
@@ -826,7 +826,7 @@
       "closes": "",
       "assessed": true,
       "firstSeen": "2026-07-05",
-      "lastSeen": "2026-10-23",
+      "lastSeen": "2026-10-24",
       "onCityList": true,
       "archived": false
     },
@@ -842,7 +842,7 @@
       "zone": "city",
       "assessed": true,
       "firstSeen": "2026-07-14",
-      "lastSeen": "2026-10-23",
+      "lastSeen": "2026-10-24",
       "onCityList": true,
       "archived": false
     },
@@ -858,7 +858,7 @@
       "zone": "city",
       "assessed": true,
       "firstSeen": "2026-07-14",
-      "lastSeen": "2026-10-23",
+      "lastSeen": "2026-10-24",
       "onCityList": true,
       "archived": false
     },
@@ -874,7 +874,7 @@
       "zone": "city",
       "assessed": true,
       "firstSeen": "2026-07-14",
-      "lastSeen": "2026-10-23",
+      "lastSeen": "2026-10-24",
       "onCityList": true,
       "archived": false
     },
@@ -906,7 +906,7 @@
       "zone": "city",
       "assessed": true,
       "firstSeen": "2026-07-14",
-      "lastSeen": "2026-10-23",
+      "lastSeen": "2026-10-24",
       "onCityList": true,
       "archived": false
     },
@@ -922,7 +922,7 @@
       "zone": "city",
       "assessed": true,
       "firstSeen": "2026-07-14",
-      "lastSeen": "2026-10-23",
+      "lastSeen": "2026-10-24",
       "onCityList": true,
       "archived": false
     },
@@ -938,7 +938,7 @@
       "zone": "city",
       "assessed": true,
       "firstSeen": "2026-07-14",
-      "lastSeen": "2026-10-23",
+      "lastSeen": "2026-10-24",
       "onCityList": true,
       "archived": false
     },
@@ -954,7 +954,7 @@
       "zone": "city",
       "assessed": true,
       "firstSeen": "2026-07-14",
-      "lastSeen": "2026-10-23",
+      "lastSeen": "2026-10-24",
       "onCityList": true,
       "archived": false
     },
@@ -970,7 +970,7 @@
       "zone": "city",
       "assessed": true,
       "firstSeen": "2026-07-14",
-      "lastSeen": "2026-10-23",
+      "lastSeen": "2026-10-24",
       "onCityList": true,
       "archived": false
     },
@@ -986,7 +986,7 @@
       "zone": "city",
       "assessed": true,
       "firstSeen": "2026-07-14",
-      "lastSeen": "2026-10-23",
+      "lastSeen": "2026-10-24",
       "onCityList": true,
       "archived": false
     },
@@ -1080,7 +1080,7 @@
       "kind": "notice",
       "assessed": true,
       "firstSeen": "2026-08-02",
-      "lastSeen": "2026-10-23",
+      "lastSeen": "2026-10-24",
       "onCityList": true,
       "archived": false
     },
@@ -1095,7 +1095,7 @@
       "kind": "notice",
       "assessed": true,
       "firstSeen": "2026-08-02",
-      "lastSeen": "2026-10-23",
+      "lastSeen": "2026-10-24",
       "onCityList": true,
       "archived": false
     },
@@ -1110,7 +1110,7 @@
       "closes": "2026-09-17",
       "assessed": true,
       "firstSeen": "2026-09-03",
-      "lastSeen": "2026-10-23",
+      "lastSeen": "2026-10-24",
       "onCityList": true,
       "archived": false
     },

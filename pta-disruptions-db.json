@@ -1,8 +1,8 @@
 {
   "meta": {
-    "db_version": 82,
+    "db_version": 83,
     "first_built": "2026-07-08",
-    "last_scrape": "2026-10-23",
+    "last_scrape": "2026-10-24",
     "source": "https://www.transperth.wa.gov.au/service-updates",
     "coordinate_source": "data.wa.gov.au PTA-001 (ArcGIS: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Transport/MapServer/14). Query by stopnumber (bus/CAT) or stopname LIKE (rail), outSR=4326. Exact stop/station coordinates, not approximations.",
     "scope": "City of Perth LGA only",
@@ -23,7 +23,8 @@
       "25905 Route 42 (Guildford Rd / Eighth Av, Maylands), 25906 (Lawson St, Bentley), 25898 (North Lake Rd, Willagee), 25900 (Cottesloe), 25902/25903 (Canning Hwy, Palmyra/Bicton; Kardinya), 25904 (Nicholson Rd, Lynwood), 25899 All Train Lines delays (network-wide) - none in the City",
       "25952, 25933 Route 160 (Hampton Rd, Fremantle), 25949, 25930, 25935, 25918, 25958, 25919, 25923, 25920, 25906 and other 21-24 Oct bus items (all affected stops outside the City)",
       "25946, 25947, 25948, 25950, 25951, 25953, 25962, 25965, 25966, 25967, 25968, 25945, 25931, 25932, 25934, 25936, 25929, 25928 (22-30 Oct bus items; all affected stops outside the City); 25927 Route 24/96 Broadway Crawley removed from the Transperth list",
-      "25984 (Pinjarra), 25985 (Marmion St, Fremantle), 25987 (Bagot Rd, Subiaco), 25982 (Karrinyup Rd, Stirling), 25969 (Albany Hwy, East Victoria Park), 25970 (Canning Hwy, Melville), 25971 (South St, Murdoch) and other 26-28 Oct bus items (all affected stops outside the City); 25487 dropped as ended 22 Oct"
+      "25984 (Pinjarra), 25985 (Marmion St, Fremantle), 25987 (Bagot Rd, Subiaco), 25982 (Karrinyup Rd, Stirling), 25969 (Albany Hwy, East Victoria Park), 25970 (Canning Hwy, Melville), 25971 (South St, Murdoch) and other 26-28 Oct bus items (all affected stops outside the City); 25487 dropped as ended 22 Oct",
+      "25991 Fremantle Line West Leederville-Claremont train replacement and Airport Line delays (24 Oct, no City station named), 25986 (Great Eastern Hwy, Midland), 25988 (North Beach); perth-station-escalator-disruption-14 dropped as ended 23 Oct"
     ]
   },
   "disruptions": [
@@ -589,30 +590,6 @@
       "stops": "Perth Station (lines disrupted Perth-Cannington)",
       "impact": "Sun 29 Nov - Thu 3 Dec, Armadale and Thornlie-Cockburn lines disrupted nightly between Perth and Cannington",
       "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25788",
-      "pts": [
-        [
-          -31.95118,
-          115.86004,
-          "Perth Station"
-        ]
-      ]
-    },
-    {
-      "id": "perth-station-escalator-disruption-14",
-      "zones": [
-        "central"
-      ],
-      "mode": "train",
-      "sev": "low",
-      "title": "Perth Station - Platform 8/9 Escalators Out of Service",
-      "routes": "Perth Station",
-      "start": "2026-10-05",
-      "end": "2026-10-23",
-      "ongoing": false,
-      "loc": "Perth Station",
-      "stops": "Perth Station Platform 8/9 eastern end escalators",
-      "impact": "Mon 5 Oct to Fri 23 Oct, escalators at the eastern end of Platform 8/9 out of service; lifts and stairs are the alternative",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/perth-station-escalator-disruption-14",
       "pts": [
         [
           -31.95118,
