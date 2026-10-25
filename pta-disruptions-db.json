@@ -1,8 +1,8 @@
 {
   "meta": {
-    "db_version": 83,
+    "db_version": 84,
     "first_built": "2026-07-08",
-    "last_scrape": "2026-10-24",
+    "last_scrape": "2026-10-25",
     "source": "https://www.transperth.wa.gov.au/service-updates",
     "coordinate_source": "data.wa.gov.au PTA-001 (ArcGIS: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Transport/MapServer/14). Query by stopnumber (bus/CAT) or stopname LIKE (rail), outSR=4326. Exact stop/station coordinates, not approximations.",
     "scope": "City of Perth LGA only",
@@ -24,7 +24,8 @@
       "25952, 25933 Route 160 (Hampton Rd, Fremantle), 25949, 25930, 25935, 25918, 25958, 25919, 25923, 25920, 25906 and other 21-24 Oct bus items (all affected stops outside the City)",
       "25946, 25947, 25948, 25950, 25951, 25953, 25962, 25965, 25966, 25967, 25968, 25945, 25931, 25932, 25934, 25936, 25929, 25928 (22-30 Oct bus items; all affected stops outside the City); 25927 Route 24/96 Broadway Crawley removed from the Transperth list",
       "25984 (Pinjarra), 25985 (Marmion St, Fremantle), 25987 (Bagot Rd, Subiaco), 25982 (Karrinyup Rd, Stirling), 25969 (Albany Hwy, East Victoria Park), 25970 (Canning Hwy, Melville), 25971 (South St, Murdoch) and other 26-28 Oct bus items (all affected stops outside the City); 25487 dropped as ended 22 Oct",
-      "25991 Fremantle Line West Leederville-Claremont train replacement and Airport Line delays (24 Oct, no City station named), 25986 (Great Eastern Hwy, Midland), 25988 (North Beach); perth-station-escalator-disruption-14 dropped as ended 23 Oct"
+      "25991 Fremantle Line West Leederville-Claremont train replacement and Airport Line delays (24 Oct, no City station named), 25986 (Great Eastern Hwy, Midland), 25988 (North Beach); perth-station-escalator-disruption-14 dropped as ended 23 Oct",
+      "25977 Routes 421/423 (Barnes St, Innaloo), 25975 Routes 374/386 (Girrawheen), 25979 Route 480 (Mindarie), 25978 Routes 574/585/586 (Lakelands), 25976 Route 467 (Pearsall), 25974 Routes 441-464 (Padbury/Craigie), 25981 Routes 320/321 (Midland/Midvale/Bellevue) (all affected stops outside the City); 25813, 25954, 25963 and 25964 dropped as ended 24 Oct"
     ]
   },
   "disruptions": [
@@ -78,85 +79,6 @@
           -31.956509,
           115.88379,
           "Matagarup Bridge (CAT 79)"
-        ]
-      ]
-    },
-    {
-      "id": "25813",
-      "zones": [
-        "central"
-      ],
-      "mode": "bus",
-      "sev": "medium",
-      "title": "Routes 24, 27, 32, 33, 39, 72, 73, 160, 176-178, 270, 910, 930, 935 & 940 - St Georges Tce Stops Closed Saturdays",
-      "routes": "Routes 24, 27, 32, 33, 39, 72, 73, 160, 176, 177, 178, 270, 910, 930, 935 & 940",
-      "start": "2026-10-10",
-      "end": "2026-10-24",
-      "ongoing": false,
-      "loc": "St Georges Tce, Perth",
-      "stops": "St Georges Tce Stands 3, 4, 5, 6, 7, 8, 24, 26, 27, 28, 29, 30 (IDs 10118, 10121, 10122, 10123, 10126, 10124, 10081, 10084, 10085, 10087, 10088, 10089)",
-      "impact": "Sat 10, 17 and 24 Oct, first service until 11am, 12 St Georges Tce stops closed for road closures; alternatives include other St Georges Tce stands and Elizabeth Quay Bus Station",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25813",
-      "pts": [
-        [
-          -31.956179,
-          115.860702,
-          "St Georges Tce Stand 24 - Before Barrack St"
-        ],
-        [
-          -31.955362,
-          115.858272,
-          "St Georges Tce Stand 27 - After Sherwood Ct"
-        ],
-        [
-          -31.95553,
-          115.858779,
-          "St Georges Tce Stand 26 - After Barrack St"
-        ],
-        [
-          -31.954226,
-          115.854718,
-          "St Georges Tce Stand 30 - After William St"
-        ],
-        [
-          -31.954527,
-          115.856247,
-          "St Georges Tce Stand 5 - Before William St"
-        ],
-        [
-          -31.955431,
-          115.858987,
-          "St Georges Tce Stand 8 - Before Barrack St"
-        ],
-        [
-          -31.954285,
-          115.855513,
-          "St Georges Tce Stand 3 - Before William St"
-        ],
-        [
-          -31.954978,
-          115.857602,
-          "St Georges Tce Stand 6 - After William St"
-        ],
-        [
-          -31.954921,
-          115.856922,
-          "St Georges Tce Stand 29 - Before William St"
-        ],
-        [
-          -31.954427,
-          115.855946,
-          "St Georges Tce Stand 4 - Before William St"
-        ],
-        [
-          -31.955194,
-          115.858282,
-          "St Georges Tce Stand 7 - After William St"
-        ],
-        [
-          -31.955213,
-          115.857802,
-          "St Georges Tce Stand 28 - Before Howard St"
         ]
       ]
     },
@@ -308,149 +230,6 @@
           -31.937428332487876,
           115.8493005553026,
           "Cleaver St After Vincent St"
-        ]
-      ]
-    },
-    {
-      "id": "25954",
-      "zones": [
-        "west",
-        "central"
-      ],
-      "mode": "bus",
-      "sev": "medium",
-      "title": "Routes 28, 30, 31, 81-85 & 910 - Wellington St, Milligan St & St Georges Tce Stops Closed Saturday",
-      "routes": "Routes 28, 30, 31, 81, 82, 83, 84, 85 & 910",
-      "start": "2026-10-24",
-      "end": "2026-10-24",
-      "ongoing": false,
-      "loc": "Wellington St West Perth; Milligan St and St Georges Tce, Perth",
-      "stops": "Wellington St after George St (ID 12927), Watertown CAT 61 (ID 23086), Sutherland St CAT 36 (ID 26654), Stand 1 CAT 31 (ID 10117), Milligan St after Murray St (ID 28732), St Georges Tce Stands 2 and 5 (IDs 10116, 10122)",
-      "impact": "Sat 24 Oct, first service until 2pm, seven City bus stops closed for road closures; alternatives are Harold Boas Gardens CAT 41, City West Station CAT 37, Elizabeth Quay Bus Station Stand A2 (12224), St Georges Tce Stand 8 (10124) and Perth Busport",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25954",
-      "pts": [
-        [
-          -31.948376,
-          115.848999,
-          "Wellington St After George St"
-        ],
-        [
-          -31.947651,
-          115.846759,
-          "Wellington St Watertown CAT 61"
-        ],
-        [
-          -31.946253,
-          115.846909,
-          "Sutherland St CAT 36"
-        ],
-        [
-          -31.953112,
-          115.851916,
-          "St Georges Tce Stand 1 CAT 31"
-        ],
-        [
-          -31.951124,
-          115.852017,
-          "Milligan St After Murray St"
-        ],
-        [
-          -31.953346,
-          115.852632,
-          "St Georges Tce Stand 2 - After Milligan St"
-        ],
-        [
-          -31.954527,
-          115.856247,
-          "St Georges Tce Stand 5 - Before William St"
-        ]
-      ]
-    },
-    {
-      "id": "25963",
-      "zones": [
-        "central"
-      ],
-      "mode": "bus",
-      "sev": "medium",
-      "title": "Routes 40, 41, 42 & 43 - Lord St Stops Closed Saturday Evening",
-      "routes": "Routes 40, 41, 42 & 43",
-      "start": "2026-10-24",
-      "end": "2026-10-24",
-      "ongoing": false,
-      "loc": "Lord St, Perth",
-      "stops": "Lord St after Windsor St (11655), after Coolgardie Tce (11656), after Brewer St (11657), before Brewer St (11316), before Murchison Tce (11317), after Bulwer St (11318); other closed stops on Lord St and Guildford Rd are in Highgate and Mount Lawley",
-      "impact": "Sat 24 Oct, 6:15pm to 8:15pm, Lord St stops closed for road closures; Route 40 diverts to Galleria, Route 41 to Bayswater and Route 42 to Maylands; alternatives are Newcastle St after Lord St (12883), Newcastle St before Lord St (24376) and East Pde East Perth Station (temporary stops 12985, 12986)",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25963",
-      "pts": [
-        [
-          -31.944542778161544,
-          115.87300333290895,
-          "Lord St After Windsor St"
-        ],
-        [
-          -31.946238278756688,
-          115.87178580487051,
-          "Lord St After Coolgardie Tce"
-        ],
-        [
-          -31.94773373973338,
-          115.87058431082082,
-          "Lord St After Brewer St"
-        ],
-        [
-          -31.947568888909075,
-          115.87051277882172,
-          "Lord St Before Brewer St"
-        ],
-        [
-          -31.945858889138435,
-          115.8718933332736,
-          "Lord St Before Murchison Tce"
-        ],
-        [
-          -31.944410814281138,
-          115.87291331505169,
-          "Lord St After Bulwer St"
-        ]
-      ]
-    },
-    {
-      "id": "25964",
-      "zones": [
-        "central"
-      ],
-      "mode": "bus",
-      "sev": "medium",
-      "title": "Routes 40, 41, 42 & 43 - Lord St Stops Closed Saturday Afternoon",
-      "routes": "Routes 40, 41, 42 & 43",
-      "start": "2026-10-24",
-      "end": "2026-10-24",
-      "ongoing": false,
-      "loc": "Lord St, Perth",
-      "stops": "Lord St after Coolgardie Tce (11656), after Brewer St (11657), before Brewer St (11316), before Murchison Tce (11317)",
-      "impact": "Sat 24 Oct, 2pm to 6:15pm, four Lord St stops closed; alternatives are Lord St after Windsor St (11655), Newcastle St after Lord St (12883), Lord St after Bulwer St (11318) and Newcastle St before Lord St (24376)",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25964",
-      "pts": [
-        [
-          -31.946238278756688,
-          115.87178580487051,
-          "Lord St After Coolgardie Tce"
-        ],
-        [
-          -31.94773373973338,
-          115.87058431082082,
-          "Lord St After Brewer St"
-        ],
-        [
-          -31.947568888909075,
-          115.87051277882172,
-          "Lord St Before Brewer St"
-        ],
-        [
-          -31.945858889138435,
-          115.8718933332736,
-          "Lord St Before Murchison Tce"
         ]
       ]
     },
