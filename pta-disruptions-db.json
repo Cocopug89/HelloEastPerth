@@ -1,8 +1,8 @@
 {
   "meta": {
-    "db_version": 84,
+    "db_version": 85,
     "first_built": "2026-07-08",
-    "last_scrape": "2026-10-25",
+    "last_scrape": "2026-10-27",
     "source": "https://www.transperth.wa.gov.au/service-updates",
     "coordinate_source": "data.wa.gov.au PTA-001 (ArcGIS: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Transport/MapServer/14). Query by stopnumber (bus/CAT) or stopname LIKE (rail), outSR=4326. Exact stop/station coordinates, not approximations.",
     "scope": "City of Perth LGA only",
@@ -25,7 +25,8 @@
       "25946, 25947, 25948, 25950, 25951, 25953, 25962, 25965, 25966, 25967, 25968, 25945, 25931, 25932, 25934, 25936, 25929, 25928 (22-30 Oct bus items; all affected stops outside the City); 25927 Route 24/96 Broadway Crawley removed from the Transperth list",
       "25984 (Pinjarra), 25985 (Marmion St, Fremantle), 25987 (Bagot Rd, Subiaco), 25982 (Karrinyup Rd, Stirling), 25969 (Albany Hwy, East Victoria Park), 25970 (Canning Hwy, Melville), 25971 (South St, Murdoch) and other 26-28 Oct bus items (all affected stops outside the City); 25487 dropped as ended 22 Oct",
       "25991 Fremantle Line West Leederville-Claremont train replacement and Airport Line delays (24 Oct, no City station named), 25986 (Great Eastern Hwy, Midland), 25988 (North Beach); perth-station-escalator-disruption-14 dropped as ended 23 Oct",
-      "25977 Routes 421/423 (Barnes St, Innaloo), 25975 Routes 374/386 (Girrawheen), 25979 Route 480 (Mindarie), 25978 Routes 574/585/586 (Lakelands), 25976 Route 467 (Pearsall), 25974 Routes 441-464 (Padbury/Craigie), 25981 Routes 320/321 (Midland/Midvale/Bellevue) (all affected stops outside the City); 25813, 25954, 25963 and 25964 dropped as ended 24 Oct"
+      "25977 Routes 421/423 (Barnes St, Innaloo), 25975 Routes 374/386 (Girrawheen), 25979 Route 480 (Mindarie), 25978 Routes 574/585/586 (Lakelands), 25976 Route 467 (Pearsall), 25974 Routes 441-464 (Padbury/Craigie), 25981 Routes 320/321 (Midland/Midvale/Bellevue) (all affected stops outside the City); 25813, 25954, 25963 and 25964 dropped as ended 24 Oct",
+      "26003 Route 403 (Royal St, Tuart Hill), 25998 Route 15 (Oxford St, Leederville/Mount Hawthorn), 26005 Route 40 (Guildford Rd, Bayswater; Elizabeth Quay is only the destination), 26001 Route 423 (West Coast Dr, Sorrento), 25992 Route 270 (Kewdale/Perth Airport), 25995 Route 280 (Wattle Grove), 26000 Route 970 (Yokine), 25993 (Hamersley), 26009 Routes 423/441 (Duncraig) (all affected stops outside the City); 25980 Route 27 dropped as ended 26 Oct"
     ]
   },
   "disruptions": [
@@ -83,6 +84,30 @@
       ]
     },
     {
+      "id": "26016",
+      "zones": [
+        "east"
+      ],
+      "mode": "cat",
+      "sev": "high",
+      "title": "Red CAT - Matagarup Bridge Stop Closed (1 Nov to 19 Dec)",
+      "routes": "Red CAT",
+      "start": "2026-11-01",
+      "end": "2026-12-19",
+      "ongoing": false,
+      "loc": "Matagarup Bridge, East Perth",
+      "stops": "Sailani Av Matagarup Bridge CAT 79 (ID 27751)",
+      "impact": "Sun 1 Nov to Sat 19 Dec, Red CAT disrupted for road closures and the Matagarup Bridge stop is not in use; alternatives are Trinity College CAT 147 (29862) and CAT 148 (29861); minor delays possible",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/26016",
+      "pts": [
+        [
+          -31.95650944364326,
+          115.8837900004289,
+          "Matagarup Bridge CAT 79"
+        ]
+      ]
+    },
+    {
       "id": "25910",
       "zones": [
         "central"
@@ -112,26 +137,31 @@
       ]
     },
     {
-      "id": "25980",
+      "id": "25997",
       "zones": [
         "central"
       ],
-      "mode": "bus",
-      "sev": "low",
-      "title": "Route 27 - Adelaide Tce Stop Closed Monday",
-      "routes": "Route 27",
-      "start": "2026-10-26",
-      "end": "2026-10-26",
+      "mode": "cat",
+      "sev": "medium",
+      "title": "Red CAT - Raine Square & King St Stops Closed Nightly",
+      "routes": "Red CAT",
+      "start": "2026-10-28",
+      "end": "2026-10-29",
       "ongoing": false,
-      "loc": "Adelaide Tce, Perth",
-      "stops": "Adelaide Tce after Hill St (ID 10074)",
-      "impact": "Mon 26 Oct, 7am to 4pm, one Perth bus stop not in use for road closures; alternatives are St Georges Tce Stand 21 (10076) and Terrace Rd before Hill St (28001)",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25980",
+      "loc": "Murray St, Perth",
+      "stops": "Murray St Raine Square CAT 99 (ID 17499), Murray St King Street CAT 98 (ID 28534)",
+      "impact": "Wed 28 and Thu 29 Oct, nightly from 8pm until last service, two Red CAT stops not in use for road closures; alternatives are Stand 5 CAT 67 (12901) and Milligan Street CAT 97 (17498)",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25997",
       "pts": [
         [
-          -31.958220555314153,
-          115.86664111096252,
-          "Adelaide Tce After Hill St"
+          -31.952178889462257,
+          115.85676611128378,
+          "Murray St Raine Square CAT 99"
+        ],
+        [
+          -31.95149333345605,
+          115.85468388957426,
+          "Murray St King Street CAT 98"
         ]
       ]
     },
@@ -369,6 +399,30 @@
       "stops": "Perth Station (lines disrupted Perth-Cannington)",
       "impact": "Sun 29 Nov - Thu 3 Dec, Armadale and Thornlie-Cockburn lines disrupted nightly between Perth and Cannington",
       "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25788",
+      "pts": [
+        [
+          -31.95118,
+          115.86004,
+          "Perth Station"
+        ]
+      ]
+    },
+    {
+      "id": "perth-station-escalators-works",
+      "zones": [
+        "central"
+      ],
+      "mode": "train",
+      "sev": "medium",
+      "title": "Perth Station - Platform 8 and 9 Escalator Works",
+      "routes": "Airport, Ellenbrook, Fremantle & Midland lines",
+      "start": "2026-11-02",
+      "end": "2026-12-11",
+      "ongoing": false,
+      "loc": "Perth Station",
+      "stops": "Perth Station (escalators serving platforms 8 and 9)",
+      "impact": "Mon 2 Nov to Fri 11 Dec, daily 6am to 4pm, escalators to platforms 8 and 9 out for maintenance; use the stairs or lifts",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/perth-station-escalators-works",
       "pts": [
         [
           -31.95118,
