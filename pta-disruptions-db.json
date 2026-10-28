@@ -1,8 +1,8 @@
 {
   "meta": {
-    "db_version": 85,
+    "db_version": 86,
     "first_built": "2026-07-08",
-    "last_scrape": "2026-10-27",
+    "last_scrape": "2026-10-28",
     "source": "https://www.transperth.wa.gov.au/service-updates",
     "coordinate_source": "data.wa.gov.au PTA-001 (ArcGIS: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Transport/MapServer/14). Query by stopnumber (bus/CAT) or stopname LIKE (rail), outSR=4326. Exact stop/station coordinates, not approximations.",
     "scope": "City of Perth LGA only",
@@ -26,7 +26,8 @@
       "25984 (Pinjarra), 25985 (Marmion St, Fremantle), 25987 (Bagot Rd, Subiaco), 25982 (Karrinyup Rd, Stirling), 25969 (Albany Hwy, East Victoria Park), 25970 (Canning Hwy, Melville), 25971 (South St, Murdoch) and other 26-28 Oct bus items (all affected stops outside the City); 25487 dropped as ended 22 Oct",
       "25991 Fremantle Line West Leederville-Claremont train replacement and Airport Line delays (24 Oct, no City station named), 25986 (Great Eastern Hwy, Midland), 25988 (North Beach); perth-station-escalator-disruption-14 dropped as ended 23 Oct",
       "25977 Routes 421/423 (Barnes St, Innaloo), 25975 Routes 374/386 (Girrawheen), 25979 Route 480 (Mindarie), 25978 Routes 574/585/586 (Lakelands), 25976 Route 467 (Pearsall), 25974 Routes 441-464 (Padbury/Craigie), 25981 Routes 320/321 (Midland/Midvale/Bellevue) (all affected stops outside the City); 25813, 25954, 25963 and 25964 dropped as ended 24 Oct",
-      "26003 Route 403 (Royal St, Tuart Hill), 25998 Route 15 (Oxford St, Leederville/Mount Hawthorn), 26005 Route 40 (Guildford Rd, Bayswater; Elizabeth Quay is only the destination), 26001 Route 423 (West Coast Dr, Sorrento), 25992 Route 270 (Kewdale/Perth Airport), 25995 Route 280 (Wattle Grove), 26000 Route 970 (Yokine), 25993 (Hamersley), 26009 Routes 423/441 (Duncraig) (all affected stops outside the City); 25980 Route 27 dropped as ended 26 Oct"
+      "26003 Route 403 (Royal St, Tuart Hill), 25998 Route 15 (Oxford St, Leederville/Mount Hawthorn), 26005 Route 40 (Guildford Rd, Bayswater; Elizabeth Quay is only the destination), 26001 Route 423 (West Coast Dr, Sorrento), 25992 Route 270 (Kewdale/Perth Airport), 25995 Route 280 (Wattle Grove), 26000 Route 970 (Yokine), 25993 (Hamersley), 26009 Routes 423/441 (Duncraig) (all affected stops outside the City); 25980 Route 27 dropped as ended 26 Oct",
+      "26022 Route 15 (Egina St / Ashby St, Mount Hawthorn), 26019 Route 40 (Irwin Rd / Collier Rd, Embleton; Elizabeth Quay is only the destination), 26020/26021 Routes 107/148/910/996 (Fremantle Traffic Bridge, Fremantle), 26023 Routes 67/960 (Dianella), 26024 Route 485 (Jindalee), 26018 Routes 548/549 (Naval Base), 26007, 26008, 26010 (Armadale, Stirling, Langford), 24552 (no stops named) (all affected stops outside the City); 25972 and 25983 dropped as ended 27 Oct"
     ]
   },
   "disruptions": [
@@ -166,76 +167,57 @@
       ]
     },
     {
-      "id": "25972",
+      "id": "26025",
       "zones": [
         "west",
         "central"
       ],
       "mode": "bus",
       "sev": "medium",
-      "title": "Routes 82, 84 & 85 - Wellington St & Sutherland St CAT Stops Closed Nightly",
-      "routes": "Routes 82, 84 & 85",
-      "start": "2026-10-26",
-      "end": "2026-10-27",
+      "title": "Routes 28, 30, 31, 81-85 & 910 - CBD and West Perth Stops Closed (Sat 31 Oct)",
+      "routes": "Routes 28, 30, 31, 81, 82, 83, 84, 85 & 910",
+      "start": "2026-10-31",
+      "end": "2026-10-31",
       "ongoing": false,
-      "loc": "Wellington St and Sutherland St, West Perth; Arena stop, Perth",
-      "stops": "Arena CAT 65 (ID 12897), Watertown CAT 64 (ID 23090), Sutherland St CAT 40 (ID 26655), Wellington St after George St (ID 12927), Sutherland St CAT 36 (ID 26654)",
-      "impact": "Mon 26 and Tue 27 Oct, nightly from 8pm until last service, five City bus stops closed for road closures; alternatives are City West Station CAT 39 (12931), CAT 37 (12932) and Perth Busport",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25972",
+      "loc": "Wellington St, Sutherland St and Railway St area, West Perth; St Georges Tce and Milligan St, Perth",
+      "stops": "Wellington St after George St (ID 12927), Watertown CAT 61 (ID 23086), Sutherland St CAT 36 (ID 26654), Stand 1 CAT 31 (ID 10117), Milligan St after Murray St (ID 28732), St Georges Tce Stand 2 (ID 10116), St Georges Tce Stand 5 (ID 10122)",
+      "impact": "Sat 31 Oct, first service until 4.30pm, seven City bus stops not in use for road closures; alternatives are Harold Boas Gardens CAT 41 (12928), City West Station CAT 37 (12932), Elizabeth Quay Bus Station Stand A2 (12224), St Georges Tce Stand 8 (10124) and Perth Busport",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/26025",
       "pts": [
-        [
-          -31.94917944383512,
-          115.85224888893951,
-          "Wellington St Arena CAT 65"
-        ],
-        [
-          -31.94750372723622,
-          115.84715344487047,
-          "Wellington St Watertown CAT 64"
-        ],
-        [
-          -31.946441111219656,
-          115.84702555603323,
-          "Sutherland St CAT 40"
-        ],
         [
           -31.9483755562705,
           115.84899944403618,
           "Wellington St After George St"
         ],
         [
+          -31.947651478372887,
+          115.84675915974773,
+          "Wellington St Watertown CAT 61"
+        ],
+        [
           -31.946253333658355,
           115.84690888903722,
           "Sutherland St CAT 36"
-        ]
-      ]
-    },
-    {
-      "id": "25983",
-      "zones": [
-        "west"
-      ],
-      "mode": "bus",
-      "sev": "medium",
-      "title": "Route 25 - Smyth Rd Nedlands Stops Closed",
-      "routes": "Route 25",
-      "start": "2026-10-26",
-      "end": "2026-10-27",
-      "ongoing": false,
-      "loc": "Smyth Rd, Nedlands",
-      "stops": "Smyth Rd after Karella St (ID 28217), Smyth Rd after Monash Av (ID 28218)",
-      "impact": "Mon 26 and Tue 27 Oct, 9am to 2:30pm, two Nedlands bus stops closed; alternatives are stops 17563 and 28216 (to Shenton Park Station) and 17562 and 28215 (to Claremont Station)",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25983",
-      "pts": [
-        [
-          -31.971373889055418,
-          115.80574055605973,
-          "Smyth Rd After Karella St"
         ],
         [
-          -31.97139722219395,
-          115.8058416671495,
-          "Smyth Rd After Monash Av"
+          -31.95311222150491,
+          115.85191555570708,
+          "St Georges Tce Stand 1 CAT 31"
+        ],
+        [
+          -31.951123888639486,
+          115.85201666748713,
+          "Milligan St After Murray St"
+        ],
+        [
+          -31.953346110815648,
+          115.85263222209957,
+          "St Georges Tce Stand 2"
+        ],
+        [
+          -31.954527221937365,
+          115.85624666684284,
+          "St Georges Tce Stand 5"
         ]
       ]
     },
