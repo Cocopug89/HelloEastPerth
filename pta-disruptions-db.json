@@ -1,8 +1,8 @@
 {
   "meta": {
-    "db_version": 86,
+    "db_version": 87,
     "first_built": "2026-07-08",
-    "last_scrape": "2026-10-28",
+    "last_scrape": "2026-10-29",
     "source": "https://www.transperth.wa.gov.au/service-updates",
     "coordinate_source": "data.wa.gov.au PTA-001 (ArcGIS: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Transport/MapServer/14). Query by stopnumber (bus/CAT) or stopname LIKE (rail), outSR=4326. Exact stop/station coordinates, not approximations.",
     "scope": "City of Perth LGA only",
@@ -27,7 +27,8 @@
       "25991 Fremantle Line West Leederville-Claremont train replacement and Airport Line delays (24 Oct, no City station named), 25986 (Great Eastern Hwy, Midland), 25988 (North Beach); perth-station-escalator-disruption-14 dropped as ended 23 Oct",
       "25977 Routes 421/423 (Barnes St, Innaloo), 25975 Routes 374/386 (Girrawheen), 25979 Route 480 (Mindarie), 25978 Routes 574/585/586 (Lakelands), 25976 Route 467 (Pearsall), 25974 Routes 441-464 (Padbury/Craigie), 25981 Routes 320/321 (Midland/Midvale/Bellevue) (all affected stops outside the City); 25813, 25954, 25963 and 25964 dropped as ended 24 Oct",
       "26003 Route 403 (Royal St, Tuart Hill), 25998 Route 15 (Oxford St, Leederville/Mount Hawthorn), 26005 Route 40 (Guildford Rd, Bayswater; Elizabeth Quay is only the destination), 26001 Route 423 (West Coast Dr, Sorrento), 25992 Route 270 (Kewdale/Perth Airport), 25995 Route 280 (Wattle Grove), 26000 Route 970 (Yokine), 25993 (Hamersley), 26009 Routes 423/441 (Duncraig) (all affected stops outside the City); 25980 Route 27 dropped as ended 26 Oct",
-      "26022 Route 15 (Egina St / Ashby St, Mount Hawthorn), 26019 Route 40 (Irwin Rd / Collier Rd, Embleton; Elizabeth Quay is only the destination), 26020/26021 Routes 107/148/910/996 (Fremantle Traffic Bridge, Fremantle), 26023 Routes 67/960 (Dianella), 26024 Route 485 (Jindalee), 26018 Routes 548/549 (Naval Base), 26007, 26008, 26010 (Armadale, Stirling, Langford), 24552 (no stops named) (all affected stops outside the City); 25972 and 25983 dropped as ended 27 Oct"
+      "26022 Route 15 (Egina St / Ashby St, Mount Hawthorn), 26019 Route 40 (Irwin Rd / Collier Rd, Embleton; Elizabeth Quay is only the destination), 26020/26021 Routes 107/148/910/996 (Fremantle Traffic Bridge, Fremantle), 26023 Routes 67/960 (Dianella), 26024 Route 485 (Jindalee), 26018 Routes 548/549 (Naval Base), 26007, 26008, 26010 (Armadale, Stirling, Langford), 24552 (no stops named) (all affected stops outside the City); 25972 and 25983 dropped as ended 27 Oct",
+      "26028 Route 275 (Canning Rd, Kalamunda), 26006 Route 442 (Waterford Dr, Hillarys), 26004 Routes 374/375 (Balga/Westminster), 26011 Route 470 (Iluka/Burns Beach) (all affected stops outside the City)"
     ]
   },
   "disruptions": [
@@ -414,7 +415,7 @@
       ]
     },
     {
-      "id": "november-service-changes",
+      "id": "1-november-service-changes",
       "zones": [
         "east"
       ],
@@ -428,7 +429,7 @@
       "loc": "Hay St, East Perth",
       "stops": "Hay St Plain Street CAT 81 (ID 16906) and Hay St Carlton CAT 82 (ID 16907) no longer served; Hay St Queens Gardens CAT 143 (ID 28765) served instead",
       "impact": "From Sun 1 Nov, Routes 111 and 160 stop serving two Hay St East Perth stops and use the Queens Gardens CAT stop instead (part of the November Service Changes; CAT services also get time changes)",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/november-service-changes",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/1-november-service-changes",
       "pts": [
         [
           -31.959356,
