@@ -1,8 +1,8 @@
 {
   "meta": {
-    "db_version": 88,
+    "db_version": 89,
     "first_built": "2026-07-08",
-    "last_scrape": "2026-10-30",
+    "last_scrape": "2026-10-31",
     "source": "https://www.transperth.wa.gov.au/service-updates",
     "coordinate_source": "data.wa.gov.au PTA-001 (ArcGIS: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Transport/MapServer/14). Query by stopnumber (bus/CAT) or stopname LIKE (rail), outSR=4326. Exact stop/station coordinates, not approximations.",
     "scope": "City of Perth LGA only",
@@ -29,7 +29,8 @@
       "26003 Route 403 (Royal St, Tuart Hill), 25998 Route 15 (Oxford St, Leederville/Mount Hawthorn), 26005 Route 40 (Guildford Rd, Bayswater; Elizabeth Quay is only the destination), 26001 Route 423 (West Coast Dr, Sorrento), 25992 Route 270 (Kewdale/Perth Airport), 25995 Route 280 (Wattle Grove), 26000 Route 970 (Yokine), 25993 (Hamersley), 26009 Routes 423/441 (Duncraig) (all affected stops outside the City); 25980 Route 27 dropped as ended 26 Oct",
       "26022 Route 15 (Egina St / Ashby St, Mount Hawthorn), 26019 Route 40 (Irwin Rd / Collier Rd, Embleton; Elizabeth Quay is only the destination), 26020/26021 Routes 107/148/910/996 (Fremantle Traffic Bridge, Fremantle), 26023 Routes 67/960 (Dianella), 26024 Route 485 (Jindalee), 26018 Routes 548/549 (Naval Base), 26007, 26008, 26010 (Armadale, Stirling, Langford), 24552 (no stops named) (all affected stops outside the City); 25972 and 25983 dropped as ended 27 Oct",
       "26028 Route 275 (Canning Rd, Kalamunda), 26006 Route 442 (Waterford Dr, Hillarys), 26004 Routes 374/375 (Balga/Westminster), 26011 Route 470 (Iluka/Burns Beach) (all affected stops outside the City)",
-      "26035 Route 24 (Waratah Av, Dalkeith), 26030 Routes 111/659/910 (Canning Hwy, Palmyra/Bicton), 26033, 26034, 26036, 26037, 26039 (all affected stops outside the City); 25910 and 25997 dropped as ended 29 Oct"
+      "26035 Route 24 (Waratah Av, Dalkeith), 26030 Routes 111/659/910 (Canning Hwy, Palmyra/Bicton), 26033, 26034, 26036, 26037, 26039 (all affected stops outside the City); 25910 and 25997 dropped as ended 29 Oct",
+      "26043 Route 346 (Aveley), 26044 Routes 19/360/960 (Fitzgerald St, North Perth), 26046 Routes 246/249 (Darling Downs), 26047 Routes 201/202 (Riverton/Parkwood/Willetton), 26048 Route 41 (Crowther St, Bayswater), 26050 Route 563 (Secret Harbour), 26051 Route 107 (Mosman Park), 26052 Routes 384-990 (Charles St, North Perth), 26053 Route 910 (Palmyra), 26054 Routes 402-998 (Cedric St, Stirling), 26055 Routes 341/342 (Ellenbrook), 26056 Route 32 (Thelma St, Como), 26031 Routes 220/245/250/251 (Armadale) (all affected stops outside the City; Perth Busport/Elizabeth Quay only destinations)"
     ]
   },
   "disruptions": [
@@ -480,6 +481,35 @@
           -31.971373889055418,
           115.80574055605973,
           "Smyth Rd After Karella St"
+        ]
+      ]
+    },
+    {
+      "id": "26049",
+      "zones": [
+        "central"
+      ],
+      "mode": "cat",
+      "sev": "medium",
+      "title": "Blue CAT - Hay Street Mall Stops Closed (4 to 15 Nov, nightly)",
+      "routes": "Blue CAT",
+      "start": "2026-11-04",
+      "end": "2026-11-15",
+      "ongoing": false,
+      "loc": "Barrack St / Hay Street Mall, Perth",
+      "stops": "Hay Street Mall CAT 3 (ID 12124), Hay Street Mall CAT 20 (ID 28509)",
+      "impact": "Wed 4 and Thu 5 Nov, Sun 8 to Thu 12 Nov and Sun 15 Nov, nightly from 7pm until last service, two Hay Street Mall Blue CAT stops not in use for road closures; alternatives are Perth Station CAT 4 (12129), Barrack Square CAT 2 (16974) and WA Museum Boola Bardip CAT 19 (26623); minor delays possible",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/26049",
+      "pts": [
+        [
+          -31.954914328660323,
+          115.86008133502615,
+          "Barrack St Hay Street Mall CAT 3"
+        ],
+        [
+          -31.954076111470318,
+          115.86059666704077,
+          "Barrack St Hay Street Mall CAT 20"
         ]
       ]
     }
