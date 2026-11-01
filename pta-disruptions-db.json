@@ -1,8 +1,8 @@
 {
   "meta": {
-    "db_version": 89,
+    "db_version": 90,
     "first_built": "2026-07-08",
-    "last_scrape": "2026-10-31",
+    "last_scrape": "2026-11-01",
     "source": "https://www.transperth.wa.gov.au/service-updates",
     "coordinate_source": "data.wa.gov.au PTA-001 (ArcGIS: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Transport/MapServer/14). Query by stopnumber (bus/CAT) or stopname LIKE (rail), outSR=4326. Exact stop/station coordinates, not approximations.",
     "scope": "City of Perth LGA only",
@@ -30,7 +30,8 @@
       "26022 Route 15 (Egina St / Ashby St, Mount Hawthorn), 26019 Route 40 (Irwin Rd / Collier Rd, Embleton; Elizabeth Quay is only the destination), 26020/26021 Routes 107/148/910/996 (Fremantle Traffic Bridge, Fremantle), 26023 Routes 67/960 (Dianella), 26024 Route 485 (Jindalee), 26018 Routes 548/549 (Naval Base), 26007, 26008, 26010 (Armadale, Stirling, Langford), 24552 (no stops named) (all affected stops outside the City); 25972 and 25983 dropped as ended 27 Oct",
       "26028 Route 275 (Canning Rd, Kalamunda), 26006 Route 442 (Waterford Dr, Hillarys), 26004 Routes 374/375 (Balga/Westminster), 26011 Route 470 (Iluka/Burns Beach) (all affected stops outside the City)",
       "26035 Route 24 (Waratah Av, Dalkeith), 26030 Routes 111/659/910 (Canning Hwy, Palmyra/Bicton), 26033, 26034, 26036, 26037, 26039 (all affected stops outside the City); 25910 and 25997 dropped as ended 29 Oct",
-      "26043 Route 346 (Aveley), 26044 Routes 19/360/960 (Fitzgerald St, North Perth), 26046 Routes 246/249 (Darling Downs), 26047 Routes 201/202 (Riverton/Parkwood/Willetton), 26048 Route 41 (Crowther St, Bayswater), 26050 Route 563 (Secret Harbour), 26051 Route 107 (Mosman Park), 26052 Routes 384-990 (Charles St, North Perth), 26053 Route 910 (Palmyra), 26054 Routes 402-998 (Cedric St, Stirling), 26055 Routes 341/342 (Ellenbrook), 26056 Route 32 (Thelma St, Como), 26031 Routes 220/245/250/251 (Armadale) (all affected stops outside the City; Perth Busport/Elizabeth Quay only destinations)"
+      "26043 Route 346 (Aveley), 26044 Routes 19/360/960 (Fitzgerald St, North Perth), 26046 Routes 246/249 (Darling Downs), 26047 Routes 201/202 (Riverton/Parkwood/Willetton), 26048 Route 41 (Crowther St, Bayswater), 26050 Route 563 (Secret Harbour), 26051 Route 107 (Mosman Park), 26052 Routes 384-990 (Charles St, North Perth), 26053 Route 910 (Palmyra), 26054 Routes 402-998 (Cedric St, Stirling), 26055 Routes 341/342 (Ellenbrook), 26056 Route 32 (Thelma St, Como), 26031 Routes 220/245/250/251 (Armadale) (all affected stops outside the City; Perth Busport/Elizabeth Quay only destinations)",
+      "26025 CBD and West Perth stops (Sat 31 Oct) dropped as ended 31 Oct; Perth CBD Planned Protest (until 17 Sep) is past"
     ]
   },
   "disruptions": [
@@ -108,61 +109,6 @@
           -31.95650944364326,
           115.8837900004289,
           "Matagarup Bridge CAT 79"
-        ]
-      ]
-    },
-    {
-      "id": "26025",
-      "zones": [
-        "west",
-        "central"
-      ],
-      "mode": "bus",
-      "sev": "medium",
-      "title": "Routes 28, 30, 31, 81-85 & 910 - CBD and West Perth Stops Closed (Sat 31 Oct)",
-      "routes": "Routes 28, 30, 31, 81, 82, 83, 84, 85 & 910",
-      "start": "2026-10-31",
-      "end": "2026-10-31",
-      "ongoing": false,
-      "loc": "Wellington St, Sutherland St and Railway St area, West Perth; St Georges Tce and Milligan St, Perth",
-      "stops": "Wellington St after George St (ID 12927), Watertown CAT 61 (ID 23086), Sutherland St CAT 36 (ID 26654), Stand 1 CAT 31 (ID 10117), Milligan St after Murray St (ID 28732), St Georges Tce Stand 2 (ID 10116), St Georges Tce Stand 5 (ID 10122)",
-      "impact": "Sat 31 Oct, first service until 4.30pm, seven City bus stops not in use for road closures; alternatives are Harold Boas Gardens CAT 41 (12928), City West Station CAT 37 (12932), Elizabeth Quay Bus Station Stand A2 (12224), St Georges Tce Stand 8 (10124) and Perth Busport",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/26025",
-      "pts": [
-        [
-          -31.9483755562705,
-          115.84899944403618,
-          "Wellington St After George St"
-        ],
-        [
-          -31.947651478372887,
-          115.84675915974773,
-          "Wellington St Watertown CAT 61"
-        ],
-        [
-          -31.946253333658355,
-          115.84690888903722,
-          "Sutherland St CAT 36"
-        ],
-        [
-          -31.95311222150491,
-          115.85191555570708,
-          "St Georges Tce Stand 1 CAT 31"
-        ],
-        [
-          -31.951123888639486,
-          115.85201666748713,
-          "Milligan St After Murray St"
-        ],
-        [
-          -31.953346110815648,
-          115.85263222209957,
-          "St Georges Tce Stand 2"
-        ],
-        [
-          -31.954527221937365,
-          115.85624666684284,
-          "St Georges Tce Stand 5"
         ]
       ]
     },
