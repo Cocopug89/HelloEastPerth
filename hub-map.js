@@ -4,8 +4,9 @@
    as the Hub Editor shifts write them. No data file or scheduled role changes.
    Engine: MapLibre (maplibre-gl.js, vendored flat in this folder) on the EPCG basemap shared with the Heritage
    Hunt (hub-map-style.js). Pins: the glyph says WHAT it is, the colour says HOW MUCH it matters (three levels).
-   One filter bar drives the map and the list together: When, Show (with transport modes), Area, "only what
-   blocks the way", and search. The state lives in the address (#disruptions?when=..&what=..&area=..) so a link
+   One filter bar drives the map and the list together: When, Show (with transport modes), Near me, "only what
+   blocks the way", and search. There is no area switch: the board's West / Central / East toggle is the zone,
+   and it carries the filters across. The state lives in the address (#disruptions?when=..&what=..) so a link
    or bookmark opens the same view. This file builds the tab's controls itself; the boards only call
    HubMapTab.preset(name) and HubMapTab.show() from activateTab. */
 (function(){
@@ -19,7 +20,8 @@
     cone:'<path d="M9.6 3.5h4.8l4.4 14.5H5.2z" fill="currentColor"/><rect x="3" y="18" width="18" height="2.6" rx="1.2" fill="currentColor"/>',
     crane:'<path d="M5.2 15.6a6.8 6.8 0 0 1 13.6 0z" fill="currentColor"/><path d="M10.6 6.2h2.8v5.4h-2.8z" fill="currentColor"/><rect x="3" y="16.6" width="18" height="2.8" rx="1.3" fill="currentColor"/>', /* hard hat: reads as construction at 16px */
     star:'<path d="M12 2.8l2.75 5.6 6.15.9-4.45 4.33 1.05 6.12L12 16.85l-5.5 2.9 1.05-6.12L3.1 9.3l6.15-.9z" fill="currentColor"/>',
-    bus:'<path d="M6 17.5V6.5a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v11M6 11.5h12M6 17.5h12M8.6 20.5v-3M15.4 20.5v-3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>',
+    bus:'<rect x="2.5" y="5.5" width="19" height="11" rx="2.6" fill="none" stroke="currentColor" stroke-width="2.1"/><path d="M2.8 10.8h18.4M8.2 5.8v5M13.8 5.8v5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="7.2" cy="17.8" r="2" fill="currentColor"/><circle cx="16.8" cy="17.8" r="2" fill="currentColor"/>', /* side-on, so it can't be mistaken for the train's front view */
+    cat:'<rect x="3.5" y="5" width="17" height="12.5" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><text x="12" y="14.2" font-family="Montserrat,Arial,sans-serif" font-size="6.6" font-weight="800" text-anchor="middle" fill="currentColor">CAT</text><path d="M7.5 20.5v-3M16.5 20.5v-3" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>',
     train:'<path d="M7 15.5V6.5a3 3 0 0 1 3-3h4a3 3 0 0 1 3 3v9a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2zM7 10.5h10M9 21l1.6-3.5M15 21l-1.6-3.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>'
   };
   function svg(name,size){ return '<svg viewBox="0 0 24 24" width="'+size+'" height="'+size+'" aria-hidden="true">'+GLYPH[name]+'</svg>'; }
@@ -34,7 +36,7 @@
     return d.sev==="high"?"block":"slow";
   }
   function glyphOf(d,kind){
-    if(kind==="pta") return d.mode==="train"?"train":"bus";
+    if(kind==="pta") return d.mode==="train"?"train":d.mode==="cat"?"cat":"bus";
     if(d.cat==="infrastructure") return "crane";
     if(d.cat==="event") return "star";
     return "cone";
@@ -62,6 +64,14 @@
     "#hmModes[hidden]{display:none!important}"+
     "#disList .card{cursor:pointer}"+
     "#disList .card .kb{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:700;color:#fff;background:#004F71;padding:1px 8px;border-radius:20px;margin-right:6px}"+
+    ".lchip.ic{padding:5px 11px}.lchip.ic .hg{margin-right:0}.lchip.ic .ct:empty{display:none}"+
+    "#hmModes{display:inline-flex;gap:8px;padding-left:10px;margin-left:2px;border-left:1px solid rgba(255,255,255,.22)}"+
+    ".maphelptip .hmkey{margin-top:10px;padding-top:9px;border-top:1px solid #e4edf3}"+
+    ".maphelptip .kt{font-size:10.5px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:#5E7986;margin:6px 0 5px}"+
+    ".maphelptip .kr{display:flex;align-items:center;gap:8px;margin:4px 0;color:#12303F;font-weight:600}"+
+    ".maphelptip .kp{flex:none;width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;border:1.5px solid #fff;box-shadow:0 1px 2px rgba(0,40,60,.35)}"+
+    ".maphelptip .kd{flex:none;width:14px;height:14px;border-radius:50%;margin:0 4px}"+
+    ".maphelptip .kn{display:block;font-weight:500;color:#5E7986;font-size:11.5px;margin-top:8px}"+
     ".hclu{width:38px;height:38px;border-radius:50%;border:2px solid #fff;background:#004F71;color:#fff;font:800 13px Montserrat,Arial,sans-serif;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0}"+
     ".hme{width:16px;height:16px;border-radius:50%;background:#00A3E0;border:3px solid #fff;box-shadow:0 0 0 2px #00A3E0,0 0 0 9px rgba(0,163,224,.22)}"+
     "#disList .card .dist{float:right;font-size:11px;font-weight:800;color:#004F71;background:#E6F2F7;border-radius:20px;padding:1px 8px;margin-left:8px}"+
@@ -178,14 +188,14 @@
           markers.push(new ml.Marker({element:el, anchor:"center"}).setLngLat([g.lng,g.lat]).addTo(map));
         });
       }
-      function fit(){
+      function fit(anim){
         var pts=cfg.extent(); if(!pts.length) return;
         var b=pts.reduce(function(bb,p){ return bb.extend(p); }, new ml.LngLatBounds(pts[0],pts[0]));
-        map.resize(); map.fitBounds(b,{padding:44, maxZoom:16, animate:false});
+        map.resize(); map.fitBounds(b,{padding:44, maxZoom:16, animate:!!anim, duration:650});
       }
       ctl.render=function(){ hidePopup(); draw(); };
       ctl.refresh=function(){ map.resize(); if(!touched) fit(); };
-      ctl.refit=function(){ touched=false; fit(); };
+      ctl.refit=function(){ touched=false; fit(true); };
       ctl.focus=function(lng,lat){ touched=true; map.easeTo({center:[lng,lat], zoom:Math.max(map.getZoom(),16), duration:500}); };
       var me=null;
       ctl.me=function(lng,lat){
@@ -204,8 +214,7 @@
 
   /* ---- the Map tab ---- */
   var KINDS=[{v:"roads",label:"Roads &amp; footpaths",g:"cone"},{v:"construction",label:"Construction",g:"crane"},{v:"events",label:"Events",g:"star"},{v:"transport",label:"Public transport",g:"bus"}];
-  var MODES=[{v:"train",label:"Train",g:"train"},{v:"bus",label:"Bus",g:"bus"},{v:"cat",label:"CAT",g:"bus"}];
-  var AREAS=[{v:"east",label:"East"},{v:"central",label:"Central"},{v:"west",label:"West"},{v:"all",label:"Whole city"}];
+  var MODES=[{v:"train",label:"Train",g:"train"},{v:"bus",label:"Bus",g:"bus"},{v:"cat",label:"CAT",g:"cat"}];
   var CATL={obstruction:"Obstruction",event:"Event",roadclosure:"Road closure",infrastructure:"Construction"};
   var MODEL={train:"Train",bus:"Bus",cat:"CAT"};
   function zoneOfBoard(){ try{ return HZ; }catch(e){ return "east"; } }
@@ -264,22 +273,31 @@
     if(skip!=="when"){ if(S.when==="today"&&!onDay(r,mid())) return false; if(S.when==="week"&&!inWeek(r)) return false; }
     if(skip!=="what"&&!S.what[r.kind]) return false;
     if(r.src==="pta"&&!S.modes[r.mode]) return false;
-    if(!inArea(r)) return false;
+    if(skip!=="area"&&!inArea(r)) return false; /* the map passes "area": it always shows the whole city */
     if(S.block&&r.impact!=="block") return false;
     if(S.q&&r.text.indexOf(S.q)<0) return false;
     return true;
   }
 
   var NEAR_LABEL='&#9678; Near me';
+  /* The key lives in the (?) pop-up over the map (Jason, 3 Nov 2026): what each icon is, what each colour means. */
+  function keyRow(g,label,bg,fg){ return '<div class="kr"><i class="kp" style="background:'+bg+';color:'+fg+'">'+svg(g,13)+'</i>'+label+'</div>'; }
+  var KEY='<div class="hmkey"><div class="kt">What the icons mean</div>'+
+    KINDS.map(function(k){ return keyRow(k.g,k.label,IMPACT.info.c,"#fff"); }).join("")+
+    MODES.map(function(m){ return keyRow(m.g,m.label,IMPACT.info.c,"#fff"); }).join("")+
+    '<div class="kt">What the colours mean</div>'+
+    ["block","slow","info"].map(function(k){ return '<div class="kr"><i class="kd" style="background:'+IMPACT[k].c+'"></i>'+IMPACT[k].label+'</div>'; }).join("")+
+    '<div class="kr kn">Faded pins are not on today. A number on a pin means several things at one spot; a ringed circle groups nearby pins, tap it to zoom in.</div></div>';
   var SKELETON=
     '<div class="hmphone"><span class="seg" id="hmView"><button data-v="map" class="on">Map</button><button data-v="list">List</button></span><button class="tchip" id="hmFilters">Filters</button></div>'+
-    '<div class="mapwrap"><div id="status">Loading map...</div><div id="map" style="display:none"></div><button type="button" class="maphelp" aria-label="About this map" onclick="this.parentNode.querySelector(\'.maphelptip\').classList.toggle(\'open\')">?</button><div class="maphelptip">Roadworks, closures, construction, events and Transperth stop changes across the <b>City of Perth</b>. Pick an area, or the whole city. Tap a pin or a card for the detail. The filters work on the map and the list together.</div></div>'+
+    '<div class="mapwrap"><div id="status">Loading map...</div><div id="map" style="display:none"></div><button type="button" class="maphelp" aria-label="About this map" onclick="this.parentNode.querySelector(\'.maphelptip\').classList.toggle(\'open\')">?</button><div class="maphelptip">Roadworks, closures, construction, events and Transperth stop changes across the <b>City of Perth</b>. The map always shows the whole city; West, Central and East at the top move the map, and the list, to that zone. Near me looks across all three. Tap a pin or a card for the detail. The filters work on the map and the list together.'+KEY+'</div></div>'+
     '<div id="mapctl">'+
       '<div class="mcrow"><span class="mclabel">When</span><span class="seg" id="hmWhen"><button data-v="today">Today</button><button data-v="week">This week</button><button data-v="all">All current</button></span><span class="mccount" id="cnt"></span></div>'+
-      '<div class="mcrow" id="hmWhat"><span class="mclabel">Show</span>'+KINDS.map(function(k){ return '<button class="lchip" data-v="'+k.v+'"><i class="hg">'+svg(k.g,15)+'</i>'+k.label+'<span class="ct"></span></button>'; }).join("")+'</div>'+
-      '<div class="mcrow" id="hmModes"><span class="mclabel">Transport</span>'+MODES.map(function(m){ return '<button class="lchip" data-v="'+m.v+'"><i class="hg">'+svg(m.g,15)+'</i>'+m.label+'</button>'; }).join("")+'</div>'+
-      '<div class="mcrow" id="hmAreaRow"><span class="mclabel">Area</span><span class="seg" id="hmArea">'+AREAS.map(function(a){ return '<button data-v="'+a.v+'">'+a.label+'</button>'; }).join("")+'</span><button class="tchip" id="hmNear">'+NEAR_LABEL+'</button><button class="tchip" id="hmBlock">Only what blocks the way</button></div>'+
-      '<div class="mckey"><span><i class="hdot" style="background:'+IMPACT.block.c+'"></i>Blocks the way</span><span><i class="hdot" style="background:'+IMPACT.slow.c+'"></i>Slows you down</span><span><i class="hdot" style="background:'+IMPACT.info.c+'"></i>Good to know</span><span class="sep"></span><span>Faded pins are not on today</span></div>'+
+      /* Icon-only toggles (Jason, 3 Nov 2026); the key over the map says what each icon means. */
+      '<div class="mcrow" id="hmWhat"><span class="mclabel">Show</span>'+KINDS.map(function(k){ return '<button class="lchip ic" data-v="'+k.v+'" title="'+k.label+'" aria-label="'+k.label+'"><i class="hg">'+svg(k.g,17)+'</i><span class="ct"></span></button>'; }).join("")+
+        '<span id="hmModes">'+MODES.map(function(m){ return '<button class="lchip ic" data-v="'+m.v+'" title="'+m.label+'" aria-label="'+m.label+'"><i class="hg">'+svg(m.g,17)+'</i></button>'; }).join("")+'</span></div>'+
+      /* No area switch here: the board's own West / Central / East toggle chooses the zone (Jason, 3 Nov 2026). */
+      '<div class="mcrow" id="hmAreaRow"><button class="tchip" id="hmNear">'+NEAR_LABEL+'</button><button class="tchip" id="hmBlock">Only what blocks the way</button></div>'+
     '</div>'+
     '<div class="controls" style="margin-top:12px"><input class="search" id="disSearch" aria-label="Search the map" placeholder="Search streets, events, routes or stops..."></div>'+
     '<div id="disList"></div>';
@@ -288,8 +306,7 @@
   function $(id){ return document.getElementById(id); }
   function syncUI(){
     $("hmWhen").querySelectorAll("button").forEach(function(b){ b.classList.toggle("on",b.dataset.v===S.when); });
-    $("hmArea").querySelectorAll("button").forEach(function(b){ b.classList.toggle("on",b.dataset.v===S.area); });
-    $("hmWhat").querySelectorAll(".lchip").forEach(function(b){ b.classList.toggle("off",!S.what[b.dataset.v]); });
+    $("hmWhat").querySelectorAll("#hmWhat > .lchip").forEach(function(b){ b.classList.toggle("off",!S.what[b.dataset.v]); });
     $("hmModes").querySelectorAll(".lchip").forEach(function(b){ b.classList.toggle("off",!S.modes[b.dataset.v]); });
     $("hmModes").hidden=!S.what.transport;
     $("hmBlock").classList.toggle("on",S.block);
@@ -300,12 +317,15 @@
     if(!ready) return; /* never overwrite the address before init has read it */
     var t=$("tab-disruptions"); if(!t||!t.classList.contains("active")) return;
     var w=KINDS.filter(function(k){ return S.what[k.v]; }).map(function(k){ return k.v; }).join(",")||"none";
-    var qs="when="+S.when+"&what="+w+"&area="+S.area;
+    var qs="when="+S.when+"&what="+w;
     var m=MODES.filter(function(x){ return S.modes[x.v]; }).map(function(x){ return x.v; });
     if(m.length<MODES.length) qs+="&modes="+(m.join(",")||"none");
     if(S.block) qs+="&block=1";
     if(S.q) qs+="&q="+encodeURIComponent(S.q);
+    if(!S.near&&S.area!==zoneOfBoard()) qs+="&zone="+S.area;
     try{ history.replaceState(null,"","#disruptions?"+qs); }catch(e){}
+    /* The board's zone toggle carries these filters to the other zone's Map tab. */
+    try{ document.querySelectorAll(".zones a").forEach(function(a){ a.setAttribute("href",a.getAttribute("href").split("#")[0]+"#disruptions?"+qs); }); }catch(e){}
   }
   function readHash(){
     var m=(location.hash||"").match(/^#(disruptions|transport)\?(.*)$/); if(!m) return false;
@@ -313,21 +333,22 @@
     if(/^(today|week|all)$/.test(p.when||"")) S.when=p.when;
     if(p.what){ S.what={}; p.what.split(",").forEach(function(v){ S.what[v]=1; }); }
     if(p.modes){ S.modes={}; p.modes.split(",").forEach(function(v){ S.modes[v]=1; }); }
-    if(/^(east|central|west|all)$/.test(p.area||"")){ S.area=p.area; areaFromHash=true; }
+    /* area= in older links is ignored: the page itself is the zone. */
+    if(/^(east|central|west)$/.test(p.zone||"")){ S.area=p.zone; areaFromHash=true; }
     S.block=p.block==="1"; S.q=(p.q||"").toLowerCase();
     return true;
   }
   function apply(){
     if(!ready) return;
     var all=records(), vis=all.filter(function(r){ return match(r); });
-    $("hmWhat").querySelectorAll(".lchip").forEach(function(b){ var n=all.filter(function(r){ return r.kind===b.dataset.v&&match(r,"what"); }).length; b.querySelector(".ct").textContent=n; });
-    $("cnt").textContent=vis.length+(S.when==="today"?" on today":S.when==="week"?" this week":" current or coming up");
+    $("hmWhat").querySelectorAll("#hmWhat > .lchip").forEach(function(b){ var n=all.filter(function(r){ return r.kind===b.dataset.v&&match(r,"what"); }).length; b.querySelector(".ct").textContent=n; });
+    $("cnt").textContent=vis.length+(S.when==="today"?" on today":S.when==="week"?" this week":" current or coming up")+(S.near?" near you":" in "+({east:"East",central:"Central",west:"West"}[S.area]||"the city"));
     if(S.near){
       /* Near me: nearest first, each card says how far. */
       vis.forEach(function(r){ r._d=distOf(r); });
       vis.sort(function(a,b){ return a._d-b._d; });
     } else vis.sort(function(a,b){ return (ORDER[b.impact]-ORDER[a.impact])||((a.start||0)-(b.start||0)); });
-    $("disList").innerHTML=vis.length?vis.map(function(r){ return S.near?r.card.replace("<div class='t'>","<span class='dist'>"+distLabel(r._d)+"</span><div class='t'>"):r.card; }).join(""):"<div class='note'>Nothing matches these filters. Try All current, or the whole city.</div>";
+    $("disList").innerHTML=vis.length?vis.map(function(r){ return S.near?r.card.replace("<div class='t'>","<span class='dist'>"+distLabel(r._d)+"</span><div class='t'>"):r.card; }).join(""):"<div class='note'>Nothing matches these filters. Try All current, or another zone at the top.</div>";
     if(mapCtl){ mapCtl.render(); if(lastArea!==S.area){ lastArea=S.area; mapCtl.refit(); } }
     writeHash();
   }
@@ -338,7 +359,7 @@
       if(!onDay(r,mid())&&S.when==="today") S.when=inWeek(r)?"week":"all";
       if(S.when==="week"&&!inWeek(r)) S.when="all";
       S.what[r.kind]=1; if(r.mode) S.modes[r.mode]=1;
-      if(!inArea(r)) S.area="all";
+      if(!inArea(r)){ var z=r.zones.filter(function(x){ return /^(east|central|west)$/.test(x); })[0]; S.area=z||"all"; lastArea=S.area; zoneUI(); } /* follow the item's zone in the list, but don't move the map */
       if(S.block&&r.impact!=="block") S.block=false;
       if(S.q&&r.text.indexOf(S.q)<0) S.q="";
       syncUI(); apply();
@@ -346,10 +367,26 @@
     var card=document.querySelector('#disList .card[data-id="'+id+'"]');
     if(card){ card.scrollIntoView({behavior:"smooth",block:"center"}); card.classList.remove("flash"); void card.offsetWidth; card.classList.add("flash"); }
   }
+  /* The board's West / Central / East toggle. On the Map tab it focuses the map (and the list) on that zone
+     instead of loading another board (Jason, 3 Nov 2026); on every other tab it works as before. */
+  function mapActive(){ var t=$("tab-disruptions"); return !!(t&&t.classList.contains("active")); }
+  function zoneUI(){
+    var cur=mapActive()?S.area:zoneOfBoard();
+    document.querySelectorAll(".zones > *").forEach(function(el){
+      var on=el.textContent.trim().toLowerCase()===cur;
+      el.classList.toggle("on",on); if(on) el.setAttribute("aria-current","true"); else el.removeAttribute("aria-current");
+    });
+  }
+  document.addEventListener("click",function(e){
+    var el=e.target.closest&&e.target.closest(".zones > *"); if(!el||!mapActive()) return;
+    var z=el.textContent.trim().toLowerCase(); if(!/^(east|central|west)$/.test(z)) return;
+    e.preventDefault(); e.stopPropagation();
+    if(S.near){ S.near=null; if(mapCtl) mapCtl.me(null); }
+    S.area=z; zoneUI(); syncUI(); apply();
+  },true);
   function bind(){
     $("hmWhen").addEventListener("click",function(e){ var b=e.target.closest("button"); if(!b) return; S.when=b.dataset.v; syncUI(); apply(); });
-    $("hmArea").addEventListener("click",function(e){ var b=e.target.closest("button"); if(!b) return; S.area=b.dataset.v; syncUI(); apply(); });
-    $("hmWhat").addEventListener("click",function(e){ var b=e.target.closest(".lchip"); if(!b) return; if(S.what[b.dataset.v]) delete S.what[b.dataset.v]; else S.what[b.dataset.v]=1; syncUI(); apply(); });
+    $("hmWhat").addEventListener("click",function(e){ if(e.target.closest("#hmModes")) return; var b=e.target.closest(".lchip"); if(!b) return; if(S.what[b.dataset.v]) delete S.what[b.dataset.v]; else S.what[b.dataset.v]=1; syncUI(); apply(); });
     $("hmModes").addEventListener("click",function(e){ var b=e.target.closest(".lchip"); if(!b) return; if(S.modes[b.dataset.v]) delete S.modes[b.dataset.v]; else S.modes[b.dataset.v]=1; syncUI(); apply(); });
     $("hmBlock").addEventListener("click",function(){ S.block=!S.block; syncUI(); apply(); });
     $("disSearch").addEventListener("input",function(){ S.q=(this.value||"").toLowerCase(); apply(); });
@@ -357,7 +394,7 @@
     /* Near me: a nudge only, nothing is stored. Inside the website frame the browser may refuse location. */
     $("hmNear").addEventListener("click",function(){
       var b=this;
-      if(S.near){ S.near=null; if(mapCtl) mapCtl.me(null); syncUI(); apply(); return; }
+      if(S.near){ S.near=null; S.area=zoneOfBoard(); if(mapCtl) mapCtl.me(null); syncUI(); apply(); return; }
       if(!navigator.geolocation){ $("cnt").textContent="This device can't share its location."; return; }
       b.textContent="Finding you...";
       navigator.geolocation.getCurrentPosition(function(p){
@@ -390,7 +427,8 @@
     if(!sec) return;
     if(!areaFromHash) S.area=zoneOfBoard();
     lastArea=S.area;
-    ready=true; syncUI(); apply();
+    ready=true; syncUI(); apply(); zoneUI();
+    if(window.MutationObserver) new MutationObserver(zoneUI).observe(sec,{attributes:true, attributeFilter:["class"]});
     var bp=$("bPta"); if(bp) bp.textContent=records().filter(function(r){ return r.src==="pta"&&!past(r)&&r.zones.indexOf(zoneOfBoard())>=0; }).length;
   }
   if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",init); else setTimeout(init,0);
@@ -409,7 +447,7 @@
         mapCtl=build({container:"map", status:"status", center:[115.8745,-31.956],
           items:function(){
             var out=[], t=mid();
-            records().forEach(function(r){ if(!match(r)) return; var faded=S.when!=="today"&&!onDay(r,t);
+            records().forEach(function(r){ if(!match(r,"area")) return; var faded=S.when!=="today"&&!onDay(r,t);
               r.pts.forEach(function(p){ out.push({id:r.id, lat:p[0], lng:p[1], glyph:r.glyph, impact:r.impact, big:r.big, faded:faded, html:r.pop(p), title:r.title}); }); });
             return out;
           },
