@@ -61,7 +61,20 @@
     ".mckey .hdot{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:6px;vertical-align:-1px;border:1.5px solid #fff}"+
     "#hmModes[hidden]{display:none!important}"+
     "#disList .card{cursor:pointer}"+
-    "#disList .card .kb{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:700;color:#fff;background:#004F71;padding:1px 8px;border-radius:20px;margin-right:6px}";
+    "#disList .card .kb{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:700;color:#fff;background:#004F71;padding:1px 8px;border-radius:20px;margin-right:6px}"+
+    ".hclu{width:38px;height:38px;border-radius:50%;border:2px solid #fff;background:#004F71;color:#fff;font:800 13px Montserrat,Arial,sans-serif;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0}"+
+    ".hme{width:16px;height:16px;border-radius:50%;background:#00A3E0;border:3px solid #fff;box-shadow:0 0 0 2px #00A3E0,0 0 0 9px rgba(0,163,224,.22)}"+
+    "#disList .card .dist{float:right;font-size:11px;font-weight:800;color:#004F71;background:#E6F2F7;border-radius:20px;padding:1px 8px;margin-left:8px}"+
+    "#hmNear.on{background:#00A3E0;border-color:#00A3E0;color:#fff}"+
+    ".hmphone{display:none}"+
+    /* Phones: a Map / List switch above the map, and the filter rows behind a Filters button. */
+    "@media(max-width:767px){"+
+      ".hmphone{display:flex;gap:8px;align-items:center;margin:0 0 10px}"+
+      "#tab-disruptions.listonly .mapwrap{display:none}"+
+      "#tab-disruptions .mapwrap #map{height:46vh!important;min-height:260px}"+
+      "#mapctl:not(.open) #hmWhat,#mapctl:not(.open) #hmModes,#mapctl:not(.open) #hmAreaRow,#mapctl:not(.open) .mckey{display:none!important}"+
+      "#hmFilters .n{margin-left:6px;background:rgba(255,255,255,.22);border-radius:10px;padding:0 7px;font-size:11px}"+
+    "}";
   var st=document.createElement("style"); st.textContent=css; document.head.appendChild(st);
 
   /* ---- MapLibre, loaded once and only when the Map tab opens ---- */
@@ -121,11 +134,33 @@
         if(g.items.length===1) return g.items[0].html;
         return '<div class="m"><b>'+g.items.length+' at this spot</b></div><div class="hgrp">'+g.items.map(function(x){ var I=IMPACT[x.impact]; return '<a href="#" data-pick="'+x.id+'"><i style="background:'+I.c+';color:'+I.g+'">'+svg(x.glyph,12)+'</i>'+x.title+'</a>'; }).join("")+'</div>';
       }
+      /* Zoomed out, pins within ~44px of a more important pin merge into a Petrol cluster with a count and a
+         ring in the colour of the most serious item inside; a tap zooms in to its members. Redrawn on zoom. */
+      function addCluster(cl){
+        var n=0, top=null, b=null;
+        cl.groups.forEach(function(g){ n+=g.items.length; if(!top||ORDER[g.top.impact]>ORDER[top.impact]) top=g.top; b=b?b.extend([g.lng,g.lat]):new ml.LngLatBounds([g.lng,g.lat],[g.lng,g.lat]); });
+        var el=document.createElement("button"); el.type="button"; el.className="hclu";
+        el.style.boxShadow="0 0 0 3px "+IMPACT[top.impact].c+",0 2px 6px rgba(0,40,60,.45)";
+        el.setAttribute("aria-label",n+" items here. Zoom in"); el.textContent=n;
+        el.addEventListener("click",function(ev){ ev.stopPropagation(); hidePopup(); touched=true; map.fitBounds(b,{padding:70, maxZoom:17, duration:450}); });
+        var c=b.getCenter();
+        markers.push(new ml.Marker({element:el, anchor:"center"}).setLngLat(c).addTo(map));
+      }
       function draw(){
         markers.forEach(function(m){ m.remove(); }); markers=[];
         var items=cfg.items(), groups={}, list=[];
         items.forEach(function(x){ var k=x.lat.toFixed(5)+","+x.lng.toFixed(5); if(!groups[k]){ groups[k]={lat:x.lat,lng:x.lng,items:[]}; list.push(groups[k]); } groups[k].items.push(x); });
         list.forEach(function(g){ g.items.sort(function(a,b){ return ORDER[b.impact]-ORDER[a.impact]; }); g.top=g.items[0]; g.faded=g.items.every(function(x){ return x.faded; }); });
+        if(map.getZoom()<15.5&&list.length>1){
+          var clusters=[];
+          list.slice().sort(function(a,b){ return ORDER[b.top.impact]-ORDER[a.top.impact]; }).forEach(function(g){
+            var p=map.project([g.lng,g.lat]), hit=null;
+            for(var i=0;i<clusters.length;i++){ if(Math.abs(clusters[i].p.x-p.x)<44&&Math.abs(clusters[i].p.y-p.y)<44){ hit=clusters[i]; break; } }
+            if(hit) hit.groups.push(g); else clusters.push({p:p, groups:[g]});
+          });
+          list=[];
+          clusters.forEach(function(cl){ if(cl.groups.length===1) list.push(cl.groups[0]); else addCluster(cl); });
+        }
         list.sort(function(a,b){ return ORDER[a.top.impact]-ORDER[b.top.impact]; });
         list.forEach(function(g){
           var t=g.top, I=IMPACT[t.impact];
@@ -152,6 +187,14 @@
       ctl.refresh=function(){ map.resize(); if(!touched) fit(); };
       ctl.refit=function(){ touched=false; fit(); };
       ctl.focus=function(lng,lat){ touched=true; map.easeTo({center:[lng,lat], zoom:Math.max(map.getZoom(),16), duration:500}); };
+      var me=null;
+      ctl.me=function(lng,lat){
+        if(lng==null){ if(me){ me.remove(); me=null; } return; }
+        if(!me){ var d=document.createElement("div"); d.className="hme"; d.setAttribute("aria-hidden","true"); me=new ml.Marker({element:d, anchor:"center"}).setLngLat([lng,lat]).addTo(map); }
+        else me.setLngLat([lng,lat]);
+        touched=true; map.easeTo({center:[lng,lat], zoom:15.5, duration:600});
+      };
+      var zt=null; map.on("zoomend",function(){ clearTimeout(zt); zt=setTimeout(draw,30); });
       if("ResizeObserver" in window) new ResizeObserver(function(){ map.resize(); if(!touched) fit(); }).observe(box);
       map.once("style.load",function(){ draw(); fit(); });
       setTimeout(ctl.refresh,300); setTimeout(ctl.refresh,1200);
@@ -211,7 +254,10 @@
   }
   function byId(id){ var r=records(); for(var i=0;i<r.length;i++) if(r[i].id===id) return r[i]; return null; }
 
-  var S={when:"today", what:{roads:1,construction:1,events:1,transport:1}, modes:{train:1,bus:1,cat:1}, area:"east", block:false, q:""};
+  var S={when:"today", what:{roads:1,construction:1,events:1,transport:1}, modes:{train:1,bus:1,cat:1}, area:"east", block:false, q:"", near:null};
+  function metres(a,b){ var R=6371000, r=Math.PI/180, dl=(b[0]-a[0])*r, dn=(b[1]-a[1])*r; var x=Math.sin(dl/2)*Math.sin(dl/2)+Math.cos(a[0]*r)*Math.cos(b[0]*r)*Math.sin(dn/2)*Math.sin(dn/2); return 2*R*Math.asin(Math.sqrt(x)); }
+  function distOf(r){ if(!S.near) return null; var best=Infinity; r.pts.forEach(function(p){ var d=metres([S.near.lat,S.near.lng],[p[0],p[1]]); if(d<best) best=d; }); return best; }
+  function distLabel(m){ return m<1000?("about "+Math.max(50,Math.round(m/50)*50)+" m"):("about "+(m/1000).toFixed(1)+" km"); }
   function inArea(r){ return S.area==="all"||r.zones.indexOf(S.area)>=0||r.zones.indexOf("city")>=0||r.zones.indexOf("all")>=0; }
   function match(r,skip){
     if(past(r)) return false;
@@ -224,13 +270,15 @@
     return true;
   }
 
+  var NEAR_LABEL='&#9678; Near me';
   var SKELETON=
+    '<div class="hmphone"><span class="seg" id="hmView"><button data-v="map" class="on">Map</button><button data-v="list">List</button></span><button class="tchip" id="hmFilters">Filters</button></div>'+
     '<div class="mapwrap"><div id="status">Loading map...</div><div id="map" style="display:none"></div><button type="button" class="maphelp" aria-label="About this map" onclick="this.parentNode.querySelector(\'.maphelptip\').classList.toggle(\'open\')">?</button><div class="maphelptip">Roadworks, closures, construction, events and Transperth stop changes across the <b>City of Perth</b>. Pick an area, or the whole city. Tap a pin or a card for the detail. The filters work on the map and the list together.</div></div>'+
     '<div id="mapctl">'+
       '<div class="mcrow"><span class="mclabel">When</span><span class="seg" id="hmWhen"><button data-v="today">Today</button><button data-v="week">This week</button><button data-v="all">All current</button></span><span class="mccount" id="cnt"></span></div>'+
       '<div class="mcrow" id="hmWhat"><span class="mclabel">Show</span>'+KINDS.map(function(k){ return '<button class="lchip" data-v="'+k.v+'"><i class="hg">'+svg(k.g,15)+'</i>'+k.label+'<span class="ct"></span></button>'; }).join("")+'</div>'+
       '<div class="mcrow" id="hmModes"><span class="mclabel">Transport</span>'+MODES.map(function(m){ return '<button class="lchip" data-v="'+m.v+'"><i class="hg">'+svg(m.g,15)+'</i>'+m.label+'</button>'; }).join("")+'</div>'+
-      '<div class="mcrow"><span class="mclabel">Area</span><span class="seg" id="hmArea">'+AREAS.map(function(a){ return '<button data-v="'+a.v+'">'+a.label+'</button>'; }).join("")+'</span><button class="tchip" id="hmBlock">Only what blocks the way</button></div>'+
+      '<div class="mcrow" id="hmAreaRow"><span class="mclabel">Area</span><span class="seg" id="hmArea">'+AREAS.map(function(a){ return '<button data-v="'+a.v+'">'+a.label+'</button>'; }).join("")+'</span><button class="tchip" id="hmNear">'+NEAR_LABEL+'</button><button class="tchip" id="hmBlock">Only what blocks the way</button></div>'+
       '<div class="mckey"><span><i class="hdot" style="background:'+IMPACT.block.c+'"></i>Blocks the way</span><span><i class="hdot" style="background:'+IMPACT.slow.c+'"></i>Slows you down</span><span><i class="hdot" style="background:'+IMPACT.info.c+'"></i>Good to know</span><span class="sep"></span><span>Faded pins are not on today</span></div>'+
     '</div>'+
     '<div class="controls" style="margin-top:12px"><input class="search" id="disSearch" aria-label="Search the map" placeholder="Search streets, events, routes or stops..."></div>'+
@@ -245,6 +293,7 @@
     $("hmModes").querySelectorAll(".lchip").forEach(function(b){ b.classList.toggle("off",!S.modes[b.dataset.v]); });
     $("hmModes").hidden=!S.what.transport;
     $("hmBlock").classList.toggle("on",S.block);
+    $("hmNear").classList.toggle("on",!!S.near);
     var s=$("disSearch"); if(s.value.toLowerCase()!==S.q) s.value=S.q;
   }
   function writeHash(){
@@ -273,8 +322,12 @@
     var all=records(), vis=all.filter(function(r){ return match(r); });
     $("hmWhat").querySelectorAll(".lchip").forEach(function(b){ var n=all.filter(function(r){ return r.kind===b.dataset.v&&match(r,"what"); }).length; b.querySelector(".ct").textContent=n; });
     $("cnt").textContent=vis.length+(S.when==="today"?" on today":S.when==="week"?" this week":" current or coming up");
-    vis.sort(function(a,b){ return (ORDER[b.impact]-ORDER[a.impact])||((a.start||0)-(b.start||0)); });
-    $("disList").innerHTML=vis.length?vis.map(function(r){ return r.card; }).join(""):"<div class='note'>Nothing matches these filters. Try All current, or the whole city.</div>";
+    if(S.near){
+      /* Near me: nearest first, each card says how far. */
+      vis.forEach(function(r){ r._d=distOf(r); });
+      vis.sort(function(a,b){ return a._d-b._d; });
+    } else vis.sort(function(a,b){ return (ORDER[b.impact]-ORDER[a.impact])||((a.start||0)-(b.start||0)); });
+    $("disList").innerHTML=vis.length?vis.map(function(r){ return S.near?r.card.replace("<div class='t'>","<span class='dist'>"+distLabel(r._d)+"</span><div class='t'>"):r.card; }).join(""):"<div class='note'>Nothing matches these filters. Try All current, or the whole city.</div>";
     if(mapCtl){ mapCtl.render(); if(lastArea!==S.area){ lastArea=S.area; mapCtl.refit(); } }
     writeHash();
   }
@@ -301,6 +354,26 @@
     $("hmBlock").addEventListener("click",function(){ S.block=!S.block; syncUI(); apply(); });
     $("disSearch").addEventListener("input",function(){ S.q=(this.value||"").toLowerCase(); apply(); });
     $("disList").addEventListener("click",function(e){ if(e.target.closest("a")) return; var c=e.target.closest(".card"); if(!c||!mapCtl) return; var r=byId(c.dataset.id); if(r) mapCtl.focus(r.pts[0][1],r.pts[0][0]); });
+    /* Near me: a nudge only, nothing is stored. Inside the website frame the browser may refuse location. */
+    $("hmNear").addEventListener("click",function(){
+      var b=this;
+      if(S.near){ S.near=null; if(mapCtl) mapCtl.me(null); syncUI(); apply(); return; }
+      if(!navigator.geolocation){ $("cnt").textContent="This device can't share its location."; return; }
+      b.textContent="Finding you...";
+      navigator.geolocation.getCurrentPosition(function(p){
+        b.innerHTML=NEAR_LABEL; S.near={lat:p.coords.latitude, lng:p.coords.longitude}; S.area="all";
+        syncUI(); apply(); if(mapCtl) mapCtl.me(S.near.lng,S.near.lat);
+      },function(){
+        b.innerHTML=NEAR_LABEL;
+        $("cnt").textContent=(window.self!==window.top)?"Location isn't available inside the website. Open the Hub full screen from the menu.":"Location isn't available. Check the browser's location setting.";
+      },{timeout:10000, maximumAge:60000});
+    });
+    /* Phones: Map shows the map above the list, List hides the map; Filters opens the filter rows. */
+    $("hmView").addEventListener("click",function(e){ var b=e.target.closest("button"); if(!b) return;
+      sec.classList.toggle("listonly",b.dataset.v==="list");
+      $("hmView").querySelectorAll("button").forEach(function(x){ x.classList.toggle("on",x===b); });
+      if(b.dataset.v==="map"&&mapCtl) setTimeout(mapCtl.refresh,60); });
+    $("hmFilters").addEventListener("click",function(){ var c=$("mapctl"); c.classList.toggle("open"); this.classList.toggle("on",c.classList.contains("open")); });
   }
 
   /* Build the tab now (this script runs after the sections are parsed). The old Transport section goes; its
