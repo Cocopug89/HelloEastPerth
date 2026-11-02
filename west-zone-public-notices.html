@@ -632,6 +632,8 @@ html.embed .hubcredit a.hc-bug{color:#fff;border-bottom-color:rgba(255,255,255,.
 <script src="fireworks-data.js"></script>
 <script src="consultations.js"></script>
 <script src="spotlight.js"></script>
+<script src="hub-map-style.js"></script>
+<script src="hub-map.js"></script>
 <script>
 const HUB=window.HUB||{disruptions:[],tenders:[],notices:[],events:[]};
 const HZ="west";
@@ -648,7 +650,7 @@ const NOTICES=HUB.notices.concat(window.CONSULTATIONS||[]).sort(function(a,b){
 const P="https://perth.wa.gov.au/public-notices/";
 const COL={high:"#d63333",medium:"#e8873a",low:"#e8c53a",event:"#5b8def",major:"#8a5cf0",roadclosure:"#d63333",infra:"#8d6e63"};
 const catLabel={obstruction:"Obstruction",event:"Event",roadclosure:"Road closure",infrastructure:"Construction"};
-const catColor={obstruction:"#e8873a",event:"#5b8def",roadclosure:"#d63333",infrastructure:"#8d6e63"};
+const catColor={obstruction:"#004F71",event:"#004F71",roadclosure:"#004F71",infrastructure:"#004F71"}; /* colour now means impact only (card border); the category badge is Petrol */
 function midnight(){ const t=new Date(); t.setHours(0,0,0,0); return t; }
 function statusOf(o){ if(o.close) return (new Date(o.close+"T23:59:59")>=midnight())?"open":"closed"; return (o.kind==="ongoing")?"ongoing":"closed"; }
 function fmt(iso){ if(!iso) return ""; const d=new Date(iso+"T00:00:00"); return d.toLocaleDateString("en-AU",{day:"numeric",month:"short",year:"numeric"}); }
@@ -737,7 +739,7 @@ function renderDis(){
     if(q && (d.title+" "+d.loc+" "+d.desc+" "+d.id).toLowerCase().indexOf(q)===-1) return;
     const kind = d.cat==="event" ? (d.recurring?" &middot; Recurring":" &middot; One-off") : (((d.cat==="roadclosure"||d.cat==="obstruction"||d.cat==="infrastructure")&&ext(d))?" &middot; Ongoing":"");
     const card=document.createElement("div");
-    card.className="card"; card.dataset.id=d.id; card.style.borderLeftColor=COL[d.sev];
+    card.className="card"; card.dataset.id=d.id; card.style.borderLeftColor=HubMap.impactColor(d,"dis");
     card.innerHTML="<div class='t'>"+d.title+"</div>"+
       "<div class='m'><span class='b' style='background:"+catColor[d.cat]+"'>"+catLabel[d.cat]+"</span>"+d.id+" &middot; "+d.start+" - "+d.end+(d.sched?(" &middot; "+d.sched):"")+kind+"</div>"+
       "<div class='d'>"+d.desc+"</div><div class='im'>&#9650; "+d.impact+"</div>"+
@@ -855,7 +857,9 @@ const providers=[
   {name:"unpkg", js:"https://unpkg.com/leaflet@1.9.4/dist/leaflet.js", css:"https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"}
 ];
 const statusEl=document.getElementById("status");
-function startMap(){ mapLoaded=true; tryProvider(0); }
+/* 2 Nov 2026, map plan step 1: both maps now come from hub-map.js (MapLibre, EPCG basemap, new pins).
+   The Leaflet tryProvider / initMap / ensurePtaMapLeaflet / initPtaMap below are no longer called; step 2 removes them. */
+function startMap(){ mapLoaded=true; HubBoardMaps.dis(); }
 function tryProvider(i){
   if(i>=providers.length){ statusEl.innerHTML="<b>Could not load the map from any CDN.</b> If you use an ad/privacy blocker, allow cdnjs.cloudflare.com. The other tabs work without it."; return; }
   const p=providers[i]; statusEl.innerHTML="Loading map library from "+p.name+"...";
@@ -1270,10 +1274,10 @@ function renderPtaList(){
     var when = d.ongoing ? (d.start+" - until further notice") : (d.start + (d.end&&d.end!==d.start ? " - "+d.end : ""));
     var tag = d.ongoing ? " &middot; Ongoing" : "";
     var card=document.createElement("div");
-    card.className="card"; card.dataset.id=d.id; card.style.borderLeftColor=PTA_COL[d.mode];
+    card.className="card"; card.dataset.id=d.id; card.style.borderLeftColor=HubMap.impactColor(d,"pta");
     card.innerHTML="<div class='t'>"+d.title+"</div>"+
-      "<div class='m'><span class='b' style='background:"+PTA_COL[d.mode]+";color:"+"#fff"+"'>"+PTA_MODE[d.mode]+"</span>"+when+tag+"</div>"+
-      "<div class='d'>"+d.desc+"</div>"+
+      "<div class='m'><span class='b' style='background:#004F71;color:#fff'>"+PTA_MODE[d.mode]+"</span>"+when+tag+"</div>"+
+      (d.desc?"<div class='d'>"+d.desc+"</div>":"")+ /* pta-data.js stopped carrying desc; the card printed "undefined" */
       "<div class='im'>&#9650; "+d.impact+"</div>"+
       "<div class='m' style='margin-top:4px'><b>Affected:</b> "+d.stops+"</div>"+
       "<div class='m'>"+d.loc+"</div>"+
@@ -1291,7 +1295,8 @@ document.querySelectorAll("#ptalegend .lchip").forEach(function(b){ b.addEventLi
 (function(){ var cur=PTA.filter(function(d){return !ptaIsPast(d);}).length; var el=document.getElementById("bPta"); if(el) el.textContent=cur; })();
 
 let ptaMapLoaded=false, ptaInvalidate=null;
-function ensurePtaMap(){
+function ensurePtaMap(){ if(ptaMapLoaded){ if(ptaInvalidate) setTimeout(ptaInvalidate,50); return; } ptaMapLoaded=true; HubBoardMaps.pta(); }
+function ensurePtaMapLeaflet(){
   if(ptaMapLoaded){ if(ptaInvalidate) setTimeout(ptaInvalidate,50); return; }
   ptaMapLoaded=true;
   if(typeof L!=="undefined"){ initPtaMap(); return; }
