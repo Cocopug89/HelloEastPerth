@@ -383,13 +383,11 @@ html.embed .hubcredit a.hc-bug{color:#fff;border-bottom-color:rgba(255,255,255,.
 <button class="backtop" aria-label="Back to top" onclick="var e=document.scrollingElement||document.documentElement;try{e.scrollTo({top:0,behavior:'smooth'});}catch(x){e.scrollTop=0;}try{window.scrollTo({top:0,behavior:'smooth'});}catch(x){}">&#8593; Back to top</button>
 <nav class="mnav">
   <a href="index.html"><span class="mi">&#127968;</span>Home</a>
-  <a href="#disruptions"><span class="mi">&#128679;</span>Disruptions</a>
-  <a href="#transport"><span class="mi">&#128650;</span>Transport</a>
-  <a href="#tenders"><span class="mi">&#128188;</span>Tenders</a>
-  <a href="#notices"><span class="mi">&#128196;</span>Notices</a>
-  <a href="#bins"><span class="mi">&#128465;</span>Bins</a>
+  <a href="#disruptions"><span class="mi">&#128506;</span>Map</a>
   <a href="#events"><span class="mi">&#127881;</span>What's On</a>
-  <a href="#fireworks"><span class="mi">&#127878;</span>Fireworks</a>
+  <a href="#notices"><span class="mi">&#128196;</span>Notices</a>
+  <a href="#tenders"><span class="mi">&#128188;</span>Tenders</a>
+  <a href="#bins"><span class="mi">&#128465;</span>Bins</a>
   <a href="newsletters.html"><span class="mi">&#128240;</span>Newsletter</a>
   <a href="support.html"><span class="mi">&#10084;&#65039;</span>Support</a>
   <a href="report.html"><span class="mi">&#128227;</span>Report</a>
@@ -405,10 +403,8 @@ html.embed .hubcredit a.hc-bug{color:#fff;border-bottom-color:rgba(255,255,255,.
       <button class="dburger" aria-label="Open menu" onclick="document.getElementById('dmenu').classList.toggle('open');event.stopPropagation();">&#9776;</button>
       <div id="dmenu" class="dmenu">
         <a href="#" onclick="activateTab('home');document.getElementById('dmenu').classList.remove('open');return false;"><span class="mi">&#8962;</span>Home</a>
-        <a href="#" onclick="activateTab('disruptions');document.getElementById('dmenu').classList.remove('open');return false;"><span class="mi">&#128679;</span>Disruptions</a>
-        <a href="#" onclick="activateTab('transport');document.getElementById('dmenu').classList.remove('open');return false;"><span class="mi">&#128650;</span>Transport</a>
+        <a href="#" onclick="activateTab('disruptions');document.getElementById('dmenu').classList.remove('open');return false;"><span class="mi">&#128506;</span>Map</a>
         <a href="#" onclick="activateTab('events');document.getElementById('dmenu').classList.remove('open');return false;"><span class="mi">&#127881;</span>What's On</a>
-        <a href="#" onclick="activateTab('fireworks');document.getElementById('dmenu').classList.remove('open');return false;"><span class="mi">&#127878;</span>Fireworks</a>
         <a href="#" onclick="activateTab('bins');document.getElementById('dmenu').classList.remove('open');return false;"><span class="mi">&#128465;</span>Bins</a>
         <a href="#" onclick="activateTab('notices');document.getElementById('dmenu').classList.remove('open');return false;"><span class="mi">&#128196;</span>Notices</a>
         <a href="#" onclick="activateTab('tenders');document.getElementById('dmenu').classList.remove('open');return false;"><span class="mi">&#128188;</span>Tenders</a>
@@ -435,13 +431,14 @@ html.embed .hubcredit a.hc-bug{color:#fff;border-bottom-color:rgba(255,255,255,.
 </div>
 <div id="tabs">
   <button data-tab="home">&#8962; Home</button>
-  <button data-tab="disruptions">Disruptions <span class="badge" id="bDis"></span></button>
-  <button data-tab="transport">Transport <span class="badge" id="bPta"></span></button>
+  <button data-tab="disruptions">Map <span class="badge" id="bDis"></span></button>
+  <!-- transport and fireworks open the Map tab (3 Nov 2026); their buttons stay hidden so #transport and #fireworks links still route -->
+  <button data-tab="transport" hidden>Transport <span class="badge" id="bPta"></span></button>
   <button data-tab="tenders">Open Tenders <span class="badge" id="bTen"></span></button>
   <button data-tab="notices">Public Notices <span class="badge" id="bNot"></span></button>
   <button data-tab="bins">Bin Collection</button>
   <button data-tab="events">What's On</button>
-  <button data-tab="fireworks">Fireworks <span class="badge" id="bFw"></span></button>
+  <button data-tab="fireworks" hidden>Fireworks</button>
 </div>
 
 <section class="tab active" id="tab-home">
@@ -483,10 +480,8 @@ html.embed .hubcredit a.hc-bug{color:#fff;border-bottom-color:rgba(255,255,255,.
     </div>
   </main>
   <nav class="navbar">
-    <a onclick="activateTab('disruptions');return false;" href="#"><span class="i">&#128679;</span>Disruptions<span class="n" id="nDis">&middot;</span></a>
-    <a onclick="activateTab('transport');return false;" href="#"><span class="i">&#128650;</span>Transport<span class="n" id="nPta">&middot;</span></a>
+    <a onclick="activateTab('disruptions');return false;" href="#"><span class="i">&#128506;</span>Map<span class="n" id="nMap">&middot;</span></a>
     <a onclick="activateTab('events');return false;" href="#"><span class="i">&#127881;</span>What's On<span class="n" id="nEv">&middot;</span></a>
-    <a onclick="activateTab('fireworks');return false;" href="#"><span class="i">&#127878;</span>Fireworks<span class="n" id="nFw">&middot;</span></a>
     <a onclick="activateTab('notices');return false;" href="#"><span class="i">&#128196;</span>Notices<span class="n" id="nNot">&middot;</span></a>
     <a onclick="activateTab('tenders');return false;" href="#"><span class="i">&#128188;</span>Tenders<span class="n" id="nTen">&middot;</span></a>
     <a href="support.html"><span class="i">&#10084;&#65039;</span>Support Us</a>
@@ -545,17 +540,6 @@ html.embed .hubcredit a.hc-bug{color:#fff;border-bottom-color:rgba(255,255,255,.
   <div id="evStatus" class="m" style="margin-bottom:8px"></div>
   <div id="evList"></div>
 </section>
-<section class="tab" id="tab-fireworks">
-  <div class="note">Approved fireworks events and close-proximity notifications within sight of the City of Perth, from the WorkSafe WA schedule. Displays further out, such as Claremont Showgrounds, are left off; the full schedule is linked below. Useful if you are wondering what the bangs were, or planning around a nervous dog.</div>
-  <div class="fwguide">
-    <b>This is a safety schedule, not an events calendar.</b> WorkSafe WA publishes it
-    <q>for guidance only</q> and states: <q>Start times and duration may vary from that indicated in the schedule.</q>
-    It also states: <q>While the department regulates the safe use of fireworks, it does not manage the fireworks displays. For specific information relating to any individual display, please contact the event organiser directly.</q>
-    Treat every time below as approximate and check with the organiser before relying on it.
-    <div class="fwstamp" id="fwStamp"></div>
-  </div>
-  <div id="fwList"></div>
-</section>
 <footer class="pgfoot">
   <details class="fdet">
     <summary><span class="qmark">?</span> Data sources &amp; about</summary>
@@ -604,7 +588,7 @@ const stB={open:["OPEN","#2a9d5a"],closed:["CLOSED","#9aa4ad"],ongoing:["ONGOING
 function activateTab(name){
   if(name==="home" && (window.innerWidth||document.documentElement.clientWidth||0)<768){ name="disruptions"; }
   /* One Map tab since 3 Nov 2026 (hub-map.js): "transport" opens it showing public transport only. */
-  if(name==="transport"||name==="disruptions"){ if(window.HubMapTab) HubMapTab.preset(name); name="disruptions"; }
+  if(name==="transport"||name==="fireworks"||name==="disruptions"){ if(window.HubMapTab) HubMapTab.preset(name); name="disruptions"; }
   document.body.classList.toggle("on-home", name==="home");
   document.querySelectorAll("#tabs button").forEach(x=>x.classList.toggle("active",x.dataset.tab===name));
   document.querySelectorAll(".navbar a[data-tab]").forEach(function(x){x.classList.toggle("on",x.dataset.tab===name);});
@@ -898,69 +882,8 @@ function initEvents(){
   if(btn) btn.addEventListener("click",load);
 }
 
-/* ================= FIREWORKS (WorkSafe WA) ================= */
-/* Data: fireworks-data.js, built weekly by Tools/build_fireworks.py from
-   worksafe.wa.gov.au/schedule-fireworks-events. Metro only (postcode 6000-6199).
-   ⛔ Times are shown VERBATIM and always prefixed "Approx". Never reformat one, never
-   recompute one, never present this as an events calendar: WorkSafe regulates the safety
-   of fireworks, it does not run the displays. Both of its disclaimers are in the markup
-   above and must stay there. */
-(function fireworks(){
-  var FW=(window.FIREWORKS||{}), list=document.getElementById("fwList");
-  if(!list) return;
-  /* Which board is this? Fireworks are zoned like everything else on the Hub and the
-     board decides what is local to IT. Corrected 16 Aug 2026: the first version baked a
-     single near="East Perth" boolean into the data, which labelled Nedlands Yacht Club
-     as near East Perth (it is visible from Nedlands) and printed "Near East Perth" on
-     the West and Central boards as well. Same expression initEvents() uses. */
-  var BZ=/central/i.test(document.title)?"central":(/west/i.test(document.title)?"west":"east");
-  var ZL={east:"East Perth",central:"Central Perth",west:"West Perth"};
-  function zlabel(z,suburb){ return ZL[z] || (suburb||"Greater Perth"); }
-  var evs=(FW.events||[]).slice();
-  function esc(x){return (x||"").replace(/[&<>]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c];});}
-  var t0=new Date(); t0.setHours(0,0,0,0);
-  var DS=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
-  var MS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-  function when(e){
-    var d=new Date(e.date+"T00:00:00"), n=Math.round((d-t0)/86400000);
-    if(n===0) return "Tonight";
-    if(n===1) return "Tomorrow";
-    return DS[d.getDay()]+" "+d.getDate()+" "+MS[d.getMonth()];
-  }
-  /* Within sight of the City of Perth only (21 Sep 2026). Zone "other" is a metro postcode
-     outside the three City zones (e.g. Claremont Showgrounds, ~9km out) and cannot be seen or
-     heard from the city, so it is dropped here, not in the data. Optus Stadium stays: it is
-     zoned east by the STEP 5 carve-out. */
-  var upcoming=evs.filter(function(e){return ZL[e.zone] && new Date(e.date+"T00:00:00")>=t0;})
-                  .sort(function(a,b){return a.date<b.date?-1:(a.date>b.date?1:0);});
-  var stamp=document.getElementById("fwStamp");
-  if(stamp){
-    var bits=[];
-    if(FW.updated) bits.push("WorkSafe last updated this schedule on <b>"+esc(FW.updated)+"</b>");
-    if(FW.window) bits.push("it covers <b>"+esc(FW.window)+"</b>");
-    stamp.innerHTML=bits.join(", ")+(bits.length?". ":"")+
-      "<a href='"+esc(FW.source||"https://www.worksafe.wa.gov.au/schedule-fireworks-events")+"' target='_blank' rel='noopener'>Read the full statewide schedule &#8599;</a>";
-  }
-  if(!upcoming.length){
-    list.innerHTML="<div class='m'>No fireworks events listed within sight of the City of Perth in the current schedule."+
-      (FW.window?" WorkSafe's schedule runs to the end of "+esc(FW.window.split(" to ").pop())+"; anything later is not published yet.":"")+"</div>";
-  } else {
-    list.innerHTML=upcoming.map(function(e){
-      var loc=[e.venue,e.street,e.suburb].filter(Boolean).join(", ");
-      return "<div class='card fwcard'>"+
-        "<div class='fwtop'><span class='fwwhen'>"+esc(when(e))+" &middot; "+esc(e.day)+"</span>"+
-        "<span class='fwchip fwzone"+(e.zone===BZ?" fwlocal":"")+"'>"+esc(zlabel(e.zone,e.suburb))+"</span>"+
-        (e.close?"<span class='fwchip fwclose'>Close proximity only</span>":"")+"</div>"+
-        "<div class='fwttl'>"+esc(e.purpose||"Fireworks display")+"</div>"+
-        "<div class='fwloc'>"+esc(loc)+"</div>"+
-        "<div class='fwtime'><b>Approx "+esc(e.time)+"</b>"+(e.dur?" &middot; "+esc(e.dur):"")+
-        " &middot; times may vary</div>"+
-      "</div>";
-    }).join("");
-  }
-  function setn(id,v){var el=document.getElementById(id); if(el) el.textContent=v;}
-  setn("nFw",upcoming.length); setn("bFw",upcoming.length);
-})();
+/* Fireworks: the Fireworks tab was folded into the Map tab on 3 Nov 2026. hub-map.js now carries its rules
+   (City zones only, times verbatim with "Approx", never an events calendar) and WorkSafe's two disclaimers. */
 
 /* ================= TRANSPORT (PTA / Transperth) ================= */
 /* City of Perth LGA disruptions only. Snapshot 2026-07-08, refreshed weekly. */

@@ -214,7 +214,7 @@
   }
 
   /* ---- the Map tab ---- */
-  var KINDS=[{v:"roads",label:"Roads &amp; footpaths",g:"cone"},{v:"construction",label:"Construction",g:"crane"},{v:"events",label:"Events",g:"star"},{v:"fireworks",label:"Fireworks",g:"burst"},{v:"transport",label:"Public transport",g:"bus"}];
+  var KINDS=[{v:"roads",label:"Roads &amp; footpaths",g:"cone"},{v:"construction",label:"Construction",g:"crane"},{v:"events",label:"Event impacts",g:"star"},{v:"fireworks",label:"Fireworks",g:"burst"},{v:"transport",label:"Public transport",g:"bus"}];
   /* FIREWORKS VENUES (hand-kept, 3 Nov 2026). fireworks-data.js (Hub Editor shift 4/4, build_fireworks.py) gives
      venues as text only. Only City of Perth zones (east, central, west) go on the map; a venue missing here
      simply stays off the map and still shows in the Fireworks tab. Key: venue in lower case with dashes
@@ -278,18 +278,22 @@
           "<div style='margin-top:5px'><a href='"+esc(d.url)+"' target='_blank' rel='noopener'>Transperth details &#8599;</a></div></div>",
         pop:function(p){ return badge(I,g)+"<h3>"+esc(d.title)+"</h3><div class='m'>"+mode+" &middot; "+when+"</div><div class='m'><b>Stop:</b> "+esc(p[2]||d.loc)+"</div>"+(d.impact?"<div class='im'>&#9650; "+esc(d.impact)+"</div>":"")+"<a class='more' href='"+esc(d.url)+"' target='_blank' rel='noopener'>Transperth details &#8599;</a>"; }});
     });
-    /* Fireworks: WorkSafe WA's schedule. WorkSafe regulates displays but does not run them, and times vary;
-       both are said on the card, and the Fireworks tab carries WorkSafe's full disclaimers. */
+    /* Fireworks: WorkSafe WA's schedule, which replaced the Fireworks tab on 3 Nov 2026. Rules carried over
+       from that tab: City of Perth zones only (zone "other" cannot be seen or heard from the city, 21 Sep
+       2026); times VERBATIM and prefixed "Approx", never recomputed; never presented as an events calendar;
+       WorkSafe's two disclaimers stay visible (in the (?) key, and above the list whenever only fireworks
+       are showing). A display at a venue not in FW_VENUES still lists, it just has no pin. */
     var FWD=(window.FIREWORKS||{}).events||[], FWSRC=(window.FIREWORKS||{}).source||"https://www.worksafe.wa.gov.au/schedule-fireworks-events";
     FWD.forEach(function(f,i){
       if(!/^(east|central|west)$/.test(f.zone||"")) return;
-      var k=fwKey(f.venue), ll=FW_VENUES[k+"|"+f.postcode]||FW_VENUES[k]; if(!ll) return;
+      var k=fwKey(f.venue), ll=FW_VENUES[k+"|"+f.postcode]||FW_VENUES[k]||null;
       var day=new Date((f.date||"")+"T00:00:00"); if(isNaN(day)) return;
-      var I=IMPACT.info, id="f-"+i, when=esc(f.day)+" "+day.getDate()+" "+day.toLocaleDateString("en-AU",{month:"short"})+" &middot; "+esc(f.time)+" &middot; "+esc(f.dur);
-      var where=esc(f.venue).replace(/\s*-\s*$/,"")+(f.street?", "+esc(f.street):"")+(ll[2]?" (spot on the river is approximate)":"");
-      var body="<div class='d'>"+esc(f.purpose)+"</div><div class='m' style='margin-top:4px'>"+where+"</div><div class='m'>Times may vary. WorkSafe WA regulates fireworks but does not run displays; contact the organiser for details.</div>";
+      var n=Math.round((day-mid())/86400000), dl=n===0?"Tonight":n===1?"Tomorrow":esc(f.day)+" "+day.getDate()+" "+day.toLocaleDateString("en-AU",{month:"short"});
+      var I=IMPACT.info, id="f-"+i, when=dl+" &middot; <b>Approx "+esc(f.time)+"</b>"+(f.dur?" &middot; "+esc(f.dur):"")+" &middot; times may vary";
+      var where=[esc(f.venue).replace(/\s*-\s*$/,""),esc(f.street),esc(f.suburb)].filter(Boolean).join(", ")+(ll&&ll[2]?" (spot on the river is approximate)":"");
+      var body="<div class='d'>"+esc(f.purpose||"Fireworks display")+(f.close?" &middot; <b>close proximity notification</b>":"")+"</div><div class='m' style='margin-top:4px'>"+where+"</div><div class='m'>WorkSafe WA regulates fireworks but does not run displays; contact the organiser for details.</div>";
       recs.push({id:id, src:"fw", kind:"fireworks", impact:"info", glyph:"burst", big:false, title:"Fireworks: "+esc(f.purpose),
-        start:day, end:day, days:null, zones:[f.zone], pts:[[ll[0],ll[1]]],
+        start:day, end:day, days:null, zones:[f.zone], pts:ll?[[ll[0],ll[1]]]:[],
         text:("fireworks "+f.purpose+" "+f.venue+" "+f.street+" "+f.suburb).toLowerCase(),
         card:"<div class='card' data-id='"+id+"' style='border-left-color:"+I.c+"'><div class='t'>Fireworks: "+esc(f.purpose)+"</div><div class='m'><span class='kb'>"+svg("burst",11)+"Fireworks</span>"+when+"</div>"+body+
           "<div style='margin-top:5px'><a href='"+esc(FWSRC)+"' target='_blank' rel='noopener'>WorkSafe schedule &#8599;</a></div></div>",
@@ -323,7 +327,17 @@
     MODES.map(function(m){ return keyRow(m.g,m.label,IMPACT.info.c,"#fff"); }).join("")+
     '<div class="kt">What the colours mean</div>'+
     ["block","slow","info"].map(function(k){ return '<div class="kr"><i class="kd" style="background:'+IMPACT[k].c+'"></i>'+IMPACT[k].label+'</div>'; }).join("")+
-    '<div class="kr kn">Faded pins are not on today. A number on a pin means several things at one spot; a ringed circle groups nearby pins, tap it to zoom in.</div></div>';
+    '<div class="kr kn">Faded pins are not on today. A number on a pin means several things at one spot; a ringed circle groups nearby pins, tap it to zoom in.</div>'+
+    '<div class="kr kn"><b>Event impacts</b> are the City of Perth notices for events that affect roads and footpaths. For listings of what\'s on, see the What\'s On tab.</div>'+
+    '<div class="kr kn"><b>Fireworks</b> come from WorkSafe WA\'s schedule, published for guidance only. WorkSafe says: <q>Start times and duration may vary from that indicated in the schedule.</q> and <q>While the department regulates the safe use of fireworks, it does not manage the fireworks displays. For specific information relating to any individual display, please contact the event organiser directly.</q></div></div>';
+  /* Shown above the list whenever fireworks are the only kind showing: the old Fireworks tab's guide, kept word for word. */
+  function fwGuide(){
+    var FW=window.FIREWORKS||{}, bits=[];
+    if(FW.updated) bits.push("WorkSafe last updated this schedule on <b>"+esc(FW.updated)+"</b>");
+    if(FW.window) bits.push("it covers <b>"+esc(FW.window)+"</b>");
+    return '<div class="fwguide"><b>This is a safety schedule, not an events calendar.</b> WorkSafe WA publishes it <q>for guidance only</q> and states: <q>Start times and duration may vary from that indicated in the schedule.</q> It also states: <q>While the department regulates the safe use of fireworks, it does not manage the fireworks displays. For specific information relating to any individual display, please contact the event organiser directly.</q> Treat every time below as approximate and check with the organiser before relying on it.'+
+      '<div class="fwstamp">'+bits.join(", ")+(bits.length?". ":"")+'<a href="'+esc(FW.source||"https://www.worksafe.wa.gov.au/schedule-fireworks-events")+'" target="_blank" rel="noopener">Read the full statewide schedule &#8599;</a></div></div>';
+  }
   var SKELETON=
     '<div class="hmphone"><span class="seg" id="hmView"><button data-v="map" class="on">Map</button><button data-v="list">List</button></span><button class="tchip" id="hmFilters">Filters</button></div>'+
     '<div class="mapwrap"><div id="status">Loading map...</div><div id="map" style="display:none"></div><button type="button" class="maphelp" aria-label="About this map" onclick="this.parentNode.querySelector(\'.maphelptip\').classList.toggle(\'open\')">?</button><div class="maphelptip">Roadworks, closures, construction, events and Transperth stop changes across the <b>City of Perth</b>. The map always shows the whole city; West, Central and East at the top move the map, and the list, to that zone. Near me looks across all three. Tap a pin or a card for the detail. The filters work on the map and the list together.'+KEY+'</div></div>'+
@@ -338,7 +352,7 @@
     '<div class="controls" style="margin-top:12px"><input class="search" id="disSearch" aria-label="Search the map" placeholder="Search streets, events, routes or stops..."></div>'+
     '<div id="disList"></div>';
 
-  var mapCtl=null, ready=false, skipPreset=false, lastArea=null, areaFromHash=false;
+  var mapCtl=null, ready=false, skipPreset=false, lastArea=null, areaFromHash=false, fwView=false;
   function $(id){ return document.getElementById(id); }
   function syncUI(){
     $("hmWhen").querySelectorAll("button").forEach(function(b){ b.classList.toggle("on",b.dataset.v===S.when); });
@@ -378,13 +392,14 @@
     if(!ready) return;
     var all=records(), vis=all.filter(function(r){ return match(r); });
     $("hmWhat").querySelectorAll("#hmWhat > .lchip").forEach(function(b){ var n=all.filter(function(r){ return r.kind===b.dataset.v&&match(r,"what"); }).length; b.querySelector(".ct").textContent=n; });
-    $("cnt").textContent=vis.length+(S.when==="today"?" on today":S.when==="week"?" this week":" current or coming up")+(S.near?" near you":" in "+({east:"East",central:"Central",west:"West"}[S.area]||"the city"));
+    $("cnt").textContent=vis.length+(S.when==="today"?" on today":S.when==="week"?" this week":" current or coming up")+(S.near?" near you":" in "+({east:"East",central:"Central",west:"West"}[S.area]||"the City of Perth"));
     if(S.near){
       /* Near me: nearest first, each card says how far. */
       vis.forEach(function(r){ r._d=distOf(r); });
       vis.sort(function(a,b){ return a._d-b._d; });
     } else vis.sort(function(a,b){ return (ORDER[b.impact]-ORDER[a.impact])||((a.start||0)-(b.start||0)); });
-    $("disList").innerHTML=vis.length?vis.map(function(r){ return S.near?r.card.replace("<div class='t'>","<span class='dist'>"+distLabel(r._d)+"</span><div class='t'>"):r.card; }).join(""):"<div class='note'>Nothing matches these filters. Try All current, or another zone at the top.</div>";
+    var onlyFw=S.what.fireworks&&KINDS.every(function(k){ return k.v==="fireworks"||!S.what[k.v]; });
+    $("disList").innerHTML=(onlyFw?fwGuide():"")+(vis.length?vis.map(function(r){ return S.near?r.card.replace("<div class='t'>","<span class='dist'>"+distLabel(r._d)+"</span><div class='t'>"):r.card; }).join(""):"<div class='note'>Nothing matches these filters. Try All current, or another zone at the top.</div>");
     if(mapCtl){ mapCtl.render(); if(lastArea!==S.area){ lastArea=S.area; mapCtl.refit(); } }
     writeHash();
   }
@@ -437,7 +452,7 @@
     $("hmModes").addEventListener("click",function(e){ var b=e.target.closest(".lchip"); if(!b) return; S.modes=pickSet(S.modes,MODES,b.dataset.v); syncUI(); apply(); });
     $("hmBlock").addEventListener("click",function(){ S.block=!S.block; syncUI(); apply(); });
     $("disSearch").addEventListener("input",function(){ S.q=(this.value||"").toLowerCase(); apply(); });
-    $("disList").addEventListener("click",function(e){ if(e.target.closest("a")) return; var c=e.target.closest(".card"); if(!c||!mapCtl) return; var r=byId(c.dataset.id); if(r) mapCtl.focus(r.pts[0][1],r.pts[0][0]); });
+    $("disList").addEventListener("click",function(e){ if(e.target.closest("a")) return; var c=e.target.closest(".card"); if(!c||!mapCtl) return; var r=byId(c.dataset.id); if(r&&r.pts.length) mapCtl.focus(r.pts[0][1],r.pts[0][0]); });
     /* Near me: a nudge only, nothing is stored. Inside the website frame the browser may refuse location. */
     $("hmNear").addEventListener("click",function(){
       var b=this;
@@ -477,15 +492,24 @@
     ready=true; syncUI(); apply(); zoneUI();
     if(window.MutationObserver) new MutationObserver(zoneUI).observe(sec,{attributes:true, attributeFilter:["class"]});
     var bp=$("bPta"); if(bp) bp.textContent=records().filter(function(r){ return r.src==="pta"&&!past(r)&&r.zones.indexOf(zoneOfBoard())>=0; }).length;
+    /* The home Map tile: everything on today in this board's zone. */
+    var nm=$("nMap"); if(nm) nm.textContent=records().filter(function(r){ return !past(r)&&onDay(r,mid())&&(r.zones.indexOf(zoneOfBoard())>=0||r.zones.indexOf("city")>=0); }).length;
   }
   if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",init); else setTimeout(init,0);
 
   window.HubMapTab={
-    /* From activateTab: "transport" shows public transport only; "disruptions" shows everything. Keeps When and Area. */
+    /* From activateTab: "transport" shows public transport only; "fireworks" (the old Fireworks tab) shows every
+       upcoming display across the three City zones; "disruptions" shows everything in this board's zone. */
     preset:function(name){
       if(skipPreset){ skipPreset=false; return; }
-      if(name==="transport"){ S.what={transport:1}; S.modes={train:1,bus:1,cat:1}; }
-      else S.what={roads:1,construction:1,events:1,fireworks:1,transport:1};
+      if(name==="fireworks"){ S.what={fireworks:1}; S.when="all"; if(!S.near) S.area="all"; fwView=true; }
+      else {
+        if(fwView){ S.when="today"; fwView=false; } /* leaving the fireworks view: back to today */
+        if(name==="transport"){ S.what={transport:1}; S.modes={train:1,bus:1,cat:1}; }
+        else S.what={roads:1,construction:1,events:1,fireworks:1,transport:1};
+        if(S.area==="all"&&!S.near) S.area=zoneOfBoard();
+      }
+      zoneUI();
       if(ready){ syncUI(); apply(); }
     },
     show:function(){
