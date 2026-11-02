@@ -497,63 +497,7 @@ html.embed .hubcredit a.hc-bug{color:#fff;border-bottom-color:rgba(255,255,255,.
   </nav>
 </section>
 <section class="tab" id="tab-disruptions">
-  <div class="mapwrap"><div id="status">Loading map library...</div><div id="map" style="display:none"></div><button type="button" class="maphelp" aria-label="About this data" onclick="this.parentNode.querySelector('.maphelptip').classList.toggle('open')">?</button><div class="maphelptip">Roadworks, closures, events and construction affecting the <b>East Perth</b> zone (City of Perth). Tap a pin or a card for detail; use the layers and filters to narrow it down.</div></div>
-  <div id="mapctl">
-    <div class="mcrow">
-      <span class="mclabel">Show</span>
-      <span class="seg"><button class="on" data-time="today">Today</button><button data-time="all">All current</button></span>
-      <span class="mccount" id="cnt"></span>
-    </div>
-    <div class="mcrow" id="legend">
-      <span class="mclabel">Layers</span>
-      <button class="lchip on" data-cat="roadclosure"><b style="background:#d63333"></b>Road closures</button>
-      <button class="lchip on" data-cat="obstruction"><b style="background:#e8873a"></b>Obstructions</button>
-      <button class="lchip on" data-cat="event"><b style="background:#5b8def"></b>Events</button>
-      <button class="lchip on" data-cat="infrastructure"><b style="background:#8d6e63"></b>Construction</button>
-    </div>
-    <div class="mckey">
-      <span><b style="background:#d63333"></b>Full closure</span>
-      <span><b style="background:#e8873a"></b>Lane / footpath</span>
-      <span><b style="background:#e8c53a"></b>Partial footpath</span>
-      <span class="sep"></span>
-      <span><b style="background:#8a5cf0"></b>Major event</span>
-      <span class="sep"></span>
-      <span><b style="background:#9aa4ad;border-style:solid"></b>One-off</span>
-      <span><span class="ring"></span>Ongoing / recurring</span>
-    </div>
-  </div>
-  <div class="controls" style="margin-top:12px">
-    <span class="mclabel" style="align-self:center">The <b>Show</b> and <b>Layers</b> filters above apply to both the map and this list.</span>
-    <input class="search" id="disSearch" aria-label="Search disruptions" placeholder="Search disruptions...">
-  </div>
-  <div id="disList"></div>
-</section>
-
-<section class="tab" id="tab-transport">
-  <div class="mapwrap"><div id="ptaStatus">Loading map library...</div><div id="ptaMap" style="display:none"></div><button type="button" class="maphelp" aria-label="About this data" onclick="this.parentNode.querySelector('.maphelptip').classList.toggle('open')">?</button><div class="maphelptip">Transperth (PTA) disruptions with at least one affected stop in the <b>East Perth</b> zone. Stops outside this zone and metro-wide items aren't shown - see the Central and West pages for those. Refreshed weekly from transperth.wa.gov.au.</div></div>
-  <div id="ptamapctl">
-    <div class="mcrow">
-      <span class="mclabel">Show</span>
-      <span class="seg"><button class="on" data-ptime="today">Active today</button><button data-ptime="all">All current / upcoming</button></span>
-      <span class="mccount" id="ptaCnt"></span>
-    </div>
-    <div class="mcrow" id="ptalegend">
-      <span class="mclabel">Modes</span>
-      <button class="lchip on" data-mode="train"><b style="background:#7A4E2E"></b>Train</button>
-      <button class="lchip on" data-mode="bus"><b style="background:#1E7D34"></b>Bus</button>
-      <button class="lchip on" data-mode="cat"><b style="background:#D63333"></b>CAT</button>
-    </div>
-    <div class="mckey">
-      <span>Each dot = an affected stop &middot; colour = mode</span>
-      <span class="sep"></span>
-      <span><span class="ring"></span>Ongoing / until further notice</span>
-    </div>
-  </div>
-  <div class="controls" style="margin-top:12px">
-    <span class="mclabel" style="align-self:center">The <b>Show</b> and <b>Modes</b> filters above apply to both the map and this list.</span>
-    <input class="search" id="ptaSearch" aria-label="Search routes, lines or stops" placeholder="Search routes, lines or stops...">
-  </div>
-  <div id="ptaList"></div>
+  <!-- The Map tab (works, construction, events and Transperth together) is built by hub-map.js. -->
 </section>
 
 <section class="tab" id="tab-tenders">
@@ -661,101 +605,26 @@ function fmt(iso){ if(!iso) return ""; const d=new Date(iso+"T00:00:00"); return
 const stB={open:["OPEN","#2a9d5a"],closed:["CLOSED","#9aa4ad"],ongoing:["ONGOING","#5b8def"]};
 
 /* ---- tabs ---- */
-let mapLoaded=false, invalidate=null;
 function activateTab(name){
   if(name==="home" && (window.innerWidth||document.documentElement.clientWidth||0)<768){ name="disruptions"; }
+  /* One Map tab since 3 Nov 2026 (hub-map.js): "transport" opens it showing public transport only. */
+  if(name==="transport"||name==="disruptions"){ if(window.HubMapTab) HubMapTab.preset(name); name="disruptions"; }
   document.body.classList.toggle("on-home", name==="home");
   document.querySelectorAll("#tabs button").forEach(x=>x.classList.toggle("active",x.dataset.tab===name));
   document.querySelectorAll(".navbar a[data-tab]").forEach(function(x){x.classList.toggle("on",x.dataset.tab===name);});
   document.querySelectorAll("section.tab").forEach(x=>x.classList.remove("active"));
   document.getElementById("tab-"+name).classList.add("active");
-  if(name==="disruptions"){ if(!mapLoaded){ startMap(); } else if(invalidate){ setTimeout(invalidate,50); } }
-  if(name==="transport"){ ensurePtaMap(); }
+  if(name==="disruptions" && window.HubMapTab){ HubMapTab.show(); }
   if(name==="events" && window.__ensureEvents){ window.__ensureEvents(); }
   try{document.querySelectorAll(".zones a").forEach(function(a){a.setAttribute("href",a.getAttribute("href").split("#")[0]+"#"+name);});}catch(e){}
   try{window.scrollTo(0,0);}catch(e){}
 }
 document.querySelectorAll("#tabs button").forEach(b=>b.addEventListener("click",()=>activateTab(b.dataset.tab)));
-function goToDetails(id){
-  /* 9 Sep 2026 fix. This used to force mapTimeMode back to "today" on every pin tap, so
-     tapping a pin while the Show filter was on "All current" snapped the board back to
-     Today: the pin vanished under the finger and the card it was meant to scroll to no
-     longer existed, so nothing happened. Widen only what would hide this item; leave
-     every other filter the user set alone. */
-  const d=DATA.filter(function(x){ return x.id===id; })[0];
-  const searchEl=document.getElementById("disSearch");
-  if(d){
-    if(mapTimeMode==="today" && !activeToday(d)){
-      mapTimeMode="all";
-      document.querySelectorAll("#mapctl [data-time]").forEach(function(x){ x.classList.toggle("on", x.dataset.time==="all"); });
-    }
-    document.querySelectorAll("#legend .lchip").forEach(function(x){ if(x.dataset.cat===d.cat) x.classList.remove("off"); });
-    const q=(searchEl.value||"").toLowerCase();
-    if(q && (d.title+" "+d.loc+" "+d.desc+" "+d.id).toLowerCase().indexOf(q)===-1) searchEl.value="";
-  } else {
-    searchEl.value="";
-    document.querySelectorAll("#legend .lchip").forEach(function(x){ x.classList.remove("off"); });
-  }
-  applyDisFilters();
-  if(!document.getElementById("tab-disruptions").classList.contains("active")) activateTab("disruptions");
-  const card=document.querySelector('#disList .card[data-id="'+id+'"]');
-  if(card){ card.scrollIntoView({behavior:"smooth",block:"center"}); card.classList.remove("flash"); void card.offsetWidth; card.classList.add("flash"); }
-}
-
-function goToPta(id){
-  /* Same fix as goToDetails, 9 Sep 2026: widen only what hides the item, never reset the
-     user's Show / Modes / search state back to Active today. */
-  var d=PTA.filter(function(x){ return x.id===id; })[0];
-  var searchEl=document.getElementById("ptaSearch");
-  if(d){
-    if(ptaTimeMode==="today" && !ptaActiveToday(d)){
-      ptaTimeMode="all";
-      document.querySelectorAll("#ptamapctl [data-ptime]").forEach(function(x){ x.classList.toggle("on", x.dataset.ptime==="all"); });
-    }
-    document.querySelectorAll("#ptalegend .lchip").forEach(function(x){ if(x.dataset.mode===d.mode) x.classList.remove("off"); });
-    var q=(searchEl.value||"").toLowerCase();
-    if(q && (d.title+" "+d.routes+" "+d.stops+" "+d.loc+" "+d.desc).toLowerCase().indexOf(q)===-1) searchEl.value="";
-  } else {
-    searchEl.value="";
-    document.querySelectorAll("#ptalegend .lchip").forEach(function(x){ x.classList.remove("off"); });
-  }
-  applyPtaFilters();
-  var card=document.querySelector('#ptaList .card[data-id="'+id+'"]');
-  if(card){ card.scrollIntoView({behavior:"smooth",block:"center"}); card.classList.remove("flash"); void card.offsetWidth; card.classList.add("flash"); }
-}
-
 /* ---- disruptions ---- */
 function parseDMY(s){ const p=s.split("/"); return new Date(+p[2], (+p[1])-1, +p[0]); }
 function ext(d){ return parseDMY(d.end) > parseDMY(d.start); }
 function activeToday(d){ const t=midnight(); if(!(parseDMY(d.start)<=t && t<=parseDMY(d.end))) return false; if(d.days && d.days.indexOf(t.getDay())===-1) return false; return true; }
 function isPast(d){ return parseDMY(d.end) < midnight(); }
-var mapTimeMode="today";
-function disCatState(){ var s={}; document.querySelectorAll("#legend .lchip").forEach(function(c){ s[c.dataset.cat]=!c.classList.contains("off"); }); return s; }
-function applyDisFilters(){ renderDis(); if(window.disMapRender) window.disMapRender(); }
-function renderDis(){
-  const q=(document.getElementById("disSearch").value||"").toLowerCase();
-  const cats=disCatState();
-  const box=document.getElementById("disList"); box.innerHTML="";
-  DATA.forEach(function(d){
-    if(isPast(d)) return;
-    if(!cats[d.cat]) return;
-    if(mapTimeMode==="today" && !activeToday(d)) return;
-    if(q && (d.title+" "+d.loc+" "+d.desc+" "+d.id).toLowerCase().indexOf(q)===-1) return;
-    const kind = d.cat==="event" ? (d.recurring?" &middot; Recurring":" &middot; One-off") : (((d.cat==="roadclosure"||d.cat==="obstruction"||d.cat==="infrastructure")&&ext(d))?" &middot; Ongoing":"");
-    const card=document.createElement("div");
-    card.className="card"; card.dataset.id=d.id; card.style.borderLeftColor=HubMap.impactColor(d,"dis");
-    card.innerHTML="<div class='t'>"+d.title+"</div>"+
-      "<div class='m'><span class='b' style='background:"+catColor[d.cat]+"'>"+catLabel[d.cat]+"</span>"+d.id+" &middot; "+d.start+" - "+d.end+(d.sched?(" &middot; "+d.sched):"")+kind+"</div>"+
-      "<div class='d'>"+d.desc+"</div><div class='im'>&#9650; "+d.impact+"</div>"+
-      "<div class='m' style='margin-top:4px'>"+d.loc+"</div>"+
-      "<div style='margin-top:5px'><a href='"+(d.url||"https://perth.wa.gov.au/public-notices/road-closures")+"' target='_blank'>Official report &#8599;</a></div>";
-    box.appendChild(card);
-  });
-  if(!box.children.length) box.innerHTML="<div class='note'>No disruptions match.</div>";
-}
-document.querySelectorAll("#mapctl [data-time]").forEach(function(b){ b.addEventListener("click",function(){ mapTimeMode=b.dataset.time; document.querySelectorAll("#mapctl [data-time]").forEach(function(x){ x.classList.toggle("on",x===b); }); applyDisFilters(); }); });
-document.querySelectorAll("#legend .lchip").forEach(function(b){ b.addEventListener("click",function(){ b.classList.toggle("off"); applyDisFilters(); }); });
-document.getElementById("disSearch").addEventListener("input",applyDisFilters);
 
 /* ---- tenders ---- */
 let tenFilter="open", tenEPon=false;
@@ -854,78 +723,8 @@ document.getElementById("bNot").textContent=currentNotices;
 document.getElementById("tenBanner").innerHTML = openTenders? ("<div class='note'>"+openTenders+" open of "+TENDERS.length+" listed. Status is computed live from each tender's published and closing dates.</div>")
   : ("<div class='banner'>&#9888; <b>0 of "+TENDERS.length+" tenders are currently open</b> - every tender on the City of Perth page has already passed its closing date. They remain listed on the City site but are no longer accepting submissions. Use the <b>Closed</b> / <b>All</b> filters to review them.</div>");
 
-/* ---- map (lazy) ---- */
-const providers=[
-  {name:"Cloudflare", js:"https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js", css:"https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"},
-  {name:"jsDelivr", js:"https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js", css:"https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css"},
-  {name:"unpkg", js:"https://unpkg.com/leaflet@1.9.4/dist/leaflet.js", css:"https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"}
-];
-const statusEl=document.getElementById("status");
-/* 2 Nov 2026, map plan step 1: both maps now come from hub-map.js (MapLibre, EPCG basemap, new pins).
-   The Leaflet tryProvider / initMap / ensurePtaMapLeaflet / initPtaMap below are no longer called; step 2 removes them. */
-function startMap(){ mapLoaded=true; HubBoardMaps.dis(); }
-function tryProvider(i){
-  if(i>=providers.length){ statusEl.innerHTML="<b>Could not load the map from any CDN.</b> If you use an ad/privacy blocker, allow cdnjs.cloudflare.com. The other tabs work without it."; return; }
-  const p=providers[i]; statusEl.innerHTML="Loading map library from "+p.name+"...";
-  const link=document.createElement("link"); link.rel="stylesheet"; link.href=p.css; document.head.appendChild(link);
-  const s=document.createElement("script"); s.src=p.js; let done=false;
-  const to=setTimeout(function(){ if(!done){done=true;s.remove();tryProvider(i+1);} },6000);
-  s.onload=function(){ if(done)return; done=true; clearTimeout(to); if(typeof L!=="undefined"){ initMap(); } else { tryProvider(i+1); } };
-  s.onerror=function(){ if(done)return; done=true; clearTimeout(to); s.remove(); tryProvider(i+1); };
-  document.body.appendChild(s);
-}
-function initMap(){
-  statusEl.style.display="none";
-  document.getElementById("map").style.display="block";
-  const map=L.map("map").setView([-31.9560,115.8745],15);
-  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:"&copy; OpenStreetMap contributors"}).addTo(map);
-  const obstruction=L.layerGroup().addTo(map), event=L.layerGroup().addTo(map), roadclosure=L.layerGroup().addTo(map), infrastructure=L.layerGroup().addTo(map);
-  const seen={};
-  const HOVER = !(window.matchMedia && (window.matchMedia("(hover: none)").matches || window.matchMedia("(max-width: 600px)").matches));
-  const items=DATA.map(function(d){
-    var la=d.lat, ln=d.lng, _k=la.toFixed(5)+","+ln.toFixed(5);
-    if(seen[_k]!==undefined){ var _n=++seen[_k], _a=_n*2.399; la+=Math.cos(_a)*0.00035; ln+=Math.sin(_a)*0.00035; } else { seen[_k]=0; }
-    const r=(d.sev==="high"||d.sev==="major")?11:8;
-    const opts={radius:r,color:"#fff",weight:2,fillColor:COL[d.sev],fillOpacity:.9};
-    const m=L.circleMarker([la,ln],opts);
-    let kind="";
-    if(d.cat==="event"){ kind = d.recurring ? "<span class='badge' style='background:#5b8def'>&#8635; Recurring event</span>" : "<span class='badge' style='background:#2a9d5a'>&#9679; One-off event</span>"; }
-    else if((d.cat==="roadclosure"||d.cat==="obstruction") && ext(d)){ kind="<span class='badge' style='background:"+COL[d.sev]+"'>&#9650; Ongoing closure</span>"; }
-    else if(d.cat==="infrastructure"){ kind="<span class='badge' style='background:"+COL.infra+"'>&#9650; Construction works (ongoing)</span>"; }
-    const schedLine = d.sched ? "<div class='m'>"+d.sched+"</div>" : "";
-    m.bindPopup(kind+"<h3>"+d.title+"</h3><div class='m'>"+d.id+" · "+d.start+" - "+d.end+"</div>"+schedLine+"<div>"+d.desc+"</div><div class='im'>▲ "+d.impact+"</div><div class='m' style='margin-top:4px'>"+d.loc+"</div>"+(HOVER?"":"<a href='#' onclick='goToDetails(&quot;"+d.id+"&quot;);return false;' style='display:inline-block;margin-top:9px;color:var(--blue);font-weight:800;text-decoration:none'>View full details &#9656;</a>"));
-    if(HOVER){ m.on("mouseover",function(){ m.openPopup(); }); m.on("mouseout",function(){ m.closePopup(); }); m.on("click",function(){ goToDetails(d.id); }); }
-    else { m.unbindPopup(); m.on("click",function(){ goToDetails(d.id); }); }
-    let ring=null;
-    if((d.cat==="event"&&d.recurring)||((d.cat==="roadclosure"||d.cat==="obstruction"||d.cat==="infrastructure")&&ext(d))){ ring=L.circleMarker([la,ln],{radius:r+5,fill:false,color:COL[d.sev],weight:1.6,opacity:.9,dashArray:"3 4"});
-      if(HOVER){ ring.on("mouseover",function(){ m.openPopup(); }); ring.on("click",function(){ goToDetails(d.id); }); } else { ring.on("click",function(){ goToDetails(d.id); }); } }
-    return {d:d,m:m,ring:ring};
-  });
-  const todayStr=new Date().toLocaleDateString("en-AU",{weekday:"short",day:"numeric",month:"short",year:"numeric"});
-  function catState(){ var s={}; document.querySelectorAll("#legend .lchip").forEach(function(c){ s[c.dataset.cat]=!c.classList.contains("off"); }); return s; }
-  function render(){
-    var cats=catState();
-    var q=(document.getElementById("disSearch").value||"").toLowerCase();
-    obstruction.clearLayers(); event.clearLayers(); roadclosure.clearLayers(); infrastructure.clearLayers();
-    var shown=0;
-    items.forEach(function(x){
-      if(isPast(x.d)) return;
-      if(mapTimeMode==="today" && !activeToday(x.d)) return;
-      if(!cats[x.d.cat]) return;
-      if(q && (x.d.title+" "+x.d.loc+" "+x.d.desc+" "+x.d.id).toLowerCase().indexOf(q)===-1) return;
-      var layer=(x.d.cat==="event"?event:(x.d.cat==="roadclosure"?roadclosure:(x.d.cat==="infrastructure"?infrastructure:obstruction)));
-      if(x.ring) layer.addLayer(x.ring);
-      layer.addLayer(x.m); shown++;
-    });
-    document.getElementById("cnt").textContent = mapTimeMode==="today" ? shown+" active today ("+todayStr+")" : shown+" current/upcoming";
-  }
-  window.disMapRender=render;
-  render();
-  const visD=DATA.filter(function(d){return !isPast(d);}); const bounds=L.latLngBounds((visD.length?visD:DATA).map(function(d){return [d.lat,d.lng];})).pad(0.15);
-  map.fitBounds(bounds);
-  invalidate=function(){ map.invalidateSize(); map.fitBounds(bounds); };
-  setTimeout(invalidate,300); setTimeout(invalidate,1200);
-}
+/* ---- map ---- The Map tab (road and footpath works, construction, events and Transperth together) is built and run
+   by hub-map.js since 3 Nov 2026 (map plan step 2). The Leaflet Disruptions and Transport maps that lived here are gone. */
 
 function renderBins(){
   var GEN_ANCHOR=new Date(2026,3,20), START=new Date(2026,3,22), END=new Date(2026,11,31);
@@ -1255,113 +1054,7 @@ const PTA_ALL = (window.PTA_DATA)||([
     impact:"Single West Perth bus stop closed (ongoing)",
     url:"https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/20314" }
 ]);
-const PTA_ZONE = "east";
-const PTA = PTA_ALL.filter(function(d){ return !d.zones || d.zones.indexOf(PTA_ZONE)>=0; });
-const PTA_MODE = {train:"Train", bus:"Bus", cat:"CAT"};
-const PTA_COL  = {train:"#7A4E2E", bus:"#1E7D34", cat:"#D63333"};
-function ptaEnd(d){ return d.end ? parseDMY(d.end) : new Date(2999,0,1); }
-function ptaIsPast(d){ return d.end ? (parseDMY(d.end) < midnight()) : false; }
-function ptaActiveToday(d){ var t=midnight(); return parseDMY(d.start)<=t && t<=ptaEnd(d); }
-let ptaTimeMode="today";
-function ptaModeState(){ var s={}; document.querySelectorAll("#ptalegend .lchip").forEach(function(c){ s[c.dataset.mode]=!c.classList.contains("off"); }); return s; }
-function applyPtaFilters(){ renderPtaList(); if(window.ptaMapRender) window.ptaMapRender(); }
-function renderPtaList(){
-  var q=(document.getElementById("ptaSearch").value||"").toLowerCase();
-  var modes=ptaModeState();
-  var box=document.getElementById("ptaList"); box.innerHTML="";
-  var n=0;
-  PTA.forEach(function(d){
-    if(ptaIsPast(d)) return;
-    if(!modes[d.mode]) return;
-    if(ptaTimeMode==="today" && !ptaActiveToday(d)) return;
-    if(q && (d.title+" "+d.routes+" "+d.stops+" "+d.loc+" "+d.desc).toLowerCase().indexOf(q)===-1) return;
-    var when = d.ongoing ? (d.start+" - until further notice") : (d.start + (d.end&&d.end!==d.start ? " - "+d.end : ""));
-    var tag = d.ongoing ? " &middot; Ongoing" : "";
-    var card=document.createElement("div");
-    card.className="card"; card.dataset.id=d.id; card.style.borderLeftColor=HubMap.impactColor(d,"pta");
-    card.innerHTML="<div class='t'>"+d.title+"</div>"+
-      "<div class='m'><span class='b' style='background:#004F71;color:#fff'>"+PTA_MODE[d.mode]+"</span>"+when+tag+"</div>"+
-      (d.desc?"<div class='d'>"+d.desc+"</div>":"")+ /* pta-data.js stopped carrying desc; the card printed "undefined" */
-      "<div class='im'>&#9650; "+d.impact+"</div>"+
-      "<div class='m' style='margin-top:4px'><b>Affected:</b> "+d.stops+"</div>"+
-      "<div class='m'>"+d.loc+"</div>"+
-      "<div style='margin-top:5px'><a href='"+d.url+"' target='_blank' rel='noopener'>Transperth details &#8599;</a></div>";
-    box.appendChild(card); n++;
-  });
-  if(!n) box.innerHTML="<div class='note'>No transport disruptions match.</div>";
-}
-document.getElementById("ptaSearch").addEventListener("input",applyPtaFilters);
-document.querySelectorAll("#ptamapctl [data-ptime]").forEach(function(b){ b.addEventListener("click",function(){
-  ptaTimeMode=b.dataset.ptime; document.querySelectorAll("#ptamapctl [data-ptime]").forEach(function(x){x.classList.toggle("on",x===b);});
-  applyPtaFilters();
-}); });
-document.querySelectorAll("#ptalegend .lchip").forEach(function(b){ b.addEventListener("click",function(){ b.classList.toggle("off"); applyPtaFilters(); }); });
-(function(){ var cur=PTA.filter(function(d){return !ptaIsPast(d);}).length; var el=document.getElementById("bPta"); if(el) el.textContent=cur; })();
-
-let ptaMapLoaded=false, ptaInvalidate=null;
-function ensurePtaMap(){ if(ptaMapLoaded){ if(ptaInvalidate) setTimeout(ptaInvalidate,50); return; } ptaMapLoaded=true; HubBoardMaps.pta(); }
-function ensurePtaMapLeaflet(){
-  if(ptaMapLoaded){ if(ptaInvalidate) setTimeout(ptaInvalidate,50); return; }
-  ptaMapLoaded=true;
-  if(typeof L!=="undefined"){ initPtaMap(); return; }
-  (function tryP(i){
-    if(i>=providers.length){ document.getElementById("ptaStatus").innerHTML="<b>Could not load the map.</b> The list below still works."; return; }
-    var p=providers[i]; document.getElementById("ptaStatus").innerHTML="Loading map library from "+p.name+"...";
-    var link=document.createElement("link"); link.rel="stylesheet"; link.href=p.css; document.head.appendChild(link);
-    var s=document.createElement("script"); s.src=p.js; var done=false;
-    var to=setTimeout(function(){ if(!done){done=true;s.remove();tryP(i+1);} },6000);
-    s.onload=function(){ if(done)return; done=true; clearTimeout(to); if(typeof L!=="undefined"){ initPtaMap(); } else { tryP(i+1); } };
-    s.onerror=function(){ if(done)return; done=true; clearTimeout(to); s.remove(); tryP(i+1); };
-    document.body.appendChild(s);
-  })(0);
-}
-function initPtaMap(){
-  document.getElementById("ptaStatus").style.display="none";
-  document.getElementById("ptaMap").style.display="block";
-  var map=L.map("ptaMap").setView([-31.9530,115.8600],14);
-  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:"&copy; OpenStreetMap contributors"}).addTo(map);
-  var group=L.layerGroup().addTo(map);
-  var HOVER = !(window.matchMedia && (window.matchMedia("(hover: none)").matches || window.matchMedia("(max-width: 600px)").matches));
-  var seen={};
-  var items=[];
-  PTA.forEach(function(d){
-    (d.pts||(typeof d.lat==="number"?[[d.lat,d.lng,d.loc]]:[])).forEach(function(p,idx){
-      var la=p[0], ln=p[1], _k=la.toFixed(5)+","+ln.toFixed(5);
-      if(seen[_k]!==undefined){ var _n=++seen[_k], _a=_n*2.399; la+=Math.cos(_a)*0.00012; ln+=Math.sin(_a)*0.00012; } else { seen[_k]=0; }
-      var base=(d.sev==="high")?9:(d.sev==="medium")?7:6;
-      var r=(idx===0)?base:Math.max(5,base-2);
-      var m=L.circleMarker([la,ln],{radius:r,color:"#fff",weight:2,fillColor:PTA_COL[d.mode],fillOpacity:.92});
-      var when = d.ongoing ? (d.start+" - until further notice") : (d.start + (d.end&&d.end!==d.start ? " - "+d.end : ""));
-      var badge="<span class='badge' style='background:"+PTA_COL[d.mode]+";color:"+"#fff"+"'>"+PTA_MODE[d.mode]+(d.ongoing?" &middot; ongoing":"")+"</span>";
-      m.bindPopup(badge+"<h3>"+d.title+"</h3><div class='m'>"+when+"</div><div class='m' style='margin-top:2px'><b>Stop:</b> "+(p[2]||d.loc)+"</div><div>"+d.desc+"</div><div class='im'>&#9650; "+d.impact+"</div><div class='m' style='margin-top:4px'><b>All affected:</b> "+d.stops+"</div><a href='"+d.url+"' target='_blank' rel='noopener' style='display:inline-block;margin-top:9px;color:var(--blue);font-weight:800;text-decoration:none'>Transperth details &#8599;</a>");
-      if(HOVER){ m.on("mouseover",function(){m.openPopup();}); } else { m.unbindPopup(); m.on("click",function(){ goToPta(d.id); }); }
-      var ring=null;
-      if(d.ongoing){ ring=L.circleMarker([la,ln],{radius:r+5,fill:false,color:PTA_COL[d.mode],weight:1.4,opacity:.85,dashArray:"3 4"}); }
-      items.push({d:d,m:m,ring:ring,la:la,ln:ln});
-    });
-  });
-  function modeState(){ var s={}; document.querySelectorAll("#ptalegend .lchip").forEach(function(c){ s[c.dataset.mode]=!c.classList.contains("off"); }); return s; }
-  function render(){
-    var modes=modeState(); var q=(document.getElementById("ptaSearch").value||"").toLowerCase(); group.clearLayers(); var ids={};
-    items.forEach(function(x){
-      if(ptaIsPast(x.d)) return;
-      if(ptaTimeMode==="today" && !ptaActiveToday(x.d)) return;
-      if(!modes[x.d.mode]) return;
-      if(q && (x.d.title+" "+x.d.routes+" "+x.d.stops+" "+x.d.loc+" "+x.d.desc).toLowerCase().indexOf(q)===-1) return;
-      if(x.ring) group.addLayer(x.ring);
-      group.addLayer(x.m); ids[x.d.id]=1;
-    });
-    var el=document.getElementById("ptaCnt"); if(el){ var c=Object.keys(ids).length; el.textContent = ptaTimeMode==="today" ? c+" active today" : c+" current / upcoming"; }
-  }
-  window.ptaMapRender=render;
-  render();
-  var vis=items.filter(function(x){return !ptaIsPast(x.d);});
-  var bounds=L.latLngBounds((vis.length?vis:items).map(function(x){return [x.la,x.ln];})).pad(0.2);
-  map.fitBounds(bounds);
-  ptaInvalidate=function(){ map.invalidateSize(); map.fitBounds(bounds); };
-  setTimeout(ptaInvalidate,300); setTimeout(ptaInvalidate,1200);
-}
-renderPtaList();
+/* PTA_ALL is the fallback when pta-data.js fails to load; hub-map.js reads window.PTA_DATA first, then this. */
 
 function homeBuild(){
   var GEN=new Date(2026,3,20);
@@ -1407,7 +1100,7 @@ function homeBuild(){
   document.getElementById("htrack").innerHTML=html+html;
   requestAnimationFrame(sizeTicker);
 }
-renderDis(); renderTenders(); renderNotices(); renderBins(); initEvents();
+renderTenders(); renderNotices(); renderBins(); initEvents();
 homeBuild();
 
 /* ===== What's On Around Perth - this week (ends Sunday night, rolls over each Monday) ===== */
@@ -1660,8 +1353,8 @@ if (document.fonts && document.fonts.ready) document.fonts.ready.then(sizeTicker
 })();
 
 activateTab("home");
-(function(){var h=(location.hash||"").replace(/^#/,"");var b=h&&document.querySelector('#tabs button[data-tab="'+h+'"]');if(b)b.click();try{window.scrollTo(0,0);}catch(e){}setTimeout(function(){try{window.scrollTo(0,0);}catch(e){}},80);})();
-window.addEventListener("hashchange",function(){var h=(location.hash||"").replace(/^#/,"");var b=h&&document.querySelector('#tabs button[data-tab="'+h+'"]');if(b){b.click();}var m=document.querySelector('.mnav');if(m)m.classList.remove('open');var s=document.querySelector('.mscrim');if(s)s.classList.remove('open');try{window.scrollTo(0,0);}catch(e){}});
+(function(){var h=(location.hash||"").replace(/^#/,"").split("?")[0];var b=h&&document.querySelector('#tabs button[data-tab="'+h+'"]');if(b)b.click();try{window.scrollTo(0,0);}catch(e){}setTimeout(function(){try{window.scrollTo(0,0);}catch(e){}},80);})();
+window.addEventListener("hashchange",function(){var h=(location.hash||"").replace(/^#/,"").split("?")[0];var b=h&&document.querySelector('#tabs button[data-tab="'+h+'"]');if(b){b.click();}var m=document.querySelector('.mnav');if(m)m.classList.remove('open');var s=document.querySelector('.mscrim');if(s)s.classList.remove('open');try{window.scrollTo(0,0);}catch(e){}});
 </script>
 <script>
 (function(){var x0=null,y0=null,t0=0;
