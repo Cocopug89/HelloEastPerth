@@ -22,6 +22,7 @@
     star:'<path d="M12 2.8l2.75 5.6 6.15.9-4.45 4.33 1.05 6.12L12 16.85l-5.5 2.9 1.05-6.12L3.1 9.3l6.15-.9z" fill="currentColor"/>',
     bus:'<rect x="2.5" y="5.5" width="19" height="11" rx="2.6" fill="none" stroke="currentColor" stroke-width="2.1"/><path d="M2.8 10.8h18.4M8.2 5.8v5M13.8 5.8v5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="7.2" cy="17.8" r="2" fill="currentColor"/><circle cx="16.8" cy="17.8" r="2" fill="currentColor"/>', /* side-on, so it can't be mistaken for the train's front view */
     cat:'<rect x="3.5" y="5" width="17" height="12.5" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><text x="12" y="14.2" font-family="Montserrat,Arial,sans-serif" font-size="6.6" font-weight="800" text-anchor="middle" fill="currentColor">CAT</text><path d="M7.5 20.5v-3M16.5 20.5v-3" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>',
+    burst:'<path d="M12 2.8v4.4M12 16.8v4.4M2.8 12h4.4M16.8 12h4.4M5.5 5.5l3.1 3.1M15.4 15.4l3.1 3.1M5.5 18.5l3.1-3.1M15.4 8.6l3.1-3.1" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="12" r="2.4" fill="currentColor"/>',
     train:'<path d="M7 15.5V6.5a3 3 0 0 1 3-3h4a3 3 0 0 1 3 3v9a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2zM7 10.5h10M9 21l1.6-3.5M15 21l-1.6-3.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>'
   };
   function svg(name,size){ return '<svg viewBox="0 0 24 24" width="'+size+'" height="'+size+'" aria-hidden="true">'+GLYPH[name]+'</svg>'; }
@@ -213,7 +214,25 @@
   }
 
   /* ---- the Map tab ---- */
-  var KINDS=[{v:"roads",label:"Roads &amp; footpaths",g:"cone"},{v:"construction",label:"Construction",g:"crane"},{v:"events",label:"Events",g:"star"},{v:"transport",label:"Public transport",g:"bus"}];
+  var KINDS=[{v:"roads",label:"Roads &amp; footpaths",g:"cone"},{v:"construction",label:"Construction",g:"crane"},{v:"events",label:"Events",g:"star"},{v:"fireworks",label:"Fireworks",g:"burst"},{v:"transport",label:"Public transport",g:"bus"}];
+  /* FIREWORKS VENUES (hand-kept, 3 Nov 2026). fireworks-data.js (Hub Editor shift 4/4, build_fireworks.py) gives
+     venues as text only. Only City of Perth zones (east, central, west) go on the map; a venue missing here
+     simply stays off the map and still shows in the Fireworks tab. Key: venue in lower case with dashes
+     normalised, optionally "|postcode" for the river barges, whose spot changes with each event (approx:true). */
+  /* Coordinates from OpenStreetMap (Nominatim), 3 Nov 2026. Barge spots are judgement: the water off
+     Langley Park (Riverside Dr 6004) and off Elizabeth Quay (Riverside Dr 6000). */
+  var FW_VENUES={
+    "gloucester park":[-31.9571,115.8817],
+    "optus stadium":[-31.9510,115.8891],
+    "perth stadium":[-31.9510,115.8891],
+    "waca ground":[-31.9598,115.8795],
+    "langley park":[-31.9618,115.8699],
+    "elizabeth quay":[-31.9578,115.8569],
+    "rac arena":[-31.9482,115.8521],
+    "swan river - barge|6004":[-31.9636,115.8700,"approx"],
+    "swan river - barge|6000":[-31.9600,115.8572,"approx"]
+  };
+  function fwKey(v){ return String(v||"").toLowerCase().replace(/[–—]/g,"-").replace(/\s*-\s*$/,"").replace(/\s+/g," ").trim(); }
   var MODES=[{v:"train",label:"Train",g:"train"},{v:"bus",label:"Bus",g:"bus"},{v:"cat",label:"CAT",g:"cat"}];
   var CATL={obstruction:"Obstruction",event:"Event",roadclosure:"Road closure",infrastructure:"Construction"};
   var MODEL={train:"Train",bus:"Bus",cat:"CAT"};
@@ -259,11 +278,28 @@
           "<div style='margin-top:5px'><a href='"+esc(d.url)+"' target='_blank' rel='noopener'>Transperth details &#8599;</a></div></div>",
         pop:function(p){ return badge(I,g)+"<h3>"+esc(d.title)+"</h3><div class='m'>"+mode+" &middot; "+when+"</div><div class='m'><b>Stop:</b> "+esc(p[2]||d.loc)+"</div>"+(d.impact?"<div class='im'>&#9650; "+esc(d.impact)+"</div>":"")+"<a class='more' href='"+esc(d.url)+"' target='_blank' rel='noopener'>Transperth details &#8599;</a>"; }});
     });
+    /* Fireworks: WorkSafe WA's schedule. WorkSafe regulates displays but does not run them, and times vary;
+       both are said on the card, and the Fireworks tab carries WorkSafe's full disclaimers. */
+    var FWD=(window.FIREWORKS||{}).events||[], FWSRC=(window.FIREWORKS||{}).source||"https://www.worksafe.wa.gov.au/schedule-fireworks-events";
+    FWD.forEach(function(f,i){
+      if(!/^(east|central|west)$/.test(f.zone||"")) return;
+      var k=fwKey(f.venue), ll=FW_VENUES[k+"|"+f.postcode]||FW_VENUES[k]; if(!ll) return;
+      var day=new Date((f.date||"")+"T00:00:00"); if(isNaN(day)) return;
+      var I=IMPACT.info, id="f-"+i, when=esc(f.day)+" "+day.getDate()+" "+day.toLocaleDateString("en-AU",{month:"short"})+" &middot; "+esc(f.time)+" &middot; "+esc(f.dur);
+      var where=esc(f.venue).replace(/\s*-\s*$/,"")+(f.street?", "+esc(f.street):"")+(ll[2]?" (spot on the river is approximate)":"");
+      var body="<div class='d'>"+esc(f.purpose)+"</div><div class='m' style='margin-top:4px'>"+where+"</div><div class='m'>Times may vary. WorkSafe WA regulates fireworks but does not run displays; contact the organiser for details.</div>";
+      recs.push({id:id, src:"fw", kind:"fireworks", impact:"info", glyph:"burst", big:false, title:"Fireworks: "+esc(f.purpose),
+        start:day, end:day, days:null, zones:[f.zone], pts:[[ll[0],ll[1]]],
+        text:("fireworks "+f.purpose+" "+f.venue+" "+f.street+" "+f.suburb).toLowerCase(),
+        card:"<div class='card' data-id='"+id+"' style='border-left-color:"+I.c+"'><div class='t'>Fireworks: "+esc(f.purpose)+"</div><div class='m'><span class='kb'>"+svg("burst",11)+"Fireworks</span>"+when+"</div>"+body+
+          "<div style='margin-top:5px'><a href='"+esc(FWSRC)+"' target='_blank' rel='noopener'>WorkSafe schedule &#8599;</a></div></div>",
+        pop:function(){ return badge(I,"burst")+"<h3>Fireworks: "+esc(f.purpose)+"</h3><div class='m'>"+when+"</div>"+body; }});
+    });
     return recs;
   }
   function byId(id){ var r=records(); for(var i=0;i<r.length;i++) if(r[i].id===id) return r[i]; return null; }
 
-  var S={when:"today", what:{roads:1,construction:1,events:1,transport:1}, modes:{train:1,bus:1,cat:1}, area:"east", block:false, q:"", near:null};
+  var S={when:"today", what:{roads:1,construction:1,events:1,fireworks:1,transport:1}, modes:{train:1,bus:1,cat:1}, area:"east", block:false, q:"", near:null};
   function metres(a,b){ var R=6371000, r=Math.PI/180, dl=(b[0]-a[0])*r, dn=(b[1]-a[1])*r; var x=Math.sin(dl/2)*Math.sin(dl/2)+Math.cos(a[0]*r)*Math.cos(b[0]*r)*Math.sin(dn/2)*Math.sin(dn/2); return 2*R*Math.asin(Math.sqrt(x)); }
   function distOf(r){ if(!S.near) return null; var best=Infinity; r.pts.forEach(function(p){ var d=metres([S.near.lat,S.near.lng],[p[0],p[1]]); if(d<best) best=d; }); return best; }
   function distLabel(m){ return m<1000?("about "+Math.max(50,Math.round(m/50)*50)+" m"):("about "+(m/1000).toFixed(1)+" km"); }
@@ -438,7 +474,7 @@
     preset:function(name){
       if(skipPreset){ skipPreset=false; return; }
       if(name==="transport"){ S.what={transport:1}; S.modes={train:1,bus:1,cat:1}; }
-      else S.what={roads:1,construction:1,events:1,transport:1};
+      else S.what={roads:1,construction:1,events:1,fireworks:1,transport:1};
       if(ready){ syncUI(); apply(); }
     },
     show:function(){
