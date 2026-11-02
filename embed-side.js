@@ -28,31 +28,22 @@
     ".emside .btn{display:inline-block;align-self:flex-start;background:#004F71;color:#fff;text-decoration:none;font-weight:700;font-size:13.5px;padding:10px 16px;border-radius:4px;margin-top:4px}"+
     ".emside .btn:hover{background:#12303F}"+
     ".emside .small{font-size:12px;color:#5E7986;margin-top:12px;overflow-wrap:anywhere}"+
-    /* "Open full screen" tile in the top bar, at every framed desktop width (Jason, 2 Nov 2026:
-       the framed Hub had no way out to its own address). Same look as the menu tile. */
+    /* Keep the top bar on ONE row (Jason, 2 Nov 2026: "CENTRAL PERTH COMMUNITY HUB" wrapped the bar to two
+       rows and pushed the map out of the tablet). The title is smaller and never wraps, and the brand side
+       gives way before the tiles do. */
     "@media(min-width:768px){"+
-    ".hglance .hopen{flex:none;display:flex;align-items:center;gap:9px;height:60px;padding:0 16px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);border-radius:16px;color:#fff;text-decoration:none;font-family:'Montserrat',sans-serif;font-weight:700;font-size:12.5px;line-height:1.15}"+
-    ".hglance .hopen:hover{background:rgba(255,255,255,.18)}"+
-    ".hglance .hopen svg{width:22px;height:22px;flex:none}"+
-    "}"+
-    "@media(min-width:768px) and (max-width:1399px){.hglance .hopen{width:58px;padding:0;justify-content:center}.hglance .hopen span{display:none}}";
+    "html.embed #deskhead .hhead{flex-wrap:nowrap}"+
+    "html.embed #deskhead .hbrand{min-width:0;flex:1 1 auto;overflow:hidden}"+
+    "html.embed #deskhead .hbrand .btext{min-width:0}"+
+    "html.embed #deskhead .hglance{flex:none}"+
+    "html.embed #deskhead .hbrand h1{font-size:22px!important;letter-spacing:.6px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}"+
+    "html.embed #deskhead .dstamp{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}"+
+    "}";
   var st=document.createElement("style");
   st.textContent=css;
   document.head.appendChild(st);
   var here=location.href;
-  var ICON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4l-7 7"/><path d="M10 20H4v-6"/><path d="M4 20l7-7"/></svg>';
-  var g=document.querySelector(".hglance");
-  if(g){
-    var o=document.createElement("a");
-    o.className="hopen";
-    o.href=here;
-    o.target="_blank";
-    o.rel="noopener";
-    o.title="Open the Hub full screen, on its own";
-    o.innerHTML=ICON+"<span>Open full<br>screen</span>";
-    var bg=g.querySelector(".dburger");
-    g.insertBefore(o,bg||null);
-  }
+  /* Open full screen lives in the menu only (Jason, 2 Nov 2026); the left-margin note links it too. */
   var dm=document.getElementById("dmenu");
   if(dm){
     var m=document.createElement("a");
