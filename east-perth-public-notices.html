@@ -369,7 +369,9 @@ section.tab.active{display:flex;flex-direction:column;flex:1;min-height:0;overfl
    Desktop only: phones get an "Open the Hub" button on the Wix page instead of the frame. */
 @media(min-width:768px){
 html.embed{background:#fff}
-html.embed body{background:#004F71;border-radius:22px;min-height:0;padding:18px 22px 16px;gap:14px;max-width:1320px;margin:0 auto}
+html.embed body{background:#004F71;border-radius:22px;min-height:0;height:calc(100vh - 54px);padding:18px 22px 16px;gap:14px;width:calc(100% - 60px);max-width:1320px;margin:22px auto 32px;box-shadow:0 0 0 13px #1c1f23,0 0 0 14px #4a5058,0 12px 22px 12px rgba(0,40,60,.22)}
+/* Tablet bezel (Jason, 2 Nov 2026): the box-shadow rings above are the bezel and rim; this is the camera. */
+html.embed::after{content:"";position:fixed;top:12px;left:50%;width:6px;height:6px;margin-left:-3px;border-radius:50%;background:#3a4450;box-shadow:inset 0 0 0 1px #0d1013}
 html.embed .hlogo{display:none}
 html.embed .hbrand h1{font-size:26px;letter-spacing:1px}
 html.embed .hhead{margin-bottom:8px}
