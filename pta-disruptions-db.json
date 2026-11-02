@@ -1,8 +1,8 @@
 {
   "meta": {
-    "db_version": 90,
+    "db_version": 91,
     "first_built": "2026-07-08",
-    "last_scrape": "2026-11-01",
+    "last_scrape": "2026-11-02",
     "source": "https://www.transperth.wa.gov.au/service-updates",
     "coordinate_source": "data.wa.gov.au PTA-001 (ArcGIS: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Transport/MapServer/14). Query by stopnumber (bus/CAT) or stopname LIKE (rail), outSR=4326. Exact stop/station coordinates, not approximations.",
     "scope": "City of Perth LGA only",
@@ -31,7 +31,8 @@
       "26028 Route 275 (Canning Rd, Kalamunda), 26006 Route 442 (Waterford Dr, Hillarys), 26004 Routes 374/375 (Balga/Westminster), 26011 Route 470 (Iluka/Burns Beach) (all affected stops outside the City)",
       "26035 Route 24 (Waratah Av, Dalkeith), 26030 Routes 111/659/910 (Canning Hwy, Palmyra/Bicton), 26033, 26034, 26036, 26037, 26039 (all affected stops outside the City); 25910 and 25997 dropped as ended 29 Oct",
       "26043 Route 346 (Aveley), 26044 Routes 19/360/960 (Fitzgerald St, North Perth), 26046 Routes 246/249 (Darling Downs), 26047 Routes 201/202 (Riverton/Parkwood/Willetton), 26048 Route 41 (Crowther St, Bayswater), 26050 Route 563 (Secret Harbour), 26051 Route 107 (Mosman Park), 26052 Routes 384-990 (Charles St, North Perth), 26053 Route 910 (Palmyra), 26054 Routes 402-998 (Cedric St, Stirling), 26055 Routes 341/342 (Ellenbrook), 26056 Route 32 (Thelma St, Como), 26031 Routes 220/245/250/251 (Armadale) (all affected stops outside the City; Perth Busport/Elizabeth Quay only destinations)",
-      "26025 CBD and West Perth stops (Sat 31 Oct) dropped as ended 31 Oct; Perth CBD Planned Protest (until 17 Sep) is past"
+      "26025 CBD and West Perth stops (Sat 31 Oct) dropped as ended 31 Oct; Perth CBD Planned Protest (until 17 Sep) is past",
+      "26057 Airport/Ellenbrook/Fremantle/Midland lines services resume (1 Nov; network-wide, no single City station named), 26048 Route 41 no longer listed; 26029 Lord St Perth (Sun 1 Nov) dropped as ended 1 Nov"
     ]
   },
   "disruptions": [
@@ -359,45 +360,6 @@
           -31.948186326561245,
           115.84038221224597,
           "Hay St West Perth CAT 92"
-        ]
-      ]
-    },
-    {
-      "id": "26029",
-      "zones": [
-        "central"
-      ],
-      "mode": "bus",
-      "sev": "medium",
-      "title": "Routes 40, 41, 42 & 43 - Lord St Perth Stops Closed (Sun 1 Nov)",
-      "routes": "Routes 40, 41, 42 & 43",
-      "start": "2026-11-01",
-      "end": "2026-11-01",
-      "ongoing": false,
-      "loc": "Lord St, Perth",
-      "stops": "Lord St before Brewer St (ID 11316), Lord St before Murchison Tce (ID 11317), Lord St after Coolgardie Tce (ID 11656), Lord St after Brewer St (ID 11657)",
-      "impact": "Sun 1 Nov, 2.30pm to 9.30pm, four Lord St bus stops not in use for road closures; alternatives are Lord St after Bulwer St (11318), Newcastle St before Lord St (24376), Lord St after Windsor St (11655) and Newcastle St after Lord St (12883); minor delays possible",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/26029",
-      "pts": [
-        [
-          -31.947568888909075,
-          115.87051277882172,
-          "Lord St Before Brewer St"
-        ],
-        [
-          -31.945858889138435,
-          115.8718933332736,
-          "Lord St Before Murchison Tce"
-        ],
-        [
-          -31.946238278756688,
-          115.87178580487051,
-          "Lord St After Coolgardie Tce"
-        ],
-        [
-          -31.94773373973338,
-          115.87058431082082,
-          "Lord St After Brewer St"
         ]
       ]
     },
