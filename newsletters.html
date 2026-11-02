@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>/* Website embed: framed on eastperthcommunity.org.au/epcg-hub. See html.embed in the styles. */try{if(window.self!==window.top)document.documentElement.classList.add("embed");}catch(e){document.documentElement.classList.add("embed");}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="description" content="East Perth Community Group newsletters - monthly local news for East Perth residents.">
 <link rel="canonical" href="https://www.eastperthcommunity.org.au/epcg-hub">
@@ -121,6 +122,15 @@ body{margin:0;display:flex;flex-direction:column;height:100vh;overflow:hidden;pa
 .hglance .hreport .rl{display:none}
 .hglance .hreport:hover{background:#f7d789}
 .hglance .hreport:active{transform:scale(.97)}
+/* Website embed (2 Nov 2026): same tablet treatment as the zone boards (see their html.embed block).
+   The page body stays fixed to the tablet screen and .wrap scrolls inside it. */
+@media(min-width:768px){
+html.embed{background:#fff}
+html.embed body{background:#004F71;border-radius:22px;width:calc(100% - 60px);max-width:1320px;min-height:0;height:calc(100vh - 54px);margin:22px auto 32px;padding:18px 22px 16px;gap:14px;box-shadow:0 0 0 13px #1c1f23,0 0 0 14px #4a5058,0 12px 22px 12px rgba(0,40,60,.22)}
+html.embed::after{content:"";position:fixed;top:12px;left:50%;width:6px;height:6px;margin-left:-3px;border-radius:50%;background:#3a4450;box-shadow:inset 0 0 0 1px #0d1013}
+html.embed .hlogo{display:none}
+html.embed #deskhead .hbrand h1{font-size:26px;letter-spacing:1px}
+}
 </style>
 </head>
 <body>
