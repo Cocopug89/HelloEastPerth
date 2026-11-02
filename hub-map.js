@@ -65,7 +65,7 @@
     "#hmModes[hidden]{display:none!important}"+
     "#disList .card{cursor:pointer}"+
     "#disList .card .kb{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:700;color:#fff;background:#004F71;padding:1px 8px;border-radius:20px;margin-right:6px}"+
-    ".lchip.ic{padding:5px 11px}.lchip.ic .hg{margin-right:0}.lchip.ic .ct:empty{display:none}"+
+    ".lchip.ic{padding:5px 11px}.lchip.ic .hg{margin-right:0}.lchip.ic .ct:empty{display:none}.lchip.ic.off{text-decoration:none;opacity:.4}"+
     "#hmModes{display:inline-flex;gap:8px;padding-left:10px;margin-left:2px;border-left:1px solid rgba(255,255,255,.22)}"+
     ".maphelptip .hmkey{margin-top:10px;padding-top:9px;border-top:1px solid #e4edf3}"+
     ".maphelptip .kt{font-size:10.5px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:#5E7986;margin:6px 0 5px}"+
@@ -420,10 +420,21 @@
     if(S.near){ S.near=null; if(mapCtl) mapCtl.me(null); }
     S.area=z; zoneUI(); syncUI(); apply();
   },true);
+  /* "Show" means show (Jason, 3 Nov 2026: the old chips were really click-to-hide). With everything showing,
+     a tap shows ONLY that kind; after that, taps add or remove kinds; emptying the set, or tapping the last
+     one left, shows everything again. */
+  function pickSet(set,list,v){
+    var all=list.map(function(x){ return x.v; }), on=all.filter(function(k){ return set[k]; });
+    var out={}; on.forEach(function(k){ out[k]=1; });
+    if(on.length===all.length){ out={}; out[v]=1; return out; }
+    if(out[v]) delete out[v]; else out[v]=1;
+    if(!Object.keys(out).length){ all.forEach(function(k){ out[k]=1; }); }
+    return out;
+  }
   function bind(){
     $("hmWhen").addEventListener("click",function(e){ var b=e.target.closest("button"); if(!b) return; S.when=b.dataset.v; syncUI(); apply(); });
-    $("hmWhat").addEventListener("click",function(e){ if(e.target.closest("#hmModes")) return; var b=e.target.closest(".lchip"); if(!b) return; if(S.what[b.dataset.v]) delete S.what[b.dataset.v]; else S.what[b.dataset.v]=1; syncUI(); apply(); });
-    $("hmModes").addEventListener("click",function(e){ var b=e.target.closest(".lchip"); if(!b) return; if(S.modes[b.dataset.v]) delete S.modes[b.dataset.v]; else S.modes[b.dataset.v]=1; syncUI(); apply(); });
+    $("hmWhat").addEventListener("click",function(e){ if(e.target.closest("#hmModes")) return; var b=e.target.closest(".lchip"); if(!b) return; S.what=pickSet(S.what,KINDS,b.dataset.v); syncUI(); apply(); });
+    $("hmModes").addEventListener("click",function(e){ var b=e.target.closest(".lchip"); if(!b) return; S.modes=pickSet(S.modes,MODES,b.dataset.v); syncUI(); apply(); });
     $("hmBlock").addEventListener("click",function(){ S.block=!S.block; syncUI(); apply(); });
     $("disSearch").addEventListener("input",function(){ S.q=(this.value||"").toLowerCase(); apply(); });
     $("disList").addEventListener("click",function(e){ if(e.target.closest("a")) return; var c=e.target.closest(".card"); if(!c||!mapCtl) return; var r=byId(c.dataset.id); if(r) mapCtl.focus(r.pts[0][1],r.pts[0][0]); });
