@@ -115,6 +115,10 @@ html.embed .full{display:inline}
 .pop .what,.pop .addr{margin:2px 0 0;font-size:12.5px;font-weight:500;color:var(--grey)}
 .pop .links{font-size:12.5px;margin-top:6px}
 .pop + .pop{border-top:1px solid var(--line-soft);margin-top:9px;padding-top:9px}
+.report{display:inline-flex;align-items:center;gap:5px;margin-top:8px;font-size:11.5px;font-weight:600;color:var(--grey);
+  text-decoration:none;border-bottom:1px solid var(--line)}
+.report:hover{color:var(--petrol);border-bottom-color:var(--petrol)}
+.report svg{width:12px;height:12px}
 .pop.click{cursor:pointer}
 
 /* ---- foot: provenance, the ask, credits ---- */
@@ -188,7 +192,7 @@ html.embed .full{display:inline}
 
 <footer class="foot">
   <span id="prov"></span>
-  <span>Spotted one that has closed, or a new one that has opened? <a href="mailto:secretary.eastperthcommunity@gmail.com?subject=Eat%20and%20drink%20map">Tell us</a>.</span>
+  <span>Spotted one that has closed, or a new one that has opened? <a href="mailto:secretary.eastperthcommunity@gmail.com?subject=Eat%20and%20drink%20map%20report%3A%20new%20or%20closed%20venue&amp;body=Name%20and%20address%20of%20the%20venue%2C%20and%20what%20has%20changed%3A%0A%0A">Tell us</a>.</span>
   <span class="src">Map &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors, <a href="https://openfreemap.org" target="_blank" rel="noopener">OpenFreeMap</a>. Addresses from G-NAF &copy; Geoscape Australia, Open G-NAF licence.</span>
 </footer>
 
@@ -370,9 +374,20 @@ html.embed .full{display:inline}
       el.classList.toggle('on', on); el.firstChild.classList.toggle('on', on);
     });
   }
+  // The people using the map keep it right. The subject carries the venue id, which is how the
+  // Secretary's daily mailbox read finds a map report and queues it for the monthly map shift.
+  var MAILBOX = 'secretary.eastperthcommunity@gmail.com';
+  function reportHtml(v) {
+    var subject = 'Eat and drink map report: ' + v.name + ' [' + v.id + ']';
+    var body = 'What is wrong? For example: it has closed, the pin is in the wrong place, or the details are out of date.\n\n\n' +
+      '----\n' + v.name + ', ' + v.address + ' (' + v.id + ')';
+    return '<a class="report" href="mailto:' + MAILBOX + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body) + '">' +
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4m0 0h11l-2 4 2 4H5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+      'Report wrong info or location</a>';
+  }
   function popHtml(v, clickable) {
     return '<div class="pop' + (clickable ? ' click' : '') + '" data-id="' + v.id + '"><h3>' + esc(v.name) + '</h3><p class="what">' + esc(what(v)) +
-      '</p><p class="addr">' + esc(v.address) + '</p>' + shut(v) + linksHtml(v) + '</div>';
+      '</p><p class="addr">' + esc(v.address) + '</p>' + shut(v) + linksHtml(v) + reportHtml(v) + '</div>';
   }
   function select(id, from, stack) {
     S.sel = id;
