@@ -1804,9 +1804,9 @@ window.EAT_DRINK = {
    ],
    "checked": "online 2026-10-04",
    "closed": "",
-   "pin": "address",
-   "lat": -31.961185,
-   "lng": 115.873425
+   "pin": "manual",
+   "lat": -31.96164,
+   "lng": 115.873366
   }
  ]
 };
