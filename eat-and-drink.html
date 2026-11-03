@@ -76,8 +76,6 @@ html.embed .full{display:inline}
 .card h3{margin:0;font-size:15px;font-weight:700;line-height:1.3;color:var(--ink)}
 .card .what{margin:2px 0 0;font-size:13px;font-weight:600;color:var(--grey)}
 .card .addr{margin:3px 0 0;font-size:13px;font-weight:500;color:var(--grey);line-height:1.4}
-.shut{display:inline-block;margin:6px 0 0;background:#FFF6E2;color:#6B5A1E;border-left:2.6px solid var(--gold);
-  border-radius:0 4px 4px 0;padding:2px 8px;font-size:12px;font-weight:700}   /* the note panel, small */
 .card .dist{float:right;font-size:12px;font-weight:700;color:var(--petrol);margin-left:8px}
 .links{margin:8px 0 0;display:flex;flex-wrap:wrap;gap:4px 14px;font-size:13px;font-weight:600}
 .links a{text-decoration:none;border-bottom:1.5px solid var(--chip-border);padding-bottom:1px}
@@ -90,13 +88,14 @@ html.embed .full{display:inline}
 
 /* ---- pins: the glyph says what it is, the fill says which kind. Petrol when chosen ----
    MapLibre owns the marker element's position and transform, so the styled pin sits inside it. */
-.mk{width:32px;height:32px;display:flex;align-items:center;justify-content:center}
+.mk{display:flex;align-items:center;justify-content:center}
 .mk.on{z-index:4}
-/* zoomed out, the pins are dots, so a dense street still reads */
-#map.lo .pin{width:17px;height:17px;border-width:1.5px}
-#map.lo .pin svg,#map.lo .pin .k{display:none}
-#map.lo .pin.on{width:30px;height:30px;transform:none}
-#map.lo .pin.on svg{display:block}
+/* zoomed out, nearby pins merge into a Petrol cluster: white count on Petrol is 8.9:1 */
+.cl{width:var(--s);height:var(--s);border-radius:50%;background:var(--petrol);color:#fff;border:2px solid #fff;padding:0;
+  font:800 13px/1 'Montserrat',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 0 5px rgba(0,79,113,.18),0 1px 4px rgba(0,40,60,.35);transition:transform .12s}
+.cl:hover{transform:scale(1.08)}
+.cl.on{box-shadow:0 0 0 5px var(--sky),0 1px 4px rgba(0,40,60,.35)}
 .pin{width:32px;height:32px;border-radius:50%;background:var(--c);border:2px solid #fff;color:var(--petrol);
   display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 1px 4px rgba(0,40,60,.35);
   transition:transform .12s;position:relative;padding:0}
@@ -127,6 +126,23 @@ html.embed .full{display:inline}
 .foot b{color:var(--ink);font-weight:700}
 .foot .src{color:var(--grey);font-weight:500}
 .foot .src a{color:var(--grey)}
+
+/* Website embed: the same tablet as the East Perth Hub's framed boards (Hub AGENT NOTES, "Website
+   embed mode", 2 Nov 2026): a 13px bezel, 1px rim, 22px corners, soft shadow and a camera dot, on the
+   website's white section. The Hub's screen is Petrol because its board is white-on-Petrol; this page
+   is Petrol-on-white, so its screen stays white. Change the two together. */
+@media (min-width:768px){
+  html.embed{background:#fff}
+  html.embed body{border-radius:22px;overflow:hidden;height:calc(100vh - 54px);min-height:0;width:calc(100% - 60px);
+    max-width:1320px;margin:22px auto 32px;box-shadow:0 0 0 13px #1c1f23,0 0 0 14px #4a5058,0 12px 22px 12px rgba(0,40,60,.22)}
+  html.embed::after{content:"";position:fixed;top:12px;left:50%;width:6px;height:6px;margin-left:-3px;border-radius:50%;
+    background:#3a4450;box-shadow:inset 0 0 0 1px #0d1013}
+  html.embed .head{padding:16px 22px 10px}
+  html.embed h1{font-size:26px}
+  html.embed .bar{padding:0 22px 10px}
+  html.embed .main{margin:0 22px}
+  html.embed .foot{padding:8px 22px 12px}
+}
 
 /* Phones: the website shows a button, not the frame, so the page scrolls as a page:
    compact filters, a tall map, then the list. */
@@ -225,6 +241,7 @@ html.embed .full{display:inline}
     S.kind = KIND[h.get('kind')] ? h.get('kind') : '';
     S.q = h.get('q') || '';
     S.area = h.get('area') || '';
+    S.nearOnLoad = h.get('near') === '1';      // set by Near me inside the website's frame
   })();
   function saveHash() {
     var h = new URLSearchParams();
@@ -281,16 +298,14 @@ html.embed .full{display:inline}
     l.push('<a href="https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(v.name + ', ' + v.address) + '" target="_blank" rel="noopener">Directions</a>');
     return '<p class="links">' + l.join('') + '</p>';
   }
-  function what(v) { return v.cuisine || KIND[v.kind].label; }
-  function shut(v) { return v.closed === 'temporarily' ? '<p class="shut">Temporarily closed</p>' : ''; }
-  function render() {
+  function what(v) { return v.cuisine || KIND[v.kind].label; }  function render() {
     var list = shown();
     $('count').textContent = list.length === V.length ? 'All ' + list.length + ' venues' : list.length + ' of ' + V.length + ' venues';
     $('cards').innerHTML = list.length ? list.map(function (v) {
       return '<button class="card' + (S.sel === v.id ? ' on' : '') + '" data-id="' + v.id + '" style="--c:' + KIND[v.kind].c + '">' +
         (S.near ? '<span class="dist">' + fmt(dist(v)) + '</span>' : '') +
         '<h3>' + esc(v.name) + '</h3><p class="what">' + esc(what(v)) + '</p><p class="addr">' + esc(v.address) + '</p>' +
-        shut(v) + linksHtml(v) + '</button>';
+        linksHtml(v) + '</button>';
     }).join('') : '<p class="empty">Nothing matches that. Try a shorter search, or pick <b>All</b>.</p>';
     drawPins(list);
     saveHash();
@@ -313,9 +328,13 @@ html.embed .full{display:inline}
   var qt;
   $('q').addEventListener('input', function () { clearTimeout(qt); qt = setTimeout(function () { S.q = $('q').value; render(); }, 120); });
   $('area').addEventListener('change', function () { S.area = $('area').value; render(); fit(); });
+  var FRAMED = window.self !== window.top;
   $('near').addEventListener('click', function () {
     var b = this;
     if (S.near) { S.near = null; b.setAttribute('aria-pressed', 'false'); if (me) { me.remove(); me = null; } render(); return; }
+    // Inside the website's frame the browser withholds location (Wix's "Embed a site" frame does not
+    // grant it), so open the full page with Near me already on, where the browser can ask.
+    if (FRAMED) { window.open(location.href.split('#')[0] + '#' + (location.hash.slice(1) ? location.hash.slice(1) + '&' : '') + 'near=1', '_blank', 'noopener'); return; }
     if (!navigator.geolocation) return;
     b.textContent = 'Finding you...';
     navigator.geolocation.getCurrentPosition(function (p) {
@@ -348,23 +367,60 @@ html.embed .full{display:inline}
     });
     return Object.keys(g).map(function (k) { return g[k]; });
   }
+  // Zoomed out, pins closer than CLUSTER_PX on screen merge into one Petrol bubble with a count; a tap
+  // zooms into it. From CLUSTER_BELOW in, every building has its own pin. Re-laid out on each zoomend.
+  var CLUSTER_BELOW = 16, CLUSTER_PX = 54, drawn = [];   // 54: wide enough that a pin never touches a big bubble
+  function clusters(gs) {
+    if (map.getZoom() >= CLUSTER_BELOW) return gs.map(function (g) { return [g]; });
+    var out = [];
+    gs.slice().sort(function (a, b) { return b.length - a.length; }).forEach(function (g) {
+      var p = map.project([g[0].lng, g[0].lat]);
+      var c = out.filter(function (c) { return Math.hypot(c.x - p.x, c.y - p.y) < CLUSTER_PX; })[0];
+      if (c) { c.gs.push(g); c.x = (c.x * (c.gs.length - 1) + p.x) / c.gs.length; c.y = (c.y * (c.gs.length - 1) + p.y) / c.gs.length; }
+      else out.push({ x: p.x, y: p.y, gs: [g] });
+    });
+    return out.map(function (c) { return c.gs; });
+  }
+  function pinEl(vs) {           // one building: the glyph pin, with a count when it holds several
+    var el = document.createElement('div'), pin = document.createElement('button');
+    var one = vs.length === 1, v = vs[0];
+    var kinds = {}; vs.forEach(function (x) { kinds[x.kind] = 1; });
+    var k = Object.keys(kinds).length === 1 ? v.kind : null;
+    pin.className = 'pin' + (k ? '' : ' mixed');
+    pin.style.setProperty('--c', k ? KIND[k].c : '#fff');
+    pin.innerHTML = svg(k ? GLYPH[k] : MULTI) + (one ? '' : '<span class="k">' + vs.length + '</span>');
+    pin.setAttribute('aria-label', one ? v.name : vs.length + ' venues at ' + v.address);
+    pin.addEventListener('click', function (e) { e.stopPropagation(); select(v.id, 'map', vs); });
+    el.appendChild(pin);
+    return el;
+  }
+  function clusterEl(vs) {       // several buildings: a Petrol bubble that zooms in on a tap
+    var el = document.createElement('div'), b = document.createElement('button');
+    var n = vs.length, size = Math.round(30 + Math.min(16, 5 * Math.log2(n)));
+    b.className = 'cl';
+    b.style.setProperty('--s', size + 'px');
+    b.textContent = n;
+    b.setAttribute('aria-label', n + ' venues here. Zoom in');
+    b.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var bd = new maplibregl.LngLatBounds();
+      vs.forEach(function (x) { bd.extend([x.lng, x.lat]); });
+      map.fitBounds(bd, { padding: 80, maxZoom: Math.max(CLUSTER_BELOW + 0.5, map.getZoom() + 1.5), duration: 500 });
+    });
+    el.appendChild(b);
+    return el;
+  }
   function drawPins(list) {
+    if (list) drawn = list;
     if (!map) return;
     markers.forEach(function (m) { m.remove(); }); markers = [];
-    groups(list).forEach(function (vs) {
-      var el = document.createElement('div'), pin = document.createElement('button');
-      var one = vs.length === 1, v = vs[0];
-      var kinds = {}; vs.forEach(function (x) { kinds[x.kind] = 1; });
-      var k = Object.keys(kinds).length === 1 ? v.kind : null;
+    clusters(groups(drawn)).forEach(function (cg) {
+      var vs = [].concat.apply([], cg), el = cg.length === 1 ? pinEl(cg[0]) : clusterEl(vs);
+      var lat = vs.reduce(function (s, x) { return s + x.lat; }, 0) / vs.length;
+      var lng = vs.reduce(function (s, x) { return s + x.lng; }, 0) / vs.length;
       el.className = 'mk';
-      pin.className = 'pin' + (k ? '' : ' mixed');
-      pin.style.setProperty('--c', k ? KIND[k].c : '#fff');
-      pin.innerHTML = svg(k ? GLYPH[k] : MULTI) + (one ? '' : '<span class="k">' + vs.length + '</span>');
-      pin.setAttribute('aria-label', one ? v.name : vs.length + ' venues at ' + v.address);
-      pin.addEventListener('click', function (e) { e.stopPropagation(); select(v.id, 'map', vs); });
-      el.appendChild(pin);
       el._ids = vs.map(function (x) { return x.id; });
-      markers.push(new maplibregl.Marker({ element: el, anchor: 'center' }).setLngLat([v.lng, v.lat]).addTo(map));
+      markers.push(new maplibregl.Marker({ element: el, anchor: 'center' }).setLngLat(cg.length === 1 ? [cg[0][0].lng, cg[0][0].lat] : [lng, lat]).addTo(map));
     });
     markOn();
   }
@@ -387,7 +443,7 @@ html.embed .full{display:inline}
   }
   function popHtml(v, clickable) {
     return '<div class="pop' + (clickable ? ' click' : '') + '" data-id="' + v.id + '"><h3>' + esc(v.name) + '</h3><p class="what">' + esc(what(v)) +
-      '</p><p class="addr">' + esc(v.address) + '</p>' + shut(v) + linksHtml(v) + reportHtml(v) + '</div>';
+      '</p><p class="addr">' + esc(v.address) + '</p>' + linksHtml(v) + reportHtml(v) + '</div>';
   }
   function select(id, from, stack) {
     S.sel = id;
@@ -420,6 +476,7 @@ html.embed .full{display:inline}
   }
 
   render();
+  if (S.nearOnLoad && !FRAMED) setTimeout(function () { $('near').click(); }, 400);
   if (!window.maplibregl || !webgl()) { noMap('<span><b>This device can\'t draw the map.</b><br>The list has every venue, with the same filters.</span>'); return; }
   fetch(window.EPCG_MAP_STYLE.STYLE_URL).then(function (r) { return r.json(); }).then(window.EPCG_MAP_STYLE.restyle).then(function (style) {
     map = new maplibregl.Map({
@@ -427,9 +484,8 @@ html.embed .full{display:inline}
       attributionControl: { compact: true }, cooperativeGestures: window.self !== window.top
     });
     map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
-    var zoomed = function () { $('map').classList.toggle('lo', map.getZoom() < 15.6); };
-    map.on('zoom', zoomed);
-    map.on('load', function () { drawPins(shown()); fit(); zoomed(); });
+    map.on('zoomend', function () { drawPins(); });      // clusters re-form at each zoom level
+    map.on('load', function () { drawPins(shown()); fit(); });
     map.on('click', function () { if (popup) popup.remove(); });
   }).catch(function () { noMap('<span><b>The map didn\'t load.</b><br>The list has every venue. Try again in a minute.</span>'); });
 })();

@@ -1,7 +1,10 @@
 // Built by _build/build_map.py from the EPCG Business Directory. Public fields only. Do not hand-edit.
+window.EAT_DRINK_META = {
+ generated: "2026-11-03 14:26"
+};
 window.EAT_DRINK = {
  "built": "2026-11-03",
- "count": 95,
+ "count": 98,
  "venues": [
   {
    "id": "B-0289",
@@ -13,7 +16,6 @@ window.EAT_DRINK = {
    "website": "",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.951608,
    "lng": 115.873269
@@ -37,7 +39,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked address",
    "lat": -31.959437,
    "lng": 115.869241
@@ -52,7 +53,6 @@ window.EAT_DRINK = {
    "website": "https://allurecafeperth.au/",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.954275,
    "lng": 115.868368
@@ -67,7 +67,6 @@ window.EAT_DRINK = {
    "website": "https://balleballeindian.com.au/",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked address",
    "lat": -31.960035,
    "lng": 115.871496
@@ -91,7 +90,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked venue",
    "lat": -31.950792,
    "lng": 115.871
@@ -106,10 +104,9 @@ window.EAT_DRINK = {
    "website": "http://www.bellaginacafe.com/",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
-   "pin": "checked building",
-   "lat": -31.958289,
-   "lng": 115.870261
+   "pin": "checked venue",
+   "lat": -31.958078,
+   "lng": 115.870321
   },
   {
    "id": "B-0191",
@@ -126,7 +123,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked venue",
    "lat": -31.954309,
    "lng": 115.873893
@@ -141,7 +137,6 @@ window.EAT_DRINK = {
    "website": "https://metrohotels.com.au/hotels/metro-hotel-perth-city/food-drink/",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.958466,
    "lng": 115.872684
@@ -165,7 +160,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.950718,
    "lng": 115.875098
@@ -180,10 +174,9 @@ window.EAT_DRINK = {
    "website": "http://www.bulgogibbq.com.au/",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
-   "pin": "checked venue",
-   "lat": -31.957754,
-   "lng": 115.870239
+   "pin": "checked building",
+   "lat": -31.957691,
+   "lng": 115.870274
   },
   {
    "id": "B-0029",
@@ -204,7 +197,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.958743,
    "lng": 115.869717
@@ -224,7 +216,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.960583,
    "lng": 115.876597
@@ -248,10 +239,9 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
-   "pin": "checked venue",
-   "lat": -31.964497,
-   "lng": 115.878552
+   "pin": "checked building",
+   "lat": -31.964491,
+   "lng": 115.878346
   },
   {
    "id": "B-0030",
@@ -263,7 +253,6 @@ window.EAT_DRINK = {
    "website": "https://cake-cloud.com.au/",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.959757,
    "lng": 115.870325
@@ -278,7 +267,6 @@ window.EAT_DRINK = {
    "website": "https://thecarltonhotel.com.au/",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.957935,
    "lng": 115.871285
@@ -298,7 +286,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked address",
    "lat": -31.956699,
    "lng": 115.86615
@@ -318,7 +305,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.958826,
    "lng": 115.872204
@@ -333,7 +319,6 @@ window.EAT_DRINK = {
    "website": "",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked address",
    "lat": -31.958155,
    "lng": 115.868965
@@ -357,7 +342,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked address",
    "lat": -31.952544,
    "lng": 115.874037
@@ -381,7 +365,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.961483,
    "lng": 115.873482
@@ -396,7 +379,6 @@ window.EAT_DRINK = {
    "website": "",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.959122,
    "lng": 115.873257
@@ -411,7 +393,6 @@ window.EAT_DRINK = {
    "website": "https://dinnthai79.nextorder.com/",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.959666,
    "lng": 115.872429
@@ -431,7 +412,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.952576,
    "lng": 115.873309
@@ -451,7 +431,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.960583,
    "lng": 115.876597
@@ -466,7 +445,6 @@ window.EAT_DRINK = {
    "website": "https://www.dominos.com.au/",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.9527,
    "lng": 115.875045
@@ -481,7 +459,6 @@ window.EAT_DRINK = {
    "website": "https://www.duo-tone.com.au/",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked venue",
    "lat": -31.9576,
    "lng": 115.868986
@@ -496,7 +473,6 @@ window.EAT_DRINK = {
    "website": "https://www.eastburgperth.com.au/",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.9527,
    "lng": 115.875045
@@ -520,7 +496,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.961076,
    "lng": 115.87467
@@ -544,7 +519,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.959269,
    "lng": 115.868786
@@ -564,7 +538,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked venue",
    "lat": -31.956002,
    "lng": 115.873425
@@ -588,7 +561,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked venue",
    "lat": -31.958773,
    "lng": 115.867862
@@ -608,7 +580,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.960583,
    "lng": 115.876597
@@ -632,7 +603,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.961326,
    "lng": 115.871532
@@ -652,7 +622,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.953019,
    "lng": 115.876781
@@ -667,7 +636,6 @@ window.EAT_DRINK = {
    "website": "",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked address",
    "lat": -31.958012,
    "lng": 115.871516
@@ -682,7 +650,6 @@ window.EAT_DRINK = {
    "website": "",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked venue",
    "lat": -31.952569,
    "lng": 115.870474
@@ -697,7 +664,6 @@ window.EAT_DRINK = {
    "website": "",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.957303,
    "lng": 115.867533
@@ -721,7 +687,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.959245,
    "lng": 115.868393
@@ -736,7 +701,6 @@ window.EAT_DRINK = {
    "website": "http://www.hulabulabar.com/",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.956906,
    "lng": 115.865932
@@ -756,7 +720,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked venue",
    "lat": -31.95753,
    "lng": 115.86878
@@ -776,7 +739,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.961802,
    "lng": 115.876017
@@ -800,7 +762,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked venue",
    "lat": -31.960448,
    "lng": 115.872792
@@ -824,7 +785,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked venue",
    "lat": -31.952955,
    "lng": 115.879445
@@ -839,7 +799,6 @@ window.EAT_DRINK = {
    "website": "",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked venue",
    "lat": -31.958624,
    "lng": 115.868665
@@ -854,7 +813,6 @@ window.EAT_DRINK = {
    "website": "https://www.ozfoodhunter.com.au/la-moon-thai-cuisine",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.952962,
    "lng": 115.87729
@@ -878,7 +836,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked address",
    "lat": -31.964614,
    "lng": 115.878282
@@ -893,7 +850,6 @@ window.EAT_DRINK = {
    "website": "http://luxuslounge.square.site/",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked address",
    "lat": -31.964614,
    "lng": 115.878282
@@ -908,7 +864,6 @@ window.EAT_DRINK = {
    "website": "",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.959801,
    "lng": 115.867417
@@ -923,7 +878,6 @@ window.EAT_DRINK = {
    "website": "http://www.maisonsainthonore.com/",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.944344,
    "lng": 115.878184
@@ -947,7 +901,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked venue",
    "lat": -31.956693,
    "lng": 115.8724
@@ -971,7 +924,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked address",
    "lat": -31.959179,
    "lng": 115.86835
@@ -986,7 +938,6 @@ window.EAT_DRINK = {
    "website": "https://mrsandwich.com.au/",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked address",
    "lat": -31.956723,
    "lng": 115.866439
@@ -1010,7 +961,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.959187,
    "lng": 115.868316
@@ -1025,7 +975,6 @@ window.EAT_DRINK = {
    "website": "",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked venue",
    "lat": -31.958236,
    "lng": 115.871669
@@ -1045,7 +994,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.952873,
    "lng": 115.878429
@@ -1065,7 +1013,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.961483,
    "lng": 115.873482
@@ -1085,7 +1032,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.961483,
    "lng": 115.873482
@@ -1100,7 +1046,6 @@ window.EAT_DRINK = {
    "website": "https://www.pastacup.com/",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.958138,
    "lng": 115.871688
@@ -1120,7 +1065,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked venue",
    "lat": -31.964497,
    "lng": 115.878552
@@ -1135,7 +1079,6 @@ window.EAT_DRINK = {
    "website": "",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked venue",
    "lat": -31.957178,
    "lng": 115.867428
@@ -1150,7 +1093,6 @@ window.EAT_DRINK = {
    "website": "https://www.pizzaonbennett.com.au/",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.957739,
    "lng": 115.87187
@@ -1174,7 +1116,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked venue",
    "lat": -31.956699,
    "lng": 115.872851
@@ -1189,7 +1130,6 @@ window.EAT_DRINK = {
    "website": "",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked venue",
    "lat": -31.95276,
    "lng": 115.877029
@@ -1204,7 +1144,6 @@ window.EAT_DRINK = {
    "website": "https://sangriaonswan.com.au/",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.952784,
    "lng": 115.87677
@@ -1228,7 +1167,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.958898,
    "lng": 115.867721
@@ -1248,7 +1186,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.961408,
    "lng": 115.874591
@@ -1268,7 +1205,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked address",
    "lat": -31.964614,
    "lng": 115.878282
@@ -1288,7 +1224,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.960218,
    "lng": 115.872272
@@ -1303,7 +1238,6 @@ window.EAT_DRINK = {
    "website": "http://subway.com/",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.9527,
    "lng": 115.875045
@@ -1318,7 +1252,6 @@ window.EAT_DRINK = {
    "website": "http://www.sunnydaysbakeshop.com/",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.950351,
    "lng": 115.875103
@@ -1333,7 +1266,6 @@ window.EAT_DRINK = {
    "website": "",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.952677,
    "lng": 115.873593
@@ -1348,7 +1280,6 @@ window.EAT_DRINK = {
    "website": "http://tansawa.com.au/",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.956906,
    "lng": 115.865932
@@ -1363,7 +1294,6 @@ window.EAT_DRINK = {
    "website": "https://nexora-market.square.site/",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked venue",
    "lat": -31.952528,
    "lng": 115.873438
@@ -1383,7 +1313,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked address",
    "lat": -31.957405,
    "lng": 115.867468
@@ -1407,7 +1336,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.960697,
    "lng": 115.870021
@@ -1422,7 +1350,6 @@ window.EAT_DRINK = {
    "website": "",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked address",
    "lat": -31.953765,
    "lng": 115.868408
@@ -1446,7 +1373,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked venue",
    "lat": -31.952633,
    "lng": 115.876258
@@ -1470,7 +1396,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked venue",
    "lat": -31.958337,
    "lng": 115.868021
@@ -1494,7 +1419,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.953831,
    "lng": 115.867967
@@ -1509,10 +1433,23 @@ window.EAT_DRINK = {
    "website": "https://www.thedrops.net.au/",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.953146,
    "lng": 115.87498
+  },
+  {
+   "id": "B-H0105",
+   "name": "The Grosvenor Hotel",
+   "kind": "bar",
+   "cuisine": "",
+   "address": "Hay St, East Perth",
+   "precinct": "Hay St east, Plain St, Goderich St, Bennett St",
+   "website": "",
+   "socials": [],
+   "checked": "online 2026-11-03",
+   "pin": "checked venue",
+   "lat": -31.957548,
+   "lng": 115.868242
   },
   {
    "id": "B-N0078",
@@ -1524,7 +1461,6 @@ window.EAT_DRINK = {
    "website": "",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.958512,
    "lng": 115.871458
@@ -1539,7 +1475,6 @@ window.EAT_DRINK = {
    "website": "http://www.thekitchenlunchbar.com/",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.961483,
    "lng": 115.873482
@@ -1554,7 +1489,6 @@ window.EAT_DRINK = {
    "website": "",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked venue",
    "lat": -31.957202,
    "lng": 115.868558
@@ -1578,7 +1512,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked address",
    "lat": -31.95285,
    "lng": 115.878548
@@ -1598,7 +1531,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked address",
    "lat": -31.964614,
    "lng": 115.878282
@@ -1613,7 +1545,6 @@ window.EAT_DRINK = {
    "website": "https://therisecafebar.com.au/",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.960052,
    "lng": 115.87159
@@ -1637,7 +1568,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked venue",
    "lat": -31.952538,
    "lng": 115.877849
@@ -1652,7 +1582,6 @@ window.EAT_DRINK = {
    "website": "https://sansrival.com.au/",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked venue",
    "lat": -31.957586,
    "lng": 115.868938
@@ -1667,7 +1596,6 @@ window.EAT_DRINK = {
    "website": "",
    "socials": [],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.961483,
    "lng": 115.873482
@@ -1691,7 +1619,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.952873,
    "lng": 115.878429
@@ -1715,7 +1642,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.959245,
    "lng": 115.868393
@@ -1735,7 +1661,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.95333,
    "lng": 115.877385
@@ -1759,10 +1684,23 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked building",
    "lat": -31.950286,
    "lng": 115.874646
+  },
+  {
+   "id": "M-0001",
+   "name": "Wild Bean Cafe (BP East Perth)",
+   "kind": "cafe",
+   "cuisine": "Service station cafe",
+   "address": "Corner of East Pde and Kensington St, East Perth WA 6004",
+   "precinct": "Royal St and Claisebrook Cove",
+   "website": "",
+   "socials": [],
+   "checked": "online 2026-11-03",
+   "pin": "checked building",
+   "lat": -31.950308,
+   "lng": 115.876437
   },
   {
    "id": "B-0271",
@@ -1779,10 +1717,23 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "checked address",
    "lat": -31.958109,
    "lng": 115.871814
+  },
+  {
+   "id": "B-0272",
+   "name": "Woku",
+   "kind": "cafe",
+   "cuisine": "",
+   "address": "317 Hay St, East Perth WA 6004",
+   "precinct": "Hay St east, Plain St, Goderich St, Bennett St",
+   "website": "",
+   "socials": [],
+   "checked": "online 2026-11-03",
+   "pin": "checked address",
+   "lat": -31.95762,
+   "lng": 115.868863
   },
   {
    "id": "B-0171",
@@ -1803,7 +1754,6 @@ window.EAT_DRINK = {
     }
    ],
    "checked": "online 2026-10-04",
-   "closed": "",
    "pin": "manual",
    "lat": -31.96164,
    "lng": 115.873366
