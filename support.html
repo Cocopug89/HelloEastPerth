@@ -228,8 +228,12 @@ html.embed #deskhead .hbrand h1{font-size:26px;letter-spacing:1px}
     The East Perth Community Group (EPCG) is committed to the growth and development of the East Perth
     area. We support, manage and instigate projects for a community where residents live rich, connected
     lives, local businesses are well patronised, and visitors find a warm welcome in our vibrant riverside
-    village. Everything we do is run by local volunteers - here are two easy ways you can back it.
+    village. Everything we do is run by local volunteers - here are a few easy ways you can back it.
   </div>
+  <!-- 3 Nov 2026 (Jason): the "Tell us about your event" form card became this one-line note. -->
+  <div class="about" style="margin-top:-4px"><b>Something for the Hub?</b> An event, a notice or a correction: email the Secretary at
+    <a href="mailto:secretary.eastperthcommunity@gmail.com?subject=For%20the%20East%20Perth%20Hub" style="color:#d6eefa">secretary.eastperthcommunity@gmail.com</a>.
+    We're all volunteers, so give us a few days.</div>
 
   <div class="card">
     <h2>Become a member</h2>
@@ -255,33 +259,15 @@ html.embed #deskhead .hbrand h1{font-size:26px;letter-spacing:1px}
     <a class="cta pink" href="https://www.containersforchange.com.au/wa/scheme-expansion" target="_blank" rel="noopener">About Containers for Change &#8599;</a>
   </div>
 
+  <!-- Entertainment Membership fundraiser, added 3 Nov 2026. The link and the double-donation weeks live in promos.js. -->
   <div class="card">
-    <h2>Tell us about your event</h2>
-    <p>Running something in East Perth - a market stall, a working bee, a club night, a fundraiser?
-       Send it to us and we'll consider it for the Hub and the newsletter. Community events are the
-       point of all this, so please don't be shy.</p>
-
-    <!-- No backend (GitHub Pages, not Netlify): submit composes a mailto: to the
-         secretary inbox instead of posting anywhere. See the submit handler below. -->
-    <form name="event-submission" id="evForm">
-      <div class="frow">
-        <span class="fld"><label for="ev-name">Your name</label><input id="ev-name" name="name" required></span>
-        <span class="fld"><label for="ev-email">Your email</label><input id="ev-email" type="email" name="email" required></span>
-      </div>
-      <div class="fld"><label for="ev-title">Event name</label><input id="ev-title" name="event" required></div>
-      <div class="frow">
-        <span class="fld"><label for="ev-date">Date</label><input id="ev-date" type="date" name="date" required></span>
-        <span class="fld"><label for="ev-where">Where</label><input id="ev-where" name="venue" placeholder="Venue or address"></span>
-      </div>
-      <div class="fld"><label for="ev-detail">Tell us about it</label><textarea id="ev-detail" name="details" placeholder="What is it, who is it for, is it free, is there a booking link?"></textarea></div>
-
-      <button class="cta" type="submit" id="evSend">Send it to us &#8599;</button>
-      <div class="fmsg" id="evMsg" role="status"></div>
-      <div class="fnote">Prefer email? Write to
-        <a href="mailto:secretary.eastperthcommunity@gmail.com?subject=Event%20for%20the%20East%20Perth%20Hub">secretary.eastperthcommunity@gmail.com</a>.
-        We're all volunteers, so give us a few days.</div>
-    </form>
+    <h2>Buy an Entertainment Membership</h2>
+    <p>Getting an Entertainment Membership for dining, travel and shopping savings? Buy it through our
+       fundraiser link and part of what you pay comes to the EPCG.</p>
+    <p id="entPromo" style="display:none"></p>
+    <a class="cta" id="entLink" href="https://subscribe.entertainment.com.au/fundraiser/96u9181?utm_source=East+Perth+Community&amp;utm_campaign=96u9181&amp;utm_medium=Hub&amp;utm_id=144178" target="_blank" rel="noopener">Buy through the EPCG link &#8599;</a>
   </div>
+
 
   <footer>
     East Perth Community Group Inc. &middot; ABN 55 213 353 802 &middot; PO Box 6112, East Perth WA 6892<br>
@@ -382,6 +368,12 @@ if (document.fonts && document.fonts.ready) document.fonts.ready.then(sizeTicker
 })();
 </script>
 <script data-goatcounter="https://epcgsec.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script src="promos.js"></script>
+<script>/* Entertainment card: the link comes from promos.js, plus a line during a double-donation week. */
+(function(){ var a=document.getElementById("entLink"); if(a&&window.HUB_ENT_URL) a.href=window.HUB_ENT_URL;
+  var on=(window.hubPromosActive?window.hubPromosActive():[]).filter(function(p){ return p.href===window.HUB_ENT_URL; })[0];
+  var el=document.getElementById("entPromo"); if(on&&el){ el.innerHTML="<b>Double donation now:</b> until "+new Date(on.to+"T00:00:00").toLocaleDateString("en-AU",{weekday:"long",day:"numeric",month:"long"})+", what the EPCG receives is doubled."; el.style.display=""; } })();
+</script>
 <script src="embed-side.js"></script>
 </body>
 </html>

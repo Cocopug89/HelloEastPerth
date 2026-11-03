@@ -340,6 +340,7 @@ html{-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:1
 <script src="hub-data.js"></script>
 <script src="epcg-manual.js"></script>
 <script src="spotlight.js"></script>
+<script src="promos.js"></script>
 <script src="pta-data.js"></script>
 <script src="epcg-events.js"></script>
 <script src="fireworks-data.js"></script>
@@ -455,6 +456,10 @@ items.push({cls:"",em:"🚧",txt:(c.cat==="roadclosure"?"Road closure: ":"Works:
 });
 if(!items.length){ items.push({cls:"",em:"✅",txt:"No new disruptions today"}); }
 
+/* EPCG's own dated promotions (promos.js), e.g. Entertainment Membership double-donation weeks. */
+(window.hubPromosActive?window.hubPromosActive():[]).forEach(function(p){
+items.push({cls:"",em:p.em,txt:"<a href='"+p.href+"' target='_blank' rel='noopener' style='color:inherit'><b>"+p.label+"</b> "+p.text+"</a>"});
+});
 const b=binInfo();
 if(b){
 let em, cls, msg, sub, col="";

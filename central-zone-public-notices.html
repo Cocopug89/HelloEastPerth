@@ -560,6 +560,7 @@ html.embed .hubcredit a.hc-bug{color:#fff;border-bottom-color:rgba(255,255,255,.
 <script src="fireworks-data.js"></script>
 <script src="consultations.js"></script>
 <script src="spotlight.js"></script>
+<script src="promos.js"></script>
 <script src="hub-map-style.js"></script>
 <script src="hub-map.js"></script>
 <script>
@@ -999,6 +1000,8 @@ function homeBuild(){
   var disS=dis.slice().sort(function(a,b){return (sevRank[a.sev]||2)-(sevRank[b.sev]||2);});
   var items=[];
   items.push('&#128465; <b>Bins '+(tonight?"tonight":bd.toLocaleDateString("en-AU",{weekday:"short",day:"numeric",month:"short"}))+':</b> FOGO + '+altName+' &middot; out by 6am');
+  /* EPCG's own dated promotions (promos.js), e.g. Entertainment Membership double-donation weeks. */
+  (window.hubPromosActive?window.hubPromosActive():[]).forEach(function(p){ items.push(p.em+' <a href="'+p.href+'" target="_blank" rel="noopener" style="color:inherit;text-decoration:none"><b>'+p.label+'</b> '+p.text+'</a>'); });
   var _t0=new Date();_t0.setHours(0,0,0,0);
   (function(){ /* fireworks tonight or tomorrow: the "what was that bang" answer */
     var _t1=new Date(_t0.getTime()+86400000);
