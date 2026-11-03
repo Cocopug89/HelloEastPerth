@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>EPCG Containers for Change</title>
+<meta name="description" content="The East Perth Community Group's Containers for Change scheme ID and barcode, to show at any refund point.">
+<meta name="apple-mobile-web-app-title" content="EPCG Containers">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#004F71">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap">
+<!-- The EPCG Containers for Change card (3 Nov 2026). A page people save to their phone's home screen, or whose
+     barcode they save as an image, so it is to hand at a refund point. Black bars on white for the scanner. -->
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;background:#004F71;font-family:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#12303F;-webkit-text-size-adjust:100%}
+.wrap{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 16px}
+.card{width:100%;max-width:440px;background:#fff;border-radius:20px;padding:26px 22px 22px;text-align:center;box-shadow:0 18px 40px rgba(0,20,35,.35)}
+.logo{width:120px;height:auto;display:block;margin:0 auto 10px;filter:brightness(0) saturate(100%) invert(19%) sepia(76%) saturate(1606%) hue-rotate(176deg) brightness(92%) contrast(101%)}
+.k{font-size:12px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#5E7986;margin:6px 0 2px}
+h1{font-size:19px;font-weight:800;color:#004F71;margin:0 0 14px;line-height:1.25}
+.id{font:800 34px/1 ui-monospace,Menlo,Consolas,monospace;color:#12303F;letter-spacing:2px;margin:8px 0 10px}
+#bc{width:100%;height:auto;max-width:360px}
+.steps{text-align:left;font-size:14px;line-height:1.55;margin:14px 0 6px;padding-left:20px}
+.btns{display:flex;flex-direction:column;gap:8px;margin-top:14px}
+.btn{display:block;background:#004F71;color:#fff;text-decoration:none;font-weight:700;font-size:15px;padding:12px 14px;border-radius:6px;border:0;cursor:pointer;font-family:inherit}
+.btn.alt{background:#fff;color:#004F71;border:2px solid #004F71}
+.save{font-size:13px;line-height:1.5;color:#5E7986;text-align:left;margin-top:14px;background:#EEF5F8;border-radius:10px;padding:10px 12px}
+.save b{color:#12303F}
+.foot{color:#d6eefa;font-size:12px;margin-top:16px;text-align:center;line-height:1.5}
+.foot a{color:#fff}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <img class="logo" src="epcg-logo-rev.png" alt="East Perth Community">
+    <div class="k">Containers for Change</div>
+    <h1>Donate your refund to the East Perth Community Group</h1>
+    <div class="k">Our scheme ID</div>
+    <div class="id">C10403959</div>
+    <svg id="bc" role="img" aria-label="Barcode for Containers for Change scheme ID C10403959"></svg>
+    <ol class="steps">
+      <li>At any Containers for Change refund point, choose to donate.</li>
+      <li>Show this barcode, or enter the scheme ID <b>C10403959</b>.</li>
+      <li>Your 10c refunds come straight to the EPCG. Thank you!</li>
+    </ol>
+    <div class="btns">
+      <button class="btn" id="dl" type="button">Save the barcode as a picture</button>
+      <a class="btn alt" href="https://www.containersforchange.com.au/wa/" target="_blank" rel="noopener">Find a refund point &#8599;</a>
+    </div>
+    <div class="save"><b>Keep it on your phone.</b> Add this page to your home screen: on an iPhone, tap Share then <b>Add to Home Screen</b>; on Android, tap the three-dot menu then <b>Add to Home screen</b>. Or save the barcode as a picture, or scan it into a loyalty card app (it is a Code 128 barcode).</div>
+  </div>
+  <div class="foot">East Perth Community Group &middot; <a href="https://www.eastperthcommunity.org.au/" target="_blank" rel="noopener">eastperthcommunity.org.au</a></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.6/JsBarcode.all.min.js"></script>
+<script>
+(function(){
+  var ID="C10403959";
+  try{ JsBarcode("#bc",ID,{format:"CODE128",displayValue:false,height:110,width:2.6,margin:12,background:"#ffffff",lineColor:"#000000"}); }
+  catch(e){ var s=document.getElementById("bc"); if(s) s.style.display="none"; }
+  /* Save as a picture: draw the barcode and the ID on a canvas and download it as a PNG. */
+  document.getElementById("dl").addEventListener("click",function(){
+    try{
+      var bc=document.createElement("canvas");
+      JsBarcode(bc,ID,{format:"CODE128",displayValue:false,height:180,width:4,margin:24,background:"#ffffff",lineColor:"#000000"});
+      var c=document.createElement("canvas"); c.width=Math.max(bc.width,900); c.height=bc.height+190;
+      var x=c.getContext("2d"); x.fillStyle="#ffffff"; x.fillRect(0,0,c.width,c.height);
+      x.fillStyle="#004F71"; x.textAlign="center"; x.font="800 30px Montserrat, Arial, sans-serif";
+      x.fillText("East Perth Community Group: Containers for Change",c.width/2,52);
+      x.fillStyle="#12303F"; x.font="800 64px Menlo, Consolas, monospace"; x.fillText(ID,c.width/2,128);
+      x.drawImage(bc,(c.width-bc.width)/2,160);
+      var a=document.createElement("a"); a.download="EPCG Containers for Change "+ID+".png"; a.href=c.toDataURL("image/png");
+      document.body.appendChild(a); a.click(); a.remove();
+    }catch(e){ alert("Sorry, the picture could not be made on this device. Take a screenshot of the barcode instead."); }
+  });
+})();
+</script>
+</body>
+</html>
