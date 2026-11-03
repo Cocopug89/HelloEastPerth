@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eat and drink in East Perth | East Perth Community Group</title>
+<meta name="description" content="Every cafe, restaurant and bar in East Perth on one map, kept by the East Perth Community Group.">
+<!-- STAGING: unlinked preview for the committee, 3 Nov 2026. Remove this line when the page goes live. -->
+<meta name="robots" content="noindex">
+<link rel="icon" href="favicon.png">
+<script>if (window.self !== window.top) document.documentElement.className += ' embed';</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap">
+<link rel="stylesheet" href="maplibre-gl.css">
+<style>
+/* EPCG design tokens: the subset this page uses, copied from epcg-tokens.css.
+   Only Petrol, Ink and Grey carry type on white. Every other brand colour is a fill. */
+:root{
+  --petrol:#004F71; --blue:#00A3E0; --sky:#5BC2E7; --teal:#49C5B1; --lime:#CEDC00; --gold:#F2C75C;
+  --pink:#E782A9; --lilac:#CAA2DD;
+  --ink:#12303F; --grey:#5E7986; --faint:#9DB2BC; --pale:#EEF5F8; --pale-warm:#EAF6FB;
+  --line:#DBE7EE; --line-soft:#E3ECF0; --border:#E2E8EE; --chip-border:#D6E7EF;
+  --spectrum:linear-gradient(90deg,var(--blue) 0%,var(--teal) 30%,var(--lime) 52%,var(--gold) 72%,var(--pink) 100%);
+  /* category fills: pins, card edges and chip dots, never type */
+  --cafe:var(--gold); --restaurant:var(--teal); --bar:var(--lilac);
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{font-family:'Montserrat',system-ui,-apple-system,'Segoe UI',sans-serif;color:var(--ink);background:#fff;
+  display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}
+a{color:var(--petrol)}
+button{font:inherit}
+:focus-visible{outline:2.5px solid var(--petrol);outline-offset:2px}
+
+/* ---- section head: kicker, heading, spectrum rule, lead ---- */
+.head{padding:22px 24px 14px;display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.kicker{font-size:12px;font-weight:700;letter-spacing:2.6px;text-transform:uppercase;color:var(--petrol);margin:0 0 6px}
+h1{margin:0;font-size:30px;font-weight:900;line-height:1.05;letter-spacing:-.2px;text-transform:uppercase;color:var(--petrol)}
+.rule{height:2.6px;border-radius:2px;background:var(--spectrum);width:132px;margin:10px 0 10px}
+.lead{margin:0;font-size:15px;font-weight:500;line-height:1.45;color:var(--petrol);max-width:60ch}
+.lead b{font-weight:800}
+.full{font-size:13px;font-weight:600;white-space:nowrap;display:none}
+html.embed .full{display:inline}
+
+/* ---- toolbar: one filter bar shared by the map and the list ---- */
+.bar{padding:0 24px 12px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:7px;background:var(--pale);border:1px solid var(--chip-border);
+  border-radius:999px;padding:7px 13px;font-size:13.5px;font-weight:600;color:var(--ink);cursor:pointer;min-height:36px}
+.chip .dot{width:11px;height:11px;border-radius:50%;border:1.5px solid var(--petrol)}
+.chip .n{font-weight:500;color:var(--grey)}
+.chip[aria-pressed="true"]{background:var(--petrol);border-color:var(--petrol);color:#fff}
+.chip[aria-pressed="true"] .n{color:#fff;opacity:.8}
+.chip[aria-pressed="true"] .dot{border-color:#fff}
+.tools{display:flex;gap:8px;margin-left:auto;flex-wrap:wrap}
+.search,.area{font:inherit;font-size:13.5px;color:var(--ink);background:#fff;border:1px solid var(--chip-border);
+  border-radius:999px;padding:8px 14px;min-height:36px}
+.search{width:260px}
+.search::placeholder{color:var(--grey)}
+.area{padding-right:30px;appearance:none;-webkit-appearance:none;cursor:pointer;
+  background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23004F71' stroke-width='2'/%3E%3C/svg%3E") no-repeat right 12px center}
+.near{background:#fff;border:1px solid var(--chip-border);color:var(--petrol);border-radius:999px;padding:7px 13px;
+  font-size:13.5px;font-weight:700;cursor:pointer;min-height:36px;display:inline-flex;gap:6px;align-items:center}
+.near[aria-pressed="true"]{background:var(--petrol);color:#fff;border-color:var(--petrol)}
+
+/* ---- body: list beside the map; on phones the map, then the list ---- */
+.main{flex:1;min-height:0;display:flex;gap:0;margin:0 24px;border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.list{width:380px;flex:0 0 380px;overflow-y:auto;background:#fff;border-right:1px solid var(--border)}
+.count{position:sticky;top:0;z-index:2;background:#fff;padding:10px 16px;font-size:12px;font-weight:700;
+  letter-spacing:1.4px;text-transform:uppercase;color:var(--grey);border-bottom:1px solid var(--line)}
+.card{display:block;width:100%;text-align:left;background:#fff;border:0;border-bottom:1px solid var(--line-soft);
+  border-left:4px solid var(--c);padding:12px 16px 12px 14px;cursor:pointer;color:inherit}
+.card:hover{background:var(--pale)}
+.card.on{background:var(--pale-warm);box-shadow:inset 0 0 0 1.5px var(--petrol)}
+.card h3{margin:0;font-size:15px;font-weight:700;line-height:1.3;color:var(--ink)}
+.card .what{margin:2px 0 0;font-size:13px;font-weight:600;color:var(--grey)}
+.card .addr{margin:3px 0 0;font-size:13px;font-weight:500;color:var(--grey);line-height:1.4}
+.card .dist{float:right;font-size:12px;font-weight:700;color:var(--petrol);margin-left:8px}
+.links{margin:8px 0 0;display:flex;flex-wrap:wrap;gap:4px 14px;font-size:13px;font-weight:600}
+.links a{text-decoration:none;border-bottom:1.5px solid var(--chip-border);padding-bottom:1px}
+.links a:hover{border-bottom-color:var(--petrol)}
+.empty{padding:28px 18px;font-size:14px;color:var(--grey);line-height:1.5}
+.mapwrap{flex:1;position:relative;background:var(--pale)}
+#map{position:absolute;inset:0}
+.nomap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;
+  font-size:14px;color:var(--grey);line-height:1.5}
+
+/* ---- pins: the glyph says what it is, the fill says which kind. Petrol when chosen ----
+   MapLibre owns the marker element's position and transform, so the styled pin sits inside it. */
+.mk{width:32px;height:32px;display:flex;align-items:center;justify-content:center}
+.mk.on{z-index:4}
+/* zoomed out, the pins are dots, so a dense street still reads */
+#map.lo .pin{width:17px;height:17px;border-width:1.5px}
+#map.lo .pin svg,#map.lo .pin .k{display:none}
+#map.lo .pin.on{width:30px;height:30px;transform:none}
+#map.lo .pin.on svg{display:block}
+.pin{width:32px;height:32px;border-radius:50%;background:var(--c);border:2px solid #fff;color:var(--petrol);
+  display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 1px 4px rgba(0,40,60,.35);
+  transition:transform .12s;position:relative;padding:0}
+.pin svg{width:18px;height:18px}
+.pin.mixed{border-color:var(--petrol)}   /* one building, several kinds: white with a Petrol ring */
+.pin:hover{transform:scale(1.12);z-index:3}
+.pin.on{background:var(--petrol);color:#fff;transform:scale(1.22);z-index:4}
+.pin .k{position:absolute;top:-6px;right:-7px;min-width:18px;height:18px;border-radius:9px;background:var(--petrol);
+  color:#fff;font-size:10.5px;font-weight:800;line-height:14px;text-align:center;border:2px solid #fff;padding:0 3px}
+.pin.on .k{background:#fff;color:var(--petrol);border-color:var(--petrol)}
+.me{width:16px;height:16px;border-radius:50%;background:var(--blue);border:3px solid #fff;box-shadow:0 0 0 6px rgba(0,163,224,.22)}
+.maplibregl-popup-content{border-radius:6px;padding:12px 14px 10px;font-family:'Montserrat',sans-serif;color:var(--ink);
+  box-shadow:0 8px 24px rgba(0,40,60,.28);max-width:280px;max-height:300px;overflow-y:auto}
+.maplibregl-popup-close-button{font-size:18px;color:var(--grey);padding:2px 7px}
+.pop h3{margin:0 18px 0 0;font-size:14px;font-weight:700;line-height:1.3}
+.pop .what,.pop .addr{margin:2px 0 0;font-size:12.5px;font-weight:500;color:var(--grey)}
+.pop .links{font-size:12.5px;margin-top:6px}
+.pop + .pop{border-top:1px solid var(--line-soft);margin-top:9px;padding-top:9px}
+.pop.click{cursor:pointer}
+
+/* ---- foot: provenance, the ask, credits ---- */
+.foot{padding:10px 24px 14px;display:flex;justify-content:space-between;gap:6px 20px;flex-wrap:wrap;
+  font-size:12px;font-weight:500;color:var(--grey);line-height:1.5}
+.foot b{color:var(--ink);font-weight:700}
+.foot .src{color:var(--grey);font-weight:500}
+.foot .src a{color:var(--grey)}
+
+/* Phones: the website shows a button, not the frame, so the page scrolls as a page:
+   compact filters, a tall map, then the list. */
+@media (max-width:760px){
+  html,body{height:auto}
+  body{display:block}
+  .head{padding:14px 16px 8px}
+  .kicker{font-size:11px;letter-spacing:2.2px;margin-bottom:4px}
+  h1{font-size:22px}
+  .rule{margin:8px 0}
+  .lead{font-size:14px}
+  .bar{display:block;padding:0 0 10px}
+  .chips{padding:0 16px 8px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+  .chips::-webkit-scrollbar{display:none}
+  .chip{flex:0 0 auto}
+  .tools{margin:0;padding:0 16px}
+  .search{flex:1 1 100%;width:auto}
+  .area{flex:1;min-width:0}
+  .main{margin:0;border-left:0;border-right:0;border-radius:0;flex-direction:column;overflow:visible}
+  .mapwrap{flex:none;height:62vh;min-height:340px;order:-1}
+  .list{width:100%;flex:none;overflow:visible;border-right:0;border-top:1px solid var(--border)}
+  .foot{padding:12px 16px 18px;font-size:11.5px}
+}
+</style>
+</head>
+<body>
+
+<header class="head">
+  <div>
+    <p class="kicker">East Perth Community Group</p>
+    <h1>Eat and drink in East Perth</h1>
+    <div class="rule" aria-hidden="true"></div>
+    <p class="lead" id="lead">Every cafe, restaurant and bar in the neighbourhood, from Claisebrook Cove to Langley Park.</p>
+  </div>
+  <a class="full" href="" target="_blank" rel="noopener" id="full">Open full screen</a>
+</header>
+
+<div class="bar">
+ <div class="chips" role="toolbar" aria-label="Filter by kind">
+  <button class="chip" data-kind="" aria-pressed="true">All <span class="n" data-n=""></span></button>
+  <button class="chip" data-kind="cafe" aria-pressed="false"><span class="dot" style="background:var(--cafe)"></span>Cafes <span class="n" data-n="cafe"></span></button>
+  <button class="chip" data-kind="restaurant" aria-pressed="false"><span class="dot" style="background:var(--restaurant)"></span>Restaurants <span class="n" data-n="restaurant"></span></button>
+  <button class="chip" data-kind="bar" aria-pressed="false"><span class="dot" style="background:var(--bar)"></span>Bars and pubs <span class="n" data-n="bar"></span></button>
+ </div>
+  <div class="tools">
+    <input class="search" id="q" type="search" placeholder="Search a name, street or food" aria-label="Search">
+    <select class="area" id="area" aria-label="Area">
+      <option value="">All of East Perth</option>
+    </select>
+    <button class="near" id="near" aria-pressed="false" title="Sort by distance from where you are">
+      <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v3M12 19v3M2 12h3M19 12h3" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><circle cx="12" cy="12" r="6" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>
+      Near me</button>
+  </div>
+</div>
+
+<main class="main" id="main">
+  <section class="list" id="list" aria-label="Venues">
+    <div class="count" id="count" aria-live="polite"></div>
+    <div id="cards"></div>
+  </section>
+  <div class="mapwrap"><div id="map" aria-label="Map of venues"></div></div>
+</main>
+
+<footer class="foot">
+  <span id="prov"></span>
+  <span>Spotted one that has closed, or a new one that has opened? <a href="mailto:secretary.eastperthcommunity@gmail.com?subject=Eat%20and%20drink%20map">Tell us</a>.</span>
+  <span class="src">Map &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors, <a href="https://openfreemap.org" target="_blank" rel="noopener">OpenFreeMap</a>. Addresses from G-NAF &copy; Geoscape Australia, Open G-NAF licence.</span>
+</footer>
+
+<script src="eat-drink-data.js"></script>
+<script src="hub-map-style.js"></script>
+<script src="maplibre-gl.js"></script>
+<script>
+(function () {
+  var DATA = window.EAT_DRINK || { venues: [] };
+  var V = DATA.venues;
+  var KIND = {
+    cafe: { label: 'Cafe', c: 'var(--cafe)' },
+    restaurant: { label: 'Restaurant', c: 'var(--restaurant)' },
+    bar: { label: 'Bar or pub', c: 'var(--bar)' }
+  };
+  var GLYPH = {
+    cafe: '<path d="M4.5 9h11.5v4.2a5 5 0 0 1-5 5H9.5a5 5 0 0 1-5-5V9z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M16 10.2h1.4a2.6 2.6 0 0 1 0 5.2H16" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M8 3.5v2.6M12 3.5v2.6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>',
+    restaurant: '<path d="M7 3v6.5a2 2 0 0 0 4 0V3M9 3v18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 21V3c-2.2 1.6-3 4.6-3 8.5h3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>',
+    bar: '<path d="M6 3.5h12l-1.2 6.2a4.9 4.9 0 0 1-9.6 0L6 3.5z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M12 15v5.5M8.3 20.5h7.4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>'
+  };
+  var MULTI = '<path d="M5 6.5h14M5 12h14M5 17.5h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>';
+  function svg(g) { return '<svg viewBox="0 0 24 24" aria-hidden="true">' + g + '</svg>'; }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function $(id) { return document.getElementById(id); }
+
+  // ---- state, kept in the address so a link opens the same view ----
+  var S = { kind: '', q: '', area: '', near: null, sel: null };
+  (function () {
+    var h = new URLSearchParams(location.hash.slice(1));
+    S.kind = KIND[h.get('kind')] ? h.get('kind') : '';
+    S.q = h.get('q') || '';
+    S.area = h.get('area') || '';
+  })();
+  function saveHash() {
+    var h = new URLSearchParams();
+    if (S.kind) h.set('kind', S.kind);
+    if (S.q) h.set('q', S.q);
+    if (S.area) h.set('area', S.area);
+    var s = h.toString();
+    history.replaceState(null, '', s ? '#' + s : location.pathname + location.search);
+  }
+
+  // ---- the static bits ----
+  $('full').href = location.href.split('#')[0];
+  var areas = {};
+  V.forEach(function (v) { areas[v.precinct] = 1; });
+  Object.keys(areas).sort().forEach(function (a) {
+    var o = document.createElement('option'); o.value = a; o.textContent = a; $('area').appendChild(o);
+  });
+  $('area').value = S.area;
+  $('q').value = S.q;
+  var counts = { '': V.length };
+  V.forEach(function (v) { counts[v.kind] = (counts[v.kind] || 0) + 1; });
+  document.querySelectorAll('[data-n]').forEach(function (el) { el.textContent = counts[el.getAttribute('data-n')] || 0; });
+  $('lead').innerHTML = '<b>' + V.length + '</b> cafes, restaurants and bars in the neighbourhood, from Claisebrook Cove to Langley Park.';
+  // The date the listing was gathered or last checked, not the date the page was built.
+  var last = V.map(function (v) { return (v.checked || '').split(' ').pop(); }).sort().pop();
+  var walked = V.filter(function (v) { return /^in person/.test(v.checked); }).length;
+  var when = last ? new Date(last + 'T00:00:00').toLocaleDateString('en-AU', { month: 'long', year: 'numeric' }) : '';
+  $('prov').innerHTML = (walked ? '<b>' + walked + '</b> checked in person, the rest listed from public sources' : 'Listed from public sources') +
+    (when ? ', <b>' + when + '</b>' : '') + '. Opening hours change, so check with the venue before you go.';
+
+  // ---- filtering ----
+  function words(s) { return s.toLowerCase().normalize('NFKD').replace(/[̀-ͯ]/g, ''); }
+  V.forEach(function (v) { v._t = words([v.name, v.cuisine, v.address, KIND[v.kind].label].join(' ')); });
+  function shown() {
+    var q = words(S.q.trim());
+    var out = V.filter(function (v) {
+      return (!S.kind || v.kind === S.kind) && (!S.area || v.precinct === S.area) &&
+        (!q || q.split(/\s+/).every(function (w) { return v._t.indexOf(w) >= 0; }));
+    });
+    if (S.near) out.sort(function (a, b) { return dist(a) - dist(b); });
+    return out;
+  }
+  function dist(v) {
+    var dy = (v.lat - S.near[0]) * 111320, dx = (v.lng - S.near[1]) * 111320 * Math.cos(v.lat * Math.PI / 180);
+    return Math.sqrt(dx * dx + dy * dy);
+  }
+  function fmt(m) { return m < 950 ? Math.round(m / 10) * 10 + ' m' : (m / 1000).toFixed(1) + ' km'; }
+
+  // ---- cards ----
+  function linksHtml(v) {
+    var l = [];
+    if (v.website) l.push('<a href="' + esc(v.website) + '" target="_blank" rel="noopener">Website</a>');
+    (v.socials || []).forEach(function (s) { l.push('<a href="' + esc(s.u) + '" target="_blank" rel="noopener">' + esc(s.k) + '</a>'); });
+    l.push('<a href="https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(v.name + ', ' + v.address) + '" target="_blank" rel="noopener">Directions</a>');
+    return '<p class="links">' + l.join('') + '</p>';
+  }
+  function what(v) { return v.cuisine || KIND[v.kind].label; }
+  function render() {
+    var list = shown();
+    $('count').textContent = list.length === V.length ? 'All ' + list.length + ' venues' : list.length + ' of ' + V.length + ' venues';
+    $('cards').innerHTML = list.length ? list.map(function (v) {
+      return '<button class="card' + (S.sel === v.id ? ' on' : '') + '" data-id="' + v.id + '" style="--c:' + KIND[v.kind].c + '">' +
+        (S.near ? '<span class="dist">' + fmt(dist(v)) + '</span>' : '') +
+        '<h3>' + esc(v.name) + '</h3><p class="what">' + esc(what(v)) + '</p><p class="addr">' + esc(v.address) + '</p>' +
+        linksHtml(v) + '</button>';
+    }).join('') : '<p class="empty">Nothing matches that. Try a shorter search, or pick <b>All</b>.</p>';
+    drawPins(list);
+    saveHash();
+  }
+  $('cards').addEventListener('click', function (e) {
+    if (e.target.closest('a')) return;
+    var b = e.target.closest('.card'); if (!b) return;
+    select(b.getAttribute('data-id'), 'list');
+  });
+
+  // ---- controls ----
+  document.querySelectorAll('.chip').forEach(function (b) {
+    b.setAttribute('aria-pressed', String(b.getAttribute('data-kind') === S.kind));
+    b.addEventListener('click', function () {
+      S.kind = b.getAttribute('data-kind');
+      document.querySelectorAll('.chip').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+      render(); fit();
+    });
+  });
+  var qt;
+  $('q').addEventListener('input', function () { clearTimeout(qt); qt = setTimeout(function () { S.q = $('q').value; render(); }, 120); });
+  $('area').addEventListener('change', function () { S.area = $('area').value; render(); fit(); });
+  $('near').addEventListener('click', function () {
+    var b = this;
+    if (S.near) { S.near = null; b.setAttribute('aria-pressed', 'false'); if (me) { me.remove(); me = null; } render(); return; }
+    if (!navigator.geolocation) return;
+    b.textContent = 'Finding you...';
+    navigator.geolocation.getCurrentPosition(function (p) {
+      S.near = [p.coords.latitude, p.coords.longitude];
+      b.innerHTML = 'Near me'; b.setAttribute('aria-pressed', 'true');
+      render();
+      if (map) {
+        if (!me) { var d = document.createElement('div'); d.className = 'me'; me = new maplibregl.Marker({ element: d }).setLngLat([S.near[1], S.near[0]]).addTo(map); }
+        else me.setLngLat([S.near[1], S.near[0]]);
+        map.flyTo({ center: [S.near[1], S.near[0]], zoom: 16 });
+      }
+      $('list').scrollTop = 0;
+    }, function () { b.innerHTML = 'Near me'; alert('We could not get your location. Check that location is allowed for this page.'); },
+    { enableHighAccuracy: true, timeout: 10000 });
+  });
+  function phone() { return window.matchMedia('(max-width:760px)').matches; }
+
+  // ---- map ----
+  var map = null, markers = [], me = null, popup = null;
+  function webgl() { try { var c = document.createElement('canvas'); return !!(c.getContext('webgl2') || c.getContext('webgl')); } catch (e) { return false; } }
+  function noMap(msg) {
+    $('map').innerHTML = '<div class="nomap">' + msg + '</div>';
+    if (phone()) document.querySelector('.mapwrap').style.height = 'auto';
+  }
+  function groups(list) {      // venues in one building share one pin
+    var g = {};
+    list.forEach(function (v) {
+      var k = v.lat.toFixed(4) + ',' + v.lng.toFixed(4);
+      (g[k] = g[k] || []).push(v);
+    });
+    return Object.keys(g).map(function (k) { return g[k]; });
+  }
+  function drawPins(list) {
+    if (!map) return;
+    markers.forEach(function (m) { m.remove(); }); markers = [];
+    groups(list).forEach(function (vs) {
+      var el = document.createElement('div'), pin = document.createElement('button');
+      var one = vs.length === 1, v = vs[0];
+      var kinds = {}; vs.forEach(function (x) { kinds[x.kind] = 1; });
+      var k = Object.keys(kinds).length === 1 ? v.kind : null;
+      el.className = 'mk';
+      pin.className = 'pin' + (k ? '' : ' mixed');
+      pin.style.setProperty('--c', k ? KIND[k].c : '#fff');
+      pin.innerHTML = svg(k ? GLYPH[k] : MULTI) + (one ? '' : '<span class="k">' + vs.length + '</span>');
+      pin.setAttribute('aria-label', one ? v.name : vs.length + ' venues at ' + v.address);
+      pin.addEventListener('click', function (e) { e.stopPropagation(); select(v.id, 'map', vs); });
+      el.appendChild(pin);
+      el._ids = vs.map(function (x) { return x.id; });
+      markers.push(new maplibregl.Marker({ element: el, anchor: 'center' }).setLngLat([v.lng, v.lat]).addTo(map));
+    });
+    markOn();
+  }
+  function markOn() {
+    markers.forEach(function (m) {
+      var el = m.getElement(), on = el._ids.indexOf(S.sel) >= 0;
+      el.classList.toggle('on', on); el.firstChild.classList.toggle('on', on);
+    });
+  }
+  function popHtml(v, clickable) {
+    return '<div class="pop' + (clickable ? ' click' : '') + '" data-id="' + v.id + '"><h3>' + esc(v.name) + '</h3><p class="what">' + esc(what(v)) +
+      '</p><p class="addr">' + esc(v.address) + '</p>' + linksHtml(v) + '</div>';
+  }
+  function select(id, from, stack) {
+    S.sel = id;
+    var v = V.filter(function (x) { return x.id === id; })[0]; if (!v) return;
+    document.querySelectorAll('.card').forEach(function (c) { c.classList.toggle('on', c.getAttribute('data-id') === id); });
+    markOn();
+    if (from === 'map' && !phone()) {     // on a phone the list is below the map: do not yank the page
+      var c = document.querySelector('.card[data-id="' + id + '"]');
+      if (c) c.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    }
+    if (!map) return;
+    if (from === 'list') {
+      map.flyTo({ center: [v.lng, v.lat], zoom: Math.max(map.getZoom(), 16.5), speed: 1.4 });
+      if (phone()) document.querySelector('.mapwrap').scrollIntoView({ block: 'start', behavior: 'smooth' });
+    }
+    var vs = stack || shown().filter(function (x) { return x.lat.toFixed(4) === v.lat.toFixed(4) && x.lng.toFixed(4) === v.lng.toFixed(4); });
+    if (popup) popup.remove();
+    popup = new maplibregl.Popup({ offset: 20, closeButton: true, maxWidth: '290px' })
+      .setLngLat([v.lng, v.lat]).setHTML(vs.map(function (x) { return popHtml(x, vs.length > 1); }).join('')).addTo(map);
+    popup.getElement().addEventListener('click', function (e) {
+      var p = e.target.closest('.pop.click'); if (p && !e.target.closest('a')) select(p.getAttribute('data-id'), 'map', vs);
+    });
+  }
+  function fit() {
+    if (!map) return;
+    var list = shown(); if (!list.length) return;
+    var b = new maplibregl.LngLatBounds();
+    list.forEach(function (v) { b.extend([v.lng, v.lat]); });
+    map.fitBounds(b, { padding: 48, maxZoom: 16.5, duration: 600 });
+  }
+
+  render();
+  if (!window.maplibregl || !webgl()) { noMap('<span><b>This device can\'t draw the map.</b><br>The list has every venue, with the same filters.</span>'); return; }
+  fetch(window.EPCG_MAP_STYLE.STYLE_URL).then(function (r) { return r.json(); }).then(window.EPCG_MAP_STYLE.restyle).then(function (style) {
+    map = new maplibregl.Map({
+      container: 'map', style: style, center: [115.8735, -31.9570], zoom: 15, minZoom: 12, maxZoom: 19,
+      attributionControl: { compact: true }, cooperativeGestures: window.self !== window.top
+    });
+    map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
+    var zoomed = function () { $('map').classList.toggle('lo', map.getZoom() < 15.6); };
+    map.on('zoom', zoomed);
+    map.on('load', function () { drawPins(shown()); fit(); zoomed(); });
+    map.on('click', function () { if (popup) popup.remove(); });
+  }).catch(function () { noMap('<span><b>The map didn\'t load.</b><br>The list has every venue. Try again in a minute.</span>'); });
+})();
+</script>
+</body>
+</html>
