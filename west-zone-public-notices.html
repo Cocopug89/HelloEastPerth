@@ -320,6 +320,8 @@ section.tab.active{display:flex;flex-direction:column;flex:1;min-height:0;overfl
 #bar .breport .ri{font-size:22px;line-height:1}
 #bar .breport .rl{display:none}
 #bar .breport:active{transform:scale(.97)}
+/* Phones: the title row sits at top 10px so Report lines up with the fixed .mburger (top 10, right 12, 46x40), 12px apart (3 Nov 2026) */
+@media(max-width:600px){ #bar{padding-top:6px} #bar .brandrow{padding-right:52px;align-items:flex-start;flex-wrap:nowrap} #bar .btitle{flex:1;min-width:0} }
 /* Highlight band colour, reworked 16 Aug 2026. It was amber and it failed twice: the rows are
    WHITE cards (.row{background:#fff}), so .ecat.ecur put amber text on a pale amber wash on white
    at 1.45:1 against a 4.5 requirement; and amber is now the header Report button, so the loudest
