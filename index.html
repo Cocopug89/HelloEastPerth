@@ -10,11 +10,14 @@
    2) Inside the iframe, innerWidth is the FRAME's width (~965px on the Wix mobile layout),
       not the phone's - so width alone cannot tell us we're on a phone. Use the real device
       (pointer:coarse + hover:none + screen short side), and if a handheld is stuck in a
-      wide fixed-width frame, lay out at device width and zoom back up to fill it. */
+      wide fixed-width frame, lay out at device width and zoom back up to fill it.
+   3) "Handheld" means a PHONE: short side under 600px (3 Nov 2026). It was 768, which caught the
+      iPad mini (744) and blew this phone page up 1.875x to fill the website's 900px frame. Tablets
+      now route to the board, which has its own embed layout. */
 (function(){
   var mq=function(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches);}catch(e){return false;}};
   var s=window.screen||{}, shortSide=Math.min(s.width||9999,s.height||9999);
-  var handheld=(mq('(pointer:coarse)')||(navigator.maxTouchPoints||0)>1) && !mq('(hover:hover)') && shortSide<768;
+  var handheld=(mq('(pointer:coarse)')||(navigator.maxTouchPoints||0)>1) && !mq('(hover:hover)') && shortSide<600;
   var done=false;
   function route(){
     if(done) return;
