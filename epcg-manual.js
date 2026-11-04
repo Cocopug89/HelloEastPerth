@@ -45,7 +45,13 @@
       { id: "INF-JOHNOLDHAM",
         set: { lat: -31.958344, lng: 115.847151, zone: "central", geo: undefined,
                impact: "Water feature not running until further notice." },
-        why: "John Oldham Park waterfall out of order. The scrape could not resolve the location (geo none, zone unknown), so it showed on no board. Pin from Jason, 2 Oct 2026; zone from Tools/zone_assign.py on that pin (central, rotated y 3930, outside the East Perth band)." }
+        why: "John Oldham Park waterfall out of order. The scrape could not resolve the location (geo none, zone unknown), so it showed on no board. Pin from Jason, 2 Oct 2026; zone from Tools/zone_assign.py on that pin (central, rotated y 3930, outside the East Perth band)." },
+      { id: "EV-2025/513",
+        set: { lat: -31.96038, lng: 115.8646, zone: "central" },
+        why: "The Kingsman Pop-up Event Space. The auto pin (-31.9602, 115.873) put it on Adelaide Tce; it is in Langley Park, at Jason's point of 3 Nov 2026. Zone pinned too: zone_assign.py gives central there ('inside Langley Park'), and this overlay runs after the zone rules." },
+      { id: "EV-2026/327",
+        set: { lat: -31.95988, lng: 115.86484 },
+        why: "SkyVista at Langley Park, 26/27 season. The auto pin (-31.9618, 115.8699) is the middle of Langley Park; this is where the wheel stands, Jason's point of 3 Nov 2026. Zone stays central. EV-2026/224 above is the earlier season's record." }
     ],
 
     /* ---- replace: one scraped record that is actually several ---- */
