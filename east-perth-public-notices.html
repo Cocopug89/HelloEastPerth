@@ -900,8 +900,11 @@ function initEvents(){
     var t0=new Date(); t0.setHours(0,0,0,0);
     var MS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
     function d(s){ var m=/(\d+)\/(\d+)\/(\d+)/.exec(s||""); return m?new Date(+m[3],+m[2]-1,+m[1]):null; }
-    function words(s){ return (s||"").toLowerCase().replace(/[^a-z0-9 ]/g," ").split(/ +/).filter(function(w){return w.length>2&&!/^(the|and|for|2026|2027)$/.test(w);}); }
-    function same(a,b){ var A=words(a),B=words(b); if(!A.length||!B.length) return false; var n=A.filter(function(w){return B.indexOf(w)>=0;}).length; return n/Math.min(A.length,B.length)>=0.5; }
+    /* Generic words are ignored, or "Perth" and "Festival" make Shine a Light a duplicate of Perth Festival
+       (4 Nov 2026); a trailing "fest" is dropped so PrideFEST matches Pride. */
+    var STOP=/^(the|and|for|with|from|perth|east|west|city|wa|festival|fest|party|parties|event|events|season|day|night|annual|live|2025|2026|2027|26|27)$/;
+    function words(s){ return (s||"").toLowerCase().replace(/[^a-z0-9 ]/g," ").split(/ +/).map(function(w){return w.replace(/fest$/,"");}).filter(function(w){return w.length>2&&!STOP.test(w);}); }
+    function same(a,b){ var A=words(a),B=words(b); if(!A.length||!B.length) return false; var n=A.filter(function(w){return B.indexOf(w)>=0;}).length; return n/Math.min(A.length,B.length)>=0.6; }
     return (HUB.disruptions||[]).filter(function(r){
       var e=d(r.end); return r.cat==="event" && r.public===true && r.org_url && (!e||e>=t0);
     }).filter(function(r){
