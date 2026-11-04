@@ -1,4 +1,5 @@
-/* EAST PERTH PRECINCTS. DRAFT 4 Nov 2026, not yet loaded by any page.
+/* EAST PERTH PRECINCTS. Live 4 Nov 2026 (`8f47ace`): loaded by the East board, the phone home, report,
+ * newsletters and support, never by the Central or West boards (see the Langley Park block at the foot).
  *
  * The five areas of the EPSN quarterly safety survey (question 2, "area where they spend most time";
  * `Working Group - Safety and Security/2026/Quarterly Survey Aug 2026/`), drawn as boundaries so the Hub
