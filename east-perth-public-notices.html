@@ -541,6 +541,7 @@ html.embed .hubcredit a.hc-bug{color:#fff;border-bottom-color:rgba(255,255,255,.
     <span class="seg"><button class="on" data-scope="zone">Local</button><button data-scope="all">Across Perth</button></span>
     <button class="chipbtn" id="evRecur">Recurring only</button>
     <select class="evtype" id="evType" aria-label="Filter by type"><option value="all">All types</option></select>
+    <select class="evtype" id="evArea" aria-label="Filter by area" hidden><option value="all">All areas</option></select>
     <input class="search" id="evSearch" aria-label="Search events or venues" placeholder="Search events or venues...">
   </div>
   <div id="evStatus" class="m" style="margin-bottom:8px"></div>
@@ -565,6 +566,7 @@ html.embed .hubcredit a.hc-bug{color:#fff;border-bottom-color:rgba(255,255,255,.
 <script src="epcg-events.js"></script>
 <script src="bulk-collection.js"></script>
 <script src="fireworks-data.js"></script>
+<script src="precincts.js"></script>
 <script src="consultations.js"></script>
 <script src="spotlight.js"></script>
 <script src="promos.js"></script>
@@ -786,7 +788,15 @@ var EVENTS=HUB.events.slice();
 function initEvents(){
   var BZ=/central/i.test(document.title)?"central":(/west/i.test(document.title)?"west":"east");
   var host=document.getElementById("tab-events"), listEl=document.getElementById("evList"), statusEl=document.getElementById("evStatus");
-  var loaded=false, all=[], scope="zone", recurOnly=false, typeFilter="all";
+  var loaded=false, all=[], scope="zone", recurOnly=false, typeFilter="all", areaFilter="all";
+  /* AREA FILTER (4 Nov 2026): the five EPSN safety survey precincts and the two neighbourhoods they roll up
+     to (Claisebrook north of Wellington St, East Perth south of it), from precincts.js. East board only.
+     Choosing an area looks past the Local/Across Perth zone line on purpose: Langley Park is zone "central"
+     by postcode and is the reason the filter exists. */
+  var EP=(BZ==="east"&&window.EP_PRECINCTS)?window.EP_PRECINCTS:null;
+  function areaOf(e){ if(!EP) return null; return (typeof e.lat==="number")?EP.ofRecord(e):EP.ofVenue(e.venue); }
+  function inArea(e){ if(areaFilter==="all") return true; var p=e.precinct; if(!p) return false;
+    return areaFilter.indexOf("hood:")===0 ? EP.hood(p)===areaFilter.slice(5) : p===areaFilter; }
   var EAST=["east perth","claisebrook","optus","matagarup","waca","gloucester park","queens gardens","wellington square","moort-ak","mardalup","victoria gardens","nib stadium","perth mint","perth city farm","heirisson"];
   var WEST=["west perth","kings park","nedlands","crawley","uwa","university of western australia","subiaco","harold boas","scitech","city west"];
   var CENTRAL=["perth town hall","art gallery","wa museum","boola bardip","northbridge","yagan square","elizabeth quay","forrest place","murray st","hay st","his majesty","state theatre","pica","rac arena","perth concert hall","supreme court","stirling gardens","cathedral","government house","rechabite","fringe","cultural centre","city of perth","perth cultural","st georges","barrack","william st","king st","russell square","citiplace","blue room","pcec","convention","wintergarden","raine square","brookfield","trinity","st mary","bobeche","escape this","gallery central","hearth","holy grounds","joey zaza","mas vino","miss mi","parmelia","perth library","state library","nostalgia box","westin","alba","riverside dr"];
@@ -844,7 +854,7 @@ function initEvents(){
   }
   function render(){
     var q=((document.getElementById("evSearch")||{}).value||"").toLowerCase().replace(/^ +| +$/g,"");
-    var items = scope==="all" ? all.slice() : all.filter(function(e){return e.zone===BZ;});
+    var items = areaFilter!=="all" ? all.filter(inArea) : (scope==="all" ? all.slice() : all.filter(function(e){return e.zone===BZ;}));
     var TODAY=(function(){var t=new Date();t.setHours(0,0,0,0);return t.getTime();})();
     items=items.filter(function(e){ return isRecur(e) || evEnd(e)>=TODAY; });
     if(recurOnly) items=items.filter(isRecur);
@@ -852,7 +862,8 @@ function initEvents(){
     if(q) items=items.filter(function(e){return (e.title+" "+e.venue+" "+(e.cat||"")).toLowerCase().indexOf(q)>=0;});
     function key(e){ return isRecur(e)?Infinity:evEnd(e); }
     items.sort(function(a,b){ var ka=key(a),kb=key(b); if(ka!==kb) return ka-kb; if(ka===Infinity) return (a.title||"").localeCompare(b.title||""); var sa=evStart(a),sb=evStart(b); return (sa-sb)||(a.title||"").localeCompare(b.title||""); });
-    var head=(recurOnly?"Recurring & ongoing":(scope==="all"?"Across Perth":"Local"))+" &middot; "+items.length+" event"+(items.length===1?"":"s");
+    var areaName=areaFilter==="all"?"":(areaFilter.indexOf("hood:")===0?areaFilter.slice(5):((EP.list.filter(function(p){return p.id===areaFilter;})[0]||{}).name||""));
+    var head=(recurOnly?"Recurring & ongoing":(areaName?esc(areaName):(scope==="all"?"Across Perth":"Local")))+" &middot; "+items.length+" event"+(items.length===1?"":"s");
     if(q) head+=" matching '"+esc(q)+"'";
     var TAG="display:inline-block;font-size:10px;font-weight:800;border-radius:20px;padding:1px 8px;margin-right:5px;vertical-align:1px;";
     listEl.innerHTML = curatedHtml(q) + "<div class='t' style='margin:2px 0 8px'>"+head+"</div>" + (items.map(function(e){
@@ -861,7 +872,8 @@ function initEvents(){
       if(info.recur){ dh="<span style='"+TAG+"background:#5b8def;color:#fff'>Recurring</span>"+(info.days.length?"<span class='m'>"+info.days.join("/")+"</span>":""); }
       else if(isOngoing(e)){ dh="<span style='"+TAG+"background:#49C5B1;color:#08322b'>Ongoing</span><span class='m'>to "+esc(endLabel(e))+"</span>"; }
       else { dh="<span>"+esc(fmtDate(e))+"</span>"; }
-      return "<a class='row evrow' href='"+esc(e.href)+"' target='_blank' rel='noopener'><span class='dates' style='min-width:120px'>"+dh+"</span>"+(e.cat?"<span class='ecat'>"+esc(e.cat)+"</span>":"")+"<span class='ttl'>"+(e.free?"<span class='freepill'>FREE</span>":(e.fe?"<span class='fepill' title='No entry charge; the listing promotes something paid'>FREE ENTRY</span>":""))+esc(e.title)+"</span><span class='m evvenue'>"+esc(e.venue)+zt+"</span></a>";
+      var ca=e.approved?" &middot; City-approved event"+(e.crowd?" &middot; "+esc(e.crowd):""):"";
+      return "<a class='row evrow' href='"+esc(e.href)+"' target='_blank' rel='noopener'><span class='dates' style='min-width:120px'>"+dh+"</span>"+(e.cat?"<span class='ecat'>"+esc(e.cat)+"</span>":"")+"<span class='ttl'>"+(e.free?"<span class='freepill'>FREE</span>":(e.fe?"<span class='fepill' title='No entry charge; the listing promotes something paid'>FREE ENTRY</span>":""))+esc(e.title)+"</span><span class='m evvenue'>"+esc(e.venue)+zt+ca+"</span></a>";
     }).join("") || "<div class='m'>No events found for this view.</div>");
   }
   /* Community entries in epcg-events.js are NOT highlighted (Jason, 16 Aug 2026: EPCG-hosted
@@ -880,7 +892,36 @@ function initEvents(){
                venue:e.venue||"", zone:Z(e.venue), cat:"Community" };
     });
   }
-  function load(){ if(loaded) return; loaded=true; all=EVENTS.concat(curatedLocal()); statusEl.textContent=""; var sel=document.getElementById("evType"); if(sel){ var seen={},cats=[]; all.forEach(function(e){var c=e.cat; if(c&&!seen[c]){seen[c]=1;cats.push(c);}}); cats.sort(); cats.forEach(function(c){var o=document.createElement("option"); o.value=c; o.textContent=c; sel.appendChild(o);}); } render(); }
+  /* City-approved events (the EV records from the City's approvals list, in HUB.disruptions) join What's On
+     once the Hub Editor's STEP 4E research has marked them public:true with an organiser link (4 Nov 2026,
+     after a resident asked for Langley Park events; plan note in the Hub folder). Unresearched approvals stay
+     Map-only, so private functions never list here. A listing feed's own row wins over the approval. */
+  function approvedPublic(){
+    var t0=new Date(); t0.setHours(0,0,0,0);
+    var MS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    function d(s){ var m=/(\d+)\/(\d+)\/(\d+)/.exec(s||""); return m?new Date(+m[3],+m[2]-1,+m[1]):null; }
+    function words(s){ return (s||"").toLowerCase().replace(/[^a-z0-9 ]/g," ").split(/ +/).filter(function(w){return w.length>2&&!/^(the|and|for|2026|2027)$/.test(w);}); }
+    function same(a,b){ var A=words(a),B=words(b); if(!A.length||!B.length) return false; var n=A.filter(function(w){return B.indexOf(w)>=0;}).length; return n/Math.min(A.length,B.length)>=0.5; }
+    return (HUB.disruptions||[]).filter(function(r){
+      var e=d(r.end); return r.cat==="event" && r.public===true && r.org_url && (!e||e>=t0);
+    }).filter(function(r){
+      return !EVENTS.some(function(x){ return same(x.title,r.title); });
+    }).map(function(r){
+      var s=d(r.start), e=d(r.end)||s, f=function(x){ return x.getDate()+" "+MS[x.getMonth()]; };
+      var crowd=/approx\.?\s*([\d,]+)/i.exec(r.impact||""); crowd=crowd?"about "+crowd[1]+" people":"";
+      return { title:r.title, href:r.org_url, date:s?(f(s)+(e&&e.getTime()!==s.getTime()?" - "+f(e):"")):"",
+               venue:r.loc||"", zone:r.zone, cat:"Community", lat:r.lat, lng:r.lng, approved:true, crowd:crowd,
+               free:r.price==="free"?1:undefined, fe:r.price==="free_entry"?1:undefined };
+    });
+  }
+  function load(){ if(loaded) return; loaded=true; all=EVENTS.concat(curatedLocal(), approvedPublic()); all.forEach(function(e){ e.precinct=areaOf(e); }); statusEl.textContent="";
+    var ar=document.getElementById("evArea");
+    if(ar&&EP){ var g1=document.createElement("optgroup"); g1.label="Neighbourhood";
+      ["Claisebrook","East Perth"].forEach(function(h){ var o=document.createElement("option"); o.value="hood:"+h; o.textContent=h+(h==="Claisebrook"?" (north of Wellington St)":" (south of Wellington St)"); g1.appendChild(o); });
+      var g2=document.createElement("optgroup"); g2.label="Precinct";
+      EP.list.forEach(function(p){ var o=document.createElement("option"); o.value=p.id; o.textContent=p.name; g2.appendChild(o); });
+      ar.appendChild(g1); ar.appendChild(g2); ar.hidden=false;
+      ar.addEventListener("change",function(){ areaFilter=ar.value; render(); }); } var sel=document.getElementById("evType"); if(sel){ var seen={},cats=[]; all.forEach(function(e){var c=e.cat; if(c&&!seen[c]){seen[c]=1;cats.push(c);}}); cats.sort(); cats.forEach(function(c){var o=document.createElement("option"); o.value=c; o.textContent=c; sel.appendChild(o);}); } render(); }
   Array.prototype.forEach.call(host.querySelectorAll("[data-scope]"),function(b){b.addEventListener("click",function(){scope=b.dataset.scope;Array.prototype.forEach.call(host.querySelectorAll("[data-scope]"),function(x){x.classList.toggle("on",x===b);});render();});});
   var rb=document.getElementById("evRecur"); if(rb) rb.addEventListener("click",function(){ recurOnly=!recurOnly; rb.classList.toggle("on",recurOnly); render(); });
   var ty=document.getElementById("evType"); if(ty) ty.addEventListener("change",function(){ typeFilter=ty.value; render(); });
