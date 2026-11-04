@@ -866,12 +866,17 @@ function initEvents(){
     var head=(recurOnly?"Recurring & ongoing":(areaName?esc(areaName):(scope==="all"?"Across Perth":"Local")))+" &middot; "+items.length+" event"+(items.length===1?"":"s");
     if(q) head+=" matching '"+esc(q)+"'";
     var TAG="display:inline-block;font-size:10px;font-weight:800;border-radius:20px;padding:1px 8px;margin-right:5px;vertical-align:1px;";
-    listEl.innerHTML = curatedHtml(q) + bigHtml(q) + "<div class='t' style='margin:2px 0 8px'>"+head+"</div>" + (items.map(function(e){
+    var CROWD="<span style='"+TAG+"background:#5E7986;color:#fff' title='City-approved event with large crowds. No public page to link to.'>Crowds expected</span>";
+    listEl.innerHTML = curatedHtml(q) + "<div class='t' style='margin:2px 0 8px'>"+head+"</div>" + (items.map(function(e){
       var zt=(scope==="all"&&e.zone!=="unknown"&&e.zone!=="other")?(" &middot; "+e.zone):"";
       var info=recurInfo(e), dh;
       if(info.recur){ dh="<span style='"+TAG+"background:#5b8def;color:#fff'>Recurring</span>"+(info.days.length?"<span class='m'>"+info.days.join("/")+"</span>":""); }
       else if(isOngoing(e)){ dh="<span style='"+TAG+"background:#49C5B1;color:#08322b'>Ongoing</span><span class='m'>to "+esc(endLabel(e))+"</span>"; }
       else { dh="<span>"+esc(fmtDate(e))+"</span>"; }
+      if(e.big){
+        var bm=[e.venue+zt, e.priv?"private event":"", e.crowd, e.hrs].filter(Boolean).map(esc).join(" &middot; ");
+        return "<div class='row evrow'><span class='dates' style='min-width:120px'>"+dh+"</span><span class='ttl'>"+CROWD+esc(e.title)+"</span><span class='m evvenue'>"+bm+" &middot; no public page</span></div>";
+      }
       var ca=e.approved?" &middot; City-approved event"+(e.crowd?" &middot; "+esc(e.crowd):""):"";
       return "<a class='row evrow' href='"+esc(e.href)+"' target='_blank' rel='noopener'><span class='dates' style='min-width:120px'>"+dh+"</span>"+(e.cat?"<span class='ecat'>"+esc(e.cat)+"</span>":"")+"<span class='ttl'>"+(e.free?"<span class='freepill'>FREE</span>":(e.fe?"<span class='fepill' title='No entry charge; the listing promotes something paid'>FREE ENTRY</span>":""))+esc(e.title)+"</span><span class='m evvenue'>"+esc(e.venue)+zt+ca+"</span></a>";
     }).join("") || "<div class='m'>No events found for this view.</div>");
@@ -896,20 +901,33 @@ function initEvents(){
      once the Hub Editor's STEP 4E research has marked them public:true with an organiser link (4 Nov 2026,
      after a resident asked for Langley Park events; plan note in the Hub folder). Unresearched approvals stay
      Map-only, so private functions never list here. A listing feed's own row wins over the approval. */
+  /* Is this approval already in the listing feed? Generic words are ignored, or "Perth" and "Festival" make
+     Shine a Light a duplicate of Perth Festival; a trailing "fest" is dropped so PrideFEST matches Pride. A
+     close title match is enough on its own (Pride Run & Walk starts at the Narrows, its listing says
+     Elizabeth Quay); a looser one also needs the venues to share a place word, or the Basant Festival at
+     Langley Park vanished as Perth Multicultural Festival at Elizabeth Quay (4 Nov 2026). */
+  var STOP=/^(the|and|for|with|from|perth|east|west|city|wa|festival|fest|party|parties|event|events|season|day|night|annual|live|2025|2026|2027|26|27)$/;
+  var VSTOP=/^(the|and|perth|east|west|park|street|road|drive|terrace|reserve|wa|square|gardens?|place)$/;
+  function words(s,stop){ return (s||"").toLowerCase().replace(/[^a-z0-9 ]/g," ").split(/ +/).map(function(w){return stop===STOP?w.replace(/fest$/,""):w;}).filter(function(w){return w.length>2&&!/^\d+$/.test(w)&&!stop.test(w);}); }
+  function shared(A,B){ return A.filter(function(w){return B.indexOf(w)>=0;}).length; }
+  function listed(r){
+    var A=words(r.title,STOP), V=words(r.loc,VSTOP); if(!A.length) return false;
+    return EVENTS.some(function(x){
+      var B=words(x.title,STOP); if(!B.length) return false;
+      var n=shared(A,B); if(n/Math.min(A.length,B.length)<0.6) return false;
+      if(n/Math.max(A.length,B.length)>=0.6) return true;
+      var W=words(x.venue,VSTOP); return !V.length||!W.length||shared(V,W)>0;
+    });
+  }
   function approvedPublic(){
     var t0=new Date(); t0.setHours(0,0,0,0);
     var MS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
     function d(s){ var m=/(\d+)\/(\d+)\/(\d+)/.exec(s||""); return m?new Date(+m[3],+m[2]-1,+m[1]):null; }
     /* Generic words are ignored, or "Perth" and "Festival" make Shine a Light a duplicate of Perth Festival
        (4 Nov 2026); a trailing "fest" is dropped so PrideFEST matches Pride. */
-    var STOP=/^(the|and|for|with|from|perth|east|west|city|wa|festival|fest|party|parties|event|events|season|day|night|annual|live|2025|2026|2027|26|27)$/;
-    function words(s){ return (s||"").toLowerCase().replace(/[^a-z0-9 ]/g," ").split(/ +/).map(function(w){return w.replace(/fest$/,"");}).filter(function(w){return w.length>2&&!STOP.test(w);}); }
-    function same(a,b){ var A=words(a),B=words(b); if(!A.length||!B.length) return false; var n=A.filter(function(w){return B.indexOf(w)>=0;}).length; return n/Math.min(A.length,B.length)>=0.6; }
     return (HUB.disruptions||[]).filter(function(r){
       var e=d(r.end); return r.cat==="event" && r.public===true && r.org_url && (!e||e>=t0);
-    }).filter(function(r){
-      return !EVENTS.some(function(x){ return same(x.title,r.title); });
-    }).map(function(r){
+    }).filter(function(r){ return !listed(r); }).map(function(r){
       var s=d(r.start), e=d(r.end)||s, f=function(x){ return x.getDate()+" "+MS[x.getMonth()]; };
       var crowd=/approx\.?\s*([\d,]+)/i.exec(r.impact||""); crowd=crowd?"about "+crowd[1]+" people":"";
       return { title:r.title, href:r.org_url, date:s?(f(s)+(e&&e.getTime()!==s.getTime()?" - "+f(e):"")):"",
@@ -917,43 +935,32 @@ function initEvents(){
                free:r.price==="free"?1:undefined, fe:r.price==="free_entry"?1:undefined };
     });
   }
-  /* BIG EVENTS: CROWDS AND NOISE (4 Nov 2026, Jason: "people do want to know about the big music events
-     and festivals for noise reasons"). Every City-approved event in the next four weeks with about 1,000
-     people or more, or that is music, a festival or a party, public or private. A private one is tagged and
-     has no link; a public one links to its organiser. Follows the area filter, then the Local/Across Perth
-     switch, and the search box. */
-  function bigHtml(q){
-    var t0=new Date(); t0.setHours(0,0,0,0); var lim=new Date(t0.getTime()+28*86400000);
+  /* EVENTS WITH CROWDS (4 Nov 2026, Jason: "people do want to know about the big music events and festivals
+     for noise reasons"; then: inline, not a separate block). A City-approved event with about 1,000 people
+     or more, or that is music, a festival or a party, joins the ordinary list even when it is private or
+     unresearched, tagged "Crowds expected" with no link, because the permit is all we hold and a private
+     function has no page to send anyone to. Public ones already arrive through approvedPublic() with their
+     organiser link. Same duplicate check, so a listing feed's own row still wins. */
+  function crowdOf(r){ var m=/approx\.?\s*([\d,]+)/i.exec(r.impact||"")||/attendance[^\d]*([\d,]+)/i.exec(r.impact||""); return m?+m[1].replace(/,/g,""):0; }
+  function t12(s){ var p=s.split(":"), h=+p[0], mi=p[1]; return (h%12||12)+(mi!=="00"?"."+mi:"")+(h<12?"am":"pm"); }
+  function hoursOf(r){ var m=/(\d{1,2}:\d{2})\s*-\s*(\d{1,2}:\d{2})/.exec(r.sched||""); if(m) return t12(m[1])+" to "+t12(m[2]);
+    m=/((?:\d{1,2}(?::\d{2}|\.\d{2})?\s*(?:am|pm))|midday|noon)\s*-\s*((?:\d{1,2}(?::\d{2}|\.\d{2})?\s*(?:am|pm))|midday|midnight)/i.exec(r.impact||""); return m?m[1]+" to "+m[2]:""; }
+  var NOISY=/music|festival|concert|fireworks|party|parties|carnival|rave|gig|dj/i;
+  function isBig(r){ return crowdOf(r)>=1000 || NOISY.test((r.title||"")+" "+(r.desc||"")); }
+  function crowdLocal(){
+    var t0=new Date(); t0.setHours(0,0,0,0);
     var MS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
     function d(s){ var m=/(\d+)\/(\d+)\/(\d+)/.exec(s||""); return m?new Date(+m[3],+m[2]-1,+m[1]):null; }
-    function f(x){ return x.getDate()+" "+MS[x.getMonth()]; }
-    function crowd(r){ var m=/approx\.?\s*([\d,]+)/i.exec(r.impact||"")||/attendance[^\d]*([\d,]+)/i.exec(r.impact||""); return m?+m[1].replace(/,/g,""):0; }
-    function t12(s){ var p=s.split(":"), h=+p[0], mi=p[1]; return (h%12||12)+(mi!=="00"?"."+mi:"")+(h<12?"am":"pm"); }
-    function hours(r){ var m=/(\d{1,2}:\d{2})\s*-\s*(\d{1,2}:\d{2})/.exec(r.sched||""); if(m) return t12(m[1])+" to "+t12(m[2]);
-      m=/((?:\d{1,2}(?::\d{2}|\.\d{2})?\s*(?:am|pm))|midday|noon)\s*-\s*((?:\d{1,2}(?::\d{2}|\.\d{2})?\s*(?:am|pm))|midday|midnight)/i.exec(r.impact||""); return m?m[1]+" to "+m[2]:""; }
-    var NOISY=/music|festival|concert|fireworks|party|parties|carnival|rave|gig|dj/i;
-    var rows=(HUB.disruptions||[]).filter(function(r){
-      if(r.cat!=="event") return false;
-      var s=d(r.start), e=d(r.end)||s; if(!s||e<t0||s>lim) return false;
-      return crowd(r)>=1000 || NOISY.test((r.title||"")+" "+(r.desc||""));
-    }).map(function(r){ var x={r:r, precinct:EP?EP.ofRecord(r):null, zone:r.zone}; return x; }).filter(function(x){
-      if(areaFilter!=="all"){ var p=x.precinct; if(!p) return false; return areaFilter.indexOf("hood:")===0?EP.hood(p)===areaFilter.slice(5):p===areaFilter; }
-      return scope==="all" || x.zone===BZ;
-    }).filter(function(x){ return !q || ((x.r.title||"")+" "+(x.r.loc||"")).toLowerCase().indexOf(q)>=0; })
-      .sort(function(a,b){ return d(a.r.start)-d(b.r.start); });
-    if(!rows.length) return "";
-    var TAGP="display:inline-block;font-size:10px;font-weight:800;border-radius:20px;padding:1px 8px;margin-right:6px;vertical-align:1px;background:#5E7986;color:#fff";
-    var html=rows.map(function(x){
-      var r=x.r, s=d(r.start), e=d(r.end)||s, n=crowd(r), h=hours(r);
-      var when=(e&&e.getTime()!==s.getTime())?(f(s)+" - "+f(e)):f(s);
-      var meta=[r.loc, n?("about "+n.toLocaleString("en-AU")+" people"):"", h].filter(Boolean).join(" · ");
-      var tag=r.public===false?"<span style='"+TAGP+"'>Private event</span>":"";
-      var inner="<span class='dates' style='min-width:120px'><span>"+esc(when)+"</span></span><span class='ttl'>"+tag+esc(r.title)+"</span><span class='m evvenue'>"+esc(meta)+"</span>";
-      return (r.public===true&&r.org_url)?("<a class='row evrow' href='"+esc(r.org_url)+"' target='_blank' rel='noopener'>"+inner+"</a>"):("<div class='row evrow'>"+inner+"</div>");
-    }).join("");
-    return "<div class='curhead'><span class='ct'>&#128266; Big events: crowds and noise</span><span class='m'>City-approved, public or private, next four weeks</span></div>"+html+"<div class='cursep'></div>";
+    return (HUB.disruptions||[]).filter(function(r){
+      var e=d(r.end)||d(r.start); return r.cat==="event" && !(r.public===true && r.org_url) && (!e||e>=t0) && isBig(r);
+    }).filter(function(r){ return !listed(r); }).map(function(r){
+      var s=d(r.start), e=d(r.end)||s, f=function(x){ return x.getDate()+" "+MS[x.getMonth()]; }, n=crowdOf(r);
+      return { title:r.title, href:"", date:s?(f(s)+(e&&e.getTime()!==s.getTime()?" - "+f(e):"")):"",
+               venue:r.loc||"", zone:r.zone, lat:r.lat, lng:r.lng, big:true, priv:r.public===false,
+               crowd:n?"about "+n.toLocaleString("en-AU")+" people":"", hrs:hoursOf(r) };
+    });
   }
-  function load(){ if(loaded) return; loaded=true; all=EVENTS.concat(curatedLocal(), approvedPublic()); all.forEach(function(e){ e.precinct=areaOf(e); }); statusEl.textContent="";
+  function load(){ if(loaded) return; loaded=true; all=EVENTS.concat(curatedLocal(), approvedPublic(), crowdLocal()); all.forEach(function(e){ e.precinct=areaOf(e); }); statusEl.textContent="";
     var ar=document.getElementById("evArea");
     if(ar&&EP){ var g1=document.createElement("optgroup"); g1.label="Neighbourhood";
       ["Claisebrook","East Perth"].forEach(function(h){ var o=document.createElement("option"); o.value="hood:"+h; o.textContent=h+(h==="Claisebrook"?" (north of Wellington St)":" (south of Wellington St)"); g1.appendChild(o); });
