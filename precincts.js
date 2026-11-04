@@ -33,10 +33,13 @@
   /* Each precinct is a union of grid rectangles [rxMin, rxMax, ryMin, ryMax). First match wins. */
   var P = [
     { id: "langley", name: "Langley Park & Riverside", survey: "Langley Park / Riverside Drive area",
-      rects: [[4250, 6600, 3440, 3700],          /* south of Terrace Rd, Victoria Ave to the river and Heirisson Island */
-              [5180, 6600, 3240, 3440]] },       /* Ozone Reserve and Heirisson Island: east of Plain St, south of Adelaide Tce */
+      rects: [[4250, 5180, 3440, 3700],          /* south of Terrace Rd, Victoria Ave to Plain St */
+              [5600, 6600, 3240, 3700]] },       /* the Causeway end and Heirisson Island, east of Ozone Reserve */
+    /* Ozone Reserve is Terrace, not Langley (Jason, 4 Nov 2026): its events land on Queens Riverside and the
+       Adelaide Tce towers. OSM outline rx 5201 to 5586, ry 3252 to 3574, so it crosses the Terrace Rd line. */
     { id: "terrace", name: "Queens Gardens & Terrace", survey: "Queens Gardens & Terrace precinct (Hay St, Adelaide Tce)",
-      rects: [[4547, 6100, 2822, 3440]] },       /* south of Wellington St, Hill St to the river */
+      rects: [[4547, 6100, 2822, 3440],          /* south of Wellington St, Hill St to the river */
+              [5180, 5600, 3440, 3700]] },       /* Ozone Reserve south of the Terrace Rd line, to the river */
     { id: "wellington", name: "Wellington Square", survey: "Wellington Square and surrounding streets",
       rects: [[4547, 5180, 2414, 2822]] },       /* Royal St to Wellington St, Hill St to Plain St */
     { id: "station", name: "Claisebrook Station & City Farm", survey: "Claisebrook Station / Perth City Farm / TAFE / Depts. Education & Health",
@@ -60,7 +63,8 @@
 
   /* What's On records carry a venue string but no coordinates: the same idea as the boards' Z(). */
   var VENUES = [
-    ["langley", ["langley park", "shoppe on langley", "riverside drive", "ozone", "lake vasto"]],
+    ["terrace", ["ozone", "lake vasto"]],          /* ahead of Langley's "riverside drive" */
+    ["langley", ["langley park", "shoppe on langley", "riverside drive"]],
     ["wellington", ["wellington square", "moort-ak waadiny"]],
     ["station", ["city farm", "claisebrook station", "royal street"]],
     ["cove", ["claisebrook cove", "royal on the waterfront", "victoria gardens", "mardalup", "gloucester park", "eastbrook"]],
