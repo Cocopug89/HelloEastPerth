@@ -1,8 +1,8 @@
 {
   "meta": {
-    "db_version": 94,
+    "db_version": 95,
     "first_built": "2026-07-08",
-    "last_scrape": "2026-11-05",
+    "last_scrape": "2026-11-06",
     "source": "https://www.transperth.wa.gov.au/service-updates",
     "coordinate_source": "data.wa.gov.au PTA-001 (ArcGIS: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Transport/MapServer/14). Query by stopnumber (bus/CAT) or stopname LIKE (rail), outSR=4326. Exact stop/station coordinates, not approximations.",
     "scope": "City of Perth LGA only",
@@ -35,7 +35,8 @@
       "26057 Airport/Ellenbrook/Fremantle/Midland lines services resume (1 Nov; network-wide, no single City station named), 26048 Route 41 no longer listed; 26029 Lord St Perth (Sun 1 Nov) dropped as ended 1 Nov",
       "26060 Routes 84/996 (Flynn St / Selby St, Churchlands/Floreat), 26061 Route 910 (Canning Hwy, South Perth), 26067 Routes 15/85/95 (Harborne St, Glendalough), 26062 and 26064 Routes 374/386/451 (Girrawheen), 26063, 26065, 26066, 26068, 26070 (all affected stops outside the City); 26038 Red CAT West Perth and 26041 Route 25 Nedlands dropped as ended 2 Nov",
       "26076 Routes 111/148/158/910 (Canning Hwy, East Fremantle), 26075 Route 553, 26059 Route 45, 24965 Route 423 (Flora Tce, North Beach), 24880 Route 229 (Kenwick), 24665 Routes 254/255 (Byford) (all affected stops outside the City); 25788 Armadale/Thornlie-Cockburn nightly closure (29 Nov to 3 Dec) dropped as no longer listed on Transperth",
-      "26081 Route 28 (Floreat/Mount Claremont), 26085 Route 910 (Canning Hwy, South Perth), 26078 Routes 38/998 (Cloverdale/Belmont), 26084 Fremantle routes (Fremantle), 26077 Route 502 (Stock Rd, Willagee), 26082, 26088 (all affected stops outside the City); 26058 Adelaide Tce East Perth (4 Nov) dropped as ended 4 Nov"
+      "26081 Route 28 (Floreat/Mount Claremont), 26085 Route 910 (Canning Hwy, South Perth), 26078 Routes 38/998 (Cloverdale/Belmont), 26084 Fremantle routes (Fremantle), 26077 Route 502 (Stock Rd, Willagee), 26082, 26088 (all affected stops outside the City); 26058 Adelaide Tce East Perth (4 Nov) dropped as ended 4 Nov",
+      "26095 Route 15 (Oxford St / Newcastle St, Leederville; West Perth stops are alternatives only), 26097 Route 27 (Selby St / Lemnos St, Shenton Park), 26100 Routes 111/158/910 (Fremantle / East Fremantle), 26101 Route 424 (North Beach), 26098 Route 422 (Karrinyup), 26103 Routes 205-999 (Leeming / Bull Creek), 26094 Routes 588/589 (Mandurah) (all affected stops outside the City); 25989 Cleaver St West Perth dropped as ended 5 Nov"
     ]
   },
   "disruptions": [
@@ -117,26 +118,26 @@
       ]
     },
     {
-      "id": "25989",
+      "id": "26099",
       "zones": [
         "west"
       ],
       "mode": "bus",
       "sev": "low",
-      "title": "Routes 402, 403 & 404 - Cleaver St Stop Closed",
-      "routes": "Routes 402, 403 & 404",
-      "start": "2026-10-27",
-      "end": "2026-11-05",
+      "title": "Routes 24 & 96 - Broadway Crawley Stop Closed (9 to 18 Nov, weekdays)",
+      "routes": "Routes 24 & 96",
+      "start": "2026-11-09",
+      "end": "2026-11-18",
       "ongoing": false,
-      "loc": "Cleaver St, West Perth",
-      "stops": "Cleaver St after Vincent St (ID 12709)",
-      "impact": "Tue 27 Oct and Thu 5 Nov only, 7am to 5pm, one West Perth bus stop closed on services to Perth Busport; alternatives are Cleaver St after Carr St (27616) and Loftus St after Emmerson St (12693)",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25989",
+      "loc": "Broadway, Crawley",
+      "stops": "Broadway after Edward St (ID 17582)",
+      "impact": "Mon 9 to Wed 18 Nov, weekdays only, 7am to 5pm, one Crawley bus stop closed for road closures on Route 24 (to Claremont Station) and Route 96 (to Crawley); alternatives are Broadway after Cooper St (17581) and Broadway before Myers St (17583); minor delays possible",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/26099",
       "pts": [
         [
-          -31.937428332487876,
-          115.8493005553026,
-          "Cleaver St After Vincent St"
+          -31.98080070559751,
+          115.8146022288403,
+          "Broadway after Edward St"
         ]
       ]
     },
