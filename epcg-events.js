@@ -90,4 +90,31 @@ window.EPCG_EVENTS = [
     venue:"Shoppe on Langley Park, 30 Terrace Road, East Perth",
     note:"Free family afternoon: multicultural food stalls 11 am to 4 pm, live performances 12.30 to 3 pm, a kids' pre-loved market 11 am to 4 pm, and a health education station on breast cancer. Supports the National Breast Cancer Foundation and Breast Cancer Care WA. Run by the Australia Chinese Women's Business Association with Light Up Events and Marketing. Free registration on Humanitix.",
     url:"https://events.humanitix.com/pink-october-perth" }
+  ,
+  /* COMMUNITY-SUBMITTED, added 7 Nov 2026 on Jason's instruction from a committee member's What's On list
+     for 13 to 15 Nov. None was on a feed the Hub read at the time: VisitPerth's search API returned no row for any of
+     them (7 Nov), and Destination Perth carries none. Found instead on the organiser, venue or ticket seller
+     pages linked below. submitted:true marks them; price:"paid" keeps the ticketed ones out of The Weekend
+     Beat, which also skips any submitted entry outside the East Perth precincts. All six are outside them. */
+  { d:"2026-11-15", t:"Central Park Plunge", type:"community", submitted:true, time:"Fri 13 to Sun 15 Nov",
+    venue:"Central Park Tower, St Georges Terrace, Perth",
+    note:"Charity abseil, 130 metres down Central Park Tower. Abseilers raise money in charity teams.",
+    url:"https://centralparkplunge.squarespace.com" }
+  ,
+  /* Pop Culture Mega Fair and Dirty Dancing in Concert (PCEC, 14 Nov) were added here too, then removed the
+     same day: PCEC became a Hub source (STEP 4F, Tools/pcec_pull.py), which carries both. */
+  { d:"2026-11-13", t:"Candlelight: Vivaldi's Four Seasons and More", type:"community", submitted:true, price:"paid", time:"6.30 pm",
+    venue:"St Mary's Cathedral, 41 Victoria Square, Perth",
+    note:"String quartet by candlelight, about 60 minutes. Ticketed.",
+    url:"https://feverup.com/m/391637" }
+  ,
+  { d:"2026-11-13", t:"Candlelight: Mozart, Bach and Timeless Composers", type:"community", submitted:true, price:"paid", time:"8.30 pm",
+    venue:"St Mary's Cathedral, 41 Victoria Square, Perth",
+    note:"String quartet by candlelight, about 60 minutes. Ticketed.",
+    url:"https://feverup.com/m/391638" }
+  ,
+  { d:"2026-11-14", t:"Ballet of Lights: Sleeping Beauty", type:"community", submitted:true, price:"paid", time:"4 pm and 6 pm",
+    venue:"Octagon Theatre, UWA, 35 Stirling Highway, Crawley",
+    note:"An hour-long Sleeping Beauty, pitched at young children. Ticketed.",
+    url:"https://feverup.com/m/250345" }
 ];
