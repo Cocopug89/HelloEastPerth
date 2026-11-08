@@ -256,20 +256,20 @@
   var EASTSIDE = {
     img:   "eastside-xmas-2026.jpg",
     alt:   "Eastside Social November and December set menu: starter and main $70, main and dessert $65, three courses $79",
-    name:  "Eastside Social, ibis Styles East Perth",
-    blurb: "Up on Level 1 of ibis Styles on Adelaide Terrace, <b>Eastside Social</b> is the hotel's relaxed restaurant and bar, open every day for breakfast, lunch and dinner. Through November and December it has a <b>Christmas set menu</b> from $65, and chef-prepared <b>festive hampers</b> to pre-order for Christmas at home.",
-    highlight: "🎄 <b>Christmas set menu, November and December:</b> main and dessert $65, starter and main $70, three courses $79. No booking needed for individual diners. For groups and functions, contact the team first.",
-    meta:  "📍 Level 1, ibis Styles, 69 Adelaide Tce, East Perth &nbsp;&middot;&nbsp; ⏱ 7am to 9pm daily &nbsp;&middot;&nbsp; ☎️ (08) 7099 3415 &nbsp;&middot;&nbsp; Artwork: Eastside Social",
+    name:  "Eastside Social, ibis Styles",
+    /* Trimmed 8 Nov 2026 (Jason: too much text, cutting off in the framed board). The prices are on the
+       flyer, so the highlight box went, and blurb, meta, offer and CTAs were cut to fit. */
+    blurb: "The restaurant and bar at ibis Styles on Adelaide Terrace has a <b>Christmas set menu</b> through November and December: two courses from $65, three for $79.",
+    meta:  "📍 Level 1, 69 Adelaide Tce &nbsp;&middot;&nbsp; ⏱ 7am to 9pm daily",
     thumbpos:"50% 58%",  /* phone strip crop: the "2 courses from $65" band */
     until: "2026-12-31",
     offer: {
-      headline: "🎁 Festive hamper for two, $150. Glazed ham on its own, $75",
-      how:      "Pre-order by email at H9318-sm@accor.com or call (08) 7099 3415",
-      terms:    "Ham, cheese, pudding and sparkling wine. Pre-order only, paid in full upfront",
+      headline: "🎁 Festive hamper for two $150, glazed ham $75",
+      how:      "Pre-order on (08) 7099 3415",
+      terms:    "Paid upfront",
       expires:  "2026-12-25"
     },
-    ctas:  [{label:"Book a table", href:"https://eastsidesocialperth.com.au/book-a-table/", style:"b1"},
-            {label:"Follow @eastsidesocialperth", href:"https://www.instagram.com/eastsidesocialperth/", style:"b2"}]
+    ctas:  [{label:"Book a table", href:"https://eastsidesocialperth.com.au/book-a-table/", style:"b1"}]
   };
 
 
