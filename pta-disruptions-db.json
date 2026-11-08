@@ -1,8 +1,8 @@
 {
   "meta": {
-    "db_version": 95,
+    "db_version": 96,
     "first_built": "2026-07-08",
-    "last_scrape": "2026-11-06",
+    "last_scrape": "2026-11-08",
     "source": "https://www.transperth.wa.gov.au/service-updates",
     "coordinate_source": "data.wa.gov.au PTA-001 (ArcGIS: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Transport/MapServer/14). Query by stopnumber (bus/CAT) or stopname LIKE (rail), outSR=4326. Exact stop/station coordinates, not approximations.",
     "scope": "City of Perth LGA only",
@@ -36,7 +36,8 @@
       "26060 Routes 84/996 (Flynn St / Selby St, Churchlands/Floreat), 26061 Route 910 (Canning Hwy, South Perth), 26067 Routes 15/85/95 (Harborne St, Glendalough), 26062 and 26064 Routes 374/386/451 (Girrawheen), 26063, 26065, 26066, 26068, 26070 (all affected stops outside the City); 26038 Red CAT West Perth and 26041 Route 25 Nedlands dropped as ended 2 Nov",
       "26076 Routes 111/148/158/910 (Canning Hwy, East Fremantle), 26075 Route 553, 26059 Route 45, 24965 Route 423 (Flora Tce, North Beach), 24880 Route 229 (Kenwick), 24665 Routes 254/255 (Byford) (all affected stops outside the City); 25788 Armadale/Thornlie-Cockburn nightly closure (29 Nov to 3 Dec) dropped as no longer listed on Transperth",
       "26081 Route 28 (Floreat/Mount Claremont), 26085 Route 910 (Canning Hwy, South Perth), 26078 Routes 38/998 (Cloverdale/Belmont), 26084 Fremantle routes (Fremantle), 26077 Route 502 (Stock Rd, Willagee), 26082, 26088 (all affected stops outside the City); 26058 Adelaide Tce East Perth (4 Nov) dropped as ended 4 Nov",
-      "26095 Route 15 (Oxford St / Newcastle St, Leederville; West Perth stops are alternatives only), 26097 Route 27 (Selby St / Lemnos St, Shenton Park), 26100 Routes 111/158/910 (Fremantle / East Fremantle), 26101 Route 424 (North Beach), 26098 Route 422 (Karrinyup), 26103 Routes 205-999 (Leeming / Bull Creek), 26094 Routes 588/589 (Mandurah) (all affected stops outside the City); 25989 Cleaver St West Perth dropped as ended 5 Nov"
+      "26095 Route 15 (Oxford St / Newcastle St, Leederville; West Perth stops are alternatives only), 26097 Route 27 (Selby St / Lemnos St, Shenton Park), 26100 Routes 111/158/910 (Fremantle / East Fremantle), 26101 Route 424 (North Beach), 26098 Route 422 (Karrinyup), 26103 Routes 205-999 (Leeming / Bull Creek), 26094 Routes 588/589 (Mandurah) (all affected stops outside the City); 25989 Cleaver St West Perth dropped as ended 5 Nov",
+      "26089 Blue CAT CBD protest, 26080 Lord St (Routes 40-43) and 26083 West Perth/CBD stops (all Sat 7 Nov) dropped as ended 7 Nov; 25787 Mandurah Line (Rockingham-Mandurah, 22-26 Nov), 26070 Route 559, 26094 and 26103 remain outside the City"
     ]
   },
   "disruptions": [
@@ -445,40 +446,6 @@
       ]
     },
     {
-      "id": "26089",
-      "zones": [
-        "central"
-      ],
-      "mode": "cat",
-      "sev": "medium",
-      "title": "Blue CAT - Barrack Square & Hay Street Mall Stops Closed (Sat 7 Nov, CBD protest)",
-      "routes": "Blue CAT; Routes 34, 40, 41, 42, 43, 950 & 980; Red CAT",
-      "start": "2026-11-07",
-      "end": "2026-11-07",
-      "ongoing": false,
-      "loc": "Barrack Sq / Hay Street Mall, Perth",
-      "stops": "Barrack Square CAT 2 (ID 16974), Hay Street Mall CAT 3 (ID 12124), Hay Street Mall CAT 20 (ID 28509)",
-      "impact": "Sat 7 Nov, 1:00pm to 1:45pm, planned CBD protest; Blue CAT disrupted for road closures with three stops not in use; Red CAT and Routes 34, 40, 41, 42, 43, 950 and 980 may be delayed; alternatives are Elizabeth Quay Bus Station CAT 1 (12210, 12208), Perth Station CAT 4 (12129) and WA Museum Boola Bardip CAT 19 (26623)",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/26089",
-      "pts": [
-        [
-          -31.95958397813097,
-          115.85787136078143,
-          "Barrack Square CAT 2"
-        ],
-        [
-          -31.954914328660323,
-          115.86008133502615,
-          "Barrack St Hay Street Mall CAT 3"
-        ],
-        [
-          -31.954076111470318,
-          115.86059666704077,
-          "Barrack St Hay Street Mall CAT 20"
-        ]
-      ]
-    },
-    {
       "id": "26079",
       "zones": [
         "central"
@@ -608,100 +575,6 @@
           -31.95521277830335,
           115.85780222229926,
           "St Georges Tce Stand 28"
-        ]
-      ]
-    },
-    {
-      "id": "26080",
-      "zones": [
-        "central"
-      ],
-      "mode": "bus",
-      "sev": "medium",
-      "title": "Routes 40, 41, 42 & 43 - Lord St Stops Closed (Sat 7 Nov)",
-      "routes": "Routes 40, 41, 42 & 43",
-      "start": "2026-11-07",
-      "end": "2026-11-07",
-      "ongoing": false,
-      "loc": "Lord St, Perth",
-      "stops": "Lord St before Brewer St (11316), before Murchison Tce (11317), after Coolgardie Tce (11656) and after Brewer St (11657)",
-      "impact": "Sat 7 Nov, 2:30pm to 9:30pm, four Lord St bus stops closed; alternatives are Lord St after Bulwer St (11318), Newcastle St before Lord St (24376), Lord St after Windsor St (11655) and Newcastle St after Lord St (12883)",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/26080",
-      "pts": [
-        [
-          -31.947568888909075,
-          115.87051277882172,
-          "Lord St before Brewer St"
-        ],
-        [
-          -31.945858889138435,
-          115.8718933332736,
-          "Lord St before Murchison Tce"
-        ],
-        [
-          -31.946238278756688,
-          115.87178580487051,
-          "Lord St after Coolgardie Tce"
-        ],
-        [
-          -31.94773373973338,
-          115.87058431082082,
-          "Lord St after Brewer St"
-        ]
-      ]
-    },
-    {
-      "id": "26083",
-      "zones": [
-        "west",
-        "central"
-      ],
-      "mode": "bus",
-      "sev": "medium",
-      "title": "Routes 28, 30, 31, 81-85 & 910 - West Perth and CBD Stops Closed (Sat 7 Nov, morning)",
-      "routes": "Routes 28, 30, 31, 81, 82, 83, 84, 85 & 910",
-      "start": "2026-11-07",
-      "end": "2026-11-07",
-      "ongoing": false,
-      "loc": "Wellington St / Sutherland St, West Perth; Milligan St / St Georges Tce, Perth",
-      "stops": "Wellington St after George St (12927), Watertown CAT 61 (23086), Sutherland St CAT 36 (26654), Stand 1 CAT 31 (10117), Milligan St after Murray St (28732), St Georges Tce Stands 2 and 5 (10116, 10122)",
-      "impact": "Sat 7 Nov, from first service until 12pm, road closures; seven stops not in use; alternatives are Harold Boas Gardens CAT 41 (12928), City West Station CAT 37 (12932), Elizabeth Quay Bus Station Stand A2 (12224), St Georges Tce Stand 8 (10124) and Perth Busport; minor delays possible",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/26083",
-      "pts": [
-        [
-          -31.9483755562705,
-          115.84899944403618,
-          "Wellington St after George St"
-        ],
-        [
-          -31.947651478372887,
-          115.84675915974773,
-          "Wellington St Watertown CAT 61"
-        ],
-        [
-          -31.946253333658355,
-          115.84690888903722,
-          "Sutherland St CAT 36"
-        ],
-        [
-          -31.95311222150491,
-          115.85191555570708,
-          "St Georges Tce Stand 1 (CAT 31)"
-        ],
-        [
-          -31.951123888639486,
-          115.85201666748713,
-          "Milligan St after Murray St"
-        ],
-        [
-          -31.953346110815648,
-          115.85263222209957,
-          "St Georges Tce Stand 2"
-        ],
-        [
-          -31.954527221937365,
-          115.85624666684284,
-          "St Georges Tce Stand 5"
         ]
       ]
     }
