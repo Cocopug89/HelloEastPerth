@@ -235,6 +235,44 @@
   };
 
 
+  /* EASTSIDE SOCIAL, the restaurant at ibis Styles East Perth: Christmas 2026 offers. Live 8 Nov 2026 on the
+     EAST board (Jason: "get the relevant eastside social stuff onto highlights"). A free business spotlight
+     Jason offered on 8 Oct; not paid, so the default "Business Spotlight" ribbon, never Sponsored.
+     SOURCE: Michela Carandente (Director of Sales and Marketing, ibis Styles East Perth), "Christmas at Eastside
+     Social, Offers for Our Local Community", Secretary mailbox, 22 Oct 2026 12:32, and its three flyers, filed
+     in `11 EPCG/Neighbours and Partners/ibis Styles East Perth/Received - Eastside Social artwork/`. She asked
+     EPCG to share them. Set menu: November and December, no pre-booking for individual diners. Hamper and ham:
+     pre-order only, full payment upfront, November to Christmas Day. No order-by date is given anywhere.
+     LEFT OUT ON PURPOSE: the "such as 15% off" community offer (8 Oct). It has no terms and no way to redeem it,
+     and this board is public, so printing it would send walk-ins asking for a discount the venue never
+     defined. Add it as an `offer` with a code once she confirms the terms. Also left out: the "Christmas 2026"
+     buffet menu flyer (no price, date or booking terms), the canapes (no flyer, no prices), and the July
+     specials still on the venue's own website (expired).
+     Hours are from eastsidesocialperth.com.au, read 8 Nov 2026 ("Open daily from 07:00 am through to 9:00 pm").
+     ARTWORK: eastside-xmas-2026.jpg, the set menu flyer at 720 wide on a 720x1200 portrait over a blurred copy,
+     by `11 EPCG/East Perth Community Group/Communications/_build/build_hub_card_eastside.py`.
+     The hamper offer block hides itself after 25 Dec; the whole card drops off after 31 Dec and east falls
+     back to WIRIN. */
+  var EASTSIDE = {
+    img:   "eastside-xmas-2026.jpg",
+    alt:   "Eastside Social November and December set menu: starter and main $70, main and dessert $65, three courses $79",
+    name:  "Eastside Social, ibis Styles East Perth",
+    blurb: "Up on Level 1 of ibis Styles on Adelaide Terrace, <b>Eastside Social</b> is the hotel's relaxed restaurant and bar, open every day for breakfast, lunch and dinner. Through November and December it has a <b>Christmas set menu</b> from $65, and chef-prepared <b>festive hampers</b> to pre-order for Christmas at home.",
+    highlight: "🎄 <b>Christmas set menu, November and December:</b> main and dessert $65, starter and main $70, three courses $79. No booking needed for individual diners. For groups and functions, contact the team first.",
+    meta:  "📍 Level 1, ibis Styles, 69 Adelaide Tce, East Perth &nbsp;&middot;&nbsp; ⏱ 7am to 9pm daily &nbsp;&middot;&nbsp; ☎️ (08) 7099 3415 &nbsp;&middot;&nbsp; Artwork: Eastside Social",
+    thumbpos:"50% 58%",  /* phone strip crop: the "2 courses from $65" band */
+    until: "2026-12-31",
+    offer: {
+      headline: "🎁 Festive hamper for two, $150. Glazed ham on its own, $75",
+      how:      "Pre-order by email at H9318-sm@accor.com or call (08) 7099 3415",
+      terms:    "Ham, cheese, pudding and sparkling wine. Pre-order only, paid in full upfront",
+      expires:  "2026-12-25"
+    },
+    ctas:  [{label:"Book a table", href:"https://eastsidesocialperth.com.au/book-a-table/", style:"b1"},
+            {label:"Follow @eastsidesocialperth", href:"https://www.instagram.com/eastsidesocialperth/", style:"b2"}]
+  };
+
+
   /* Perth has no daylight saving, so UTC+8 all year gives today's Perth date. */
   var TODAY = new Date(Date.now() + 8*3600*1000).toISOString().slice(0,10);
   function live(c){ return (c && (!c.until || TODAY <= c.until)) ? c : null; }
@@ -242,7 +280,7 @@
   /* A zone whose card has passed its `until` resolves to null and the boards fall back to
      FALLBACK. Expired cards can stay in the file; they no longer render. */
   window.SPOTLIGHT = {
-    east:    live(POPUP),     /* 21 Oct to 1 Nov 2026, then falls back to WIRIN (east's card since 1 Oct). */
+    east:    live(EASTSIDE),  /* 8 Nov to 31 Dec 2026, then falls back to WIRIN (east's card since 1 Oct). */
     central: live(MERCEDES),  /* expired 25 Sep 2026, falls back */
     west:    live(MOON),      /* expired 28 Sep 2026, falls back */
     FALLBACK: WIRIN           /* undated. Swap for an "advertise here" card once selling */

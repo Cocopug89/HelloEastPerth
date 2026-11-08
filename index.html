@@ -564,7 +564,9 @@ setCnt("cEvt", (HUB.events||[]).length);
   var S=window.SPOTLIGHT||{};
   var Z=[["east","East Perth"],["central","CBD & Northbridge"],["west","West Perth, Nedlands & Crawley"]];
   var seen=[], slides=[];
-  Z.forEach(function(z){ var b=S[z[0]]||S.FALLBACK; if(b && seen.indexOf(b)<0){ seen.push(b); slides.push({b:b,area:z[1]}); } });
+  /* A zone showing FALLBACK is labelled East Perth, because FALLBACK is an East Perth business (Wirin):
+     without this, Wirin read "CBD & Northbridge" whenever east had its own card (8 Nov 2026). */
+  Z.forEach(function(z){ var own=S[z[0]], b=own||S.FALLBACK; if(b && seen.indexOf(b)<0){ seen.push(b); slides.push({b:b,area:own?z[1]:"East Perth"}); } });
   if(!slides.length){ host.style.display="none"; return; }
   function card(x){
     var b=x.b, cta=(b.ctas&&b.ctas[0])||null;
