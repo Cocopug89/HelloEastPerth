@@ -13,12 +13,13 @@
 /* The board reads this to show a freshness stamp in the header and to WARN when this
    feed has gone stale. A hand-typed date drifted before (the page claimed "8 Jul" while
    the data was from the 12th), so it is generated, never written by hand. */
-window.CONSULTATIONS_GENERATED = "2026-11-02";
+window.CONSULTATIONS_GENERATED = "2026-11-09";
 
 window.CONSULTATIONS = [
-{"typ": "Planning (City of Perth)", "title": "Busking Guidelines and Permit Review", "url": "https://yoursay.perth.wa.gov.au/busking-guidelines-and-permit-review", "pub": "2026-10-27", "close": "2026-11-11", "kind": "consultation", "src": "Your Say Perth"},
+{"typ": "Planning (City of Perth)", "title": "Busking Guidelines and Permit Review", "url": "https://yoursay.perth.wa.gov.au/busking-guidelines-and-permit-review", "pub": "2026-11-06", "close": "2026-11-11", "kind": "consultation", "src": "Your Say Perth"},
 {"typ": "Planning (City of Perth)", "title": "Boorloo Perth 1829-2029: acknowledging the past, shaping our future", "url": "https://yoursay.perth.wa.gov.au/boorloo-perth-1829-2029-acknowledging-past-shaping-our-future", "pub": "2026-10-15", "close": "2026-11-15", "kind": "consultation", "src": "Your Say Perth"},
 {"typ": "Planning (DPLH)", "title": "Student Accommodation Facility, Perth - Part 11B Application for Significant Development", "url": "https://haveyoursay.dplh.wa.gov.au/stirlingstreetstudent", "pub": "2026-11-02", "close": "2026-11-15", "kind": "consultation", "src": "DPLH"},
+{"typ": "Urban Design", "title": "Totterdell Park Enhancement", "url": "https://yoursay.perth.wa.gov.au/totterdell-park-enhancement", "pub": "2026-11-06", "close": "2026-11-20", "kind": "consultation", "src": "Your Say Perth"},
 {"typ": "Community", "title": "City of Perth Local History Service", "url": "https://yoursay.perth.wa.gov.au/city-perth-local-history-service", "pub": "2026-10-30", "close": "2026-11-27", "kind": "consultation", "src": "Your Say Perth"}
 ];
 

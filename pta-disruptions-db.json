@@ -1,8 +1,8 @@
 {
   "meta": {
-    "db_version": 96,
+    "db_version": 97,
     "first_built": "2026-07-08",
-    "last_scrape": "2026-11-08",
+    "last_scrape": "2026-11-09",
     "source": "https://www.transperth.wa.gov.au/service-updates",
     "coordinate_source": "data.wa.gov.au PTA-001 (ArcGIS: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Transport/MapServer/14). Query by stopnumber (bus/CAT) or stopname LIKE (rail), outSR=4326. Exact stop/station coordinates, not approximations.",
     "scope": "City of Perth LGA only",
@@ -37,7 +37,8 @@
       "26076 Routes 111/148/158/910 (Canning Hwy, East Fremantle), 26075 Route 553, 26059 Route 45, 24965 Route 423 (Flora Tce, North Beach), 24880 Route 229 (Kenwick), 24665 Routes 254/255 (Byford) (all affected stops outside the City); 25788 Armadale/Thornlie-Cockburn nightly closure (29 Nov to 3 Dec) dropped as no longer listed on Transperth",
       "26081 Route 28 (Floreat/Mount Claremont), 26085 Route 910 (Canning Hwy, South Perth), 26078 Routes 38/998 (Cloverdale/Belmont), 26084 Fremantle routes (Fremantle), 26077 Route 502 (Stock Rd, Willagee), 26082, 26088 (all affected stops outside the City); 26058 Adelaide Tce East Perth (4 Nov) dropped as ended 4 Nov",
       "26095 Route 15 (Oxford St / Newcastle St, Leederville; West Perth stops are alternatives only), 26097 Route 27 (Selby St / Lemnos St, Shenton Park), 26100 Routes 111/158/910 (Fremantle / East Fremantle), 26101 Route 424 (North Beach), 26098 Route 422 (Karrinyup), 26103 Routes 205-999 (Leeming / Bull Creek), 26094 Routes 588/589 (Mandurah) (all affected stops outside the City); 25989 Cleaver St West Perth dropped as ended 5 Nov",
-      "26089 Blue CAT CBD protest, 26080 Lord St (Routes 40-43) and 26083 West Perth/CBD stops (all Sat 7 Nov) dropped as ended 7 Nov; 25787 Mandurah Line (Rockingham-Mandurah, 22-26 Nov), 26070 Route 559, 26094 and 26103 remain outside the City"
+      "26089 Blue CAT CBD protest, 26080 Lord St (Routes 40-43) and 26083 West Perth/CBD stops (all Sat 7 Nov) dropped as ended 7 Nov; 25787 Mandurah Line (Rockingham-Mandurah, 22-26 Nov), 26070 Route 559, 26094 and 26103 remain outside the City",
+      "26109 Route 353 (Beechboro Rd, Morley), 26110 Routes 530/549/999 (South Tce / Market St, Fremantle), 26111 Route 95 (Harborne St, Wembley), 26112 Routes 244/246 (Forrest Rd, Armadale), 26113 Route 552 (Townsend Rd, Rockingham), 26032 Route 568 (Norseman App, Baldivis) (all affected stops outside the City); 25772 Mandurah Line Elizabeth Quay (ended 8 Nov) and 26086 St Georges Tce stands (ended 8 Nov) dropped"
     ]
   },
   "disruptions": [
@@ -139,30 +140,6 @@
           -31.98080070559751,
           115.8146022288403,
           "Broadway after Edward St"
-        ]
-      ]
-    },
-    {
-      "id": "25772",
-      "zones": [
-        "central"
-      ],
-      "mode": "train",
-      "sev": "high",
-      "title": "Mandurah Line - Nightly Closures (Elizabeth Quay)",
-      "routes": "Mandurah line",
-      "start": "2026-11-04",
-      "end": "2026-11-08",
-      "ongoing": false,
-      "loc": "Elizabeth Quay Station",
-      "stops": "Elizabeth Quay Station (line disrupted Elizabeth Quay-Aubin Grove)",
-      "impact": "Wed 4 Nov - Sun 8 Nov, Mandurah Line disrupted nightly between Elizabeth Quay and Aubin Grove",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25772",
-      "pts": [
-        [
-          -31.95674,
-          115.85541,
-          "Elizabeth Quay Station"
         ]
       ]
     },
@@ -491,90 +468,6 @@
           -31.95497777825334,
           115.85760222164068,
           "St Georges Tce Stand 6"
-        ]
-      ]
-    },
-    {
-      "id": "26086",
-      "zones": [
-        "central"
-      ],
-      "mode": "bus",
-      "sev": "medium",
-      "title": "Routes 24, 27, 32, 39, 72, 73, 160, 177, 178, 270, 910, 930, 935 & 940 - St Georges Tce Stands Closed (Sun 8 Nov, evening)",
-      "routes": "Routes 24, 27, 32, 39, 72, 73, 160, 177, 178, 270, 910, 930, 935 & 940",
-      "start": "2026-11-08",
-      "end": "2026-11-08",
-      "ongoing": false,
-      "loc": "St Georges Tce, Perth",
-      "stops": "St Georges Tce Stands 3 to 8 and 25 to 31 (IDs 10082, 10084, 10085, 10087, 10088, 10089, 10090, 10118, 10121, 10122, 10123, 10124, 10126)",
-      "impact": "Sun 8 Nov, from 8pm until last service, 13 St Georges Tce stands not in use for road closures; alternatives are St Georges Tce Stands 2, 9, 10, 11, 22, 23, 24 and CAT Stand 32 (10116, 10128, 10129, 10130, 10077, 10080, 10081, 10091) and Elizabeth Quay Bus Station; minor delays possible",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/26086",
-      "pts": [
-        [
-          -31.955530000905963,
-          115.85877944374595,
-          "St Georges Tce Stand 26"
-        ],
-        [
-          -31.954225556296034,
-          115.85471777844212,
-          "St Georges Tce Stand 30"
-        ],
-        [
-          -31.955362221599827,
-          115.85827222238431,
-          "St Georges Tce Stand 27"
-        ],
-        [
-          -31.954160381030732,
-          115.85451984618865,
-          "St Georges Tce Stand 31"
-        ],
-        [
-          -31.954427221596465,
-          115.85594611091085,
-          "St Georges Tce Stand 4"
-        ],
-        [
-          -31.95519444373134,
-          115.8582816670839,
-          "St Georges Tce Stand 7"
-        ],
-        [
-          -31.954527221937365,
-          115.85624666684284,
-          "St Georges Tce Stand 5"
-        ],
-        [
-          -31.955430556191036,
-          115.85898722175797,
-          "St Georges Tce Stand 8"
-        ],
-        [
-          -31.955987335545764,
-          115.86011402372158,
-          "St Georges Tce Stand 25"
-        ],
-        [
-          -31.95492111057261,
-          115.85692166653966,
-          "St Georges Tce Stand 29"
-        ],
-        [
-          -31.954285000085633,
-          115.85551277814123,
-          "St Georges Tce Stand 3"
-        ],
-        [
-          -31.95497777825334,
-          115.85760222164068,
-          "St Georges Tce Stand 6"
-        ],
-        [
-          -31.95521277830335,
-          115.85780222229926,
-          "St Georges Tce Stand 28"
         ]
       ]
     }
