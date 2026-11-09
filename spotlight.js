@@ -273,6 +273,27 @@
   };
 
 
+  /* HUMAN LIBRARY BOOK CAFE, a PRIDEFEST free event, Sat 21 Nov 2026, City of Perth Library. Live 9 Nov 2026 on
+     the CENTRAL board (Jason, after his call with Human Library Perth that day: they asked EPCG to promote their
+     events). Someone else's event passed on, not paid, so "Community Event", never Sponsored.
+     SOURCE: VisitPerth listing, read 9 Nov 2026 (21 Nov, 10am to 12pm, 573 Hay St, free but ticketed, adults
+     18+, three 30-minute sessions, up to 5 Readers per Book); the ticket link is the Humanitix page it points to.
+     ARTWORK: human-library-pridefest-2026.jpg, the organisers' landscape banner cut in two and stacked on its own
+     purple, by `11 EPCG/East Perth Community Group/Communications/_build/build_hub_card_humanlibrary.py`.
+     Drops off after 21 Nov and central falls back. */
+  var HUMANLIB = {
+    img:   "human-library-pridefest-2026.jpg",
+    alt:   "PRIDEFEST 2026 Book Cafe by Human Library, Saturday 21 November, 10 am to 12 pm",
+    name:  "Human Library Book Cafe, PRIDEFEST",
+    blurb: "Sit down with one of Human Library's <b>Books</b>, a volunteer who has faced prejudice or stigma, for a 30-minute conversation. Free for adults 18+, at the City of Perth Library.",
+    meta:  "📅 Sat 21 Nov, 10am to 12pm &nbsp;&middot;&nbsp; 📍 573 Hay St &nbsp;&middot;&nbsp; Artwork: Pride WA / Human Library",
+    ribbon:"🏳️‍🌈 Community Event",
+    thumbpos:"50% 75%",  /* phone strip crop: the Book Cafe date block */
+    until: "2026-11-21",
+    ctas:  [{label:"Get a free ticket", href:"https://events.humanitix.com/human-library-cafe-pridefest-2026-pride-wa", style:"b1"}]
+  };
+
+
   /* Perth has no daylight saving, so UTC+8 all year gives today's Perth date. */
   var TODAY = new Date(Date.now() + 8*3600*1000).toISOString().slice(0,10);
   function live(c){ return (c && (!c.until || TODAY <= c.until)) ? c : null; }
@@ -281,7 +302,7 @@
      FALLBACK. Expired cards can stay in the file; they no longer render. */
   window.SPOTLIGHT = {
     east:    live(EASTSIDE),  /* 8 Nov to 31 Dec 2026, then falls back to WIRIN (east's card since 1 Oct). */
-    central: live(MERCEDES),  /* expired 25 Sep 2026, falls back */
+    central: live(HUMANLIB),  /* 9 to 21 Nov 2026, then falls back */
     west:    live(MOON),      /* expired 28 Sep 2026, falls back */
     FALLBACK: WIRIN           /* undated. Swap for an "advertise here" card once selling */
   };
