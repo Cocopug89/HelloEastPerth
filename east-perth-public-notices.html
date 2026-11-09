@@ -203,6 +203,8 @@ body.on-home #bar{display:none}
 .wo-item .wo-venue{font-size:11.5px;color:#9fc0d3;font-weight:600;margin-top:1px}
 .whatson .wofoot{flex:none;padding:8px 14px;border-top:1px solid rgba(255,255,255,.1);font-size:11.5px;color:#9fc0d3}
 .whatson .wofoot a{color:var(--sky);font-weight:800;text-decoration:none}
+.hys .hysmore{padding:7px 14px;font-size:11.5px;border-top:1px solid rgba(0,0,0,.08)}
+.hys .hysmore a{color:var(--sky);font-weight:800;text-decoration:none}
 .whatson .woempty{padding:22px 16px;color:#9fc0d3;font-size:13.5px;text-align:center;line-height:1.5}
 .homeright{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:12px}
 .hys{flex:none;display:flex;flex-direction:column;background:#0a2b3b;border:1px solid rgba(255,255,255,.14);border-radius:20px;overflow:hidden;box-shadow:0 16px 38px rgba(0,20,35,.42)}
@@ -1272,6 +1274,10 @@ if (document.fonts && document.fonts.ready) document.fonts.ready.then(sizeTicker
     else { byGrp[g].count++; if(o.days<byGrp[g].days){ byGrp[g].days=o.days; byGrp[g].close=o.close; byGrp[g].n=o.n; } }
   });
   items.sort(function(a,b){ return a.days-b.days; });
+  /* CAP at 3 (Jason, 9 Nov 2026: five rows covered the Free Events panel below). The soonest-closing three show;
+     the rest are counted in a link to the Notices tab. */
+  var HYS_MAX=3, hysExtra=Math.max(0, items.length-HYS_MAX);
+  items=items.slice(0, HYS_MAX);
 
   if(!items.length){
     listEl.innerHTML="<div class='hysempty'>Nothing closing in the next 30 days.<br>Check the Notices tab for what's coming.</div>";
@@ -1289,7 +1295,7 @@ if (document.fonts && document.fonts.ready) document.fonts.ready.then(sizeTicker
       (o.n.typ?"<span class='hys-typ'>"+esc(o.n.typ)+"</span>":"")+"</div>"+
       "<div class='hys-ttl'>"+esc(title)+"</div>"+
       "</a>";
-  }).join("");
+  }).join("")+(hysExtra?"<div class='hysmore'><a onclick=\"activateTab('notices');return false;\" href='#'>+"+hysExtra+" more closing soon in Notices &rarr;</a></div>":"");
 })();
 
 
