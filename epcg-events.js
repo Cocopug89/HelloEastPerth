@@ -117,4 +117,12 @@ window.EPCG_EVENTS = [
     venue:"Octagon Theatre, UWA, 35 Stirling Highway, Crawley",
     note:"An hour-long Sleeping Beauty, pitched at young children. Ticketed.",
     url:"https://feverup.com/m/250345" }
+  ,
+  /* Added 9 Nov 2026 on Jason's instruction, from Finbar's Facebook post of the same day ("Perth, you're invited!").
+     Free open days for the new Garden Towers building, with a complimentary coffee. Inside the East Perth precincts.
+     d is the last day so the row stays up through Sunday. */
+  { d:"2026-11-15", t:"Garden Towers Grand Opening", type:"community", submitted:true, time:"Sat 14 and Sun 15 Nov, 10 am to 12 pm",
+    venue:"Garden Towers, 8 De Vlamingh Avenue, East Perth",
+    note:"Finbar opens its new Garden Towers building to the public. Look through the apartments and the resident amenities, take in the view from the Level 36 rooftop, and have a free coffee while you are there.",
+    url:"https://gardentowerseastperth.com.au/" }
 ];
