@@ -1,8 +1,8 @@
 {
   "meta": {
-    "db_version": 99,
+    "db_version": 100,
     "first_built": "2026-07-08",
-    "last_scrape": "2026-11-12",
+    "last_scrape": "2026-11-13",
     "source": "https://www.transperth.wa.gov.au/service-updates",
     "coordinate_source": "data.wa.gov.au PTA-001 (ArcGIS: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Transport/MapServer/14). Query by stopnumber (bus/CAT) or stopname LIKE (rail), outSR=4326. Exact stop/station coordinates, not approximations.",
     "scope": "City of Perth LGA only",
@@ -40,7 +40,8 @@
       "26089 Blue CAT CBD protest, 26080 Lord St (Routes 40-43) and 26083 West Perth/CBD stops (all Sat 7 Nov) dropped as ended 7 Nov; 25787 Mandurah Line (Rockingham-Mandurah, 22-26 Nov), 26070 Route 559, 26094 and 26103 remain outside the City",
       "26109 Route 353 (Beechboro Rd, Morley), 26110 Routes 530/549/999 (South Tce / Market St, Fremantle), 26111 Route 95 (Harborne St, Wembley), 26112 Routes 244/246 (Forrest Rd, Armadale), 26113 Route 552 (Townsend Rd, Rockingham), 26032 Route 568 (Norseman App, Baldivis) (all affected stops outside the City); 25772 Mandurah Line Elizabeth Quay (ended 8 Nov) and 26086 St Georges Tce stands (ended 8 Nov) dropped",
       "26117 Route 40/998 (Guildford Rd, Bayswater; Elizabeth Quay only the destination), 26120 Routes 276/307 (Railway Rd, Kalamunda), 26114 Routes 148/158/510 (Riseley St, Applecross), 26119 Routes 83/84 (Grantham St, Wembley; Perth Busport only the destination), 26124 (Market St / South Tce, Fremantle), 26115 Route 404 (Edinboro St / McDonald St, Joondanna) (all affected stops outside the City)",
-      "26137 Routes 176/177/178/220 (Albany Hwy / Basinghall St, East Victoria Park; Elizabeth Quay only a destination), 26139 Route 362 (Ballajura/Malaga), 26132 Route 935 (Alexander Rd, Belmont), 26134 Route 160/787 (Reynolds Rd, Mount Pleasant), 26135 Route 291 (South Guildford), 26126 Routes 384-970 (Charles St, North Perth), 26133 Route 998 (Wright St, Cloverdale), 25387 Route 935 (Belvidere St, Belmont/Redcliffe), 25827 Routes 308/310/312 (Midland) (all affected stops outside the City); 26142 Highgate and Mount Lawley stops not plotted"
+      "26137 Routes 176/177/178/220 (Albany Hwy / Basinghall St, East Victoria Park; Elizabeth Quay only a destination), 26139 Route 362 (Ballajura/Malaga), 26132 Route 935 (Alexander Rd, Belmont), 26134 Route 160/787 (Reynolds Rd, Mount Pleasant), 26135 Route 291 (South Guildford), 26126 Routes 384-970 (Charles St, North Perth), 26133 Route 998 (Wright St, Cloverdale), 25387 Route 935 (Belvidere St, Belmont/Redcliffe), 25827 Routes 308/310/312 (Midland) (all affected stops outside the City); 26142 Highgate and Mount Lawley stops not plotted",
+      "26148 Route 349 (Gnangara Rd, Ellenbrook), 26150 Route 15 (Oxford St / Newcastle St, Leederville; West Perth stops are alternatives only), 26151 Routes 32/910 (Canning Hwy, South Perth); 25775 Yanchep Line Perth-Whitfords (ended 12 Nov) and 26127 Blue CAT Aberdeen St (ended 12 Nov) dropped; Transit Admin Office closure (Roe St office, not a stop) not plotted"
     ]
   },
   "disruptions": [
@@ -142,30 +143,6 @@
           -31.98080070559751,
           115.8146022288403,
           "Broadway after Edward St"
-        ]
-      ]
-    },
-    {
-      "id": "25775",
-      "zones": [
-        "central"
-      ],
-      "mode": "train",
-      "sev": "high",
-      "title": "Yanchep Line - Nightly Closures (Perth-Whitfords)",
-      "routes": "Yanchep line",
-      "start": "2026-11-09",
-      "end": "2026-11-12",
-      "ongoing": false,
-      "loc": "Perth Station",
-      "stops": "Perth Station (line disrupted Perth-Whitfords)",
-      "impact": "Mon 9 Nov - Thu 12 Nov, Yanchep Line disrupted nightly between Perth and Whitfords",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/25775",
-      "pts": [
-        [
-          -31.95118,
-          115.86004,
-          "Perth Station"
         ]
       ]
     },
@@ -425,21 +402,21 @@
       ]
     },
     {
-      "id": "26127",
+      "id": "26149",
       "zones": [
         "central"
       ],
       "mode": "cat",
       "sev": "medium",
-      "title": "Blue CAT - Aberdeen St / TAFE / Russell Square Stops Closed (Thu 12 Nov, 2.40pm to 3.40pm)",
+      "title": "Blue CAT - Aberdeen St / TAFE / Russell Square Stops Closed (Sun 15 Nov, 1pm to 1.30pm)",
       "routes": "Blue CAT",
-      "start": "2026-11-12",
-      "end": "2026-11-12",
+      "start": "2026-11-15",
+      "end": "2026-11-15",
       "ongoing": false,
       "loc": "Aberdeen St, Perth / Northbridge",
       "stops": "TAFE East (6, 18), TAFE West (7, 17), Aberdeen Street (8, 16), Aberdeen Street Car Park (9, 15), Russell Square (10, 14); IDs 12936, 12937, 12938, 12939, 28515, 28514, 28513, 28512, 28511, 28510",
-      "impact": "Thu 12 Nov, 2.40pm to 3.40pm, ten Aberdeen St Blue CAT stops not in use for road closures; alternatives are WA Museum Boola Bardip CAT 5 (12130) and CAT 19 (26623), Fitzgerald Street CAT 11 (28518) and CAT 13 (12819) and Perth Busport; minor delays possible",
-      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/26127",
+      "impact": "Sun 15 Nov, 1pm to 1.30pm, ten Aberdeen St Blue CAT stops not in use for road closures; alternatives are WA Museum Boola Bardip CAT 5 (12130) and CAT 19 (26623), Fitzgerald Street CAT 11 (28518) and CAT 13 (12819) and Perth Busport; minor delays possible",
+      "url": "https://www.transperth.wa.gov.au/Service-Updates/Service-Update-Details/26149",
       "pts": [
         [
           -31.948350763078142,
