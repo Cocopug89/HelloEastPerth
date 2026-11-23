@@ -13,10 +13,9 @@
 /* The board reads this to show a freshness stamp in the header and to WARN when this
    feed has gone stale. A hand-typed date drifted before (the page claimed "8 Jul" while
    the data was from the 12th), so it is generated, never written by hand. */
-window.CONSULTATIONS_GENERATED = "2026-11-16";
+window.CONSULTATIONS_GENERATED = "2026-11-23";
 
 window.CONSULTATIONS = [
-{"typ": "Urban Design", "title": "Totterdell Park Enhancement", "url": "https://yoursay.perth.wa.gov.au/totterdell-park-enhancement", "pub": "2026-11-09", "close": "2026-11-20", "kind": "consultation", "src": "Your Say Perth"},
 {"typ": "Community", "title": "City of Perth Local History Service", "url": "https://yoursay.perth.wa.gov.au/city-perth-local-history-service", "pub": "2026-10-30", "close": "2026-11-27", "kind": "consultation", "src": "Your Say Perth"},
 {"typ": "Planning (DPLH)", "title": "Draft Station Precincts Improvement Scheme No. 1 (WAPC) - includes the Claisebrook precinct", "url": "https://haveyoursay.dplh.wa.gov.au/stationprecincts-is", "pub": "2026-11-05", "close": "2027-02-12", "kind": "consultation", "src": "DPLH"}
 ];
