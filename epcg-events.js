@@ -125,4 +125,12 @@ window.EPCG_EVENTS = [
     venue:"Garden Towers, 8 De Vlamingh Avenue, East Perth",
     note:"Finbar opens its new Garden Towers building to the public. Look through the apartments and the resident amenities, take in the view from the Level 36 rooftop, and have a free coffee while you are there.",
     url:"https://gardentowerseastperth.com.au/" }
+  ,
+  /* Added 24 Nov 2026 on Jason's instruction, from the ibis Styles East Perth flyer he shared the same day
+     (filed in Neighbours and Partners/ibis Styles East Perth/Received - Eastside Social artwork/). Free, no
+     booking named on the flyer and no public page found, so no url: the boards fall back to the EPCG site.
+     Address from the Eastside Social spotlight card (spotlight.js). Inside the East Perth precincts. */
+  { d:"2026-12-08", t:"Perth Wildcats Meet and Greet", type:"community", submitted:true, time:"3 to 4 pm",
+    venue:"Level 1, ibis Styles East Perth, 69 Adelaide Terrace, East Perth",
+    note:"Meet Wildcats players Alex Higgins-Titsha and Kristian Doolittle and bring your questions. Nibbles provided, and 10% off food and drinks for everyone who comes." }
 ];
