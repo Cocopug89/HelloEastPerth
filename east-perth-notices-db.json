@@ -2,7 +2,7 @@
  "meta": {
   "db_version": 2,
   "first_built": "2026-07-05",
-  "last_scrape": "2026-11-26",
+  "last_scrape": "2026-11-27",
   "source": "https://perth.wa.gov.au/public-notices/all-public-notices",
   "note": "Assessed record of City of Perth public notices. On each weekly scrape, only refs NOT already present here are fetched/assessed; open/closed status is recomputed from stored close dates. Items no longer on the City list are marked archived rather than deleted."
  },
@@ -689,7 +689,7 @@
    "closes": "2026-12-17",
    "assessed": true,
    "firstSeen": "2026-11-18",
-   "lastSeen": "2026-11-26",
+   "lastSeen": "2026-11-27",
    "onCityList": true,
    "archived": false
   },
@@ -704,7 +704,7 @@
    "closes": "2027-01-14",
    "assessed": true,
    "firstSeen": "2026-11-25",
-   "lastSeen": "2026-11-26",
+   "lastSeen": "2026-11-27",
    "onCityList": true,
    "archived": false
   }
@@ -721,7 +721,7 @@
    "closes": "2026-09-25",
    "assessed": true,
    "firstSeen": "2026-07-08",
-   "lastSeen": "2026-11-26",
+   "lastSeen": "2026-11-27",
    "onCityList": true,
    "archived": false
   },
@@ -736,7 +736,7 @@
    "closes": "2026-09-25",
    "assessed": true,
    "firstSeen": "2026-07-08",
-   "lastSeen": "2026-11-26",
+   "lastSeen": "2026-11-27",
    "onCityList": true,
    "archived": false
   },
@@ -751,7 +751,7 @@
    "closes": "2026-07-15",
    "assessed": true,
    "firstSeen": "2026-07-05",
-   "lastSeen": "2026-11-26",
+   "lastSeen": "2026-11-27",
    "onCityList": true,
    "archived": false
   },
@@ -766,7 +766,7 @@
    "closes": "2026-06-18",
    "assessed": true,
    "firstSeen": "2026-07-05",
-   "lastSeen": "2026-11-26",
+   "lastSeen": "2026-11-27",
    "onCityList": true,
    "archived": false
   },
@@ -781,7 +781,7 @@
    "closes": "2026-02-18",
    "assessed": true,
    "firstSeen": "2026-07-05",
-   "lastSeen": "2026-11-26",
+   "lastSeen": "2026-11-27",
    "onCityList": true,
    "archived": false
   },
@@ -796,7 +796,7 @@
    "closes": "2026-01-17",
    "assessed": true,
    "firstSeen": "2026-07-05",
-   "lastSeen": "2026-11-26",
+   "lastSeen": "2026-11-27",
    "onCityList": true,
    "archived": false
   },
@@ -811,7 +811,7 @@
    "closes": "2026-01-17",
    "assessed": true,
    "firstSeen": "2026-07-05",
-   "lastSeen": "2026-11-26",
+   "lastSeen": "2026-11-27",
    "onCityList": true,
    "archived": false
   },
@@ -856,7 +856,7 @@
    "closes": "",
    "assessed": true,
    "firstSeen": "2026-07-05",
-   "lastSeen": "2026-11-26",
+   "lastSeen": "2026-11-27",
    "onCityList": true,
    "archived": false
   },
@@ -872,7 +872,7 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-11-26",
+   "lastSeen": "2026-11-27",
    "onCityList": true,
    "archived": false
   },
@@ -888,7 +888,7 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-11-26",
+   "lastSeen": "2026-11-27",
    "onCityList": true,
    "archived": false
   },
@@ -904,7 +904,7 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-11-26",
+   "lastSeen": "2026-11-27",
    "onCityList": true,
    "archived": false
   },
@@ -920,7 +920,7 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-11-26",
+   "lastSeen": "2026-11-27",
    "onCityList": true,
    "archived": false
   },
@@ -936,7 +936,7 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-11-26",
+   "lastSeen": "2026-11-27",
    "onCityList": true,
    "archived": false
   },
@@ -952,7 +952,7 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-11-26",
+   "lastSeen": "2026-11-27",
    "onCityList": true,
    "archived": false
   },
@@ -968,7 +968,7 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-11-26",
+   "lastSeen": "2026-11-27",
    "onCityList": true,
    "archived": false
   },
@@ -984,7 +984,7 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-11-26",
+   "lastSeen": "2026-11-27",
    "onCityList": true,
    "archived": false
   },
@@ -1000,7 +1000,7 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-11-26",
+   "lastSeen": "2026-11-27",
    "onCityList": true,
    "archived": false
   },
@@ -1016,7 +1016,7 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-11-26",
+   "lastSeen": "2026-11-27",
    "onCityList": true,
    "archived": false
   },
@@ -1032,7 +1032,7 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-11-26",
+   "lastSeen": "2026-11-27",
    "onCityList": true,
    "archived": false
   },
@@ -1048,7 +1048,7 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-11-26",
+   "lastSeen": "2026-11-27",
    "onCityList": true,
    "archived": false
   },
@@ -1064,7 +1064,7 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-11-26",
+   "lastSeen": "2026-11-27",
    "onCityList": true,
    "archived": false
   },
@@ -1080,7 +1080,7 @@
    "zone": "city",
    "assessed": true,
    "firstSeen": "2026-07-14",
-   "lastSeen": "2026-11-26",
+   "lastSeen": "2026-11-27",
    "onCityList": true,
    "archived": false
   },
@@ -1140,7 +1140,7 @@
    "closes": "2026-09-17",
    "assessed": true,
    "firstSeen": "2026-09-03",
-   "lastSeen": "2026-11-26",
+   "lastSeen": "2026-11-27",
    "onCityList": true,
    "archived": false
   },
@@ -1171,7 +1171,7 @@
    "closes": "",
    "assessed": true,
    "firstSeen": "2026-10-26",
-   "lastSeen": "2026-11-26",
+   "lastSeen": "2026-11-27",
    "onCityList": true,
    "archived": false
   }
