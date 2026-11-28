@@ -133,4 +133,17 @@ window.EPCG_EVENTS = [
   { d:"2026-12-08", t:"Perth Wildcats Meet and Greet", type:"community", submitted:true, time:"3 to 4 pm",
     venue:"Level 1, ibis Styles East Perth, 69 Adelaide Terrace, East Perth",
     note:"Meet Wildcats players Alex Higgins-Titsha and Kristian Doolittle and bring your questions. Nibbles provided, and 10% off food and drinks for everyone who comes." }
+  ,
+  /* Added 28 Nov 2026 on Jason's instruction, from the St Andrew's Church office email "RE: Market Day"
+     (Secretary mailbox, 27 Nov 2026 09:53, flyers "Christmas Market2 2026.jpg" and "Carols 2026.jpg"),
+     as drafted in the Communications Officer's lookahead ask of the same day. The church has no web page
+     for either event, so no url. The church asked for both on EPCG's events calendar. Inside the East
+     Perth precincts. The Royal St / Bennett St drainage closure (hub-data.js) runs 7 to 11 am on 5 Dec. */
+  { d:"2026-12-05", t:"Christmas Garage Market", type:"community", submitted:true, time:"9 am to 2.30 pm",
+    venue:"St Andrew's Church, 182 Bennett St, East Perth",
+    note:"Handmade gifts, baked goods, books and a sausage sizzle at St Andrew's Church on Bennett St. Bennett St and Royal St are closed for drainage works until 11 am." }
+  ,
+  { d:"2026-12-18", t:"Carols by Candlelight", type:"community", submitted:true, time:"6 pm to 9.30 pm",
+    venue:"St Andrew's Church, 182 Bennett St, East Perth",
+    note:"Carols by candlelight at St Andrew's Church, with a shared-plate dinner. Bring a plate to share." }
 ];
